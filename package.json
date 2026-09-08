@@ -1,0 +1,1 @@
+{"name":"pasiklab-broadcast-desk","version":"1.0.0","private":true,"scripts":{"start":"node server.js","test":"node --test tests/*.test.js"},"dependencies":{"express":"^5.1.0","tesseract.js":"^7.0.0","@tesseract.js-data/eng":"^1.0.0"},"devDependencies":{"@playwright/test":"^1.55.0"}}

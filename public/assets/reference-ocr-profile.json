@@ -1,0 +1,122 @@
+{
+  "game_title": "MLBB",
+  "regions": [
+    {
+      "id": "1772451739520",
+      "label": "turret1",
+      "type": "text",
+      "x": 665,
+      "y": 12,
+      "w": 34,
+      "h": 36,
+      "lastValue": "4",
+      "isCollapsed": true,
+      "textMode": "number",
+      "invertText": true
+    },
+    {
+      "id": "1772451748007",
+      "label": "lord1",
+      "type": "text",
+      "x": 580,
+      "y": 12,
+      "w": 34,
+      "h": 39,
+      "lastValue": "0",
+      "isCollapsed": true,
+      "textMode": "number",
+      "invertText": true
+    },
+    {
+      "id": "1772451767389",
+      "label": "gold1",
+      "type": "text",
+      "x": 743,
+      "y": 12,
+      "w": 75,
+      "h": 38,
+      "lastValue": "28.8k",
+      "isCollapsed": true,
+      "textMode": "number",
+      "invertText": true
+    },
+    {
+      "id": "1772451775835",
+      "label": "killscore1",
+      "type": "text",
+      "x": 848,
+      "y": 6,
+      "w": 51,
+      "h": 43,
+      "lastValue": "23",
+      "isCollapsed": true,
+      "textMode": "number",
+      "invertText": true
+    },
+    {
+      "id": "1772451785592",
+      "label": "timer",
+      "type": "text",
+      "x": 921,
+      "y": 7,
+      "w": 80,
+      "h": 40,
+      "lastValue": "10:08",
+      "isCollapsed": true,
+      "textMode": "number",
+      "invertText": true
+    },
+    {
+      "id": "1772451795399",
+      "label": "killscore2",
+      "type": "text",
+      "x": 1022,
+      "y": 7,
+      "w": 49,
+      "h": 42,
+      "lastValue": "20",
+      "isCollapsed": true,
+      "textMode": "number",
+      "invertText": true
+    },
+    {
+      "id": "1772451809787",
+      "label": "gold2",
+      "type": "text",
+      "x": 1137,
+      "y": 12,
+      "w": 68,
+      "h": 36,
+      "lastValue": "27k",
+      "isCollapsed": true,
+      "textMode": "number",
+      "invertText": true
+    },
+    {
+      "id": "1772451818858",
+      "label": "turret2",
+      "type": "text",
+      "x": 1251,
+      "y": 11,
+      "w": 32,
+      "h": 36,
+      "lastValue": "2",
+      "isCollapsed": true,
+      "textMode": "number",
+      "invertText": true
+    },
+    {
+      "id": "1772451827773",
+      "label": "lord2",
+      "type": "text",
+      "x": 1329,
+      "y": 12,
+      "w": 40,
+      "h": 36,
+      "lastValue": "0",
+      "isCollapsed": true,
+      "textMode": "number",
+      "invertText": true
+    }
+  ]
+}

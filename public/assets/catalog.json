@@ -1,0 +1,1387 @@
+{
+  "logos": [
+    {
+      "name": "AB ENGLISH SOCIETY",
+      "url": "/assets/logos/AB%20ENGLISH%20SOCIETY.jpg"
+    },
+    {
+      "name": "AnSci Society",
+      "url": "/assets/logos/AnSci%20Society.jpg"
+    },
+    {
+      "name": "APO",
+      "url": "/assets/logos/APO.jpg"
+    },
+    {
+      "name": "Applied Mathematics Society",
+      "url": "/assets/logos/Applied%20Mathematics%20Society.jpeg"
+    },
+    {
+      "name": "Association of Drafting Technology Students - USM Chapter_",
+      "url": "/assets/logos/Association%20of%20Drafting%20Technology%20Students%20-%20USM%20Chapter_.jpg"
+    },
+    {
+      "name": "AVMS LOGO",
+      "url": "/assets/logos/AVMS%20LOGO.jpg"
+    },
+    {
+      "name": "AVTS (Association of Veterinary Technology Students)",
+      "url": "/assets/logos/AVTS%20(Association%20of%20Veterinary%20Technology%20Students).jpg"
+    },
+    {
+      "name": "Beta Rho Upsilon",
+      "url": "/assets/logos/Beta%20Rho%20Upsilon.jpg"
+    },
+    {
+      "name": "BETANS 1968",
+      "url": "/assets/logos/BETANS%201968.jpeg"
+    },
+    {
+      "name": "CBI_",
+      "url": "/assets/logos/CBI_.jpeg"
+    },
+    {
+      "name": "COGNIAS",
+      "url": "/assets/logos/COGNIAS.jpg"
+    },
+    {
+      "name": "FOOD TECHNOLOGY_",
+      "url": "/assets/logos/FOOD%20TECHNOLOGY_.jpg"
+    },
+    {
+      "name": "FSMS",
+      "url": "/assets/logos/FSMS.png"
+    },
+    {
+      "name": "ICpEP",
+      "url": "/assets/logos/ICpEP.jpg"
+    },
+    {
+      "name": "JESS",
+      "url": "/assets/logos/JESS.jpg"
+    },
+    {
+      "name": "JIECEP",
+      "url": "/assets/logos/JIECEP.jpg"
+    },
+    {
+      "name": "JPAMS",
+      "url": "/assets/logos/JPAMS.jpeg"
+    },
+    {
+      "name": "JPEDS_",
+      "url": "/assets/logos/JPEDS_.jpg"
+    },
+    {
+      "name": "JPES",
+      "url": "/assets/logos/JPES.jpg"
+    },
+    {
+      "name": "JPIA",
+      "url": "/assets/logos/JPIA.jpg"
+    },
+    {
+      "name": "JPPhA",
+      "url": "/assets/logos/JPPhA.png"
+    },
+    {
+      "name": "JPSPA",
+      "url": "/assets/logos/JPSPA.jpg"
+    },
+    {
+      "name": "KSOC LOGO",
+      "url": "/assets/logos/KSOC%20LOGO.jpeg"
+    },
+    {
+      "name": "MicroSoc",
+      "url": "/assets/logos/MicroSoc.jpg"
+    },
+    {
+      "name": "NABA",
+      "url": "/assets/logos/NABA.jpg"
+    },
+    {
+      "name": "OMEGA TAU SIGMA LOGO",
+      "url": "/assets/logos/OMEGA%20TAU%20SIGMA%20LOGO.jpeg"
+    },
+    {
+      "name": "PHI DELTA GAMMA",
+      "url": "/assets/logos/PHI%20DELTA%20GAMMA.jpg"
+    },
+    {
+      "name": "PICE-USM SC",
+      "url": "/assets/logos/PICE-USM%20SC.png"
+    },
+    {
+      "name": "PNSA",
+      "url": "/assets/logos/PNSA.jpeg"
+    },
+    {
+      "name": "PSITS",
+      "url": "/assets/logos/PSITS.png"
+    },
+    {
+      "name": "Screenshot 2025-09-14 185949",
+      "url": "/assets/logos/Screenshot%202025-09-14%20185949.png"
+    },
+    {
+      "name": "SHARP",
+      "url": "/assets/logos/SHARP.jpg"
+    },
+    {
+      "name": "TAU GAMMA PHI",
+      "url": "/assets/logos/TAU%20GAMMA%20PHI.png"
+    },
+    {
+      "name": "TRIMMOC ",
+      "url": "/assets/logos/TRIMMOC%20.jpeg"
+    },
+    {
+      "name": "UFTTS(Turismo)",
+      "url": "/assets/logos/UFTTS(Turismo).jpg"
+    },
+    {
+      "name": "ULS",
+      "url": "/assets/logos/ULS.jpg"
+    },
+    {
+      "name": "USM English Club (USMEC)",
+      "url": "/assets/logos/USM%20English%20Club%20(USMEC).jpg"
+    },
+    {
+      "name": "USM Radiologic Technology Students’ Society",
+      "url": "/assets/logos/USM%20Radiologic%20Technology%20Students%E2%80%99%20Society.jpg"
+    },
+    {
+      "name": "USM-Environmental Science Society",
+      "url": "/assets/logos/USM-Environmental%20Science%20Society.jpg"
+    },
+    {
+      "name": "USM-KCC",
+      "url": "/assets/logos/USM-KCC.jpeg"
+    },
+    {
+      "name": "USMADS",
+      "url": "/assets/logos/USMADS.png"
+    }
+  ],
+  "heroes": [
+    {
+      "name": "Aamon",
+      "img": "/assets/heroes-current/aamon.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/ec40f1f098f4e53614be6a5364d38947.png?w=240-390-17101c",
+      "officialId": 125,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/aamon.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_26b1c0ec95ad9e98f81b07d6838a8652.jpg"
+    },
+    {
+      "name": "Akai",
+      "img": "/assets/heroes-current/akai.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/ad00d3cf07e71e34a5132b3cf56ccfea.png?w=240-390-291c1d",
+      "officialId": 143,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/akai.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_2fab842e4c04d903b1b46c3c4a1d02ad.jpg"
+    },
+    {
+      "img": "/assets/hero-source/aldous.png",
+      "name": "Aldous",
+      "icon": "/assets/hero-icons/aldous.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_e4f7847a1b687a2e4f414e531cd66b1b.jpg"
+    },
+    {
+      "img": "/assets/heroes-current/alice.jpg",
+      "name": "Alice",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/d2c84ad89146a59fb012ad9a7e03c391.jpg?w=240-390-8b818c",
+      "officialId": 189,
+      "icon": "/assets/hero-icons/alice.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/gms/image/66c9a33b830173a5fd93d9940429b491.jpg"
+    },
+    {
+      "name": "Alpha",
+      "img": "/assets/heroes-current/alpha.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/a6c95724273429b28edd5ceca9b9f967.png?w=240-390-312838",
+      "officialId": 94,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/alpha.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_0fd2c33fbf0235703b1c936059cf1b8e.jpg"
+    },
+    {
+      "name": "Alucard",
+      "img": "/assets/heroes-current/alucard.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/c7ab766142ece147c7529e8baa8efcfe.png?w=240-390-111120",
+      "officialId": 60,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/alucard.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_c9a8a8b1bb1fed4190f3168d44810ce3.jpg"
+    },
+    {
+      "img": "/assets/hero-source/angela.png",
+      "name": "Angela",
+      "icon": "/assets/hero-icons/angela.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_187b8452435b469e8867e8fb2d387a5b.jpg"
+    },
+    {
+      "img": "/assets/hero-source/argus.png",
+      "name": "Argus",
+      "icon": "/assets/hero-icons/argus.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_802afa50ffd43d553c3b924d111249c1.jpg"
+    },
+    {
+      "name": "Arlott",
+      "img": "/assets/heroes-current/arlott.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/efa2827c59be70811612d872de65f562.png?w=240-390-1c1e2f",
+      "officialId": 163,
+      "downloadedAt": "2026-09-08",
+      "aliases": [
+        "Arlot"
+      ],
+      "icon": "/assets/hero-icons/arlott.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_d29e8f9f2d129f18a944da0a8e9044c2.jpg"
+    },
+    {
+      "name": "Atlas",
+      "img": "/assets/heroes-current/atlas.png",
+      "source": "https://indoch.s3.ml.moonlian.com/web/manageapi/image_c4839efa238592eb3b51a1a9301731d1.png?w=240&h=390",
+      "officialId": 33,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/atlas.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_9a217534db9b67c6db2c45d57a0d640c.jpg"
+    },
+    {
+      "name": "Aulus",
+      "img": "/assets/heroes-current/aulus.jpg",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/7780f00fd76033294b6fa52ff40f6289.jpg?w=240-390-301814",
+      "officialId": 101,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/aulus.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/gms/image/df1df2053afbdda1167d647bbb8b3a81.jpg"
+    },
+    {
+      "name": "Aurora",
+      "img": "/assets/heroes-current/aurora.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/11638a9df9fb65fb6280b15a5f9e7b38.png?w=240-390-0e1d2a",
+      "officialId": 174,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/aurora.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_58b97db6a5c286059057d42289612b16.jpg"
+    },
+    {
+      "img": "/assets/hero-source/badang.png",
+      "name": "Badang",
+      "icon": "/assets/hero-icons/badang.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_ce3e2759eb9ccd7a94ae3a2ee4e8b8e7.jpg"
+    },
+    {
+      "img": "/assets/hero-source/balmond.png",
+      "name": "Balmond",
+      "icon": "/assets/hero-icons/balmond.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_8f49801963afcd9b7c6fe6f59153ccc0.jpg"
+    },
+    {
+      "name": "Bane",
+      "img": "/assets/heroes-current/bane.png",
+      "source": "https://indoch.s3.ml.moonlian.com/web/manageapi/image_5367baa8d3ff096905908dc84c007796.png?w=240&h=390",
+      "officialId": 35,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/bane.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_7060e1c063474bb8ff9472d61f7ce4c3.jpg"
+    },
+    {
+      "name": "Barats",
+      "img": "/assets/heroes-current/barats.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/01d766028f3603a5983e4559cdeb035e.png?w=240-390-0a222b",
+      "officialId": 53,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/barats.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_1b9fec44c21db9ecba0229ac227c7d51.jpg"
+    },
+    {
+      "name": "Baxia",
+      "img": "/assets/heroes-current/baxia.png",
+      "source": "https://indoch.s3.ml.moonlian.com/web/manageapi/image_4fa397d9f01318ccf224938903ce0112.png?w=240&h=390",
+      "officialId": 43,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/baxia.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_478a4875002331e56e73835a2697ad5d.jpg"
+    },
+    {
+      "name": "Beatrix",
+      "img": "/assets/heroes-current/beatrix.png",
+      "source": "https://akmwebstatic.yuanzhanapp.com/web/admin/image/702ef8bfd189f6fe2ddb164ba5e18c78.png?w=240&h=390&c=876070",
+      "officialId": 80,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/beatrix.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_2f25a8ef9bbb2d52eaaea8d6eee85d22.jpg",
+      "animation": "/assets/hero-motion/beatrix.mp4",
+      "animationSource": "https://motionbgs.com/beatrix-mobile-legends",
+      "animationMediaSource": "https://motionbgs.com/media/4027/beatrix-mobile-legends.960x540.mp4",
+      "animationPosition": 50
+    },
+    {
+      "name": "Belerick",
+      "icon": "/assets/hero-icons/belerick.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_64900b3344e166f05645ac5759207897.jpg",
+      "img": "/assets/hero-icons/belerick.jpg",
+      "aliases": [
+        "Beleric"
+      ]
+    },
+    {
+      "name": "Benedetta",
+      "img": "/assets/heroes-current/benedetta.png",
+      "source": "https://indoch.s3.ml.moonlian.com/web/manageapi/image_ec479e9c5f61c87ea56f4fffb240d715.png?w=240&h=390",
+      "officialId": 63,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/benedetta.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_2153076135c5ea537f796c4352dd9800.jpg",
+      "animation": "/assets/hero-motion/benedetta.mp4",
+      "animationSource": "https://motionbgs.com/benedetta-mobile-legends",
+      "animationMediaSource": "https://motionbgs.com/media/6492/benedetta-mobile-legends.960x540.mp4",
+      "animationPosition": 50
+    },
+    {
+      "name": "Brody",
+      "img": "/assets/heroes-current/brody.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/cb37270575854cbd3cd802e2b6912574.png?w=240-390-201e31",
+      "officialId": 62,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/brody.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_9a3feb044b76ac87f886a0fdf4ef4f13.jpg"
+    },
+    {
+      "name": "Bruno",
+      "img": "/assets/heroes-current/bruno.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/e5f9397576c6b01e9b388c6e7c99f631.png?w=240-390-675d62",
+      "officialId": 168,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/bruno.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_03cd0ea0a0f0bd80ca4f7462174f80b1.jpg"
+    },
+    {
+      "name": "Carmilla",
+      "img": "/assets/heroes-current/carmilla.png",
+      "source": "https://indoch.s3.ml.moonlian.com/web/manageapi/image_b433c18e14138250b702bf9d720c34dc.png",
+      "officialId": 31,
+      "downloadedAt": "2026-09-08",
+      "aliases": [
+        "Carmila"
+      ],
+      "icon": "/assets/hero-icons/carmilla.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_08d58580aaeaab354c2d267d8746c42d.jpg",
+      "animation": "/assets/hero-motion/carmilla.mp4",
+      "animationSource": "https://motionbgs.com/carmilla-mobile-legends",
+      "animationMediaSource": "https://motionbgs.com/media/6488/carmilla-mobile-legends.960x540.mp4",
+      "animationPosition": 50
+    },
+    {
+      "name": "Cecilion",
+      "img": "/assets/heroes-current/cecilion.png",
+      "source": "https://indoch.s3.ml.moonlian.com/web/manageapi/image_f5cc7eda796be15fd5d8d820e501ba4e.png?w=240&h=390",
+      "officialId": 32,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/cecilion.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_71d6b7fc8cfe8fd9b0c20ad3be1af4e8.jpg"
+    },
+    {
+      "img": "/assets/hero-source/chang_e.png",
+      "name": "Chang'e",
+      "icon": "/assets/hero-icons/change.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_bf3d5cdc1c0e33f5aab7732e153c7409.jpg"
+    },
+    {
+      "name": "Chip",
+      "img": "/assets/heroes-current/chip.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/4eae70cfb8f0648ec6f918c5c489c718.png?w=240-390-2b1e1b",
+      "officialId": 175,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/chip.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_fb8b4e345db174545e967b7bcbd219f4.jpg"
+    },
+    {
+      "img": "/assets/hero-source/chou.png",
+      "name": "Chou",
+      "icon": "/assets/hero-icons/chou.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_011409dfe1a2cf4cf5f879ea07fb3a8e.jpg",
+      "animation": "/assets/hero-motion/chou.mp4",
+      "animationSource": "https://motionbgs.com/zhou-mobile-legends",
+      "animationMediaSource": "https://motionbgs.com/media/5121/zhou-mobile-legends.960x540.mp4",
+      "animationPosition": 50
+    },
+    {
+      "name": "Cici",
+      "img": "/assets/heroes-current/cici.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/02f13ff61a12eed3f8ce2f67fbb680c5.png?w=240-390-091e27",
+      "officialId": 173,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/cici.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_eb1705dc650b3980d57c638d02bfb470.jpg"
+    },
+    {
+      "name": "Claude",
+      "img": "/assets/heroes-current/claude.png",
+      "source": "https://indoch.s3.ml.moonlian.com/web/manageapi/image_f3218a72210320c53fadea56593a19b8.png?w=240&h=390",
+      "officialId": 67,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/claude.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_1edf19b0839ffd2bffb60b4ee4953239.jpg"
+    },
+    {
+      "name": "Clint",
+      "img": "/assets/heroes-current/clint.png",
+      "source": "https://indoch.s3.ml.moonlian.com/web/manageapi/image_2fcf1d15fee92e7df00e626abf279c56.png?w=240&h=390",
+      "officialId": 65,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/clint.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_8136b5ece3387dfe347956f797a14a5d.jpg"
+    },
+    {
+      "img": "/assets/hero-source/cyclops.png",
+      "name": "Cyclops",
+      "icon": "/assets/hero-icons/cyclops.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_b506976dcb608de1f369ab8f6b3cb055.jpg"
+    },
+    {
+      "img": "/assets/hero-source/diggie.png",
+      "name": "Diggie",
+      "icon": "/assets/hero-icons/diggie.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_91b0167c49a789de46de29c3714da515.jpg"
+    },
+    {
+      "img": "/assets/hero-source/dyroth.png",
+      "name": "Dyroth"
+    },
+    {
+      "name": "Dyrroth",
+      "icon": "/assets/hero-icons/dyrroth.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/gms/image/636054ad39847fcc242d0b03feadffac.jpg",
+      "img": "/assets/hero-icons/dyrroth.jpg",
+      "animation": "/assets/hero-motion/dyrroth.mp4",
+      "animationSource": "https://motionbgs.com/dyrroth-mobile-legends",
+      "animationMediaSource": "https://motionbgs.com/media/4051/dyrroth-mobile-legends.960x540.mp4",
+      "animationPosition": 50
+    },
+    {
+      "name": "Edith",
+      "img": "/assets/heroes-current/edith.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/c8bdd3b2ed65fe78f6407b3ba005db3c.png?w=240-390-161a25",
+      "officialId": 131,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/edith.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_0598a42d46dd271410f403b57eb02e2a.jpg"
+    },
+    {
+      "img": "/assets/hero-source/esmeralda.png",
+      "name": "Esmeralda",
+      "icon": "/assets/hero-icons/esmeralda.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_980e6419f7763a9dd26818312d73cc6d.jpg"
+    },
+    {
+      "img": "/assets/hero-source/estes.png",
+      "name": "Estes",
+      "icon": "/assets/hero-icons/estes.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_137acad8cd747ef9d0dec755158aff18.jpg"
+    },
+    {
+      "name": "Eudora",
+      "img": "/assets/heroes-current/eudora.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/2c8e0858418ed3d673f5b68c78f87a2f.png?w=240-390-0b142a",
+      "officialId": 52,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/eudora.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/gms/image/8db55c33fd2a5c84822a2a6c51e1fb18.jpg"
+    },
+    {
+      "name": "Fanny",
+      "img": "/assets/heroes-current/fanny.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/ce370864923b9afa570979297089b08d.png?w=240-390-2c1d40",
+      "officialId": 55,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/fanny.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_74fabc6c0d5db065fbb836b6879f36ca.jpg",
+      "animation": "/assets/hero-motion/fanny.mp4",
+      "animationSource": "https://motionbgs.com/fanny-mobile-legends",
+      "animationMediaSource": "https://motionbgs.com/media/9409/fanny-mobile-legends.960x540.mp4",
+      "animationPosition": 50
+    },
+    {
+      "name": "Faramis",
+      "img": "/assets/heroes-current/faramis.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/fcf5c1ac9bdeb0a7c9c977b78a018cd0.png?w=240-390-071b2c",
+      "officialId": 155,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/faramis.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_a171d8e12dd5eda201750e794dd5e313.jpg"
+    },
+    {
+      "name": "Floryn",
+      "img": "/assets/heroes-current/floryn.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/4946909b4e5a6819dde6705f62748a92.png?w=240-390-302f54",
+      "officialId": 119,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/floryn.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_854338f3ad90cb9e14aec15c8b8a08c7.jpg",
+      "animation": "/assets/hero-motion/floryn.mp4",
+      "animationSource": "https://motionbgs.com/floryn-mobile-legends",
+      "animationMediaSource": "https://motionbgs.com/media/4023/floryn-mobile-legends.960x540.mp4",
+      "animationPosition": 50
+    },
+    {
+      "name": "Franco",
+      "img": "/assets/heroes-current/franco.png",
+      "source": "https://indoch.s3.ml.moonlian.com/web/manageapi/image_77bdc4bfda3573405c8a6b3b71510eab.png?w=240&h=390",
+      "officialId": 36,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/franco.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_ad018d324520174ab87b3a1098507fb6.jpg"
+    },
+    {
+      "img": "/assets/hero-source/fredrin.png",
+      "name": "Fredrin"
+    },
+    {
+      "name": "Fredrinn",
+      "img": "/assets/heroes-current/fredrinn.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/8542f886b2cbffa639296adacf85521d.png?w=240-390-091e27",
+      "officialId": 149,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/fredrinn.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_bafe5308a1e6db91ba57e39c45874a92.jpg"
+    },
+    {
+      "name": "Freya",
+      "img": "/assets/heroes-current/freya.jpg",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/f7f04fa9063f73a6abf9a1daf3bf3cd2.jpg?w=240-390-6f93b3",
+      "officialId": 191,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/freya.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/gms/image/71d910744206adec64f7c5e97b0698c7.jpg"
+    },
+    {
+      "img": "/assets/hero-source/gatotkaca.png",
+      "name": "Gatotkaca",
+      "icon": "/assets/hero-icons/gatotkaca.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_a9a9551515638bb9b6128eef1ee916bd.jpg"
+    },
+    {
+      "name": "Gloo",
+      "img": "/assets/heroes-current/gloo.png",
+      "source": "https://akmwebstatic.yuanzhanapp.com/web/admin/image/f85c102e9803ebbde0e35dde63e995dd.png?w=240&h=390&c=4f6598",
+      "officialId": 85,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/gloo.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/gms/image/7257d4ee30eff4d5bc5726027eee5f96.jpg"
+    },
+    {
+      "img": "/assets/hero-source/gord.png",
+      "name": "Gord",
+      "icon": "/assets/hero-icons/gord.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/gms/image/fe7d492d0a71f96da12ff710d41a76cb.jpg"
+    },
+    {
+      "img": "/assets/heroes-current/granger.jpg",
+      "name": "Granger",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/77bf062683e4afbfb4981c9c3f2f3eb9.jpg?w=240-390-111520",
+      "officialId": 180,
+      "icon": "/assets/hero-icons/granger.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/gms/image/5d272478f2f89dcae9e6896cb19743ac.jpg"
+    },
+    {
+      "img": "/assets/heroes-current/grock.jpg",
+      "name": "Grock",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/951283025e7e467e854cc9e2ad39a1d7.jpg?w=240-390-161817",
+      "officialId": 185,
+      "icon": "/assets/hero-icons/grock.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/gms/image/c5df319054bcefec1d17c771b45b9e10.jpg"
+    },
+    {
+      "img": "/assets/hero-source/guinevere.png",
+      "name": "Guinevere",
+      "icon": "/assets/hero-icons/guinevere.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_5acbfb73c47c25d4689f93c3c950fc8f.jpg"
+    },
+    {
+      "name": "Gusion",
+      "img": "/assets/heroes-current/gusion.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/faa78fe9eefaae0fb4df954d7fd58a88.png?w=240-390-0d1018",
+      "officialId": 122,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/gusion.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/gms/image/a888de3fe448be8f29b50a62d0193aaf.jpg"
+    },
+    {
+      "name": "Hanabi",
+      "img": "/assets/heroes-current/hanabi.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/a4a895621bbed97555a2a342ed328aa8.png?w=240-390-0a1c25",
+      "officialId": 116,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/hanabi.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/gms/image/0208ca2382d8cfdcd277ef5d532316f7.jpg",
+      "animation": "/assets/hero-motion/hanabi.mp4",
+      "animationSource": "https://motionbgs.com/hanabi-mobile-legends",
+      "animationMediaSource": "https://motionbgs.com/media/2695/hanabi-mobile-legends.960x540.mp4",
+      "animationPosition": 50
+    },
+    {
+      "img": "/assets/heroes-current/hanzo.jpg",
+      "name": "Hanzo",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/2ca37f8e673dcbefc3a407e55e8ab8db.jpg?w=240-390-4f5468",
+      "officialId": 182,
+      "icon": "/assets/hero-icons/hanzo.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/gms/image/4e77b4cc8c101bbd62f548ed10ea1ed4.jpg",
+      "animation": "/assets/hero-motion/hanzo.mp4",
+      "animationSource": "https://motionbgs.com/hanzo-mobile-legends",
+      "animationMediaSource": "https://motionbgs.com/media/2702/hanzo-mobile-legends.960x540.mp4",
+      "animationPosition": 50
+    },
+    {
+      "img": "/assets/hero-source/harith.png",
+      "name": "Harith",
+      "icon": "/assets/hero-icons/harith.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_c1dcef05408b7c644298bab812517de3.jpg"
+    },
+    {
+      "name": "Harley",
+      "img": "/assets/heroes-current/harley.PNG",
+      "source": "https://indoch.s3.ml.moonlian.com/web/manageapi/image_4c035fd9fee19653838e192ad9985ce2.PNG?w=240&h=390",
+      "officialId": 66,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/harley.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_7b867b2f05de71466a0e98ea6898eff2.jpg"
+    },
+    {
+      "name": "Hayabusa",
+      "img": "/assets/heroes-current/hayabusa.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/d3a714b7b2bb030fe1b0a15ddf7cec5a.png?w=240-390-0e0b0f",
+      "officialId": 110,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/hayabusa.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_82560b092a98bcb328def807a2a48cfe.jpg"
+    },
+    {
+      "img": "/assets/heroes-current/helcurt.png",
+      "name": "Helcurt",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/a0fc3357d512b9ba8f6f4f25fd50ae7d.png?w=240-390-0b1c25",
+      "officialId": 176,
+      "icon": "/assets/hero-icons/helcurt.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_7d54de9ffe40c05d51b4a27318ed5f6d.jpg"
+    },
+    {
+      "name": "Hilda",
+      "img": "/assets/heroes-current/hilda.png",
+      "source": "https://indoch.s3.ml.moonlian.com/web/manageapi/image_5367683249738c3d1e17a8dbc7dfe660.png?w=240&h=390",
+      "officialId": 38,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/hilda.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_35f2e88037398136c01b314deb573eb0.jpg"
+    },
+    {
+      "name": "Hirara",
+      "icon": "/assets/hero-icons/hirara.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/gms/image/f156378413102969d6682fe940755d70.jpg",
+      "img": "/assets/heroes-current/hirara.jpg",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/6b51e20a112b98fbe4ae824a56f8d229.jpg?w=240-390-120d11",
+      "officialId": 193
+    },
+    {
+      "img": "/assets/hero-source/hylos.png",
+      "name": "Hylos",
+      "icon": "/assets/hero-icons/hylos.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_bcc177e4f62634fca493732e4058c626.jpg"
+    },
+    {
+      "img": "/assets/hero-source/irithel.png",
+      "name": "Irithel",
+      "icon": "/assets/hero-icons/irithel.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_f999fb58616e2d87c29dcb92177990f5.jpg"
+    },
+    {
+      "name": "Ixia",
+      "img": "/assets/heroes-current/ixia.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/6c9606deac6a98b76019459863b64490.png?w=240-390-1b181a",
+      "officialId": 166,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/ixia.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_48896a3cf0ee41c3d54c2b651ed926ea.jpg"
+    },
+    {
+      "img": "/assets/hero-source/jawhead.png",
+      "name": "Jawhead",
+      "icon": "/assets/hero-icons/jawhead.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_a48e93159c30c31e05dcd6cf7f53c07c.jpg"
+    },
+    {
+      "name": "Johnson",
+      "img": "/assets/heroes-current/johnson.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/48f800cf3914e51678a9024f3a70c424.png?w=240-390-b8ac8e",
+      "officialId": 169,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/johnson.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_b40543fb2ad8f8ef198c66f0d9eadeef.jpg"
+    },
+    {
+      "name": "Joy",
+      "img": "/assets/heroes-current/joy.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/f4073135eca9fb9bbaacc439ae80c3e5.png?w=240-390-091e27",
+      "officialId": 162,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/joy.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_f647bf6dbb80b4b2b2310ab5af88773d.jpg"
+    },
+    {
+      "name": "Julian",
+      "img": "/assets/heroes-current/julian.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/12da6aaec58bd0dca61e5ec93256b38b.png?w=240-390-151d27",
+      "officialId": 146,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/julian.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_5b493fa77cd6ea1a799577a69c86fbd2.jpg"
+    },
+    {
+      "img": "/assets/hero-source/kadita.png",
+      "name": "Kadita",
+      "icon": "/assets/hero-icons/kadita.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_3671cbec60a1b4f62971d37e7ecc0e89.jpg",
+      "animation": "/assets/hero-motion/kadita.mp4",
+      "animationSource": "https://motionbgs.com/kadita-mobile-legends",
+      "animationMediaSource": "https://motionbgs.com/media/4048/kadita-mobile-legends.960x540.mp4",
+      "animationPosition": 50
+    },
+    {
+      "name": "Kagura",
+      "img": "/assets/heroes-current/kagura.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/384906df56b0ca09a5eca8600b10842c.png?w=240-390-fffefe",
+      "officialId": 113,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/kagura.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_64bda78279297278301e236555a15404.jpg",
+      "animation": "/assets/hero-motion/kagura.mp4",
+      "animationSource": "https://motionbgs.com/kagura-mobile-legends",
+      "animationMediaSource": "https://motionbgs.com/media/4043/kagura-mobile-legends.960x540.mp4",
+      "animationPosition": 50
+    },
+    {
+      "img": "/assets/hero-source/kaja.png",
+      "name": "Kaja",
+      "icon": "/assets/hero-icons/kaja.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/gms/image/c45fd271b45fe26a7f2b34a9dfe77b29.jpg"
+    },
+    {
+      "img": "/assets/hero-source/kalea.png",
+      "name": "Kalea",
+      "icon": "/assets/hero-icons/kalea.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/gms/image/6bde4242228d5ea98b700c9cfc1e837d.jpg"
+    },
+    {
+      "name": "Karina",
+      "img": "/assets/heroes-current/karina.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/7e19fdeb6a89f8d54549312995d9d912.png?w=240-390-0d1e29",
+      "officialId": 91,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/karina.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_37b5cfef887a7afc63dfaf7b6dfd65c4.jpg"
+    },
+    {
+      "img": "/assets/hero-source/karrie.png",
+      "name": "Karrie",
+      "icon": "/assets/hero-icons/karrie.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_bd34b1ec70de7a32b724dd606cb56331.jpg"
+    },
+    {
+      "name": "Khaleed",
+      "img": "/assets/heroes-current/khaleed.jpg",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/123edb3629140aa63f38d7b9d9120a95.jpg?w=240-390-537284",
+      "officialId": 47,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/khaleed.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_155712d0d854711a12f2754865acc17b.jpg"
+    },
+    {
+      "img": "/assets/hero-source/khufra.png",
+      "name": "Khufra",
+      "icon": "/assets/hero-icons/khufra.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_3ffc413118c62fc17f599cb35172ba9c.jpg"
+    },
+    {
+      "img": "/assets/heroes-current/kimmy.jpg",
+      "name": "Kimmy",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/02c87f3dd90c68d21e400a2739846e0e.jpg?w=240-390-000100",
+      "officialId": 183,
+      "icon": "/assets/hero-icons/kimmy.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/gms/image/f2851daf34080fb5406f8d602b9fa489.jpg",
+      "animation": "/assets/hero-motion/kimmy.mp4",
+      "animationSource": "https://motionbgs.com/kimmy-mobile-legends",
+      "animationMediaSource": "https://motionbgs.com/media/4050/kimmy-mobile-legends.960x540.mp4",
+      "animationPosition": 50
+    },
+    {
+      "name": "Lancelot",
+      "img": "/assets/heroes-current/lancelot.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/b35b471bdd58d4604a99488aff582c31.png?w=240-390-2f1d1b",
+      "officialId": 104,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/lancelot.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_015bacc4e1111e5e2b4a33b5e58ff106.jpg"
+    },
+    {
+      "name": "Lapu-Lapu",
+      "img": "/assets/heroes-current/lapulapu.png",
+      "source": "https://indoch.s3.ml.moonlian.com/web/manageapi/image_f1f655b626e9a8808e608194eefdc855.png?w=240&h=390",
+      "officialId": 64,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/lapulapu.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_d407ccb622db392981d2fceff06d757c.jpg"
+    },
+    {
+      "name": "Layla",
+      "img": "/assets/heroes-current/layla.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/df48a2e38ae80ef5899f981c1d77d26c.png?w=240-390-b9cdda",
+      "officialId": 58,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/layla.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_0db5131842bec1fdbdf5f8533ebada2c.jpg",
+      "animation": "/assets/hero-motion/layla.mp4",
+      "animationSource": "https://motionbgs.com/layla-mobile-legends",
+      "animationMediaSource": "https://motionbgs.com/media/4509/layla-mobile-legends.960x540.mp4",
+      "animationPosition": 50
+    },
+    {
+      "name": "Leomord",
+      "img": "/assets/heroes-current/leomord.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/89c77878bfe083fb0f85fe9ed50dfc17.png?w=240-390-091e27",
+      "officialId": 161,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/leomord.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_77c6d6b5b84b658c8f25e6f371658cbd.jpg"
+    },
+    {
+      "img": "/assets/hero-source/lesley.png",
+      "name": "Lesley",
+      "icon": "/assets/hero-icons/lesley.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/gms/image/1f0d645266d902f3f927ea7fc04c1bca.jpg"
+    },
+    {
+      "name": "Ling",
+      "img": "/assets/heroes-current/ling.png",
+      "source": "https://indoch.s3.ml.moonlian.com/web/manageapi/image_1fc0ea74abaab3fcb7ae313d54856933.png?w=240&h=390",
+      "officialId": 42,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/ling.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_f76a7dfe805afa316e5ec44295b75772.jpg",
+      "animation": "/assets/hero-motion/ling.mp4",
+      "animationSource": "https://motionbgs.com/ling-mobile-legends",
+      "animationMediaSource": "https://motionbgs.com/media/4045/ling-mobile-legends.960x540.mp4",
+      "animationPosition": 50
+    },
+    {
+      "name": "Lolita",
+      "img": "/assets/heroes-current/lolita.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/e5e97065ab08daf715bd842e9a19a60d.png?w=240-390-091e27",
+      "officialId": 170,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/lolita.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_1bc4973e512cf4958fe639e12391666e.jpg"
+    },
+    {
+      "img": "/assets/heroes-current/lukas.png",
+      "name": "Lukas",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/618f4d1c92fc3eab4da0a354e1da30bb.png?w=240-390-091e27",
+      "officialId": 181,
+      "icon": "/assets/hero-icons/lukas.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/gms/image/95b6f94a0e37fd02e069223493540e75.jpg"
+    },
+    {
+      "img": "/assets/hero-source/lunox.png",
+      "name": "Lunox",
+      "icon": "/assets/hero-icons/lunox.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_8cd47d47126be5496fecb45304368069.jpg"
+    },
+    {
+      "name": "Luo Yi",
+      "img": "/assets/heroes-current/luoyi.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/8899d280ff37581e823039bb845d08bc.png?w=240-390-0a222b",
+      "officialId": 45,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/luoyi.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_52c14752b29b6f9039da26a50e860c5c.jpg"
+    },
+    {
+      "img": "/assets/hero-source/lylia.png",
+      "name": "Lylia",
+      "icon": "/assets/hero-icons/lylia.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_8d16667b16673a1919c513fa46bbf2d0.jpg"
+    },
+    {
+      "img": "/assets/heroes-current/marcel.jpg",
+      "name": "Marcel",
+      "icon": "/assets/hero-icons/marcel.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/gms/image/3542718f699058d42801d88ec9b8fb8b.jpg",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/aff30bf994c34c8b5e806c78a0584475.jpg?w=240-390-0a0a12",
+      "officialId": 192
+    },
+    {
+      "img": "/assets/hero-source/martis.png",
+      "name": "Martis",
+      "icon": "/assets/hero-icons/martis.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_01b9995a75249c3155ca96e4713139a9.jpg"
+    },
+    {
+      "name": "Masha",
+      "img": "/assets/heroes-current/masha.png",
+      "source": "https://indoch.s3.ml.moonlian.com/web/manageapi/image_2912dd6f4124e93494a9ce29f99986b1.png?w=240&h=390",
+      "officialId": 37,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/masha.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_59893811b0123dc6babca117f5ead017.jpg"
+    },
+    {
+      "name": "Mathilda",
+      "img": "/assets/heroes-current/mathilda.png",
+      "source": "https://akmwebstatic.yuanzhanapp.com/web/manageapi/image_01fd05e1c159f960f4ec059e659d8555.png?w=240&h=390",
+      "officialId": 68,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/mathilda.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_5d6eb0491da5709648beca54f906c0a3.jpg"
+    },
+    {
+      "name": "Melissa",
+      "img": "/assets/heroes-current/melissa.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/58b7a044c6ea0a2830d4912ae76d042c.png?w=240-390-091e26",
+      "officialId": 137,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/melissa.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_5c2a434757066a779c8adec5af05a8d1.jpg"
+    },
+    {
+      "img": "/assets/hero-source/minotaur.png",
+      "name": "Minotaur",
+      "icon": "/assets/hero-icons/minotaur.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_db4fda77f902f3dde09d247498da23cc.jpg"
+    },
+    {
+      "name": "Minsitthar",
+      "img": "/assets/heroes-current/minsitthar.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/7c3dd58ac7ae3d6981653ed4aefef5f3.png?w=240-390-2d201c",
+      "officialId": 164,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/minsitthar.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_5a18fa300eb0de4324601c116eab655c.jpg"
+    },
+    {
+      "name": "Miya",
+      "img": "/assets/heroes-current/miya.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/2a368dc13be516280f1e64aa0abad047.png?w=240-390-091e27",
+      "officialId": 50,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/miya.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/gms/image/6667b3e9109ca180e63c524471f29278.jpg"
+    },
+    {
+      "name": "Moskov",
+      "img": "/assets/heroes-current/moskov.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/aa3dd9b5eda12b75cd8269cabd56e017.png?w=240-390-454c75",
+      "officialId": 172,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/moskov.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_843f1c2c3a1b2d4da2fc2ec73cf47cfa.jpg"
+    },
+    {
+      "name": "Nana",
+      "img": "/assets/heroes-current/nana.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/7fbe15372ca4a57146e1947df07bcf42.png?w=240-390-0f1d2e",
+      "officialId": 59,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/nana.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_4258783f9b44a4ad1c67c0b8781051fa.jpg"
+    },
+    {
+      "img": "/assets/hero-source/natalia.png",
+      "name": "Natalia",
+      "icon": "/assets/hero-icons/natalia.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_79e90c124d786bbfdae31f3a28827e7d.jpg"
+    },
+    {
+      "name": "Natan",
+      "img": "/assets/heroes-current/natan.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/97942f7b78c58d99c18a7b2ee972325f.png?w=240-390-0d1f29",
+      "officialId": 98,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/natan.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_bc73ea56e3e05b4f9ed8046b959e1290.jpg"
+    },
+    {
+      "name": "Nolan",
+      "img": "/assets/heroes-current/nolan.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/72c944811c947552cd3ec9805e4f1f03.png?w=240-390-fffffd",
+      "officialId": 171,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/nolan.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_cae4b6dafe9d345f84eee1c983333c0c.jpg"
+    },
+    {
+      "name": "Novaria",
+      "img": "/assets/heroes-current/novaria.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/5d225aed60b23c5849db55999eceb342.png?w=240-390-374d85",
+      "officialId": 165,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/novaria.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_b2599c8a6c681afdee9a06a92190a58d.jpg"
+    },
+    {
+      "img": "/assets/heroes-current/obsidia.jpg",
+      "name": "Obsidia",
+      "icon": "/assets/hero-icons/obsidia.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/gms/image/1dca7f088da27d5a12faf83f7c1f8269.jpg",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/8d7f3c9e3aeea85abc3bf42354be5afa.jpg?w=240-390-1b1837",
+      "officialId": 186
+    },
+    {
+      "name": "Odette",
+      "img": "/assets/heroes-current/odette.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/f4965076f56c7dedc70453c8fd24fcfc.png?w=240-390-091b25",
+      "officialId": 107,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/odette.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_7448f16293a6be9311f82d581e78749a.jpg"
+    },
+    {
+      "name": "Paquito",
+      "img": "/assets/heroes-current/paquito.png",
+      "source": "https://akmwebstatic.yuanzhanapp.com/web/admin/image/475333a2dfd9be9581ea4cc4961ed3b4.png?w=240&h=390&c=62473c",
+      "officialId": 71,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/paquito.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_ef4c59d1923663a6aaa77d1c0a7ff258.jpg"
+    },
+    {
+      "img": "/assets/hero-source/pharsa.png",
+      "name": "Pharsa",
+      "icon": "/assets/hero-icons/pharsa.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_353d39f8ae9ea1454e34ad8546db8417.jpg"
+    },
+    {
+      "img": "/assets/heroes-current/phoveus.jpg",
+      "name": "Phoveus",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/ea3b0b308795fd10ac8c76cfd5335674.jpg?w=240-390-54595d",
+      "officialId": 177,
+      "icon": "/assets/hero-icons/phoveus.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_b811616b91e45a75437a6d5b9f386bd3.jpg"
+    },
+    {
+      "name": "Popol and Kupa",
+      "img": "/assets/heroes-current/popolandkupa.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/ad0bbc18089f9c2bda1dbb0b34970792.png?w=240-390-0a222b",
+      "officialId": 46,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/popolandkupa.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_555eb8df475f57d6f01a1f2a2675671c.jpg"
+    },
+    {
+      "name": "Rafaela",
+      "img": "/assets/heroes-current/rafaela.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/b1c459854d6a827a62359e34df43d314.png?w=240-390-fefefe",
+      "officialId": 57,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/rafaela.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_491618ae5cb3d561f5f02fbb3d82a83d.jpg"
+    },
+    {
+      "img": "/assets/hero-source/roger.png",
+      "name": "Roger",
+      "icon": "/assets/hero-icons/roger.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_ff92c4b5afb41060af1b951ba9f03edd.jpg"
+    },
+    {
+      "img": "/assets/hero-source/ruby.png",
+      "name": "Ruby",
+      "icon": "/assets/hero-icons/ruby.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_2cfc71331f6e2435394bfa44c322405c.jpg"
+    },
+    {
+      "name": "Saber",
+      "img": "/assets/heroes-current/saber.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/c2ce30d9fcdf77028f04d552fd51cbb4.png?w=240-390-fffeff",
+      "officialId": 56,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/saber.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_15e49c7cc5398ca2d903a485145c0702.jpg"
+    },
+    {
+      "img": "/assets/hero-source/selena.png",
+      "name": "Selena",
+      "icon": "/assets/hero-icons/selena.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_4ce7dbe0cbcbaf4c2fcc47bd96780b35.jpg",
+      "animation": "/assets/hero-motion/selena.mp4",
+      "animationSource": "https://motionbgs.com/selena-mobile-legends",
+      "animationMediaSource": "https://motionbgs.com/media/6489/selena-mobile-legends.960x540.mp4",
+      "animationPosition": 50
+    },
+    {
+      "img": "/assets/hero-source/silvanna.png",
+      "name": "Silvanna",
+      "icon": "/assets/hero-icons/silvanna.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_a9de8642b6e62f44652c519f153620d2.jpg"
+    },
+    {
+      "img": "/assets/hero-source/sora.png",
+      "name": "Sora",
+      "icon": "/assets/hero-icons/sora.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/gms/image/d6348e65d8d0d4ca8b0738d691cef440.jpg"
+    },
+    {
+      "img": "/assets/hero-source/sun.png",
+      "name": "Sun",
+      "icon": "/assets/hero-icons/sun.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_5dd440a371270f458071305b9bf107b5.jpg"
+    },
+    {
+      "img": "/assets/heroes-current/suyou.png",
+      "name": "Suyou",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/184961f1f3fd867aa0390c268b68ce7a.png?w=240-390-232432",
+      "officialId": 179,
+      "icon": "/assets/hero-icons/suyou.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/gms/image/13912f0dbc96b6cf53a00e80ff731dab.jpg"
+    },
+    {
+      "name": "Terizla",
+      "img": "/assets/heroes-current/terizla.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/5ac9496204a1c644b9b418ad89af6827.png?w=240-390-0a222b",
+      "officialId": 152,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/terizla.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_2352b6ef3a86441e2a3880fa436df1de.jpg"
+    },
+    {
+      "img": "/assets/hero-source/thamuz.png",
+      "name": "Thamuz",
+      "icon": "/assets/hero-icons/thamuz.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/gms/image/1699a938c6938947e534aa2874341d58.jpg"
+    },
+    {
+      "name": "Tigreal",
+      "img": "/assets/heroes-current/tigreal.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/f755c21415067cc3bfb53c8ef003c98d.png?w=240-390-11121c",
+      "officialId": 61,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/tigreal.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_ec2ad5967a2d8a0ac5e2cef2a1e24411.jpg"
+    },
+    {
+      "img": "/assets/hero-source/uranus.png",
+      "name": "Uranus",
+      "icon": "/assets/hero-icons/uranus.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_1e52a042e596bd333ccab46d00bb8c72.jpg"
+    },
+    {
+      "img": "/assets/hero-source/vale.png",
+      "name": "Vale",
+      "icon": "/assets/hero-icons/vale.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_25040275a37d04d6ed8930a64f9e20bd.jpg"
+    },
+    {
+      "name": "Valentina",
+      "img": "/assets/heroes-current/valentina.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/e821fc8b4a68acbea15401e43ff65ab1.png?w=240-390-091e27",
+      "officialId": 128,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/valentina.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_cdd151e2293c14b2abc3c1c8e57d4392.jpg"
+    },
+    {
+      "img": "/assets/hero-source/valir.png",
+      "name": "Valir",
+      "icon": "/assets/hero-icons/valir.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_7a285a7d75ceb5fecceec6b2608b232f.jpg"
+    },
+    {
+      "name": "Vexana",
+      "img": "/assets/heroes-current/vexana.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/c27bdf6dc8442aa88ed110ecc3fa9dce.png?w=240-390-091e27",
+      "officialId": 158,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/vexana.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_f1a01e297d30d147c16342efc357275e.jpg"
+    },
+    {
+      "name": "Wanwan",
+      "img": "/assets/heroes-current/wanwan.png",
+      "source": "https://indoch.s3.ml.moonlian.com/web/manageapi/image_68895bea5398c45b040ffeccac26aea9.png?w=240&h=390",
+      "officialId": 44,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/wanwan.png",
+      "iconSource": "https://akmweb.youngjoygame.com/web/gms/image/9b163e2146ae6b0e84941032c3f10a41.png",
+      "animation": "/assets/hero-motion/wanwan.mp4",
+      "animationSource": "https://motionbgs.com/wanwan-mobile-legends",
+      "animationMediaSource": "https://motionbgs.com/media/4990/wanwan-mobile-legends.960x540.mp4",
+      "animationPosition": 50
+    },
+    {
+      "name": "X.Borg",
+      "img": "/assets/heroes-current/xborg.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/01855b9a97c125d411bfc859766d92e4.png?w=240-390-091e27",
+      "officialId": 167,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/xborg.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/gms/image/52e2334206e3b30354b129f86ada1ef5.jpg"
+    },
+    {
+      "name": "Xavier",
+      "img": "/assets/heroes-current/xavier.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/7db8c1b12c39977979a67bcff5fb8d0f.png?w=240-390-0b1a25",
+      "officialId": 140,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/xavier.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_6ebaf2a24b6b6cf256c9bae408b0400e.jpg"
+    },
+    {
+      "name": "Yi Sun-shin",
+      "img": "/assets/heroes-current/yisunshin.png",
+      "source": "https://indoch.s3.ml.moonlian.com/web/manageapi/image_f2f80316967f5deb0f50b323232e3268.png?w=240&h=390?w=240&h=390",
+      "officialId": 40,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/yisunshin.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_42a497ad29f61bdc1cea4bc6a9e1e163.jpg"
+    },
+    {
+      "name": "Yin",
+      "img": "/assets/heroes-current/yin.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/75df01afb6d1596307eb7dfb4dbad5a5.png?w=240-390-23100e",
+      "officialId": 134,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/yin.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_5324c7bcbfd9932aca9b8d2e7b8e307a.jpg"
+    },
+    {
+      "name": "Yu Zhong",
+      "img": "/assets/heroes-current/yuzhong.png",
+      "source": "https://indoch.s3.ml.moonlian.com/web/manageapi/image_a3b94d40d6e61d59a897a7915d598195.png?w=240&h=390?w=240&h=390",
+      "officialId": 41,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/yuzhong.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_97280cb443adc3bcb4ca9b36a0fada53.jpg"
+    },
+    {
+      "name": "Yve",
+      "img": "/assets/heroes-current/yve.png",
+      "source": "https://akmwebstatic.yuanzhanapp.com/web/admin/image/272752e09e9af5f7f12b97f771f21584.png?w=240&h=390&c=5b4773",
+      "officialId": 74,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/yve.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/gms/image/0b6e910cb702dcbb68614c9bac4ba590.jpg"
+    },
+    {
+      "img": "/assets/heroes-current/zetian.png",
+      "name": "Zetian",
+      "icon": "/assets/hero-icons/zetian.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/gms/image/b617a6b4d9e2c22a5bc24d886e453399.jpg",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/9e5658d890fbbce2e394b0ad506da0c5.png?w=240-390-5c3528",
+      "officialId": 184
+    },
+    {
+      "name": "Zhask",
+      "img": "/assets/heroes-current/zhask.png",
+      "source": "https://akmwebstatic.yuanzhanapp.com/web/admin/image/49efef7137ca46b7098c8bb3bcd2aa28.png?w=240&h=390&c=463d5e",
+      "officialId": 77,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/zhask.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_6e99f11105dc89bff1932cd4b3809c12.jpg"
+    },
+    {
+      "img": "/assets/heroes-current/zhuxin.png",
+      "name": "Zhuxin",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/b384b153e08247f9bcf0bd5719235677.png?w=240-390-0c1d27",
+      "officialId": 178,
+      "icon": "/assets/hero-icons/zhuxin.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage_92/100_999ac33ac284f6dc38a5f5ae7a6921b8.jpg"
+    },
+    {
+      "name": "Zilong",
+      "img": "/assets/heroes-current/zilong.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/05e4f5bd48ed4a8f574ad80a79fa0129.png?w=240-390-0a222b",
+      "officialId": 51,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/hero-icons/zilong.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_90df181873c42df22049aa056662a934.jpg"
+    }
+  ],
+  "updatedAt": "2026-09-08",
+  "officialArtworkCount": 77,
+  "iconArtworkCount": 133,
+  "movingHeroCount": 16
+}
