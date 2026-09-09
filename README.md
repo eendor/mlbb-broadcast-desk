@@ -40,15 +40,29 @@ Disable "Shutdown source when not visible" to keep sources loaded. Refresh the p
 
 No PH flag, heart rate or AI prediction widgets are included. Artwork sources and moving-hero coverage are documented in [ARTWORK-SOURCES.md](public/assets/ARTWORK-SOURCES.md). Third-party artwork remains owned by its respective rights holders; inclusion does not grant ownership or unrestricted reuse.
 
-## OCR: experimental, live testing required
+## Adjust every scene's HUD
 
-OCR is **not validated for live production**. Development checks exercised the parser and a single supplied screenshot field; these do not establish accuracy across a match, changing HUDs, video compression or transitions.
+In **Live production**, click **Adjust HUD layout** below the preview. Select a group or individual element from the list, or click it in the preview. Drag to move, drag the corner to resize, or enter X/Y offsets, width/height percentages, text size and opacity. Hold Shift while resizing for independent height. Arrow keys nudge by one pixel; Shift + arrows nudge by ten. Use **Expand preview** for more working room.
 
-The current Tesseract implementation reads text/numbers: scoreboard statistics, player name/level/KDA/gold, and draft phase/countdown. It does **not** identify picked heroes from portraits or video. Player-rail and draft presets were calibrated to cropped reference screenshots, not a full game feed.
+The scoreboard, individual objectives, team tags, logos, player rails/cards, draft panels, timers, standby fixtures, ads, result tables and sponsor elements can be adjusted. Hide elements you do not need. Reset an element or the current scene, or undo recent element edits. Exit layout mode to resume normal click-to-edit controls.
 
-To test: open OCR, select a layout, upload your screenshot or capture the clean game window, and redraw each region to match your feed. Start with Selected field only. Scan, review confidence and values, then apply accepted readings. Keep automatic application off until tested thoroughly. Avoid capturing the composed OBS overlay, which can feed displayed values back into itself. API auto-polling and OCR can overwrite the same fields.
+Layout changes go live to all matching OBS sources and persist separately for each of the nine scenes in `data/state.json`. Production exports include layouts. Start by moving the player rails down/away from the game minimap and resizing the scoreboard to your capture. Coordinates are offsets in the 1920 ? 1080 canvas; nested elements move relative to their parent. Group and child sizes combine. The editor's outlines never appear in OBS output.
 
-Future work: recognize picks and bans from draft scenes or recorded/live video, detect draft phases, map recognized heroes to slots, and require confidence across multiple frames before applying changes. This is planned work, not implemented functionality. Collect representative clips and expected picks/bans to build a validation dataset.
+All 41 bundled organization logos have transparent PNG copies. Saved original logo selections automatically resolve to these copies; original artwork files remain available.
+
+## OCR and synchronization
+
+Manual changes and accepted OCR readings are pushed to browser sources immediately through server-sent events. OCR uses two local workers, confirms a field before proceeding through a long list, skips unchanged regions, and publishes each accepted reading as it finishes. There is no three-second scan interval. Actual recognition speed depends on hardware, crop quality and the number of changed fields. The panel shows recognition and delivery times separately.
+
+1. Capture the **clean game feed**, before your overlay is composited. You can also open a screenshot or a local test video. Capturing the composed OBS output can read your own displayed values back into the system.
+2. Select the scoreboard, player rails or draft text profile. Player/draft presets target the supplied reference crops; redraw the boxes for full game capture. Select each field and drag over only its text/digits.
+3. Read regions and review results. Confidence defaults to 80%. Continuous OCR normally requires two matching readings; use three for noisy footage. One reading is available if you accept the greater risk of false values.
+4. Start **continuous OCR**. Turn on **Automatically apply confident readings** when the calibration is working. Low-confidence and unconfirmed values remain in the review panel. Confirmed decreases in cumulative live statistics are held; use **New game / clear OCR history** between matches or after correcting a bad reading.
+5. The game clock can tick between live readings. Repeated frozen clock readings pause extrapolation; stopping OCR freezes it. Disable clock smoothing for footage that is frequently paused. Screenshot application sets a fixed time.
+
+Starting OCR stops API auto-sync, and starting API auto-sync stops continuous OCR, to avoid competing automatic writers. The API refresh interval is selectable (1, 2 or 5 seconds); it also depends on the provider's response time and data freshness. Source changes invalidate outstanding OCR work. OCR applies only its recognized fields against the latest server state, preserving unrelated player edits.
+
+Development checks now include real Tesseract recognition, multi-reading confirmation, stream delivery, and a sampled frame from the supplied feedback video. These are **not full-match accuracy validation**. Test your clean capture before a live production. Hero identification from draft portraits/video is still future work; current OCR reads text and numbers.
 
 ## Official match parser
 
@@ -75,9 +89,13 @@ Install the optional browser test engine and run isolated smoke checks:
 npx playwright install chromium
 node tests/breaks-browser.cjs
 node tests/scene-transition.cjs
+node tests/live-production-browser.cjs
+node tests/ocr-browser.cjs
+node tests/text-fit.cjs
+node tests/logo-transparency.cjs
 ```
 
-These use temporary state directories and separate ports. Screenshots go to ignored `data/`. Close any other test process using ports 3211 or 3213 first.
+These use temporary state directories and separate ports. Screenshots go to ignored `data/`. The checks use ports 3211?3213 and 3216?3219; run each listed command sequentially if using the same port. They leave the production server and saved match untouched.
 
 Before a rehearsal, check all nine scenes, BO3/5/7, long team tags, pick/ban editing, moving artwork, timer reset/pause/resume, ad playback and rapid scene changes. Test OCR separately against clean screenshots and recorded matches; record expected versus recognized values. Report browser/OBS version, steps, expected result, actual result and a screenshot or clip. Do not attach credentials or private match information.
 

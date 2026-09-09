@@ -1,0 +1,22 @@
+.layout-workbench{padding:12px 18px;border-top:1px solid var(--line);background:#111820}
+.layout-toolbar,.layout-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.layout-toolbar>span{flex:1;min-width:140px;font-size:11px;color:var(--muted);line-height:1.5}
+.layout-toolbar button,.layout-actions button{font-size:11px}
+.layout-help{font-size:11px;color:#b8c6d6;line-height:1.65;padding-top:14px}
+.layout-fields{display:grid;grid-template-columns:minmax(180px,2fr) repeat(3,minmax(75px,1fr));gap:8px}
+.layout-fields input,.layout-fields select{padding:8px}
+.layout-actions{margin-top:12px}.layout-actions label{margin:0;flex:1}
+.expanded-preview{position:fixed;inset:12px;z-index:30;overflow:auto;box-shadow:0 0 0 30px #000c;display:flex;flex-direction:column}
+.expanded-preview .preview{flex:1;min-height:180px;aspect-ratio:auto}.expanded-preview .preview iframe{position:absolute;inset:0}
+.expanded-preview .previewfoot{display:none}.expanded-preview .panelhead{margin-bottom:12px}
+.previewbadge{pointer-events:none}.layout-toolbar button[aria-pressed=true]{border-color:var(--lime)}
+.ocr-health{display:flex;gap:16px;flex-wrap:wrap;padding:12px;background:#0b121b;border:1px solid var(--line);border-radius:6px;margin:12px 0;color:#bad8f1;font-size:11px}
+.ocr-profile-note{line-height:1.6;font-size:11px;color:#b6c2d2;margin:10px 0}
+#ocrResults{max-height:500px;overflow:auto}.ocrrow{grid-template-columns:minmax(120px,1fr) minmax(70px,1fr) 100px;gap:10px}.ocrrow>*{min-width:0;overflow-wrap:anywhere}
+#captureVideo:not([hidden]){width:100%;max-height:280px;margin-top:12px;background:#060a0f}
+#captureCanvas{touch-action:none}.connection.offline{color:var(--red);border-color:var(--red)}
+.summary strong,.scoreline strong{min-width:0;overflow-wrap:anywhere}.summary>div{min-width:0}
+.scene-selector-panel{align-self:start}.scenes{max-height:650px;overflow:auto;scrollbar-color:#4a5868 #151b23}
+:focus-visible{outline:2px solid var(--lime);outline-offset:3px}
+@media(min-width:1500px){.layout-fields{grid-template-columns:minmax(190px,2fr) repeat(6,minmax(70px,1fr))}}
+@media(max-width:700px){.layout-fields{grid-template-columns:repeat(2,minmax(0,1fr))}.layout-fields label:first-child{grid-column:1/-1}.series-toolbar{gap:10px}.series-toolbar select{width:100%}.connection{max-width:150px}.playerrow{display:flex;flex-wrap:wrap}.playerrow input{flex:1 1 90px}.playerrow>span{flex:0 0 100%}.expanded-preview{inset:0}}
