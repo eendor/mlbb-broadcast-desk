@@ -3,7 +3,7 @@
   const selectors = [
     '.draft-center-team>b', '.broadcast-player-name', '.broadcast-bans>span',
     '.draft-center-clock>span', '.draft-match-label', '.draft-unpicked', '.vertical-hero',
-    '.rail-name>b', '.rail-numbers>strong', '.logo.initial',
+    '.rail-name>b', '.rail-numbers>strong', '.sb-lead', '.logo.initial',
     '.broadcast-brand h1', '.broadcast-brand p', '.broadcast-topline>b',
     '.fixture-side>span', '.fixture-caption>*', '.standby-versus>b',
     '.broadcast-ad-placeholder h2', '.broadcast-ad-placeholder p',

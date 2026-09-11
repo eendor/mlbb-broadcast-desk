@@ -10,5 +10,5 @@ fetch('/assets/catalog.json').then(r=>r.json()).then(c=>{catalog=c;render();});c
 
 events.addEventListener('catalog',()=>fetch('/assets/catalog.json',{cache:'no-store'}).then(r=>r.json()).then(c=>{catalog=c;render();}));
 
-function liveGameTime(){if(!state?.gameClock?.running)return state?.gameTime||'00:00';const elapsed=Math.max(0,Math.floor((Date.now()-state.gameClock.syncedAt)/1000)),n=Math.min(86400,state.gameClock.seconds+elapsed);return String(Math.floor(n/60)).padStart(2,'0')+':'+String(n%60).padStart(2,'0');}
+function liveGameTime(){return scoreboardGameTime(state);}
 setInterval(()=>{const el=document.querySelector('.sb-center>strong');if(el&&state){const next=liveGameTime();if(el.textContent!==next)el.textContent=next;}},100);

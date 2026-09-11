@@ -52,17 +52,27 @@ All 41 bundled organization logos have transparent PNG copies. Saved original lo
 
 ## OCR and synchronization
 
-Manual changes and accepted OCR readings are pushed to browser sources immediately through server-sent events. OCR uses two local workers, confirms a field before proceeding through a long list, skips unchanged regions, and publishes each accepted reading as it finishes. There is no three-second scan interval. Actual recognition speed depends on hardware, crop quality and the number of changed fields. The panel shows recognition and delivery times separately.
+For live automation, open **OCR capture → Start live auto-detect**, then choose the clean game window in the browser's capture picker. This starts continuous video capture, enables automatic updates, and recognizes the in-game spectator scoreboard and match-result screen. Draft OCR is intentionally disabled; operate picks and bans manually. Leave the control page open while using other tabs in the desk.
+
+In-game detection reads the clock, kills, team gold and turret counts from the supplied spectator layout. Match-result detection reads the winner, final kills, duration, player names, KDA and player gold, then switches Program to postgame when scene following is enabled. It does not invent statistics absent from the HUD. Draft picks and bans remain manual.
+
+**Follow game / result scenes in OBS Program** controls automatic scene switching. Turn it off to choose scenes yourself while continuing live data updates. The fixed OBS source URLs retain their chosen scenes. When the HUD disappears, readings stop; lost capture or a closed panel also stops extrapolating detected clocks. API auto-sync and continuous capture share the existing single-source controls.
+
+The full-capture presets use the supplied examples as starting positions. For a different game aspect ratio, spectator HUD, result table, or borders, stop scanning, choose **Layout to calibrate**, select a field and drag its box over the corresponding content. Calibration is saved separately for gameplay and match results. Choose the actual game window or a fullscreen clean feed, so browser controls do not cover the clock.
+
+Hero detection compares visible portraits with bundled artwork and locally saved samples. **It is not a model trained on every MLBB skin.** Unfamiliar artwork, tiny compressed portraits, pending picks and obscured slots can remain unknown. Under **Recognize an unfamiliar skin**, capture a portrait, select the hero shown, and remember it. The displayed sample stays frozen while you label it; subsequent live frames are matched automatically. Samples and calibration stay in this browser's local storage. Blank or uncertain slots do not clear existing picks or bans; use the manual draft controls between matches.
+
+Manual changes and accepted capture readings are pushed to browser sources immediately through server-sent events. The manual OCR profiles use two local workers, confirm a field before proceeding through a long list, skip unchanged regions, and publish each accepted reading as it finishes. There is no three-second scan interval. Actual recognition speed depends on hardware, crop quality and the number of changed fields. The panel shows recognition and delivery times separately.
 
 1. Capture the **clean game feed**, before your overlay is composited. You can also open a screenshot or a local test video. Capturing the composed OBS output can read your own displayed values back into the system.
-2. Select the scoreboard, player rails or draft text profile. Player/draft presets target the supplied reference crops; redraw the boxes for full game capture. Select each field and drag over only its text/digits.
+2. Select the scoreboard or player-rail profile. Redraw the boxes for a different full-game capture. Select each field and drag over only its text/digits.
 3. Read regions and review results. Confidence defaults to 80%. Continuous OCR normally requires two matching readings; use three for noisy footage. One reading is available if you accept the greater risk of false values.
 4. Start **continuous OCR**. Turn on **Automatically apply confident readings** when the calibration is working. Low-confidence and unconfirmed values remain in the review panel. Confirmed decreases in cumulative live statistics are held; use **New game / clear OCR history** between matches or after correcting a bad reading.
 5. The game clock can tick between live readings. Repeated frozen clock readings pause extrapolation; stopping OCR freezes it. Disable clock smoothing for footage that is frequently paused. Screenshot application sets a fixed time.
 
 Starting OCR stops API auto-sync, and starting API auto-sync stops continuous OCR, to avoid competing automatic writers. The API refresh interval is selectable (1, 2 or 5 seconds); it also depends on the provider's response time and data freshness. Source changes invalidate outstanding OCR work. OCR applies only its recognized fields against the latest server state, preserving unrelated player edits.
 
-Development checks now include real Tesseract recognition, multi-reading confirmation, stream delivery, and a sampled frame from the supplied feedback video. These are **not full-match accuracy validation**. Test your clean capture before a live production. Hero identification from draft portraits/video is still future work; current OCR reads text and numbers.
+Development checks include real Tesseract recognition, multi-reading confirmation, stream delivery, scoreboard recapture, and match-result synchronization. These are **not full-match accuracy validation**. Test your clean capture before a live production. Live portrait matching has the artwork and skin limitations described above.
 
 ## Official match parser
 
@@ -91,11 +101,13 @@ node tests/breaks-browser.cjs
 node tests/scene-transition.cjs
 node tests/live-production-browser.cjs
 node tests/ocr-browser.cjs
+node tests/live-detection-browser.cjs
+node tests/result-detection-browser.cjs
 node tests/text-fit.cjs
 node tests/logo-transparency.cjs
 ```
 
-These use temporary state directories and separate ports. Screenshots go to ignored `data/`. The checks use ports 3211?3213 and 3216?3219; run each listed command sequentially if using the same port. They leave the production server and saved match untouched.
+These use temporary state directories and separate ports. Screenshots go to ignored `data/`. The checks use ports 3211?3213 and 3216?3219 and 3221; run each listed command sequentially if using the same port. They leave the production server and saved match untouched.
 
 Before a rehearsal, check all nine scenes, BO3/5/7, long team tags, pick/ban editing, moving artwork, timer reset/pause/resume, ad playback and rapid scene changes. Test OCR separately against clean screenshots and recorded matches; record expected versus recognized values. Report browser/OBS version, steps, expected result, actual result and a screenshot or clip. Do not attach credentials or private match information.
 

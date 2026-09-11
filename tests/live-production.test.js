@@ -28,3 +28,8 @@ test('fast OCR fields finish before slow fields; cancellation discards queued wo
   assert.equal(Runtime.changed(new Uint8Array([3,3]),new Uint8Array([3,3])),false);
   assert.equal(Runtime.changed(new Uint8Array([3,3]),new Uint8Array([20,20])),true);
 });
+test('gold spike guard permits normal growth and blocks decimal-point spikes',()=>{
+  assert.equal(Runtime.goldJump(undefined,24700,0),false);
+  assert.equal(Runtime.goldJump(24100,24700,1000),false);
+  assert.equal(Runtime.goldJump(24700,275000,1000),true);
+});

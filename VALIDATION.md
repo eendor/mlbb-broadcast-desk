@@ -9,6 +9,7 @@
 - Layout browser checks exercise all nine scenes, dragging, resize handles, undo, hiding/reset, persistence across page reload, and ticking game clocks. The backend validates allowed elements, bounds and duplicate layout entries.
 - OCR regression checks cover latest-state player merges, stale/invalid readings, confirmation after isolated spikes, concurrent worker completion and cancellation of pending work. Live-match accuracy remains unverified.
 - Successful current official match API payloads remain unverified. The sample match ID returned match not found.
-- Only sixteen heroes have bundled moving artwork. Other portraits are still. Hero recognition from scenes/video is future work.
+- Only sixteen heroes have bundled moving artwork; other portraits are still. Draft heroes remain operator-controlled. Gameplay portrait matching has not been validated against an entire live match or every skin.
+- Live detection uses two successive HUD classifications before switching between gameplay and match results. Draft OCR is disabled. Backend checks cover scoreboard values, result winner/final statistics, player identity rules, stale deliveries and invalid fields.
 
 Browser tests require Playwright Chromium. Some additional development scripts use a running server on port 3210 or an optional local screenshot; the README lists the portable isolated checks.

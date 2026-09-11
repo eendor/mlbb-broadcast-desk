@@ -9,6 +9,36 @@ app.post('/api/media',express.raw({type:'application/octet-stream',limit:'200mb'
 app.post('/api/ads/action',(req,res)=>res.json(commit({breaks:{rotation:Breaks.rotationAction(state.breaks,req.body.action)}})));
 app.post('/api/layout',(req,res)=>{const {scene,id,value,resetScene}=req.body;if(!require('./public/layout-model').scenes.includes(scene))throw Error('Invalid layout scene');let layouts=state.layouts.filter(r=>!(r.scene===scene&&(resetScene===true||r.id===id)));if(resetScene!==true&&value!==null)layouts.push({scene,id,...value});res.json(commit({layouts}));});
 const ocrSamples=new Map();
+let detection=null;
+function pauseDetection(){
+  if(!detection)return;const patch={};
+  if(detection.gameClock&&state.gameClock.running&&state.gameClock.syncedAt===detection.gameClock.syncedAt&&state.gameClock.seconds===detection.gameClock.seconds){const n=Math.min(86400,state.gameClock.seconds+Math.max(0,Math.floor((Date.now()-state.gameClock.syncedAt)/1000)));patch.gameTime=String(Math.floor(n/60)).padStart(2,'0')+':'+String(n%60).padStart(2,'0');patch.gameClock={running:false,seconds:n,syncedAt:Date.now()};}
+  if(Object.keys(patch).length)commit(patch);detection.gameClock=null;
+}
+app.post('/api/detection/start',(req,res)=>{pauseDetection();detection={id:require('node:crypto').randomUUID(),sampledAt:0,samples:new Map(),seenAt:Date.now()};res.json({session:detection.id});});
+app.post('/api/detection/stop',(req,res)=>{if(detection?.id===req.body.session){pauseDetection();detection=null;}res.json({stopped:true});});
+app.post('/api/detection/hold',(req,res)=>{if(detection?.id===req.body.session)pauseDetection();res.json({held:true});});
+app.post('/api/detection',(req,res)=>{
+  if(!detection||req.body.session!==detection.id)return res.json({applied:0,expired:true});
+  const prepare=require('./lib/live-detection').prepare;prepare(state,req.body);
+  // Clock and player workers finish independently. Reject stale fields, not a
+  // whole player batch merely because a newer clock arrived first.
+  if(detection.mode&&detection.mode!==req.body.mode){
+    if(req.body.sampledAt<detection.sampledAt)return res.json({applied:0,stale:true});
+    pauseDetection();detection.samples.clear();
+  }
+  const readings=req.body.readings.filter(r=>req.body.sampledAt>=(detection.samples.get(r.field)||0));
+  const {patch,held}=prepare(state,{...req.body,readings});
+  detection.mode=req.body.mode;detection.sampledAt=Math.max(detection.sampledAt,req.body.sampledAt);detection.seenAt=Date.now();
+  if(patch.gameClock&&patch.gameTime===state.gameTime&&patch.gameClock.running===state.gameClock.running){delete patch.gameClock;delete patch.gameTime;}
+  const {merge:mergeState}=require('./lib/state');const next=mergeState(structuredClone(state),patch);
+  const changed=JSON.stringify(next)!==JSON.stringify(state);if(changed)commit(patch);
+  readings.forEach(r=>detection.samples.set(r.field,req.body.sampledAt));
+  if(patch.gameClock)detection.gameClock={...state.gameClock};
+  res.json({applied:changed?readings.length:0,held,receivedAt:Date.now()});
+});
+// A closed tab or lost capture cannot leave an extrapolated clock running forever.
+setInterval(()=>{if(detection&&Date.now()-detection.seenAt>4000)pauseDetection();},1000).unref();
 app.post('/api/ocr/stop',(req,res)=>{let patch={};if(state.gameClock.running){const n=Math.min(86400,state.gameClock.seconds+Math.max(0,Math.floor((Date.now()-state.gameClock.syncedAt)/1000)));patch={gameTime:String(Math.floor(n/60)).padStart(2,'0')+':'+String(n%60).padStart(2,'0'),gameClock:{running:false,seconds:n,syncedAt:Date.now()}};}if(Object.keys(patch).length)commit(patch);res.json({stopped:true});});
 app.post('/api/ocr',(req,res)=>{require('./lib/live-ocr').prepare(state,req.body);const readings=req.body.readings.filter(r=>req.body.sampledAt>=(ocrSamples.get(r.field)||0));if(!readings.length)return res.json({applied:0});const fresh=require('./lib/live-ocr').prepare(state,{...req.body,readings});const changed=readings.filter(r=>{const current=r.field.split('.').reduce((v,k)=>v?.[k],state);return current!==r.value||r.field==='gameTime'&&state.gameClock.running!==req.body.live;});if(changed.length)commit(fresh);readings.forEach(r=>ocrSamples.set(r.field,req.body.sampledAt));res.json({applied:changed.length,receivedAt:Date.now()});});
 app.get('/api/state',(req,res)=>res.json(state));app.post('/api/state',(req,res)=>res.json(commit(req.body)));app.get('/api/events',(req,res)=>{res.set({'Content-Type':'text/event-stream','Cache-Control':'no-cache, no-transform','Connection':'keep-alive','X-Accel-Buffering':'no'});req.socket.setNoDelay(true);res.flushHeaders();res.write(`data: ${JSON.stringify(state)}\n\n`);clients.add(res);const heartbeat=setInterval(()=>res.write(': heartbeat\n\n'),15000);req.on('close',()=>{clients.delete(res);clearInterval(heartbeat);});});

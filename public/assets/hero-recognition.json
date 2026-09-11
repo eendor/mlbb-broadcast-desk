@@ -1,0 +1,1035 @@
+[
+  {
+    "name": "Aamon",
+    "images": [
+      "/assets/hero-icons/aamon.jpg",
+      "/assets/heroes-current/aamon.png",
+      "/assets/hero-source/aamon.png"
+    ]
+  },
+  {
+    "name": "Akai",
+    "images": [
+      "/assets/hero-icons/akai.jpg",
+      "/assets/heroes-current/akai.png",
+      "/assets/hero-source/akai.png"
+    ]
+  },
+  {
+    "name": "Aldous",
+    "images": [
+      "/assets/hero-icons/aldous.jpg",
+      "/assets/hero-source/aldous.png"
+    ]
+  },
+  {
+    "name": "Alice",
+    "images": [
+      "/assets/hero-icons/alice.jpg",
+      "/assets/heroes-current/alice.jpg",
+      "/assets/hero-source/alice.png"
+    ]
+  },
+  {
+    "name": "Alpha",
+    "images": [
+      "/assets/hero-icons/alpha.jpg",
+      "/assets/heroes-current/alpha.png",
+      "/assets/hero-source/alpha.png"
+    ]
+  },
+  {
+    "name": "Alucard",
+    "images": [
+      "/assets/hero-icons/alucard.jpg",
+      "/assets/heroes-current/alucard.png",
+      "/assets/hero-source/alucard.png"
+    ]
+  },
+  {
+    "name": "Angela",
+    "images": [
+      "/assets/hero-icons/angela.jpg",
+      "/assets/hero-source/angela.png"
+    ]
+  },
+  {
+    "name": "Argus",
+    "images": [
+      "/assets/hero-icons/argus.jpg",
+      "/assets/hero-source/argus.png"
+    ]
+  },
+  {
+    "name": "Arlott",
+    "images": [
+      "/assets/hero-icons/arlott.jpg",
+      "/assets/heroes-current/arlott.png",
+      "/assets/hero-source/arlot.png"
+    ]
+  },
+  {
+    "name": "Atlas",
+    "images": [
+      "/assets/hero-icons/atlas.jpg",
+      "/assets/heroes-current/atlas.png",
+      "/assets/hero-source/atlas.png"
+    ]
+  },
+  {
+    "name": "Aulus",
+    "images": [
+      "/assets/hero-icons/aulus.jpg",
+      "/assets/heroes-current/aulus.jpg",
+      "/assets/hero-source/aulus.png"
+    ]
+  },
+  {
+    "name": "Aurora",
+    "images": [
+      "/assets/hero-icons/aurora.jpg",
+      "/assets/heroes-current/aurora.png",
+      "/assets/hero-source/aurora.png"
+    ]
+  },
+  {
+    "name": "Badang",
+    "images": [
+      "/assets/hero-icons/badang.jpg",
+      "/assets/hero-source/badang.png"
+    ]
+  },
+  {
+    "name": "Balmond",
+    "images": [
+      "/assets/hero-icons/balmond.jpg",
+      "/assets/hero-source/balmond.png"
+    ]
+  },
+  {
+    "name": "Bane",
+    "images": [
+      "/assets/hero-icons/bane.jpg",
+      "/assets/heroes-current/bane.png",
+      "/assets/hero-source/bane.png"
+    ]
+  },
+  {
+    "name": "Barats",
+    "images": [
+      "/assets/hero-icons/barats.jpg",
+      "/assets/heroes-current/barats.png",
+      "/assets/hero-source/barats.png"
+    ]
+  },
+  {
+    "name": "Baxia",
+    "images": [
+      "/assets/hero-icons/baxia.jpg",
+      "/assets/heroes-current/baxia.png",
+      "/assets/hero-source/baxia.png"
+    ]
+  },
+  {
+    "name": "Beatrix",
+    "images": [
+      "/assets/hero-icons/beatrix.jpg",
+      "/assets/heroes-current/beatrix.png",
+      "/assets/hero-source/beatrix.png"
+    ]
+  },
+  {
+    "name": "Belerick",
+    "images": [
+      "/assets/hero-icons/belerick.jpg",
+      "/assets/hero-source/beleric.png"
+    ]
+  },
+  {
+    "name": "Benedetta",
+    "images": [
+      "/assets/hero-icons/benedetta.jpg",
+      "/assets/heroes-current/benedetta.png",
+      "/assets/hero-source/benedetta.png"
+    ]
+  },
+  {
+    "name": "Brody",
+    "images": [
+      "/assets/hero-icons/brody.jpg",
+      "/assets/heroes-current/brody.png",
+      "/assets/hero-source/brody.png"
+    ]
+  },
+  {
+    "name": "Bruno",
+    "images": [
+      "/assets/hero-icons/bruno.jpg",
+      "/assets/heroes-current/bruno.png",
+      "/assets/hero-source/bruno.png"
+    ]
+  },
+  {
+    "name": "Carmilla",
+    "images": [
+      "/assets/hero-icons/carmilla.jpg",
+      "/assets/heroes-current/carmilla.png",
+      "/assets/hero-source/carmila.png"
+    ]
+  },
+  {
+    "name": "Cecilion",
+    "images": [
+      "/assets/hero-icons/cecilion.jpg",
+      "/assets/heroes-current/cecilion.png",
+      "/assets/hero-source/cecilion.png"
+    ]
+  },
+  {
+    "name": "Chang'e",
+    "images": [
+      "/assets/hero-icons/change.jpg",
+      "/assets/hero-source/chang_e.png"
+    ]
+  },
+  {
+    "name": "Chip",
+    "images": [
+      "/assets/hero-icons/chip.jpg",
+      "/assets/heroes-current/chip.png",
+      "/assets/hero-source/chip.png"
+    ]
+  },
+  {
+    "name": "Chou",
+    "images": [
+      "/assets/hero-icons/chou.jpg",
+      "/assets/hero-source/chou.png"
+    ]
+  },
+  {
+    "name": "Cici",
+    "images": [
+      "/assets/hero-icons/cici.jpg",
+      "/assets/heroes-current/cici.png",
+      "/assets/hero-source/cici.png"
+    ]
+  },
+  {
+    "name": "Claude",
+    "images": [
+      "/assets/hero-icons/claude.jpg",
+      "/assets/heroes-current/claude.png",
+      "/assets/hero-source/claude.png"
+    ]
+  },
+  {
+    "name": "Clint",
+    "images": [
+      "/assets/hero-icons/clint.jpg",
+      "/assets/heroes-current/clint.png",
+      "/assets/hero-source/clint.png"
+    ]
+  },
+  {
+    "name": "Cyclops",
+    "images": [
+      "/assets/hero-icons/cyclops.jpg",
+      "/assets/hero-source/cyclops.png"
+    ]
+  },
+  {
+    "name": "Diggie",
+    "images": [
+      "/assets/hero-icons/diggie.jpg",
+      "/assets/hero-source/diggie.png"
+    ]
+  },
+  {
+    "name": "Dyroth",
+    "images": [
+      "/assets/hero-source/dyroth.png"
+    ]
+  },
+  {
+    "name": "Dyrroth",
+    "images": [
+      "/assets/hero-icons/dyrroth.jpg",
+      "/assets/hero-source/dyroth.png"
+    ]
+  },
+  {
+    "name": "Edith",
+    "images": [
+      "/assets/hero-icons/edith.jpg",
+      "/assets/heroes-current/edith.png",
+      "/assets/hero-source/edith.png"
+    ]
+  },
+  {
+    "name": "Esmeralda",
+    "images": [
+      "/assets/hero-icons/esmeralda.jpg",
+      "/assets/hero-source/esmeralda.png"
+    ]
+  },
+  {
+    "name": "Estes",
+    "images": [
+      "/assets/hero-icons/estes.jpg",
+      "/assets/hero-source/estes.png"
+    ]
+  },
+  {
+    "name": "Eudora",
+    "images": [
+      "/assets/hero-icons/eudora.jpg",
+      "/assets/heroes-current/eudora.png",
+      "/assets/hero-source/eudora.png"
+    ]
+  },
+  {
+    "name": "Fanny",
+    "images": [
+      "/assets/hero-icons/fanny.jpg",
+      "/assets/heroes-current/fanny.png",
+      "/assets/hero-source/fanny.png"
+    ]
+  },
+  {
+    "name": "Faramis",
+    "images": [
+      "/assets/hero-icons/faramis.jpg",
+      "/assets/heroes-current/faramis.png",
+      "/assets/hero-source/faramis.png"
+    ]
+  },
+  {
+    "name": "Floryn",
+    "images": [
+      "/assets/hero-icons/floryn.jpg",
+      "/assets/heroes-current/floryn.png",
+      "/assets/hero-source/floryn.png"
+    ]
+  },
+  {
+    "name": "Franco",
+    "images": [
+      "/assets/hero-icons/franco.jpg",
+      "/assets/heroes-current/franco.png",
+      "/assets/hero-source/franco.png"
+    ]
+  },
+  {
+    "name": "Fredrin",
+    "images": [
+      "/assets/hero-source/fredrin.png"
+    ]
+  },
+  {
+    "name": "Fredrinn",
+    "images": [
+      "/assets/hero-icons/fredrinn.jpg",
+      "/assets/heroes-current/fredrinn.png",
+      "/assets/hero-source/fredrin.png"
+    ]
+  },
+  {
+    "name": "Freya",
+    "images": [
+      "/assets/hero-icons/freya.jpg",
+      "/assets/heroes-current/freya.jpg",
+      "/assets/hero-source/freya.png"
+    ]
+  },
+  {
+    "name": "Gatotkaca",
+    "images": [
+      "/assets/hero-icons/gatotkaca.jpg",
+      "/assets/hero-source/gatotkaca.png"
+    ]
+  },
+  {
+    "name": "Gloo",
+    "images": [
+      "/assets/hero-icons/gloo.jpg",
+      "/assets/heroes-current/gloo.png",
+      "/assets/hero-source/gloo.png"
+    ]
+  },
+  {
+    "name": "Gord",
+    "images": [
+      "/assets/hero-icons/gord.jpg",
+      "/assets/hero-source/gord.png"
+    ]
+  },
+  {
+    "name": "Granger",
+    "images": [
+      "/assets/hero-icons/granger.jpg",
+      "/assets/heroes-current/granger.jpg",
+      "/assets/hero-source/granger.png"
+    ]
+  },
+  {
+    "name": "Grock",
+    "images": [
+      "/assets/hero-icons/grock.jpg",
+      "/assets/heroes-current/grock.jpg",
+      "/assets/hero-source/grock.png"
+    ]
+  },
+  {
+    "name": "Guinevere",
+    "images": [
+      "/assets/hero-icons/guinevere.jpg",
+      "/assets/hero-source/guinevere.png"
+    ]
+  },
+  {
+    "name": "Gusion",
+    "images": [
+      "/assets/hero-icons/gusion.jpg",
+      "/assets/heroes-current/gusion.png",
+      "/assets/hero-source/gusion.png"
+    ]
+  },
+  {
+    "name": "Hanabi",
+    "images": [
+      "/assets/hero-icons/hanabi.jpg",
+      "/assets/heroes-current/hanabi.png",
+      "/assets/hero-source/hanabi.png"
+    ]
+  },
+  {
+    "name": "Hanzo",
+    "images": [
+      "/assets/hero-icons/hanzo.jpg",
+      "/assets/heroes-current/hanzo.jpg",
+      "/assets/hero-source/hanzo.png"
+    ]
+  },
+  {
+    "name": "Harith",
+    "images": [
+      "/assets/hero-icons/harith.jpg",
+      "/assets/hero-source/harith.png"
+    ]
+  },
+  {
+    "name": "Harley",
+    "images": [
+      "/assets/hero-icons/harley.jpg",
+      "/assets/heroes-current/harley.PNG",
+      "/assets/hero-source/harley.png"
+    ]
+  },
+  {
+    "name": "Hayabusa",
+    "images": [
+      "/assets/hero-icons/hayabusa.jpg",
+      "/assets/heroes-current/hayabusa.png",
+      "/assets/hero-source/hayabusa.png"
+    ]
+  },
+  {
+    "name": "Helcurt",
+    "images": [
+      "/assets/hero-icons/helcurt.jpg",
+      "/assets/heroes-current/helcurt.png",
+      "/assets/hero-source/helcurt.png"
+    ]
+  },
+  {
+    "name": "Hilda",
+    "images": [
+      "/assets/hero-icons/hilda.jpg",
+      "/assets/heroes-current/hilda.png",
+      "/assets/hero-source/hilda.png"
+    ]
+  },
+  {
+    "name": "Hirara",
+    "images": [
+      "/assets/hero-icons/hirara.jpg",
+      "/assets/heroes-current/hirara.jpg"
+    ]
+  },
+  {
+    "name": "Hylos",
+    "images": [
+      "/assets/hero-icons/hylos.jpg",
+      "/assets/hero-source/hylos.png"
+    ]
+  },
+  {
+    "name": "Irithel",
+    "images": [
+      "/assets/hero-icons/irithel.jpg",
+      "/assets/hero-source/irithel.png"
+    ]
+  },
+  {
+    "name": "Ixia",
+    "images": [
+      "/assets/hero-icons/ixia.jpg",
+      "/assets/heroes-current/ixia.png",
+      "/assets/hero-source/ixia.png"
+    ]
+  },
+  {
+    "name": "Jawhead",
+    "images": [
+      "/assets/hero-icons/jawhead.jpg",
+      "/assets/hero-source/jawhead.png"
+    ]
+  },
+  {
+    "name": "Johnson",
+    "images": [
+      "/assets/hero-icons/johnson.jpg",
+      "/assets/heroes-current/johnson.png",
+      "/assets/hero-source/johnson.png"
+    ]
+  },
+  {
+    "name": "Joy",
+    "images": [
+      "/assets/hero-icons/joy.jpg",
+      "/assets/heroes-current/joy.png",
+      "/assets/hero-source/joy.png"
+    ]
+  },
+  {
+    "name": "Julian",
+    "images": [
+      "/assets/hero-icons/julian.jpg",
+      "/assets/heroes-current/julian.png",
+      "/assets/hero-source/julian.png"
+    ]
+  },
+  {
+    "name": "Kadita",
+    "images": [
+      "/assets/hero-icons/kadita.jpg",
+      "/assets/hero-source/kadita.png"
+    ]
+  },
+  {
+    "name": "Kagura",
+    "images": [
+      "/assets/hero-icons/kagura.jpg",
+      "/assets/heroes-current/kagura.png",
+      "/assets/hero-source/kagura.png"
+    ]
+  },
+  {
+    "name": "Kaja",
+    "images": [
+      "/assets/hero-icons/kaja.jpg",
+      "/assets/hero-source/kaja.png"
+    ]
+  },
+  {
+    "name": "Kalea",
+    "images": [
+      "/assets/hero-icons/kalea.jpg",
+      "/assets/hero-source/kalea.png"
+    ]
+  },
+  {
+    "name": "Karina",
+    "images": [
+      "/assets/hero-icons/karina.jpg",
+      "/assets/heroes-current/karina.png",
+      "/assets/hero-source/karina.png"
+    ]
+  },
+  {
+    "name": "Karrie",
+    "images": [
+      "/assets/hero-icons/karrie.jpg",
+      "/assets/hero-source/karrie.png"
+    ]
+  },
+  {
+    "name": "Khaleed",
+    "images": [
+      "/assets/hero-icons/khaleed.jpg",
+      "/assets/heroes-current/khaleed.jpg",
+      "/assets/hero-source/khaleed.png"
+    ]
+  },
+  {
+    "name": "Khufra",
+    "images": [
+      "/assets/hero-icons/khufra.jpg",
+      "/assets/hero-source/khufra.png"
+    ]
+  },
+  {
+    "name": "Kimmy",
+    "images": [
+      "/assets/hero-icons/kimmy.jpg",
+      "/assets/heroes-current/kimmy.jpg",
+      "/assets/hero-source/kimmy.png"
+    ]
+  },
+  {
+    "name": "Lancelot",
+    "images": [
+      "/assets/hero-icons/lancelot.jpg",
+      "/assets/heroes-current/lancelot.png",
+      "/assets/hero-source/lancelot.png"
+    ]
+  },
+  {
+    "name": "Lapu-Lapu",
+    "images": [
+      "/assets/hero-icons/lapulapu.jpg",
+      "/assets/heroes-current/lapulapu.png",
+      "/assets/hero-source/lapulapu.png"
+    ]
+  },
+  {
+    "name": "Layla",
+    "images": [
+      "/assets/hero-icons/layla.jpg",
+      "/assets/heroes-current/layla.png",
+      "/assets/hero-source/layla.png"
+    ]
+  },
+  {
+    "name": "Leomord",
+    "images": [
+      "/assets/hero-icons/leomord.jpg",
+      "/assets/heroes-current/leomord.png",
+      "/assets/hero-source/leomord.png"
+    ]
+  },
+  {
+    "name": "Lesley",
+    "images": [
+      "/assets/hero-icons/lesley.jpg",
+      "/assets/hero-source/lesley.png"
+    ]
+  },
+  {
+    "name": "Ling",
+    "images": [
+      "/assets/hero-icons/ling.jpg",
+      "/assets/heroes-current/ling.png",
+      "/assets/hero-source/ling.png"
+    ]
+  },
+  {
+    "name": "Lolita",
+    "images": [
+      "/assets/hero-icons/lolita.jpg",
+      "/assets/heroes-current/lolita.png",
+      "/assets/hero-source/lolita.png"
+    ]
+  },
+  {
+    "name": "Lukas",
+    "images": [
+      "/assets/hero-icons/lukas.jpg",
+      "/assets/heroes-current/lukas.png",
+      "/assets/hero-source/lukas.png"
+    ]
+  },
+  {
+    "name": "Lunox",
+    "images": [
+      "/assets/hero-icons/lunox.jpg",
+      "/assets/hero-source/lunox.png"
+    ]
+  },
+  {
+    "name": "Luo Yi",
+    "images": [
+      "/assets/hero-icons/luoyi.jpg",
+      "/assets/heroes-current/luoyi.png",
+      "/assets/hero-source/luoyi.png"
+    ]
+  },
+  {
+    "name": "Lylia",
+    "images": [
+      "/assets/hero-icons/lylia.jpg",
+      "/assets/hero-source/lylia.png"
+    ]
+  },
+  {
+    "name": "Marcel",
+    "images": [
+      "/assets/hero-icons/marcel.jpg",
+      "/assets/heroes-current/marcel.jpg",
+      "/assets/hero-source/marcel.png"
+    ]
+  },
+  {
+    "name": "Martis",
+    "images": [
+      "/assets/hero-icons/martis.jpg",
+      "/assets/hero-source/martis.png"
+    ]
+  },
+  {
+    "name": "Masha",
+    "images": [
+      "/assets/hero-icons/masha.jpg",
+      "/assets/heroes-current/masha.png",
+      "/assets/hero-source/masha.png"
+    ]
+  },
+  {
+    "name": "Mathilda",
+    "images": [
+      "/assets/hero-icons/mathilda.jpg",
+      "/assets/heroes-current/mathilda.png",
+      "/assets/hero-source/mathilda.png"
+    ]
+  },
+  {
+    "name": "Melissa",
+    "images": [
+      "/assets/hero-icons/melissa.jpg",
+      "/assets/heroes-current/melissa.png",
+      "/assets/hero-source/melissa.png"
+    ]
+  },
+  {
+    "name": "Minotaur",
+    "images": [
+      "/assets/hero-icons/minotaur.jpg",
+      "/assets/hero-source/minotaur.png"
+    ]
+  },
+  {
+    "name": "Minsitthar",
+    "images": [
+      "/assets/hero-icons/minsitthar.jpg",
+      "/assets/heroes-current/minsitthar.png",
+      "/assets/hero-source/minsitthar.png"
+    ]
+  },
+  {
+    "name": "Miya",
+    "images": [
+      "/assets/hero-icons/miya.jpg",
+      "/assets/heroes-current/miya.png",
+      "/assets/hero-source/miya.png"
+    ]
+  },
+  {
+    "name": "Moskov",
+    "images": [
+      "/assets/hero-icons/moskov.jpg",
+      "/assets/heroes-current/moskov.png",
+      "/assets/hero-source/moskov.png"
+    ]
+  },
+  {
+    "name": "Nana",
+    "images": [
+      "/assets/hero-icons/nana.jpg",
+      "/assets/heroes-current/nana.png",
+      "/assets/hero-source/nana.png"
+    ]
+  },
+  {
+    "name": "Natalia",
+    "images": [
+      "/assets/hero-icons/natalia.jpg",
+      "/assets/hero-source/natalia.png"
+    ]
+  },
+  {
+    "name": "Natan",
+    "images": [
+      "/assets/hero-icons/natan.jpg",
+      "/assets/heroes-current/natan.png",
+      "/assets/hero-source/natan.png"
+    ]
+  },
+  {
+    "name": "Nolan",
+    "images": [
+      "/assets/hero-icons/nolan.jpg",
+      "/assets/heroes-current/nolan.png",
+      "/assets/hero-source/nolan.png"
+    ]
+  },
+  {
+    "name": "Novaria",
+    "images": [
+      "/assets/hero-icons/novaria.jpg",
+      "/assets/heroes-current/novaria.png",
+      "/assets/hero-source/novaria.png"
+    ]
+  },
+  {
+    "name": "Obsidia",
+    "images": [
+      "/assets/hero-icons/obsidia.jpg",
+      "/assets/heroes-current/obsidia.jpg",
+      "/assets/hero-source/obsidia.png"
+    ]
+  },
+  {
+    "name": "Odette",
+    "images": [
+      "/assets/hero-icons/odette.jpg",
+      "/assets/heroes-current/odette.png",
+      "/assets/hero-source/odette.png"
+    ]
+  },
+  {
+    "name": "Paquito",
+    "images": [
+      "/assets/hero-icons/paquito.jpg",
+      "/assets/heroes-current/paquito.png",
+      "/assets/hero-source/paquito.png"
+    ]
+  },
+  {
+    "name": "Pharsa",
+    "images": [
+      "/assets/hero-icons/pharsa.jpg",
+      "/assets/hero-source/pharsa.png"
+    ]
+  },
+  {
+    "name": "Phoveus",
+    "images": [
+      "/assets/hero-icons/phoveus.jpg",
+      "/assets/heroes-current/phoveus.jpg",
+      "/assets/hero-source/phoveus.png"
+    ]
+  },
+  {
+    "name": "Popol and Kupa",
+    "images": [
+      "/assets/hero-icons/popolandkupa.jpg",
+      "/assets/heroes-current/popolandkupa.png",
+      "/assets/hero-source/popolandkupa.png"
+    ]
+  },
+  {
+    "name": "Rafaela",
+    "images": [
+      "/assets/hero-icons/rafaela.jpg",
+      "/assets/heroes-current/rafaela.png",
+      "/assets/hero-source/rafaela.png"
+    ]
+  },
+  {
+    "name": "Roger",
+    "images": [
+      "/assets/hero-icons/roger.jpg",
+      "/assets/hero-source/roger.png"
+    ]
+  },
+  {
+    "name": "Ruby",
+    "images": [
+      "/assets/hero-icons/ruby.jpg",
+      "/assets/hero-source/ruby.png"
+    ]
+  },
+  {
+    "name": "Saber",
+    "images": [
+      "/assets/hero-icons/saber.jpg",
+      "/assets/heroes-current/saber.png",
+      "/assets/hero-source/saber.png"
+    ]
+  },
+  {
+    "name": "Selena",
+    "images": [
+      "/assets/hero-icons/selena.jpg",
+      "/assets/hero-source/selena.png"
+    ]
+  },
+  {
+    "name": "Silvanna",
+    "images": [
+      "/assets/hero-icons/silvanna.jpg",
+      "/assets/hero-source/silvanna.png"
+    ]
+  },
+  {
+    "name": "Sora",
+    "images": [
+      "/assets/hero-icons/sora.jpg",
+      "/assets/hero-source/sora.png"
+    ]
+  },
+  {
+    "name": "Sun",
+    "images": [
+      "/assets/hero-icons/sun.jpg",
+      "/assets/hero-source/sun.png"
+    ]
+  },
+  {
+    "name": "Suyou",
+    "images": [
+      "/assets/hero-icons/suyou.jpg",
+      "/assets/heroes-current/suyou.png",
+      "/assets/hero-source/suyou.png"
+    ]
+  },
+  {
+    "name": "Terizla",
+    "images": [
+      "/assets/hero-icons/terizla.jpg",
+      "/assets/heroes-current/terizla.png",
+      "/assets/hero-source/terizla.png"
+    ]
+  },
+  {
+    "name": "Thamuz",
+    "images": [
+      "/assets/hero-icons/thamuz.jpg",
+      "/assets/hero-source/thamuz.png"
+    ]
+  },
+  {
+    "name": "Tigreal",
+    "images": [
+      "/assets/hero-icons/tigreal.jpg",
+      "/assets/heroes-current/tigreal.png",
+      "/assets/hero-source/tigreal.png"
+    ]
+  },
+  {
+    "name": "Uranus",
+    "images": [
+      "/assets/hero-icons/uranus.jpg",
+      "/assets/hero-source/uranus.png"
+    ]
+  },
+  {
+    "name": "Vale",
+    "images": [
+      "/assets/hero-icons/vale.jpg",
+      "/assets/hero-source/vale.png"
+    ]
+  },
+  {
+    "name": "Valentina",
+    "images": [
+      "/assets/hero-icons/valentina.jpg",
+      "/assets/heroes-current/valentina.png",
+      "/assets/hero-source/valentina.png"
+    ]
+  },
+  {
+    "name": "Valir",
+    "images": [
+      "/assets/hero-icons/valir.jpg",
+      "/assets/hero-source/valir.png"
+    ]
+  },
+  {
+    "name": "Vexana",
+    "images": [
+      "/assets/hero-icons/vexana.jpg",
+      "/assets/heroes-current/vexana.png",
+      "/assets/hero-source/vexana.png"
+    ]
+  },
+  {
+    "name": "Wanwan",
+    "images": [
+      "/assets/hero-icons/wanwan.png",
+      "/assets/heroes-current/wanwan.png",
+      "/assets/hero-source/wanwan.png"
+    ]
+  },
+  {
+    "name": "X.Borg",
+    "images": [
+      "/assets/hero-icons/xborg.jpg",
+      "/assets/heroes-current/xborg.png",
+      "/assets/hero-source/xborg.png"
+    ]
+  },
+  {
+    "name": "Xavier",
+    "images": [
+      "/assets/hero-icons/xavier.jpg",
+      "/assets/heroes-current/xavier.png",
+      "/assets/hero-source/xavier.png"
+    ]
+  },
+  {
+    "name": "Yi Sun-shin",
+    "images": [
+      "/assets/hero-icons/yisunshin.jpg",
+      "/assets/heroes-current/yisunshin.png",
+      "/assets/hero-source/yisunshin.png"
+    ]
+  },
+  {
+    "name": "Yin",
+    "images": [
+      "/assets/hero-icons/yin.jpg",
+      "/assets/heroes-current/yin.png",
+      "/assets/hero-source/yin.png"
+    ]
+  },
+  {
+    "name": "Yu Zhong",
+    "images": [
+      "/assets/hero-icons/yuzhong.jpg",
+      "/assets/heroes-current/yuzhong.png",
+      "/assets/hero-source/yuzhong.png"
+    ]
+  },
+  {
+    "name": "Yve",
+    "images": [
+      "/assets/hero-icons/yve.jpg",
+      "/assets/heroes-current/yve.png",
+      "/assets/hero-source/yve.png"
+    ]
+  },
+  {
+    "name": "Zetian",
+    "images": [
+      "/assets/hero-icons/zetian.jpg",
+      "/assets/heroes-current/zetian.png",
+      "/assets/hero-source/zetian.png"
+    ]
+  },
+  {
+    "name": "Zhask",
+    "images": [
+      "/assets/hero-icons/zhask.jpg",
+      "/assets/heroes-current/zhask.png",
+      "/assets/hero-source/zhask.png"
+    ]
+  },
+  {
+    "name": "Zhuxin",
+    "images": [
+      "/assets/hero-icons/zhuxin.jpg",
+      "/assets/heroes-current/zhuxin.png",
+      "/assets/hero-source/zhuxin.png"
+    ]
+  },
+  {
+    "name": "Zilong",
+    "images": [
+      "/assets/hero-icons/zilong.jpg",
+      "/assets/heroes-current/zilong.png",
+      "/assets/hero-source/zilong.png"
+    ]
+  }
+]

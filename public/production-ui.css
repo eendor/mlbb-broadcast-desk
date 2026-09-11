@@ -20,3 +20,12 @@
 :focus-visible{outline:2px solid var(--lime);outline-offset:3px}
 @media(min-width:1500px){.layout-fields{grid-template-columns:minmax(190px,2fr) repeat(6,minmax(70px,1fr))}}
 @media(max-width:700px){.layout-fields{grid-template-columns:repeat(2,minmax(0,1fr))}.layout-fields label:first-child{grid-column:1/-1}.series-toolbar{gap:10px}.series-toolbar select{width:100%}.connection{max-width:150px}.playerrow{display:flex;flex-wrap:wrap}.playerrow input{flex:1 1 90px}.playerrow>span{flex:0 0 100%}.expanded-preview{inset:0}}
+#detectControls{margin:16px 0;padding:14px;border:1px solid var(--line);border-radius:8px;background:#101923}
+#detectStatus{display:block;color:var(--lime);line-height:1.5}
+#detectControls details{margin-top:14px;font-size:12px;line-height:1.5}
+#detectControls summary{cursor:pointer;color:var(--ink)}
+#learnPreview{display:block;object-fit:cover;margin:12px 0;border:1px solid var(--line)}
+#learnPreview:not([src]){display:none}
+#ocrResults{max-height:620px;overflow:auto}
+#ocrResults .ocrrow{grid-template-columns:minmax(0,1.1fr) minmax(0,.8fr) minmax(90px,1fr);gap:8px}
+#ocrResults .ocrrow>*{overflow-wrap:anywhere}
