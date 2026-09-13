@@ -150,5 +150,12 @@ app.post('/api/swiss/poll-match-result',async(req,res)=>{
     return res.json({ready:false,error:e.message});
   }
 });
+app.post('/api/swiss/game',(req,res)=>{
+  if(!state.swiss)throw Error('Start the Swiss bracket first');
+  const next=structuredClone(state.swiss);
+  const r=Swiss.reportGame(next,String(req.body.matchId||''),{winner:req.body.winner,battleId:req.body.battleId||null,n:Number(req.body.n)||0});
+  const last=(r.match.games||[])[r.match.games.length-1];
+  res.json({state:commit({swiss:next}),result:{swissMatchId:r.match.id,game:last?last.n:null,series:r.series,clinched:r.clinched,applied:r.applied,advanced:r.advanced,conflict:r.conflict,duplicate:r.duplicate,consistent:!!r.consistent,complete:next.complete}});
+});
 app.use((err,req,res,next)=>{console.error(err.message);res.status(400).json({error:err.message});});
 if(require.main===module)app.listen(port,'127.0.0.1',()=>console.log(`PASIKLAB Broadcast Desk: http://127.0.0.1:${port}`));module.exports={app};

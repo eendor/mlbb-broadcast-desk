@@ -52,6 +52,23 @@
     } catch (error) { toast(error.message,true); }
     finally { busy = false; }
   }
+  // Double-click a team = that side won one game (BO3, first to 2 takes the series).
+  async function game(matchId,winner) {
+    if (busy) return;
+    busy = true;
+    try {
+      const out = await call('/api/swiss/game',{matchId,winner});
+      render(out.state.swiss);
+      const r = out.result;
+      if (r.duplicate) { toast(`${r.swissMatchId} Game ${r.game}: already recorded`); return; }
+      const s = ` · series ${r.series.blue}–${r.series.red}`;
+      if (r.conflict) toast(`⚠️ ${r.swissMatchId}: games say otherwise but series marked — Undo to correct${s}`, true);
+      else if (r.applied) toast(`✅ ${r.swissMatchId} decided${s}${r.advanced ? ' — next round ready' : ''}`);
+      else toast(`Game ${r.game} recorded (${r.swissMatchId})${s}`);
+      if (r.complete) toast('Swiss stage complete');
+    } catch (error) { toast(error.message,true); }
+    finally { busy = false; }
+  }
   const pendingResults = []; // {battleId, redSide, blueSide, text, addedAt, status}
   let pollTimer = null, pollRunning = false;
   function renderPendingBar() {
@@ -223,11 +240,11 @@ Red side: UFTTS"></textarea>
     const round = swiss.rounds.find(r=>r.round===current);
     const locked = swiss.complete || current !== swiss.currentRound;
     body.innerHTML = `<div class="swiss-toolbar"><label>Results for<select id="swissRound"><option value="live">Current round</option>${swiss.rounds.map(r=>`<option value="${r.round}" ${selectedRound===r.round?'selected':''}>Round ${r.round}</option>`).join('')}</select></label></div>
-      <p class="hint">BO3 series — parse Discord reports per game (first to 2), or click a team to set the series winner directly. Gold marks the series winner.</p>
+      <p class="hint">BO3 series — <b>double-click</b> the winner of each game (first to 2 takes the series). Undo resets the whole series. Gold marks the series winner.</p>
       <div class="buttonrow" style="margin-bottom:12px"><button id="swissParseDiscord" class="primary">📋 Parse Discord Match Data</button></div>
       <div class="swiss-matches">${round.matches.map(m=>`<article class="swiss-match" data-match="${esc(m.id)}">
         <h3>${esc(m.id)} <small>${esc(m.pool)}${m.rematch?' · REMATCH':''}</small></h3>
-        ${['blue','red'].map(side=>`<button data-win="${side}" data-match="${esc(m.id)}" class="${m.winner===side?'won':''}" ${locked||m.winner===side?'disabled':''}>${esc(m[side])}${m.winner===side?' ✓':''}</button>`).join('')}
+        ${['blue','red'].map(side=>`<button data-win="${side}" data-match="${esc(m.id)}" title="Double-click to record a game win for ${esc(m[side])}" class="${m.winner===side?'won':''}" ${locked||m.winner?'disabled':''}>${esc(m[side])}${m.winner===side?' ✓':''}</button>`).join('')}
         <div class="swiss-result">${m.winner?esc(m[m.winner])+' wins':'Awaiting result'}</div>
         ${seriesHtml(m)}
         ${m.winner&&!locked?`<button data-clear-result="${esc(m.id)}">Undo result</button>`:''}
@@ -237,7 +254,7 @@ Red side: UFTTS"></textarea>
       <details><summary>Reset bracket</summary><p class="hint">This clears all Swiss results and returns to team setup.</p><button id="swissClear">Clear Swiss bracket</button><span id="swissClearConfirm"></span></details>`;
     document.getElementById('swissRound').onchange = event => { selectedRound = event.target.value==='live'?null:Number(event.target.value);render(cache,true); };
     document.getElementById('swissParseDiscord').onclick = () => showParseDiscordModal();
-    body.querySelectorAll('[data-win]').forEach(button=>button.onclick=()=>result(button.dataset.match,button.dataset.win));
+    body.querySelectorAll('[data-win]').forEach(button=>button.ondblclick=()=>game(button.dataset.match,button.dataset.win));
     body.querySelectorAll('[data-clear-result]').forEach(button=>button.onclick=()=>result(button.dataset.clearResult,null));
     document.getElementById('swissEditNames').onclick = () => {
       editingNames = true;
