@@ -17,6 +17,7 @@ body:has(#tournament.active) .series-toolbar{display:none}
 .swiss-match button[data-win]{display:block;width:100%;margin-top:7px;text-align:left;white-space:normal;min-height:40px}
 .swiss-match button.won{border-color:#ffcc38;color:#ffdc68;background:#ffcc3810}
 .swiss-match .swiss-result{min-height:18px;font-size:12px;color:#ffdc68;margin-top:10px}
+.swiss-match .swiss-series{min-height:16px;font-size:11px;color:#ffdc68;opacity:.85;margin-top:6px}
 .swiss-team-editors{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 20px;margin:12px 0}
 .swiss-team-editors label{margin:0}
 #swissPanel details{margin-top:20px}

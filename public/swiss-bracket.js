@@ -93,6 +93,9 @@
   function pulse(state,slot,delay=0) {
     effect(state,slot,[{filter:'brightness(1.8)'},{filter:'brightness(1)'}],{duration:700,delay,easing:'ease-out'});
   }
+  function hop(state,slot,delay=0) {
+    effect(state,slot,[{transform:'translateY(-18px)'},{transform:'translateY(0px)'}],{duration:600,delay,easing:'cubic-bezier(.22,.75,.18,1)'});
+  }
   function draw(svg, swiss, logos, state) {
     finishMotion(state);
     const previous = new Map(), previousTeams = new Map();
@@ -138,6 +141,34 @@
       }
       live.append(group);
     }
+    // Teams that already clinched a future pool before its pairings exist appear
+    // there immediately as "advanced, awaiting pairing". They fly in with the normal
+    // arrival animation and reshuffle into real slots once the round generates.
+    {
+      const hasPool = {};
+      for (const round of swiss.rounds) for (const match of round.matches) hasPool[match.pool] = true;
+      const order = new Map(swiss.teams.map((t,i)=>[t.name,i]));
+      for (const [poolKey, pool] of Object.entries(pools)) {
+        if (hasPool[poolKey]) continue;
+        const clinched = swiss.teams
+          .filter(t => t.status === 'alive' && `${t.w}-${t.l}` === poolKey)
+          .sort((a,b)=>order.get(a.name)-order.get(b.name));
+        if (!clinched.length) continue;
+        const group = node('g', { 'data-match-id': 'projected-'+poolKey, 'data-pool': poolKey });
+        group.append(node('title', {}, `${poolKey}: advanced, awaiting pairing`));
+        clinched.forEach((team,i) => {
+          const row = Math.floor(i/2);
+          if (!pool || pool.y[row] === undefined) return;
+          const x = pool.x[i%2], y = pool.y[row], entry = identity(team, logos);
+          const size = 72, logoY = y+4;
+          const slot = node('g', { 'data-slot':'projected/'+poolKey+'/'+i,'data-x':x,'data-y':logoY,'data-side':i%2?'red':'blue','data-team':team.name,'data-result':'pending' });
+          logo(slot, entry, x, logoY, size);
+          group.append(slot);
+          transition(slot);
+        });
+        live.append(group);
+      }
+    }
     // Keep teams in the outcome box for the record on which they finished.
     for (const [record,box] of Object.entries(finish)) {
       const finished = swiss.teams.filter(t => `${t.w}-${t.l}` === record && t.status !== 'alive');
@@ -179,7 +210,7 @@
         text.setAttribute('lengthAdjust', 'spacingAndGlyphs');
       }
     });
-    wins.forEach(slot=>pulse(state,slot));
+    wins.forEach(slot=>{pulse(state,slot);hop(state,slot);});
     if (arrivals.length) {
       const motion=node('g',{'data-swiss-motion':'',transform:'scale(.8)','aria-hidden':'true','pointer-events':'none'});
       svg.append(motion);
@@ -194,7 +225,7 @@
         effect(state,flight,[
           {transform:`translate(${dx}px,${dy}px)`,opacity:.8},
           {transform:'translate(0px,0px)',opacity:1},
-        ],{duration:1050,delay:Math.min(index*65,650),easing:'cubic-bezier(.22,.75,.18,1)'},()=>{
+        ],{duration:1050,delay:0,easing:'cubic-bezier(.22,.75,.18,1)'},()=>{
           slot.style.removeProperty('opacity');flight.remove();
           if (!motion.children.length) motion.remove();
         });

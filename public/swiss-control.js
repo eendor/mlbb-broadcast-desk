@@ -66,7 +66,7 @@
       else return;
     }
     bar.innerHTML = `<strong>⏳ Auto-results waiting (${pendingResults.length}):</strong> ` +
-      pendingResults.map(p => `<span class="swiss-pending-item">${esc(p.blueSide)} vs ${esc(p.redSide)} · ${esc(p.status)}</span>`).join(' ');
+      pendingResults.map(p => `<span class="swiss-pending-item">${esc(p.label)} · ${esc(p.status)}</span>`).join(' ');
   }
   async function pollPending() {
     if (pollRunning) return;
@@ -79,13 +79,12 @@
           entry.status = 'applying…';
           renderPendingBar();
           const data = await call('/api/swiss/parse-discord-result', { text: entry.text });
-          await result(data.swissMatchId, data.winnerSide);
+          applyParseResults(data);
           pendingResults.splice(pendingResults.indexOf(entry), 1);
-          toast(`✅ ${data.winnerTeam} wins ${data.swissMatchId} (auto-applied)`);
         } catch (error) {
-          // Match already decided, bad paste, or fetch failure: drop it and surface the reason
-          if (/already has a result|No Swiss match found|Could not map/i.test(error.message)) {
-            toast(`${entry.blueSide} vs ${entry.redSide}: ${error.message}`, true);
+          // Permanent failures drop; fetch hiccups keep retrying.
+          if (/No Swiss match found|locked|complete|Invalid|Missing|No match reports|empty/i.test(error.message)) {
+            toast(`${entry.label}: ${error.message}`, true);
             pendingResults.splice(pendingResults.indexOf(entry), 1);
           }
         }
@@ -94,6 +93,43 @@
       pollRunning = false;
       renderPendingBar();
     }
+  }
+  function seriesOf(m) {
+    let blue = 0, red = 0;
+    for (const g of m.games || []) { if (g.winner === 'blue') blue += 1; else if (g.winner === 'red') red += 1; }
+    return { blue, red };
+  }
+  function seriesHtml(m) {
+    if (!m.games || !m.games.length) return '';
+    const s = seriesOf(m);
+    return `<div class="swiss-series">Series ${s.blue}–${s.red} · BO3</div>`;
+  }
+  function applyParseResults(data) {
+    render(data.state.swiss);
+    for (const r of data.results || []) {
+      if (r.error) { toast(`${r.swissMatchId || 'Report'}: ${r.error}`, true); continue; }
+      if (r.duplicate) { toast(`${r.swissMatchId} Game ${r.game}: already recorded`); continue; }
+      const s = ` · series ${r.series.blue}–${r.series.red}`;
+      if (r.conflict) toast(`⚠️ ${r.swissMatchId}: games say ${r.winnerTeam} but series marked otherwise${s}`, true);
+      else if (r.applied) toast(`✅ ${r.winnerTeam} takes ${r.swissMatchId}${s}${r.advanced ? ' — next round ready' : ''}`);
+      else toast(`${r.winnerTeam} wins Game ${r.game} (${r.swissMatchId})${s}`);
+    }
+    if (data.state.swiss.complete) toast('Swiss stage complete');
+  }
+  function splitReports(text) {
+    return String(text || '').split(/^(?=Round:)/mi).map(b => b.trim()).filter(b => /Round:/i.test(b));
+  }
+  function parseBlockPreview(block) {
+    const red = (block.match(/Red side:\s*(.+)/i)?.[1] || '').trim();
+    const blue = (block.match(/Blue side:\s*(.+)/i)?.[1] || '').trim();
+    const game = parseInt(block.match(/Game\s*(\d+)/i)?.[1] || '0', 10) || null;
+    const winnerLine = (block.match(/WINNER:\s*(.+)/i)?.[1] || '').trim();
+    const rawId = (block.match(/(?:GameID|BattleID|ID):\s*([a-zA-Z0-9_-]+)/i)?.[1] || '').trim();
+    const battleId = (/^(blue|red)$/i.test(rawId) || !/^[a-zA-Z0-9_-]{6,100}$/.test(rawId)) ? null : rawId;
+    let reason = '';
+    if (!red || !blue) reason = 'missing Red/Blue side lines';
+    else if (!battleId && !winnerLine) reason = 'no BattleID and no WINNER: line';
+    return { red, blue, game, winnerLine, battleId, valid: !reason, reason };
   }
   function ensurePolling() {
     if (pollTimer) return;
@@ -107,7 +143,7 @@
     modal.innerHTML = `
       <div class="swiss-modal">
         <h3>Parse Discord Match Data</h3>
-        <p class="hint">Paste the match data from the MATCH-DATA Discord channel. It polls in the background until the game ends, then auto-applies the winner. You can close this window and paste more matches anytime.</p>
+        <p class="hint">Paste one or many reports from the MATCH-DATA channel. BO3 — first to 2 game wins takes the series. Reports with a WINNER: line apply instantly; BattleID reports poll until each game ends.</p>
         <textarea id="discordText" rows="10" placeholder="Round:  ROUND 1
 ULS VS UFTTS
 ULS vs UFTTS Game 1
@@ -126,45 +162,45 @@ Red side: UFTTS"></textarea>
     const textarea = document.getElementById('discordText');
     const preview = document.getElementById('parseDiscordPreview');
     const submitBtn = document.getElementById('parseDiscordSubmit');
-    let parsedData = null;
+    let blocks = [];
     textarea.addEventListener('input', () => {
       const text = textarea.value.trim();
-      if (!text) { preview.style.display='none'; submitBtn.disabled=true; parsedData=null; return; }
-      const idMatch = text.match(/(?:GameID|BattleID|ID):\s*([a-zA-Z0-9_-]+)/i);
-      const redSideMatch = text.match(/Red side:\s*(.+)/i);
-      const blueSideMatch = text.match(/Blue side:\s*(.+)/i);
-      if (idMatch && redSideMatch && blueSideMatch) {
-        parsedData = { battleId: idMatch[1].trim(), redSide: redSideMatch[1].trim(), blueSide: blueSideMatch[1].trim() };
-        preview.style.display = 'block';
-        preview.innerHTML = `
-          <p><strong>BattleID:</strong> ${esc(parsedData.battleId)}</p>
-          <p><strong>Red side:</strong> ${esc(parsedData.redSide)}</p>
-          <p><strong>Blue side:</strong> ${esc(parsedData.blueSide)}</p>
-          <p class="hint">Click "Add to auto-results" — the winner is applied automatically when the match ends.</p>
-        `;
-        submitBtn.disabled = false;
-      } else {
-        preview.style.display = 'none';
-        submitBtn.disabled = true;
-        parsedData = null;
-      }
+      if (!text) { preview.style.display='none'; submitBtn.disabled=true; blocks=[]; return; }
+      blocks = splitReports(text).map(t => ({ text: t, info: parseBlockPreview(t) }));
+      const valid = blocks.filter(b => b.info.valid);
+      if (!blocks.length) { preview.style.display='none'; submitBtn.disabled=true; return; }
+      preview.style.display = 'block';
+      preview.innerHTML = blocks.map((b,i) => {
+        const f = b.info;
+        if (!f.valid) return `<p>❌ Report ${i+1}: ${esc(f.reason)}</p>`;
+        const mode = f.winnerLine ? '⚡ applies now (WINNER declared)' : '⏳ polls until the game ends';
+        return `<p><strong>Report ${i+1}${f.game?` · Game ${f.game}`:''}:</strong> ${esc(f.blue)} vs ${esc(f.red)} · ${f.winnerLine?`WINNER: ${esc(f.winnerLine)}`:`BattleID ${esc(f.battleId)}`} · ${mode}</p>`;
+      }).join('') + (valid.length ? `<p class="hint">${valid.length} report${valid.length===1?'':'s'} ready — WINNER reports apply instantly, BattleID reports auto-apply when each game ends.</p>` : `<p class="hint">Fix the flagged reports to enable submit.</p>`);
+      submitBtn.disabled = !valid.length;
     });
-    submitBtn.onclick = () => {
-      if (!parsedData) return;
-      // Reject duplicate BattleIDs already in the queue
-      if (pendingResults.some(p => p.battleId === parsedData.battleId)) {
-        toast('That BattleID is already being watched', true);
-        return;
+    submitBtn.onclick = async () => {
+      const valid = blocks.filter(b => b.info.valid);
+      if (!valid.length || busy) return;
+      busy = true; submitBtn.disabled = true;
+      try {
+        // Marshal-declared winners apply immediately (no fetch needed).
+        for (const b of valid.filter(b => b.info.winnerLine)) {
+          try { applyParseResults(await call('/api/swiss/parse-discord-result', { text: b.text })); }
+          catch (error) { toast(error.message, true); }
+        }
+        // BattleID reports poll in the background until each game ends.
+        let queued = 0;
+        for (const b of valid.filter(b => !b.info.winnerLine && b.info.battleId)) {
+          if (pendingResults.some(p => p.battleId === b.info.battleId)) { toast(`BattleID already watched: ${b.info.battleId}`, true); continue; }
+          pendingResults.push({ battleId: b.info.battleId, text: b.text, label: `${b.info.blue} vs ${b.info.red}${b.info.game?` G${b.info.game}`:''}`, addedAt: Date.now(), status: 'waiting…' });
+          queued += 1;
+        }
+        if (queued) { toast(`Watching ${queued} game${queued===1?'':'s'} — auto-applies when each ends`); renderPendingBar(); ensurePolling(); }
+      } finally {
+        busy = false;
+        textarea.value = ''; blocks = [];
+        preview.style.display = 'none'; submitBtn.disabled = true;
       }
-      const label = `${parsedData.blueSide} vs ${parsedData.redSide}`;
-      pendingResults.push({ ...parsedData, text: textarea.value, addedAt: Date.now(), status: 'waiting…' });
-      textarea.value = '';
-      preview.style.display = 'none';
-      submitBtn.disabled = true;
-      parsedData = null;
-      toast(`Watching ${label} — result auto-applies when the game ends`);
-      renderPendingBar();
-      ensurePolling();
     };
   }
 
@@ -187,12 +223,13 @@ Red side: UFTTS"></textarea>
     const round = swiss.rounds.find(r=>r.round===current);
     const locked = swiss.complete || current !== swiss.currentRound;
     body.innerHTML = `<div class="swiss-toolbar"><label>Results for<select id="swissRound"><option value="live">Current round</option>${swiss.rounds.map(r=>`<option value="${r.round}" ${selectedRound===r.round?'selected':''}>Round ${r.round}</option>`).join('')}</select></label></div>
-      <p class="hint">Choose the winning team. Pairings fill the next round when all results in the current round are recorded. Gold marks the winner.</p>
+      <p class="hint">BO3 series — parse Discord reports per game (first to 2), or click a team to set the series winner directly. Gold marks the series winner.</p>
       <div class="buttonrow" style="margin-bottom:12px"><button id="swissParseDiscord" class="primary">📋 Parse Discord Match Data</button></div>
       <div class="swiss-matches">${round.matches.map(m=>`<article class="swiss-match" data-match="${esc(m.id)}">
         <h3>${esc(m.id)} <small>${esc(m.pool)}${m.rematch?' · REMATCH':''}</small></h3>
         ${['blue','red'].map(side=>`<button data-win="${side}" data-match="${esc(m.id)}" class="${m.winner===side?'won':''}" ${locked||m.winner===side?'disabled':''}>${esc(m[side])}${m.winner===side?' ✓':''}</button>`).join('')}
         <div class="swiss-result">${m.winner?esc(m[m.winner])+' wins':'Awaiting result'}</div>
+        ${seriesHtml(m)}
         ${m.winner&&!locked?`<button data-clear-result="${esc(m.id)}">Undo result</button>`:''}
       </article>`).join('')}</div>
       <div class="buttonrow"><button id="swissEditNames">Edit team names</button></div>

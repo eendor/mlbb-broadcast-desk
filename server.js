@@ -61,64 +61,75 @@ app.post('/api/swiss/parse-discord-result',async(req,res)=>{
   if(!state.swiss)throw Error('Start the Swiss bracket first');
   const text=String(req.body.text||'').trim();
   if(!text)throw Error('Paste the match data from Discord');
-  // Parse the Discord format - support GameID, BattleID, or ID
-  const idMatch=text.match(/(?:GameID|BattleID|ID):\s*([a-zA-Z0-9_-]+)/i);
-  const redSideMatch=text.match(/Red side:\s*(.+)/i);
-  const blueSideMatch=text.match(/Blue side:\s*(.+)/i);
-  if(!idMatch)throw Error('Could not find BattleID in the text');
-  if(!redSideMatch)throw Error('Could not find "Red side:" in the text');
-  if(!blueSideMatch)throw Error('Could not find "Blue side:" in the text');
-  const moontonId=idMatch[1].trim();
-  const redSideTeam=redSideMatch[1].trim();
-  const blueSideTeam=blueSideMatch[1].trim();
-  // Accept long numeric BattleIDs (up to 20 digits) or hex IDs
-  if(!/^[a-zA-Z0-9_-]{6,100}$/.test(moontonId))throw Error('Invalid ID format: '+moontonId);
-  // Find the Swiss match containing both teams
-  let swissMatch=null;
-  for(const round of state.swiss.rounds){
-    for(const m of round.matches){
-      const blue=m.blue.toLowerCase(),red=m.red.toLowerCase();
-      const rSide=redSideTeam.toLowerCase(),bSide=blueSideTeam.toLowerCase();
-      if((blue===rSide&&red===bSide)||(blue===bSide&&red===rSide)){
-        swissMatch=m;break;
+  // One paste can hold several reports — split on Round: headers, drop junk.
+  const blocks=text.split(/^(?=Round:)/mi).map(b=>b.trim()).filter(b=>/Round:/i.test(b));
+  if(!blocks.length)throw Error('No match reports found — paste the Discord match data');
+  const next=structuredClone(state.swiss);
+  const results=[];
+  const matchTeam=(m,name)=>{
+    if(!name)return null;
+    const n=name.toLowerCase(),blue=m.blue.toLowerCase(),red=m.red.toLowerCase();
+    if(n===blue)return'blue';if(n===red)return'red';
+    if(blue.includes(n)||n.includes(blue))return'blue';
+    if(red.includes(n)||n.includes(red))return'red';
+    return null;
+  };
+  for(const block of blocks){
+    const out={block:block.slice(0,80)};
+    try{
+      const redSide=(block.match(/Red side:\s*(.+)/i)?.[1]||'').trim();
+      const blueSide=(block.match(/Blue side:\s*(.+)/i)?.[1]||'').trim();
+      if(!redSide||!blueSide)throw Error('Missing "Red side:" / "Blue side:" lines');
+      const gameNo=parseInt(block.match(/Game\s*(\d+)/i)?.[1]||'0',10)||0;
+      out.game=gameNo||null;out.redSideTeam=redSide;out.blueSideTeam=blueSide;
+      // Find the Swiss match containing both teams.
+      let m=null;
+      for(const round of next.rounds){
+        for(const cand of round.matches){
+          const blue=cand.blue.toLowerCase(),red=cand.red.toLowerCase();
+          const rSide=redSide.toLowerCase(),bSide=blueSide.toLowerCase();
+          if((blue===rSide&&red===bSide)||(blue===bSide&&red===rSide)){m=cand;break;}
+        }
+        if(m)break;
       }
-    }
-    if(swissMatch)break;
+      if(!m)throw Error(`No Swiss match found with teams "${redSide}" and "${blueSide}"`);
+      out.swissMatchId=m.id;
+      const winnerLine=(block.match(/WINNER:\s*(.+)/i)?.[1]||'').trim();
+      let winnerSide=null,winnerTeam=null,moontonId=null,winCamp=null;
+      if(winnerLine){
+        // Marshal-declared winner — no fetch needed (also covers missing BattleIDs).
+        winnerTeam=winnerLine;
+        winnerSide=matchTeam(m,winnerLine);
+        if(!winnerSide)throw Error(`Could not map winner "${winnerLine}" to ${m.blue} / ${m.red}`);
+      }else{
+        const idMatch=block.match(/(?:GameID|BattleID|ID):\s*([a-zA-Z0-9_-]+)/i);
+        if(!idMatch)throw Error('No BattleID and no WINNER: line — cannot determine winner');
+        moontonId=idMatch[1].trim();
+        // Guard the empty-BattleID trap (regex would otherwise capture "Blue").
+        if(/^(blue|red)$/i.test(moontonId))throw Error('BattleID is empty and no WINNER: line given');
+        if(!/^[a-zA-Z0-9_-]{6,100}$/.test(moontonId))throw Error('Invalid ID format: '+moontonId);
+        let raw=await fetchJson(`https://sg-api.mobilelegends.com/matchTools/v1/getMatchUrl?matchId=${encodeURIComponent(moontonId)}`);
+        const feedUrl=findFeed(raw);
+        if(feedUrl)raw=await fetchJson(feedUrl);
+        const root=raw?.data?.matchdata??raw?.matchdata??raw?.data??raw;
+        const battle=root?.battleData;
+        if(!battle)throw Error('No battle data in match response');
+        const winCampRaw=battle.win_camp;
+        if(![1,'1',2,'2'].includes(winCampRaw))throw Error('Match result not available yet');
+        winCamp=Number(winCampRaw);
+        winnerTeam=winCamp===1?redSide:blueSide;
+        winnerSide=matchTeam(m,winnerTeam);
+        if(!winnerSide)throw Error(`Could not map winner "${winnerTeam}" to ${m.blue} / ${m.red}`);
+      }
+      const existing=m.games||[];
+      const n=gameNo||(existing.reduce((a,g)=>Math.max(a,g.n||0),0)+1);
+      const r=Swiss.reportGame(next,m.id,{winner:winnerSide,battleId:moontonId,n});
+      Object.assign(out,{moontonId,winnerTeam,winnerSide,winCamp,game:n,series:r.series,clinched:r.clinched,applied:!!r.applied,advanced:!!r.advanced,conflict:!!r.conflict,duplicate:!!r.duplicate,consistent:!!r.consistent});
+    }catch(error){out.error=error.message;}
+    results.push(out);
   }
-  if(!swissMatch)throw Error(`No Swiss match found with teams "${redSideTeam}" and "${blueSideTeam}"`);
-  if(swissMatch.winner)throw Error('Match already has a result: '+swissMatch.id);
-  // Fetch the Moonton match result
-  let raw=await fetchJson(`https://sg-api.mobilelegends.com/matchTools/v1/getMatchUrl?matchId=${encodeURIComponent(moontonId)}`);
-  const feedUrl=findFeed(raw);
-  if(feedUrl)raw=await fetchJson(feedUrl);
-  const root=raw?.data?.matchdata??raw?.matchdata??raw?.data??raw;
-  const battle=root?.battleData;
-  if(!battle)throw Error('No battle data in match response');
-  const winCamp=battle.win_camp;
-  if(![1,'1',2,'2'].includes(winCamp))throw Error('Match result not available yet');
-  const winCampNum=Number(winCamp);
-  // In Moonton API: camp 1 = red side, camp 2 = blue side
-  // Marshal told us which Swiss team is on which side
-  const winnerTeam=winCampNum===1?redSideTeam:blueSideTeam;
-  // Determine if winner is on blue or red side of the Swiss match
-  const swissBlue=swissMatch.blue.toLowerCase();
-  const swissRed=swissMatch.red.toLowerCase();
-  const winnerLower=winnerTeam.toLowerCase();
-  let winnerSide=null;
-  if(winnerLower===swissBlue)winnerSide='blue';
-  else if(winnerLower===swissRed)winnerSide='red';
-  else{
-    // Try partial match
-    if(swissBlue.includes(winnerLower)||winnerLower.includes(swissBlue))winnerSide='blue';
-    else if(swissRed.includes(winnerLower)||winnerLower.includes(swissRed))winnerSide='red';
-  }
-  if(!winnerSide)throw Error(`Could not map winner "${winnerTeam}" to Swiss match sides`);
-  res.json({
-    moontonId,swissMatchId:swissMatch.id,
-    redSideTeam,blueSideTeam,winnerTeam,
-    winCamp:winCampNum,winnerSide,
-    autoApply:true
-  });
+  if(!results.some(r=>!r.error))throw Error(results[0].error||'No match reports could be applied');
+  res.json({state:commit({swiss:next}),results});
 });
 app.post('/api/swiss/poll-match-result',async(req,res)=>{
   if(!state.swiss)throw Error('Start the Swiss bracket first');

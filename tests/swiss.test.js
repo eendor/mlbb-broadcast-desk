@@ -84,6 +84,64 @@ test('clearing a live result restores both records without advancing', () => {
   assert.equal(swiss.currentRound,1);
 });
 
+test('BO3 games record without clinching until 2 wins', () => {
+  const { swiss } = Swiss.startSwiss(TEAMS);
+  let r = Swiss.reportGame(swiss, 'R1M1', { winner: 'blue', battleId: 'aaaaaa111111', n: 1 });
+  assert.deepEqual(r.series, { blue: 1, red: 0 });
+  assert.equal(r.clinched, null);
+  assert.equal(r.applied, false);
+  assert.equal(Swiss.findMatch(swiss, 'R1M1').winner, null);
+  assert.equal(swiss.teams.find(t => t.name === 'ULS').w, 0);
+  r = Swiss.reportGame(swiss, 'R1M1', { winner: 'red', battleId: 'bbbbbb222222', n: 2 });
+  assert.deepEqual(r.series, { blue: 1, red: 1 });
+  assert.equal(r.clinched, null);
+  assert.equal(Swiss.findMatch(swiss, 'R1M1').winner, null);
+  Swiss.validateSwiss(swiss);
+});
+
+test('BO3 second win clinches the series and advances records', () => {
+  const { swiss } = Swiss.startSwiss(TEAMS);
+  Swiss.reportGame(swiss, 'R1M1', { winner: 'blue', battleId: 'aaaaaa111111', n: 1 });
+  const r = Swiss.reportGame(swiss, 'R1M1', { winner: 'blue', battleId: 'cccccc333333', n: 2 });
+  assert.equal(r.clinched, 'blue');
+  assert.equal(r.applied, true);
+  assert.equal(Swiss.findMatch(swiss, 'R1M1').winner, 'blue');
+  assert.deepEqual([swiss.teams.find(t => t.name === 'ULS').w, swiss.teams.find(t => t.name === 'ULS').l], [1, 0]);
+  Swiss.validateSwiss(swiss);
+});
+
+test('BO3 duplicate BattleIDs are ignored and same-game corrections replace', () => {
+  const { swiss } = Swiss.startSwiss(TEAMS);
+  Swiss.reportGame(swiss, 'R1M1', { winner: 'blue', battleId: 'aaaaaa111111', n: 1 });
+  const dup = Swiss.reportGame(swiss, 'R1M1', { winner: 'blue', battleId: 'aaaaaa111111', n: 1 });
+  assert.equal(dup.duplicate, true);
+  assert.equal(Swiss.findMatch(swiss, 'R1M1').games.length, 1);
+  Swiss.reportGame(swiss, 'R1M1', { winner: 'red', battleId: 'bbbbbb222222', n: 1 });
+  assert.deepEqual(Swiss.seriesScore(Swiss.findMatch(swiss, 'R1M1')), { blue: 0, red: 1 });
+  Swiss.validateSwiss(swiss);
+});
+
+test('BO3 never auto-overturns a manual series winner, undo clears games', () => {
+  const { swiss } = Swiss.startSwiss(TEAMS);
+  Swiss.reportResult(swiss, 'R1M7', 'red');
+  Swiss.reportGame(swiss, 'R1M7', { winner: 'blue', battleId: 'aaaaaa111111', n: 1 });
+  const r = Swiss.reportGame(swiss, 'R1M7', { winner: 'blue', battleId: 'bbbbbb222222', n: 2 });
+  assert.equal(r.conflict, true);
+  assert.equal(Swiss.findMatch(swiss, 'R1M7').winner, 'red');
+  Swiss.reportResult(swiss, 'R1M7', null);
+  assert.equal(Swiss.findMatch(swiss, 'R1M7').games.length, 0);
+  assert.ok(swiss.teams.every(t => t.w === 0 && t.l === 0));
+  Swiss.validateSwiss(swiss);
+});
+
+test('validateSwiss accepts game history and rejects malformed games', () => {
+  const { swiss } = Swiss.startSwiss(TEAMS);
+  Swiss.reportGame(swiss, 'R1M1', { winner: 'blue', battleId: null, n: 1 });
+  Swiss.validateSwiss(swiss);
+  Swiss.findMatch(swiss, 'R1M1').games.push({ n: 0, winner: 'blue' });
+  assert.throws(() => Swiss.validateSwiss(swiss), /game/);
+});
+
 test('name corrections preserve results, logos and future opponent history', () => {
   const {swiss} = Swiss.startSwiss(TEAMS);
   for(const match of Swiss.currentMatches(swiss)) Swiss.reportResult(swiss,match.id,'blue');
