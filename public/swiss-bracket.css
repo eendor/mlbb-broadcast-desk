@@ -1,0 +1,59 @@
+.swiss-bracket{position:relative;isolation:isolate;width:1920px;height:1080px;background:#111;color:#fff;overflow:hidden}
+.swiss-bracket>svg,.swiss-preview>svg{display:block;width:100%;height:100%}
+.swiss-preview{position:relative;isolation:isolate;width:100%;aspect-ratio:16/9;background:#111;overflow:hidden;margin:16px 0;border:1px solid #ffffff22}
+.swiss-preview:fullscreen{height:100%;margin:0;border:0;display:grid;place-items:center}
+.swiss-preview:fullscreen>svg{max-height:100vh}
+.swiss-toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.swiss-toolbar a{color:#d6f36a;padding:8px}
+.swiss-view-control{margin:0 0 0 auto;font-size:12px;min-width:245px}
+.swiss-view-control select{font-size:14px;margin-top:4px;width:100%}
+.swiss-bracket>svg,.swiss-preview>svg{isolation:isolate}
+[data-swiss-motion]{pointer-events:none}
+body:has(#tournament.active) .series-toolbar{display:none}
+.swiss-matches{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:14px 0}
+.swiss-match{border:1px solid #ffffff22;border-radius:8px;padding:12px;background:#ffffff05}
+.swiss-match h3{margin:0 0 10px;font-size:14px}
+.swiss-match h3 small{font-size:11px;opacity:.7;font-weight:400}
+.swiss-match button[data-win]{display:block;width:100%;margin-top:7px;text-align:left;white-space:normal;min-height:40px}
+.swiss-match button.won{border-color:#ffcc38;color:#ffdc68;background:#ffcc3810}
+.swiss-match .swiss-result{min-height:18px;font-size:12px;color:#ffdc68;margin-top:10px}
+.swiss-team-editors{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 20px;margin:12px 0}
+.swiss-team-editors label{margin:0}
+#swissPanel details{margin-top:20px}
+#swissPanel summary{cursor:pointer;font-weight:700}
+@media(max-width:1350px){.swiss-matches{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.swiss-matches,.swiss-team-editors{grid-template-columns:1fr}}
+.swiss-modal-overlay{position:fixed;inset:0;background:#000c;z-index:1000;display:grid;place-items:center;padding:20px}
+.swiss-modal{background:#1a1a1a;border:1px solid #ffffff33;border-radius:12px;padding:24px;max-width:600px;width:100%;max-height:90vh;overflow-y:auto}
+.swiss-modal h3{margin:0 0 12px;font-size:18px}
+.swiss-modal textarea{width:100%;font-family:monospace;font-size:13px;padding:10px;background:#0a0a0a;border:1px solid #ffffff22;border-radius:6px;color:#fff;resize:vertical;margin:12px 0}
+.swiss-parse-result{margin-top:16px;padding:12px;background:#ffffff08;border-radius:6px}
+.swiss-parse-result p{margin:6px 0;font-size:14px}
+.swiss-parse-result .error{color:#ff6b6b}
+.swiss-pending-bar{margin:0 0 12px;padding:10px 12px;background:#ffcc3812;border:1px solid #ffcc3855;border-radius:8px;font-size:13px}
+.swiss-pending-bar .swiss-pending-item{display:inline-block;margin:4px 8px 0 0;padding:3px 8px;background:#ffcc3822;border-radius:4px}
+/* Blazing fire effects for the Swiss stage — screen blend only adds light, never darkens the bracket. */
+.swiss-fx{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:2}
+/* Heat wash rising from the stage floor — kept low so mid-bracket text stays crisp */
+.fx-heat{position:absolute;left:0;right:0;bottom:0;height:30%;background:linear-gradient(transparent,#ff5e3a0d 55%,#ff9a3a1c 82%,#ffb84d2e 95%,#ffd98a38);mix-blend-mode:screen;animation:fx-breathe 3.2s ease-in-out infinite alternate;will-change:opacity}
+/* Flickering flame wall with three offset layers for a natural burn */
+.fx-flame{position:absolute;left:-6%;right:-6%;bottom:-14%;height:24%;filter:blur(22px);mix-blend-mode:screen;transform-origin:50% 100%;animation:fx-flicker 1.15s ease-in-out infinite alternate;will-change:transform,opacity;background:
+  radial-gradient(42% 85% at 10% 100%,#ff5e3a4d,transparent 68%),
+  radial-gradient(36% 95% at 26% 100%,#ff9a3c59,transparent 66%),
+  radial-gradient(44% 80% at 42% 100%,#ff5e3a52,transparent 68%),
+  radial-gradient(38% 100% at 57% 100%,#ffb84d55,transparent 64%),
+  radial-gradient(42% 88% at 73% 100%,#ff5e3a4d,transparent 68%),
+  radial-gradient(36% 96% at 90% 100%,#ff9a3c59,transparent 66%)}
+.fx-flame.two{height:30%;opacity:.7;animation-duration:.85s;animation-delay:-.4s}
+.fx-flame.three{height:18%;filter:blur(10px);opacity:.85;animation-duration:1.5s;animation-delay:-.9s}
+/* Fire columns that periodically surge upward */
+.fx-surge{position:absolute;left:var(--x);bottom:-6%;width:90px;height:42%;transform-origin:50% 100%;border-radius:50% 50% 0 0/65% 65% 0 0;background:linear-gradient(#ff5e3a00,#ff5e3a22 40%,#ffb84d44 78%,#ffe9b055);filter:blur(14px);mix-blend-mode:screen;opacity:0;animation:fx-blast 7s ease-in-out infinite;animation-delay:var(--delay);will-change:transform,opacity}
+/* Sparks racing up from the flames */
+.fx-spark{position:absolute;bottom:-16px;left:var(--x);width:var(--size);height:var(--size);border-radius:50%;background:var(--c1);box-shadow:0 0 12px 1px var(--c2);opacity:0;mix-blend-mode:screen;animation:fx-fly var(--duration) linear infinite;animation-delay:var(--delay);will-change:transform,opacity}
+/* Every 7th spark is a hero spark with a harder glow for depth */
+.fx-spark:nth-child(7n of .fx-spark){box-shadow:0 0 18px 3px var(--c2)}
+@keyframes fx-breathe{from{opacity:.7}to{opacity:1}}
+@keyframes fx-flicker{from{transform:scaleY(1) scaleX(1);opacity:.8}to{transform:scaleY(1.22) scaleX(1.05);opacity:1}}
+@keyframes fx-blast{0%,58%{transform:scaleY(.15);opacity:0}66%{opacity:.7}74%{transform:scaleY(1);opacity:.45}82%{transform:scaleY(1.12);opacity:.25}90%,100%{transform:scaleY(.2);opacity:0}}
+@keyframes fx-fly{0%{transform:translate(0,0) scale(1);opacity:0}6%{opacity:.9}55%{opacity:.8}100%{transform:translate(var(--drift),-1130px) scale(.35);opacity:0}}
+@media(prefers-reduced-motion:reduce){.swiss-fx{display:none}}

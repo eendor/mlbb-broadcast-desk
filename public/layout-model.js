@@ -1,6 +1,7 @@
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.HUDLayout=api;})(globalThis,()=>{
-  const scenes=['draft','scoreboard','players','countdown','intermission','postgame','schedule','sponsors','ads'];
+  const scenes=['draft','scoreboard','players','countdown','intermission','postgame','schedule','sponsors','ads','swiss'];
   const groups=[
+    ['swiss','Swiss bracket','.swiss-bracket'],
     ['draft','Draft package','.broadcast-draft'],['draft-side','Draft team','.broadcast-draft-side'],
     ['bans','Ban strip','.broadcast-bans'],['ban','Ban slot','.broadcast-ban'],
     ['pick','Hero panel','.broadcast-pick'],['hero-art','Hero artwork','.draft-hero-media'],
@@ -33,7 +34,7 @@
     ['sponsors','Sponsors block','.sponsor-show'],['sponsor-title','Sponsor heading','.sponsor-show h1'],
     ['sponsor','Sponsor tile','.partner-tile'],['sponsor-name','Sponsor name','.partner-tile>b'],['sponsor-tagline','Sponsor tagline','.partner-tile>small'],
     ['ad-media','Ad media','.ad-media-host'],['ad-label','Advertisement label','.ad-bug'],['ad-standby','Ad standby message','.ad-empty'],
-    ['logo','Logo','img.logo,.logo.initial,.broadcast-brand>img,.draft-event-strip>img,.sb-center>img,.showheader>img,.fixture-side>img,.standby-partners>img,.partner-art>img,.broadcast-ad-placeholder>img'],
+    ['logo','Logo','img.logo,.logo.initial,.broadcast-brand>img,.draft-event-strip>img,.sb-center img,.showheader>img,.fixture-side>img,.standby-partners>img,.partner-art>img,.broadcast-ad-placeholder>img'],
     ['background','Animated background','.fabric-bg,.motion-background'],['blue-accent','Blue background accent','.broadcast-corner.blue'],['red-accent','Red background accent','.broadcast-corner.red']
   ];
   const defaults=()=>({x:0,y:0,scaleX:1,scaleY:1,fontScale:1,opacity:1,hidden:false});

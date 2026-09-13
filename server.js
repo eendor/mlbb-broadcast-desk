@@ -44,8 +44,100 @@ app.post('/api/ocr',(req,res)=>{require('./lib/live-ocr').prepare(state,req.body
 app.get('/api/state',(req,res)=>res.json(state));app.post('/api/state',(req,res)=>res.json(commit(req.body)));app.get('/api/events',(req,res)=>{res.set({'Content-Type':'text/event-stream','Cache-Control':'no-cache, no-transform','Connection':'keep-alive','X-Accel-Buffering':'no'});req.socket.setNoDelay(true);res.flushHeaders();res.write(`data: ${JSON.stringify(state)}\n\n`);clients.add(res);const heartbeat=setInterval(()=>res.write(': heartbeat\n\n'),15000);req.on('close',()=>{clients.delete(res);clearInterval(heartbeat);});});
 app.post('/api/timer',(req,res)=>{const {timer,action,seconds}=req.body;if(!['countdown','draftTimer','breakTimer'].includes(timer))throw Error('Invalid timer');res.json(commit({[timer]:timerAction(state[timer],action,seconds)}));});
 async function fetchJson(url){const u=new URL(url);if(u.protocol!=='https:'||!(u.hostname==='mobilelegends.com'||u.hostname.endsWith('.mobilelegends.com')))throw Error('Match feed must use HTTPS on mobilelegends.com');const r=await fetch(u,{signal:AbortSignal.timeout(15000),redirect:'error',headers:{Accept:'application/json'}});if(!r.ok)throw Error(`Match service HTTP ${r.status}`);const reader=r.body.getReader();let length=0,chunks=[];while(true){const {done,value}=await reader.read();if(done)break;length+=value.length;if(length>4*1024*1024){await reader.cancel();throw Error('Match response too large');}chunks.push(Buffer.from(value));}try{return JSON.parse(Buffer.concat(chunks).toString());}catch{throw Error('Match URL returned a web page, not a JSON feed. Inspect the response URL in the official tool.');}}
-app.post('/api/match/fetch',async(req,res)=>{const id=String(req.body.matchId||'').trim();if(!/^[a-zA-Z0-9_-]{6,100}$/.test(id))throw Error('Enter a valid Match ID');let raw=await fetchJson(`https://sg-api.mobilelegends.com/matchTools/v1/getMatchUrl?matchId=${encodeURIComponent(id)}`);let resolver=raw,feedUrl=findFeed(raw);if(feedUrl)raw=await fetchJson(feedUrl);let parsed=null,error=null;try{parsed=normalize(raw,req.body.mapping||{});}catch(e){error=e.message;}res.json({raw,resolver,feedUrl,parsed,error});});
+let matchAssets=null;async function fetchMatchAssets(){if(matchAssets)return matchAssets;const source=async(id,fields)=>{const r=await fetch(`https://api.gms.moontontech.com/api/gms/source/2713644/${id}`,{method:'POST',signal:AbortSignal.timeout(15000),headers:{'Content-Type':'application/json;charset=UTF-8','X-Appid':'2636539','X-Lang':'en'},body:JSON.stringify({fields,pageSize:500})});if(!r.ok)throw Error(`Match asset service HTTP ${r.status}`);const j=await r.json();if(j.code!==0||!Array.isArray(j.data?.records))throw Error(j.message||'Match asset metadata unavailable');return j.data.records.map(v=>v.data??v);};const [heroes,items]=await Promise.all([source(2766683,['hero_id','head']),source(2775075,['equipid','equipname','equipicon'])]);matchAssets={heroes:Object.fromEntries(heroes.map(v=>[Number(v.hero_id),{icon:v.head}])),items:Object.fromEntries(items.map(v=>[Number(v.equipid),{name:v.equipname,icon:v.equipicon}]))};return matchAssets;}
+app.post('/api/match/fetch',async(req,res)=>{const id=String(req.body.matchId||'').trim();if(!/^[a-zA-Z0-9_-]{6,100}$/.test(id))throw Error('Enter a valid Match ID');let raw=await fetchJson(`https://sg-api.mobilelegends.com/matchTools/v1/getMatchUrl?matchId=${encodeURIComponent(id)}`);let resolver=raw,feedUrl=findFeed(raw);if(feedUrl)raw=await fetchJson(feedUrl);let parsed=null,error=null;try{const assets=String(raw?.data?.status||raw?.status||'').toLowerCase()==='result'?await fetchMatchAssets():{};parsed=normalize(raw,req.body.mapping||{},assets);}catch(e){error=e.message;}res.json({raw,resolver,feedUrl,parsed,error});});
 app.post('/api/hero/animation',(req,res)=>{const catalogPath=path.join(__dirname,'public/assets/catalog.json');const catalog=JSON.parse(fs.readFileSync(catalogPath,'utf8'));const h=catalog.heroes.find(h=>h.name===req.body.hero);if(!h)throw Error('Unknown hero');const position=Number(req.body.position??50);if(!Number.isFinite(position)||position<0||position>100)throw Error('Position must be 0–100');if(req.body.src!==undefined){const src=req.body.src;if(typeof src!=='string'||!/^\/assets\/uploads\/[a-f0-9]{64}\.(gif|mp4|webm)$/.test(src)||!fs.existsSync(path.join(__dirname,'public',src)))throw Error('Upload a GIF, MP4 or WebM first');h.animation=src;h.animationSource='User-uploaded media';}h.animationPosition=position;fs.writeFileSync(catalogPath+'.tmp',JSON.stringify(catalog,null,2));fs.renameSync(catalogPath+'.tmp',catalogPath);for(const client of clients)client.write('event: catalog\ndata: {}\n\n');res.json({hero:h});});
-app.post('/api/match/parse',(req,res)=>res.json(normalize(req.body.raw,req.body.mapping||{})));
+app.post('/api/match/parse',async(req,res)=>res.json(normalize(req.body.raw,req.body.mapping||{},await fetchMatchAssets())));
+const Swiss=require('./lib/swiss');
+function swissLogos(){try{return JSON.parse(fs.readFileSync(path.join(__dirname,'public/assets/catalog.json'),'utf8')).logos||[];}catch{return [];}}
+function swissLogoFor(name){const l=swissLogos().find(l=>l.name.toLowerCase()===String(name).toLowerCase());return l?l.url:'';}
+const swissTag=name=>String(name).split(/\s+/).map(w=>w[0]).join('').toUpperCase().slice(0,5)||'TBD';
+app.post('/api/swiss/start',(req,res)=>{if(state.swiss)throw Error('A Swiss bracket already exists');const {swiss}=Swiss.startSwiss(req.body.teams||[]);res.json(commit({swiss}));});
+app.post('/api/swiss/result',(req,res)=>{if(!state.swiss)throw Error('Start the Swiss bracket first');const next=structuredClone(state.swiss);const {advanced,match}=Swiss.reportResult(next,String(req.body.matchId||''),req.body.winner);res.json({state:commit({swiss:next}),advanced,complete:next.complete,match});});
+app.post('/api/swiss/teams',(req,res)=>{if(!state.swiss)throw Error('Start the Swiss bracket first');const swiss=Swiss.renameTeams(structuredClone(state.swiss),req.body.teams);res.json(commit({swiss}));});
+app.post('/api/swiss/feature',(req,res)=>{if(!state.swiss)throw Error('Start the Swiss bracket first');const m=Swiss.findMatch(state.swiss,String(req.body.matchId||''));if(!m)throw Error('Unknown Swiss match');res.json(commit({blue:{name:m.blue,tag:swissTag(m.blue),logo:swissLogoFor(m.blue)},red:{name:m.red,tag:swissTag(m.red),logo:swissLogoFor(m.red)},game:1}));});
+app.post('/api/swiss/clear',(req,res)=>res.json(commit({swiss:null})));
+app.post('/api/swiss/parse-discord-result',async(req,res)=>{
+  if(!state.swiss)throw Error('Start the Swiss bracket first');
+  const text=String(req.body.text||'').trim();
+  if(!text)throw Error('Paste the match data from Discord');
+  // Parse the Discord format - support GameID, BattleID, or ID
+  const idMatch=text.match(/(?:GameID|BattleID|ID):\s*([a-zA-Z0-9_-]+)/i);
+  const redSideMatch=text.match(/Red side:\s*(.+)/i);
+  const blueSideMatch=text.match(/Blue side:\s*(.+)/i);
+  if(!idMatch)throw Error('Could not find BattleID in the text');
+  if(!redSideMatch)throw Error('Could not find "Red side:" in the text');
+  if(!blueSideMatch)throw Error('Could not find "Blue side:" in the text');
+  const moontonId=idMatch[1].trim();
+  const redSideTeam=redSideMatch[1].trim();
+  const blueSideTeam=blueSideMatch[1].trim();
+  // Accept long numeric BattleIDs (up to 20 digits) or hex IDs
+  if(!/^[a-zA-Z0-9_-]{6,100}$/.test(moontonId))throw Error('Invalid ID format: '+moontonId);
+  // Find the Swiss match containing both teams
+  let swissMatch=null;
+  for(const round of state.swiss.rounds){
+    for(const m of round.matches){
+      const blue=m.blue.toLowerCase(),red=m.red.toLowerCase();
+      const rSide=redSideTeam.toLowerCase(),bSide=blueSideTeam.toLowerCase();
+      if((blue===rSide&&red===bSide)||(blue===bSide&&red===rSide)){
+        swissMatch=m;break;
+      }
+    }
+    if(swissMatch)break;
+  }
+  if(!swissMatch)throw Error(`No Swiss match found with teams "${redSideTeam}" and "${blueSideTeam}"`);
+  if(swissMatch.winner)throw Error('Match already has a result: '+swissMatch.id);
+  // Fetch the Moonton match result
+  let raw=await fetchJson(`https://sg-api.mobilelegends.com/matchTools/v1/getMatchUrl?matchId=${encodeURIComponent(moontonId)}`);
+  const feedUrl=findFeed(raw);
+  if(feedUrl)raw=await fetchJson(feedUrl);
+  const root=raw?.data?.matchdata??raw?.matchdata??raw?.data??raw;
+  const battle=root?.battleData;
+  if(!battle)throw Error('No battle data in match response');
+  const winCamp=battle.win_camp;
+  if(![1,'1',2,'2'].includes(winCamp))throw Error('Match result not available yet');
+  const winCampNum=Number(winCamp);
+  // In Moonton API: camp 1 = red side, camp 2 = blue side
+  // Marshal told us which Swiss team is on which side
+  const winnerTeam=winCampNum===1?redSideTeam:blueSideTeam;
+  // Determine if winner is on blue or red side of the Swiss match
+  const swissBlue=swissMatch.blue.toLowerCase();
+  const swissRed=swissMatch.red.toLowerCase();
+  const winnerLower=winnerTeam.toLowerCase();
+  let winnerSide=null;
+  if(winnerLower===swissBlue)winnerSide='blue';
+  else if(winnerLower===swissRed)winnerSide='red';
+  else{
+    // Try partial match
+    if(swissBlue.includes(winnerLower)||winnerLower.includes(swissBlue))winnerSide='blue';
+    else if(swissRed.includes(winnerLower)||winnerLower.includes(swissRed))winnerSide='red';
+  }
+  if(!winnerSide)throw Error(`Could not map winner "${winnerTeam}" to Swiss match sides`);
+  res.json({
+    moontonId,swissMatchId:swissMatch.id,
+    redSideTeam,blueSideTeam,winnerTeam,
+    winCamp:winCampNum,winnerSide,
+    autoApply:true
+  });
+});
+app.post('/api/swiss/poll-match-result',async(req,res)=>{
+  if(!state.swiss)throw Error('Start the Swiss bracket first');
+  const moontonId=String(req.body.matchId||'').trim();
+  if(!moontonId)throw Error('Missing BattleID');
+  if(!/^[a-zA-Z0-9_-]{6,100}$/.test(moontonId))throw Error('Invalid ID format');
+  try {
+    let raw=await fetchJson(`https://sg-api.mobilelegends.com/matchTools/v1/getMatchUrl?matchId=${encodeURIComponent(moontonId)}`);
+    const feedUrl=findFeed(raw);
+    if(feedUrl)raw=await fetchJson(feedUrl);
+    const root=raw?.data?.matchdata??raw?.matchdata??raw?.data??raw;
+    const battle=root?.battleData;
+    if(!battle)return res.json({ready:false});
+    const winCamp=battle.win_camp;
+    if(![1,'1',2,'2'].includes(winCamp))return res.json({ready:false});
+    return res.json({ready:true});
+  } catch(e) {
+    return res.json({ready:false,error:e.message});
+  }
+});
 app.use((err,req,res,next)=>{console.error(err.message);res.status(400).json({error:err.message});});
 if(require.main===module)app.listen(port,'127.0.0.1',()=>console.log(`PASIKLAB Broadcast Desk: http://127.0.0.1:${port}`));module.exports={app};

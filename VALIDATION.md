@@ -1,5 +1,8 @@
 # Validation status
 
+- Swiss checks cover all five rounds (33 matches), 8 qualified and 8 eliminated teams, live updates to the supplied SVG, name corrections, result undo, SVG export and reload persistence. API checks verify that Swiss operations leave the schedule and all other production fields unchanged. Browser checks use temporary state.
+- MSL placement was visually checked across the nine existing scenes: compact marks in draft/scoreboard branding, wordmarks in fullscreen headers or partner areas, and no floating badge or logo over ad media/player rails. Swiss retains the original artwork's partner row.
+
 - Backend unit checks cover parsing, mappings, timers, invalid state, BO3/5/7, ad rotation, media validation and OCR value parsing.
 - Browser checks have exercised nine scenes, click editing, series selection, hero video playback, pick highlights, scoreboard text fitting, uploads and ad rotation.
 - Scene-transition regression checks verify that the old HUD remains until cover, the new HUD appears under cover, and the wipe has no deliberate midpoint delay.

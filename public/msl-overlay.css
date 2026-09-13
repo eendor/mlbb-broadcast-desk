@@ -1,0 +1,15 @@
+﻿/* Official MSL marks sit inside the scene's existing branding areas. */
+.showheader .msl-mark{width:220px;height:64px;max-width:220px;margin-right:28px;object-fit:contain}
+.broadcast-brand .msl-mark{width:240px;height:74px;object-fit:contain;flex-shrink:0}
+.draft-event-strip{display:flex;align-items:center;justify-content:center;gap:16px;background:linear-gradient(155deg,#123fe9 0%,#123fe9 20%,#fff 21%,#fff 79%,#ef0d18 80%,#ce0010)}
+.draft-event-strip>img{width:72px;height:62px;background:transparent;object-fit:contain}
+.draft-event-strip .msl-mini{width:80px;height:70px;margin:0;object-fit:contain;background:transparent}
+.sb-brand-row{height:54px;display:flex;align-items:center;justify-content:center;gap:8px}
+.sb-brand-row>img{width:66px;height:50px;object-fit:contain}
+.sb-brand-row>.msl-mini{width:68px;height:60px;object-fit:contain}
+.standby-partners{gap:12px}
+.standby-partners .msl-partner-mark{width:150px;height:70px;object-fit:contain}
+/* Existing schedule styling, independent of the Swiss scene. */
+.schedulecontent.eight{top:150px}
+.schedulecontent.eight h1{font-size:52px;margin:0 0 16px}
+.schedulecontent.eight .fixture{padding:13px 30px;font-size:22px}

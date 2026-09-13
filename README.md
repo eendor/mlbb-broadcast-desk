@@ -28,6 +28,18 @@ For fixed sources, append `?scene=draft`, `?scene=scoreboard`, `?scene=players`,
 
 Disable "Shutdown source when not visible" to keep sources loaded. Refresh the panel and OBS browser sources after pulling updates. For ad audio, enable "Control audio via OBS" in Browser Source properties and verify the mixer. Videos default to muted.
 
+## Swiss bracket broadcast
+
+Open **Swiss bracket** in the sidebar. Its separate OBS source is `http://127.0.0.1:3210/overlay.html?scene=swiss`, at **1920 × 1080**. **Show Swiss bracket in Program** selects the same scene in the main output.
+
+The scene uses the supplied `swiss stage.svg` artwork and its original organization logos. The sixteen qualifiers from the supplied Groups A–H results follow these first-round pairings: ULS / USM EARTH SAVERS CLUB, JMES / FTSS, APO / ABES, PICE / DEVCOM, PSITS / JIECEP, JPEDS / AMS, FSMS / PNSA, and ICPEP / UFTTS. Group-stage records do not carry into Swiss.
+
+Click the winning team in the tournament controls. Results update the artwork immediately; completing a round fills the next round's record pools. Three wins qualify and three losses eliminate. The completed bracket shows all five rounds and all sixteen final placements. Results can be corrected or cleared within the current round; previous rounds lock once the next round is generated. **Edit team names** preserves logos, results and positions. **Download updated SVG** exports a self-contained copy of the current graphic.
+
+Swiss controls save only bracket data. They do not change the match schedule, ticker, match teams, game number or series format. Saved bracket results survive a restart. The floating MSL badge is removed; MSL branding uses the existing headers and partner areas, and the Swiss artwork retains its own partner logos.
+
+Run `node tests/swiss-browser.cjs` for an isolated check of the controls, all five rounds, live output, SVG export and persistence. It uses temporary state and does not write to the production bracket or schedule.
+
 ## Operator workflow
 
 1. Set event, stage, team tags/logos, five players and three bans per side in Teams & draft.

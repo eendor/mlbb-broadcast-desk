@@ -30,7 +30,7 @@
 .showheader img{flex-shrink:0}
 .winner{right:410px}
 .winner h1,.resultteam h2,.resultrow>span,.resultrow>b,.fixture>strong,.fixture>time,.fixture>small,.sponsor-show h1,.partner-tile>b,.partner-tile>small{min-width:0;white-space:nowrap;overflow:hidden}
-.resultrow{grid-template-columns:60px minmax(0,1fr) 140px 110px}
+.resultrow{grid-template-columns:60px minmax(0,1fr) 210px 105px 90px}.resultrow>.result-hero{width:48px;height:48px;object-fit:cover;border-radius:50%}.result-items{display:grid;grid-template-columns:repeat(6,30px);gap:3px;align-items:center}.result-items img{width:30px!important;height:30px!important;object-fit:contain;border-radius:4px;background:#121923}
 .fixture{grid-template-columns:170px minmax(0,1fr) 100px minmax(0,1fr) 180px}
 .partner-tile>b,.partner-tile>small{display:block;max-width:100%}
 .ad-bug{max-width:90%}.ad-bug>b{display:block;white-space:nowrap;overflow:hidden}
