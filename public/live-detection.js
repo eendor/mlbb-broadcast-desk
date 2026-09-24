@@ -1,6 +1,6 @@
 window.LiveDetection=(()=>{
   const Model=LiveDetectionModel,gate=Model.sceneGate(2),stable=OCRRuntime.stability();
-  const hudFields=new Set(['resultStatus','gameTime','blue.kills','red.kills']);
+  const hudFields=new Set(['resultStatus','gameTime','blue.kills','red.kills','draftPhase','draftTimer.remaining']);
   let session=null,lastMode=null,lastVisualMode=null,rowIndex=0,epoch=0,lastSeenAt=0;
   let lastClock=null,detailJob=null,hudMs=0,detailMs=0,detailError='';
   const values=new Map(),queries=new Map(),highWater=new Map(),identities=new Map(),goldAt=new Map();
@@ -26,8 +26,8 @@ window.LiveDetection=(()=>{
     if($('#learnHero').options.length<2)$('#learnHero').innerHTML='<option value="">Select the hero shown</option>'+catalog.map(h=>`<option>${esc(h.name)}</option>`).join('');
   }
   async function read(worker,r,frame,min,current){
-    const kind=OCRModel.kind(r.field),parse=data=>r.field==='resultStatus'?(Model.resultOutcome(data.text)?data.text.trim():null):OCRModel.parse(data.text,r.field);
-    const whitelist=r.field==='resultStatus'?'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz':r.field.endsWith('.name')?'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789[] _-':kind==='text'?'':kind==='kda'?'0123456789/ ':kind==='clock'?'0123456789Oo:':r.field.endsWith('gold')?'0123456789Oo.kK':'0123456789Oo';
+    const kind=r.field==='draftPhase'?'text':r.field==='draftTimer.remaining'?'clock':OCRModel.kind(r.field),parse=data=>r.field==='draftPhase'?Model.draftPhase(data.text):r.field==='draftTimer.remaining'?Model.draftClock(data.text):r.field==='resultStatus'?(Model.resultOutcome(data.text)?data.text.trim():null):OCRModel.parse(data.text,r.field);
+    const whitelist=['resultStatus','draftPhase'].includes(r.field)?'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz ':r.field.endsWith('.name')?'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789[] _-.':kind==='text'?'':kind==='kda'?'0123456789/ ':kind==='clock'?'0123456789Oo:':r.field.endsWith('gold')?'0123456789Oo.kK':'0123456789Oo';
     await worker.setParameters({tessedit_pageseg_mode:'7',tessedit_char_whitelist:whitelist});
     if(!current())return null;
     const prepared=crop(r,frame,true).canvas;let {data}=await worker.recognize(prepared);if(!current())return null;
@@ -42,6 +42,9 @@ window.LiveDetection=(()=>{
     if(poor()&&kind==='number'&&!r.field.endsWith('gold')){
       await worker.setParameters({tessedit_pageseg_mode:'10'});const retry=await worker.recognize(crop(r,frame).canvas);if(!current())return null;consider(retry.data);
     }
+    if(poor()&&r.field==='draftTimer.remaining'){
+      await worker.setParameters({tessedit_pageseg_mode:'10'});const retry=await worker.recognize(crop(r,frame,true).canvas);if(!current())return null;consider(retry.data);
+    }
     if(poor()&&kind==='kda'){
       await worker.setParameters({tessedit_pageseg_mode:'6'});const retry=await worker.recognize(crop(r,frame).canvas);if(!current())return null;consider(retry.data);
     }
@@ -51,7 +54,7 @@ window.LiveDetection=(()=>{
     return {field:r.field,value:parse(data),confidence:data.confidence,text:data.text.trim()};
   }
   function accept(result,min,continuous,sampledAt){
-    const {field,value,confidence}=result,clock=field==='gameTime';
+    const {field,value,confidence}=result,clock=field==='gameTime'||field==='draftTimer.remaining';
     const confirmed=stable.observe(field,value!==null&&confidence>=min?value:null,continuous&&!clock?Math.max(2,Number($('#ocrStability').value)):1);
     const previous=highWater.get(field),gold=field.endsWith('.gold');
     const correction=gold&&previous!==undefined&&value!==null&&value*5<=previous&&stable.observe(field+':correction',confidence>=min?value:null,3);
@@ -68,12 +71,12 @@ window.LiveDetection=(()=>{
     if(!current())return;
     if(result.expired)throw Error('Another control tab owns live detection. Restart here to take control.');
     $('#ocrDelivery').textContent='Delivery: '+Math.round(performance.now()-sentAt)+' ms';
-    $('#sourceSummary').textContent='Live capture · '+(mode==='result'?'Match result':'In-game scoreboard');
+    $('#sourceSummary').textContent='Live capture · '+(mode==='result'?'Match result':mode==='draft'?'Draft picks and bans':'In-game scoreboard');
   }
   async function details({pool,frame,sampledAt,continuous,current,ownSession,mode,layout,min}){
     const started=performance.now(),row=rowIndex++%5;
     // Scoreboard statistics run separately so they never delay clock and kills.
-    const batch=layout.filter(r=>!hudFields.has(r.field)&&(mode==='game'?!r.field.includes('.players.'):mode==='result'?!r.field.includes('.players.')||Number(r.field.split('.')[2])===row:!continuous||!r.field.includes('.players.')&&!r.field.includes('.bans.')||Number(r.field.split('.')[2])===row));
+    const batch=layout.filter(r=>!hudFields.has(r.field)&&(mode==='game'?!r.field.includes('.players.'):mode==='result'?!r.field.includes('.players.')||Number(r.field.split('.')[2])===row:!r.field.endsWith('.name')||$('#detectDraftNames').checked));
     const readings=[];
     await OCRRuntime.parallel(batch.filter(r=>!Model.isHero(r.field)),pool,async(worker,r)=>{const result=await read(worker,r,frame,min,current);if(result)readings.push(result);},current);
     if(!current())return;
@@ -104,16 +107,21 @@ window.LiveDetection=(()=>{
     if(current()){detailMs=Math.round(performance.now()-started);health();}
   }
   async function scan({pool,frame,sampledAt,live,current,continuous}){
+    frame=DraftCapture.normalize(frame);
     if(!session){await start(current);if(!current())return;}
     const ownSession=session,started=performance.now(),min=Number($('#confidence').value),probes=[];
-    const gr=regions('game'),rr=regions('result');
-    const probeRegions=[rr.find(r=>r.field==='resultStatus'),...['gameTime','blue.kills','red.kills'].map(f=>gr.find(r=>r.field===f))].filter(Boolean);
+    const gr=regions('game'),rr=regions('result'),dr=regions('draft');
+    // Check the explicit draft heading first; it also prevents a draft countdown
+    // from being mistaken for the gameplay clock.
+    const phase=dr.find(r=>r.field==='draftPhase'),draftProbe=phase?await read(pool[0],phase,frame,min,current):null;
+    if(draftProbe?.value)probes.push(draftProbe);
+    const probeRegions=draftProbe?.value?[dr.find(r=>r.field==='draftTimer.remaining')]:[rr.find(r=>r.field==='resultStatus'),...['gameTime','blue.kills','red.kills'].map(f=>gr.find(r=>r.field===f))];
     // Reserve one OCR worker for fresh clock and score readings.
-    for(const r of probeRegions){const result=await read(pool[0],r,frame,min,current);if(result)probes.push(result);if(!current())return;}
+    for(const r of probeRegions.filter(Boolean)){const result=await read(pool[0],r,frame,min,current);if(result)probes.push(result);if(!current())return;}
     const visualMode=Model.classify(probes,65),mode=continuous?gate.observe(visualMode):visualMode;
-    if(visualMode!==lastVisualMode){epoch++;stable.clear();values.clear();highWater.clear();goldAt.clear();lastVisualMode=visualMode;}
+    if(visualMode!==lastVisualMode){epoch++;stable.clear();values.clear();highWater.clear();goldAt.clear();lastVisualMode=visualMode;paint();}
     if(!mode){
-      status(visualMode?'Confirming '+(visualMode==='result'?'match result':'in-game scoreboard')+'…':'Waiting for an in-game scoreboard or match-result screen');$('#applyOcr').disabled=true;
+      status(visualMode?'Confirming '+(visualMode==='result'?'match result':visualMode==='draft'?'draft':'in-game scoreboard')+'…':'Waiting for a draft, in-game scoreboard or match-result screen');$('#applyOcr').disabled=true;
       if(lastSeenAt&&Date.now()-lastSeenAt>1200){await api('/api/detection/hold',{session:ownSession});lastClock=null;lastSeenAt=0;}
       return;
     }
@@ -121,14 +129,14 @@ window.LiveDetection=(()=>{
     lastSeenAt=Date.now();
     if(mode!==lastMode){epoch++;stable.clear();values.clear();queries.clear();highWater.clear();goldAt.clear();identities.clear();rowIndex=0;lastClock=null;lastMode=mode;}
     const ownEpoch=epoch,valid=()=>current()&&ownSession===session&&ownEpoch===epoch;
-    const layout=mode==='result'?rr:gr;
+    const layout=mode==='result'?rr:mode==='draft'?dr:gr;
     if($('#detectCalibration').value!==mode){$('#detectCalibration').value=mode;loadRegions();drawCapture();}
-    const core=probes.filter(r=>mode==='result'?r.field==='resultStatus':r.field!=='resultStatus');
+    const core=probes.filter(r=>mode==='result'?r.field==='resultStatus':mode==='draft'?r.field.startsWith('draft'):!r.field.startsWith('draft')&&r.field!=='resultStatus');
     if(mode==='result')for(const field of ['blue.kills','red.kills','gameTime']){const r=rr.find(row=>row.field===field);if(r){const result=await read(pool[0],r,frame,min,valid);if(result)core.push(result);}}
     if(!valid())return;
     for(const result of core)accept(result,min,continuous,sampledAt);
     let ticking=mode==='result'?false:live;
-    if(mode!=='result'){
+    if(mode==='game'){
       const clock=values.get('gameTime');
       if(clock?.accepted){let previous=lastClock;if(!previous||previous.value!==clock.value)previous={value:clock.value,at:sampledAt};if(sampledAt-previous.at>1500)ticking=false;lastClock=previous;ticking=ticking&&$('#ocrSmoothClock').checked;}
       else if(lastClock&&sampledAt-lastClock.at>1500){await api('/api/detection/hold',{session:ownSession});if(!valid())return;}
@@ -136,8 +144,8 @@ window.LiveDetection=(()=>{
     await deliver(core,{ownSession,mode,sampledAt,live:ticking,current:valid,switchScene:$('#detectSwitchScene').checked});
     if(!valid())return;
     hudMs=Math.round(performance.now()-started);health();paint();
-    status((mode==='result'?'Match result detected':'In-game scoreboard detected')+' · '+lastAccepted.length+' readings'+($('#ocrAutoApply').checked?' · Live':' · Review mode'));
-    $('#ocrStatus').textContent=detailError||'Clock, kills, team gold and towers update continuously. In-game output uses only the top scoreboard.';
+    status((mode==='result'?'Match result detected':mode==='draft'?'Draft detected':'In-game scoreboard detected')+' · '+lastAccepted.length+' readings'+($('#ocrAutoApply').checked?' · Live':' · Review mode'));
+    $('#ocrStatus').textContent=detailError||(mode==='draft'?'Reading the draft phase, timer, five picks and five bans per side. Covered or uncertain portraits stay pending.':'Clock, kills, team gold and towers update continuously. In-game output uses only the top scoreboard.');
     if(!continuous&&detailJob)await detailJob;
     if(!valid())return;
     if(!detailJob){

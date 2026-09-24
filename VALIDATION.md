@@ -1,5 +1,9 @@
 # Validation status
 
+- September 14 draft update: all 46 backend tests pass. Real MP4 playback was checked through the desk, detection API and OBS output using temporary production state. Checks include the initial ban, covered/pending slots, window normalization, all ten final picks and ten bans, the red countdown, stop/freeze and schedule preservation. The final validation frame is at 05:10; captured skin references include 05:00.
+- All 988 downloaded CDN images decode successfully. The collection covers 133 heroes and 181 item records with artwork, plus metadata for three removed items without published images. Local result hero/item resolution is covered by backend and browser checks.
+- Gameplay and match-result browser regressions pass after enabling draft detection. The supplied recording is one match; this does not establish accuracy for every skin, layout or player name.
+
 - Swiss checks cover all five rounds (33 matches), 8 qualified and 8 eliminated teams, live updates to the supplied SVG, name corrections, result undo, SVG export and reload persistence. API checks verify that Swiss operations leave the schedule and all other production fields unchanged. Browser checks use temporary state.
 - MSL placement was visually checked across the nine existing scenes: compact marks in draft/scoreboard branding, wordmarks in fullscreen headers or partner areas, and no floating badge or logo over ad media/player rails. Swiss retains the original artwork's partner row.
 
@@ -12,7 +16,7 @@
 - Layout browser checks exercise all nine scenes, dragging, resize handles, undo, hiding/reset, persistence across page reload, and ticking game clocks. The backend validates allowed elements, bounds and duplicate layout entries.
 - OCR regression checks cover latest-state player merges, stale/invalid readings, confirmation after isolated spikes, concurrent worker completion and cancellation of pending work. Live-match accuracy remains unverified.
 - Successful current official match API payloads remain unverified. The sample match ID returned match not found.
-- Only sixteen heroes have bundled moving artwork; other portraits are still. Draft heroes remain operator-controlled. Gameplay portrait matching has not been validated against an entire live match or every skin.
-- Live detection uses two successive HUD classifications before switching between gameplay and match results. Draft OCR is disabled. Backend checks cover scoreboard values, result winner/final statistics, player identity rules, stale deliveries and invalid fields.
+- Only sixteen heroes have bundled moving artwork; other portraits are still. Draft picks and bans can be detected automatically; names are manual unless the operator enables name recognition. Gameplay portrait matching has not been validated against an entire live match or every skin.
+- Live detection uses two successive HUD classifications before switching between drafting, gameplay and match results. The draft mode uses a heading plus countdown as evidence, with repeat confirmation for hero readings. Backend checks cover scoreboard values, result winner/final statistics, player identity rules, stale deliveries and invalid fields.
 
 Browser tests require Playwright Chromium. Some additional development scripts use a running server on port 3210 or an optional local screenshot; the README lists the portable isolated checks.

@@ -4,7 +4,13 @@
     "images": [
       "/assets/hero-icons/aamon.jpg",
       "/assets/heroes-current/aamon.png",
-      "/assets/hero-source/aamon.png"
+      "/assets/hero-source/aamon.png",
+      "/assets/mlbb-cdn/55783356fc3d561129a8.png",
+      "/assets/mlbb-cdn/7f6b95b5f40597e49f5a.jpg",
+      "/assets/mlbb-cdn/474ece8e4bbc556dea0a.png",
+      "/assets/mlbb-cdn/6652fc3d22b32f2d81ac.png",
+      "/assets/mlbb-cdn/3b5fa20d1fcb101a793e.jpg",
+      "/assets/mlbb-cdn/65ed75296752d0669bef.png"
     ]
   },
   {
@@ -12,14 +18,26 @@
     "images": [
       "/assets/hero-icons/akai.jpg",
       "/assets/heroes-current/akai.png",
-      "/assets/hero-source/akai.png"
+      "/assets/hero-source/akai.png",
+      "/assets/mlbb-cdn/d02d379ab306fdc29f68.png",
+      "/assets/mlbb-cdn/77b212f22818d7d9861c.jpg",
+      "/assets/mlbb-cdn/5091daa828556712db0f.png",
+      "/assets/mlbb-cdn/2000812d7cef309c47b9.png",
+      "/assets/mlbb-cdn/d47f4f02e55d2183a9d8.jpg",
+      "/assets/mlbb-cdn/78cc49f6546646dd3cd8.png"
     ]
   },
   {
     "name": "Aldous",
     "images": [
       "/assets/hero-icons/aldous.jpg",
-      "/assets/hero-source/aldous.png"
+      "/assets/hero-source/aldous.png",
+      "/assets/mlbb-cdn/4529b19bcf519a75d09a.png",
+      "/assets/mlbb-cdn/023a5a1bc2eb7d949fb5.jpg",
+      "/assets/mlbb-cdn/9c3671acce8727c32af2.png",
+      "/assets/mlbb-cdn/832d0fcb6af7a215cff0.png",
+      "/assets/mlbb-cdn/bbdf3f2915b68e3b8bad.jpg",
+      "/assets/mlbb-cdn/56aad05009f610d06ccd.png"
     ]
   },
   {
@@ -27,7 +45,14 @@
     "images": [
       "/assets/hero-icons/alice.jpg",
       "/assets/heroes-current/alice.jpg",
-      "/assets/hero-source/alice.png"
+      "/assets/hero-source/alice.png",
+      "/assets/mlbb-cdn/30bf2cfad6a44ba31763.jpg",
+      "/assets/mlbb-cdn/6fa75423d392d9fc74f4.jpg",
+      "/assets/mlbb-cdn/8ef366483fcb3920a8d1.png",
+      "/assets/mlbb-cdn/461e17b365c8ac56f935.png",
+      "/assets/mlbb-cdn/c0c198503ada3bde1f54.jpg",
+      "/assets/mlbb-cdn/3005fdce5b786eda7933.jpg",
+      "/assets/mlbb-cdn/1dd8ce8ec8c49be93e12.png"
     ]
   },
   {
@@ -35,7 +60,13 @@
     "images": [
       "/assets/hero-icons/alpha.jpg",
       "/assets/heroes-current/alpha.png",
-      "/assets/hero-source/alpha.png"
+      "/assets/hero-source/alpha.png",
+      "/assets/mlbb-cdn/62409518336e0607b3b8.png",
+      "/assets/mlbb-cdn/dc73c0cd4f4c2ac21fa6.jpg",
+      "/assets/mlbb-cdn/89583299034f18d58c7e.png",
+      "/assets/mlbb-cdn/680eebabecda36bda184.png",
+      "/assets/mlbb-cdn/aaa197aebe399eec0f95.jpg",
+      "/assets/mlbb-cdn/38e3302a6f7d4f8f74b6.png"
     ]
   },
   {
@@ -43,21 +74,39 @@
     "images": [
       "/assets/hero-icons/alucard.jpg",
       "/assets/heroes-current/alucard.png",
-      "/assets/hero-source/alucard.png"
+      "/assets/hero-source/alucard.png",
+      "/assets/mlbb-cdn/4ad80076377309b40773.png",
+      "/assets/mlbb-cdn/f35696a9b2bc613cc318.jpg",
+      "/assets/mlbb-cdn/91150e8938cf6bd0e071.png",
+      "/assets/mlbb-cdn/c508d48f558c2dc565a7.png",
+      "/assets/mlbb-cdn/97b55b3f3208815ededa.jpg",
+      "/assets/mlbb-cdn/e8ee76e5568b4714e015.png"
     ]
   },
   {
     "name": "Angela",
     "images": [
       "/assets/hero-icons/angela.jpg",
-      "/assets/hero-source/angela.png"
+      "/assets/hero-source/angela.png",
+      "/assets/mlbb-cdn/267486c6e2ab736a9514.png",
+      "/assets/mlbb-cdn/5d340974017aa05ec14c.jpg",
+      "/assets/mlbb-cdn/34069e098236e9c9e5d9.png",
+      "/assets/mlbb-cdn/14a5dda8c2957075fdfc.png",
+      "/assets/mlbb-cdn/31db20963348760f4081.jpg",
+      "/assets/mlbb-cdn/bdee40d0f3293f5b57a0.png"
     ]
   },
   {
     "name": "Argus",
     "images": [
       "/assets/hero-icons/argus.jpg",
-      "/assets/hero-source/argus.png"
+      "/assets/hero-source/argus.png",
+      "/assets/mlbb-cdn/a79f2eba50fa27f1fc1c.png",
+      "/assets/mlbb-cdn/272b82c0946b20f4622d.jpg",
+      "/assets/mlbb-cdn/e2e060882396fa5e3248.png",
+      "/assets/mlbb-cdn/fbd8617fa2ad9a6f952a.png",
+      "/assets/mlbb-cdn/921247182abd4e03ec5e.jpg",
+      "/assets/mlbb-cdn/ea29535a9431c49bd450.png"
     ]
   },
   {
@@ -65,7 +114,13 @@
     "images": [
       "/assets/hero-icons/arlott.jpg",
       "/assets/heroes-current/arlott.png",
-      "/assets/hero-source/arlot.png"
+      "/assets/hero-source/arlot.png",
+      "/assets/mlbb-cdn/b0db404e911ef98df0df.png",
+      "/assets/mlbb-cdn/e39193d60d3837ae5874.jpg",
+      "/assets/mlbb-cdn/c58c3b92a2671cd93d2b.png",
+      "/assets/mlbb-cdn/9487b2dc79ba525df0f9.png",
+      "/assets/mlbb-cdn/0a3ca862ea182d61409d.jpg",
+      "/assets/mlbb-cdn/b9fe4c138bcabf12c75c.png"
     ]
   },
   {
@@ -73,7 +128,13 @@
     "images": [
       "/assets/hero-icons/atlas.jpg",
       "/assets/heroes-current/atlas.png",
-      "/assets/hero-source/atlas.png"
+      "/assets/hero-source/atlas.png",
+      "/assets/mlbb-cdn/71f9195252c949475a65.png",
+      "/assets/mlbb-cdn/9c434e89b4ecf4b68dee.jpg",
+      "/assets/mlbb-cdn/c5c6479ea074a0b43cf2.png",
+      "/assets/mlbb-cdn/e0a89484eac210609dd6.png",
+      "/assets/mlbb-cdn/a1b865abd1fbbc9821bf.jpg",
+      "/assets/mlbb-cdn/89fe2454446b07624f27.png"
     ]
   },
   {
@@ -81,7 +142,14 @@
     "images": [
       "/assets/hero-icons/aulus.jpg",
       "/assets/heroes-current/aulus.jpg",
-      "/assets/hero-source/aulus.png"
+      "/assets/hero-source/aulus.png",
+      "/assets/mlbb-cdn/eb529a93efd55dc4202c.jpg",
+      "/assets/mlbb-cdn/5bd5a5cf45dc7974a470.jpg",
+      "/assets/mlbb-cdn/231eeb85875c55906c6b.png",
+      "/assets/mlbb-cdn/9fadbb3486929018a272.png",
+      "/assets/mlbb-cdn/43aa986e58910ee304d0.jpg",
+      "/assets/mlbb-cdn/359276bc3d7ea36cb419.jpg",
+      "/assets/mlbb-cdn/d5eda3cdfdd12e79ca6e.png"
     ]
   },
   {
@@ -89,21 +157,41 @@
     "images": [
       "/assets/hero-icons/aurora.jpg",
       "/assets/heroes-current/aurora.png",
-      "/assets/hero-source/aurora.png"
+      "/assets/hero-source/aurora.png",
+      "/assets/mlbb-cdn/d183c7a44d7d588a3f8f.png",
+      "/assets/mlbb-cdn/77e0e4359c34b916327a.jpg",
+      "/assets/mlbb-cdn/4dda11cca206c160b4b5.png",
+      "/assets/mlbb-cdn/743ef57e8e453d2b94c4.png",
+      "/assets/mlbb-cdn/bde729e9276651353888.jpg",
+      "/assets/mlbb-cdn/2e16dd4b993e5f94f2d2.png"
     ]
   },
   {
     "name": "Badang",
     "images": [
+      "/assets/mlbb-cdn/a4923eab51939602e353.png",
+      "/assets/mlbb-cdn/a0617aa11df3dfc49f83.jpg",
+      "/assets/mlbb-cdn/a856df3c48f6b334606b.png",
       "/assets/hero-icons/badang.jpg",
-      "/assets/hero-source/badang.png"
+      "/assets/mlbb-cdn/7889d7fc91bd9fe13b29.jpg",
+      "/assets/mlbb-cdn/40b2b85727d9ec509216.jpg",
+      "/assets/mlbb-cdn/698b688f21c03833e934.jpg",
+      "/assets/mlbb-cdn/c5c4d95483763aa9ea25.png",
+      "/assets/hero-source/badang.png",
+      "/assets/mlbb-cdn/a04a4af16ed22cacf987.png"
     ]
   },
   {
     "name": "Balmond",
     "images": [
       "/assets/hero-icons/balmond.jpg",
-      "/assets/hero-source/balmond.png"
+      "/assets/hero-source/balmond.png",
+      "/assets/mlbb-cdn/f7256669afcfe454e97d.png",
+      "/assets/mlbb-cdn/c0f54248a18df3f085cb.jpg",
+      "/assets/mlbb-cdn/4bda651dff264dd7288b.png",
+      "/assets/mlbb-cdn/8fb6d1dd307ec4e50b81.png",
+      "/assets/mlbb-cdn/351c5759873195d11765.jpg",
+      "/assets/mlbb-cdn/6ddce4751acfb27a9f0a.png"
     ]
   },
   {
@@ -111,7 +199,13 @@
     "images": [
       "/assets/hero-icons/bane.jpg",
       "/assets/heroes-current/bane.png",
-      "/assets/hero-source/bane.png"
+      "/assets/hero-source/bane.png",
+      "/assets/mlbb-cdn/7f32455c47af566b9fe6.png",
+      "/assets/mlbb-cdn/277fd2e641c5321ec275.jpg",
+      "/assets/mlbb-cdn/727b6e85d2fec5ea0184.png",
+      "/assets/mlbb-cdn/7b2bbad704656cc1bbc0.png",
+      "/assets/mlbb-cdn/9f8cc3e3b441ee6662ea.jpg",
+      "/assets/mlbb-cdn/3e593588e931375edfa7.png"
     ]
   },
   {
@@ -119,7 +213,13 @@
     "images": [
       "/assets/hero-icons/barats.jpg",
       "/assets/heroes-current/barats.png",
-      "/assets/hero-source/barats.png"
+      "/assets/hero-source/barats.png",
+      "/assets/mlbb-cdn/4d0ad9b6d29c4a644a6c.png",
+      "/assets/mlbb-cdn/bea2f686f2425ade4e8a.jpg",
+      "/assets/mlbb-cdn/92089a0a8d7c6a4cf184.png",
+      "/assets/mlbb-cdn/3bfbfcd9f6ffba86490f.png",
+      "/assets/mlbb-cdn/8daf8531bd44b2254293.jpg",
+      "/assets/mlbb-cdn/253d2e4ec6f22033c8a7.png"
     ]
   },
   {
@@ -127,7 +227,13 @@
     "images": [
       "/assets/hero-icons/baxia.jpg",
       "/assets/heroes-current/baxia.png",
-      "/assets/hero-source/baxia.png"
+      "/assets/hero-source/baxia.png",
+      "/assets/mlbb-cdn/114b9e69ef1123dc14d8.png",
+      "/assets/mlbb-cdn/003fc5138f761b5e5a29.jpg",
+      "/assets/mlbb-cdn/8a9430dd2a9bc7f6d60a.png",
+      "/assets/mlbb-cdn/bc60d609100e19c1d88e.png",
+      "/assets/mlbb-cdn/cf269b33f0bc4c38a9c4.jpg",
+      "/assets/mlbb-cdn/7dca64c60f6878cfb462.png"
     ]
   },
   {
@@ -135,14 +241,26 @@
     "images": [
       "/assets/hero-icons/beatrix.jpg",
       "/assets/heroes-current/beatrix.png",
-      "/assets/hero-source/beatrix.png"
+      "/assets/hero-source/beatrix.png",
+      "/assets/mlbb-cdn/39ffeff4d67f65fae889.png",
+      "/assets/mlbb-cdn/4b349e2860a603fdcd57.jpg",
+      "/assets/mlbb-cdn/5b70b97a9bbde335aab0.png",
+      "/assets/mlbb-cdn/85fac5b32b16a0d44a02.png",
+      "/assets/mlbb-cdn/3371fbc0fa57705095ca.jpg",
+      "/assets/mlbb-cdn/9510b9c93d8897514f82.png"
     ]
   },
   {
     "name": "Belerick",
     "images": [
       "/assets/hero-icons/belerick.jpg",
-      "/assets/hero-source/beleric.png"
+      "/assets/hero-source/beleric.png",
+      "/assets/mlbb-cdn/f5ee670040d881497811.png",
+      "/assets/mlbb-cdn/0f6444ad9a23d2b6a6ed.jpg",
+      "/assets/mlbb-cdn/b7d633809818feb75774.png",
+      "/assets/mlbb-cdn/0a0453b455244e54b624.png",
+      "/assets/mlbb-cdn/e9979b1a6794bbfe8b35.jpg",
+      "/assets/mlbb-cdn/afa97636b115f7012f1d.png"
     ]
   },
   {
@@ -150,23 +268,45 @@
     "images": [
       "/assets/hero-icons/benedetta.jpg",
       "/assets/heroes-current/benedetta.png",
-      "/assets/hero-source/benedetta.png"
+      "/assets/hero-source/benedetta.png",
+      "/assets/mlbb-cdn/4e34c8e3c6d32f069fcd.png",
+      "/assets/mlbb-cdn/394820d43dbe7ef73937.jpg",
+      "/assets/mlbb-cdn/d5464186e15608778fdc.png",
+      "/assets/mlbb-cdn/72a94a4792ae610dd035.png",
+      "/assets/mlbb-cdn/08d5f956b4cb05ba2732.jpg",
+      "/assets/mlbb-cdn/6bf91b84e7aeb7dac59d.png"
     ]
   },
   {
     "name": "Brody",
     "images": [
+      "/assets/mlbb-cdn/6de50fa08d1a8d69eec5.png",
+      "/assets/mlbb-cdn/415f4e45d71b885ca8fb.jpg",
+      "/assets/mlbb-cdn/5bb08dc92a884193c0cd.png",
       "/assets/hero-icons/brody.jpg",
+      "/assets/mlbb-cdn/8ec693450d1ed125d4dd.jpg",
+      "/assets/mlbb-cdn/8af2964f3f8fe6f31598.jpg",
+      "/assets/mlbb-cdn/26f3f97b3ef99f158e08.jpg",
+      "/assets/mlbb-cdn/227087eca57a52f06067.png",
       "/assets/heroes-current/brody.png",
-      "/assets/hero-source/brody.png"
+      "/assets/hero-source/brody.png",
+      "/assets/mlbb-cdn/7d8296de975c0025c2a9.png"
     ]
   },
   {
     "name": "Bruno",
     "images": [
+      "/assets/mlbb-cdn/13de964d59a17a683988.png",
+      "/assets/mlbb-cdn/9d4b04a318c213e83a3b.jpg",
+      "/assets/mlbb-cdn/61a2ec5d05efb7b175ed.png",
       "/assets/hero-icons/bruno.jpg",
+      "/assets/mlbb-cdn/602be94ff036a9790792.jpg",
+      "/assets/mlbb-cdn/b5a080c5ca35134248c2.jpg",
+      "/assets/mlbb-cdn/abaf090849ba62b39466.jpg",
+      "/assets/mlbb-cdn/debb3c8a28cd0d011975.png",
       "/assets/heroes-current/bruno.png",
-      "/assets/hero-source/bruno.png"
+      "/assets/hero-source/bruno.png",
+      "/assets/mlbb-cdn/84104766aa48146f55ed.jpg"
     ]
   },
   {
@@ -174,7 +314,13 @@
     "images": [
       "/assets/hero-icons/carmilla.jpg",
       "/assets/heroes-current/carmilla.png",
-      "/assets/hero-source/carmila.png"
+      "/assets/hero-source/carmila.png",
+      "/assets/mlbb-cdn/5a4700d91658ee0cea1b.png",
+      "/assets/mlbb-cdn/af0980085c5b88b1840c.jpg",
+      "/assets/mlbb-cdn/f6eca22419b8848f5abb.png",
+      "/assets/mlbb-cdn/ebf226f8742b092cdf97.png",
+      "/assets/mlbb-cdn/12ecd6eac2c84c6a38e8.jpg",
+      "/assets/mlbb-cdn/44e87955d42b6a300fa5.png"
     ]
   },
   {
@@ -182,14 +328,26 @@
     "images": [
       "/assets/hero-icons/cecilion.jpg",
       "/assets/heroes-current/cecilion.png",
-      "/assets/hero-source/cecilion.png"
+      "/assets/hero-source/cecilion.png",
+      "/assets/mlbb-cdn/26a46182ae15cbd203fd.png",
+      "/assets/mlbb-cdn/66f7a88a49badc6a22d4.jpg",
+      "/assets/mlbb-cdn/070cad94937aaea406a9.png",
+      "/assets/mlbb-cdn/1eb8133d6164125eec9c.png",
+      "/assets/mlbb-cdn/62c1ce8977123040beb1.jpg",
+      "/assets/mlbb-cdn/2b3c0165ebaa8ae9789a.png"
     ]
   },
   {
     "name": "Chang'e",
     "images": [
       "/assets/hero-icons/change.jpg",
-      "/assets/hero-source/chang_e.png"
+      "/assets/hero-source/chang_e.png",
+      "/assets/mlbb-cdn/1c7f4de21212c3523c3e.png",
+      "/assets/mlbb-cdn/dbe749b191b4c1ac01b3.jpg",
+      "/assets/mlbb-cdn/eb1edcd1ee18185c84b1.png",
+      "/assets/mlbb-cdn/2ad1b0d2ecd0bc1000db.png",
+      "/assets/mlbb-cdn/470f60bf3673db3cb93e.jpg",
+      "/assets/mlbb-cdn/5edc2eafcf4e7c3b0693.png"
     ]
   },
   {
@@ -197,14 +355,27 @@
     "images": [
       "/assets/hero-icons/chip.jpg",
       "/assets/heroes-current/chip.png",
-      "/assets/hero-source/chip.png"
+      "/assets/hero-source/chip.png",
+      "/assets/mlbb-cdn/d681275820e51c2f2d95.png",
+      "/assets/mlbb-cdn/b2df1d5510b3a4889c46.jpg",
+      "/assets/mlbb-cdn/8347675b4bf3a6c86aee.webp",
+      "/assets/mlbb-cdn/2e6a7821a82b3ad8c4e2.png",
+      "/assets/mlbb-cdn/2cccf49df5bbbcb8491d.png",
+      "/assets/mlbb-cdn/c9756c0dd7d0984b0beb.jpg",
+      "/assets/mlbb-cdn/a560d83824245b760260.png"
     ]
   },
   {
     "name": "Chou",
     "images": [
       "/assets/hero-icons/chou.jpg",
-      "/assets/hero-source/chou.png"
+      "/assets/hero-source/chou.png",
+      "/assets/mlbb-cdn/6c92c110bda2c84d8e5d.png",
+      "/assets/mlbb-cdn/bbcc66e5b3cd320b6e25.jpg",
+      "/assets/mlbb-cdn/7e8f25346992bf6abcbd.png",
+      "/assets/mlbb-cdn/ceaf9f1ea5ca79120da1.png",
+      "/assets/mlbb-cdn/3dd03b3f3ad2cf450938.jpg",
+      "/assets/mlbb-cdn/63c2473e68a90856caf7.png"
     ]
   },
   {
@@ -212,7 +383,13 @@
     "images": [
       "/assets/hero-icons/cici.jpg",
       "/assets/heroes-current/cici.png",
-      "/assets/hero-source/cici.png"
+      "/assets/hero-source/cici.png",
+      "/assets/mlbb-cdn/01c4105e9729a15851c8.png",
+      "/assets/mlbb-cdn/d514407edd3758f27c1a.jpg",
+      "/assets/mlbb-cdn/d50790662a22668222ff.png",
+      "/assets/mlbb-cdn/786f06f532d5c1f9468a.png",
+      "/assets/mlbb-cdn/891e4ee78259320cfeb4.jpg",
+      "/assets/mlbb-cdn/2dc33026f48bf2fceed6.png"
     ]
   },
   {
@@ -220,29 +397,55 @@
     "images": [
       "/assets/hero-icons/claude.jpg",
       "/assets/heroes-current/claude.png",
-      "/assets/hero-source/claude.png"
+      "/assets/hero-source/claude.png",
+      "/assets/mlbb-cdn/56cc69f4fb85c3ff47eb.png",
+      "/assets/mlbb-cdn/f13ed7e70d72dd3bcaa8.jpg",
+      "/assets/mlbb-cdn/2daacc478a08102ad9d3.png",
+      "/assets/mlbb-cdn/f4c8950346c3a64e457e.png",
+      "/assets/mlbb-cdn/8b338abb11ad33263a3c.jpg",
+      "/assets/mlbb-cdn/44a9b4f864803d234384.png"
     ]
   },
   {
     "name": "Clint",
     "images": [
+      "/assets/mlbb-cdn/918d44ed3347fba8eda7.png",
+      "/assets/mlbb-cdn/c778ec3036004a011f53.jpg",
+      "/assets/mlbb-cdn/7a69cb68a0e01eec58b7.png",
       "/assets/hero-icons/clint.jpg",
+      "/assets/mlbb-cdn/4f342c30ab926025bc74.jpg",
+      "/assets/mlbb-cdn/babd7b5128e7f18401a2.jpg",
+      "/assets/mlbb-cdn/afa7630eb22a338f7cd3.jpg",
+      "/assets/mlbb-cdn/12819664c7eb0c150eed.png",
       "/assets/heroes-current/clint.png",
-      "/assets/hero-source/clint.png"
+      "/assets/hero-source/clint.png",
+      "/assets/mlbb-cdn/821021591ece38976369.jpg"
     ]
   },
   {
     "name": "Cyclops",
     "images": [
       "/assets/hero-icons/cyclops.jpg",
-      "/assets/hero-source/cyclops.png"
+      "/assets/hero-source/cyclops.png",
+      "/assets/mlbb-cdn/8d556f6cfa59cd2bbad3.png",
+      "/assets/mlbb-cdn/060a4d202a6ae69acbdd.jpg",
+      "/assets/mlbb-cdn/e6bd1f8c8e7feb9a3583.png",
+      "/assets/mlbb-cdn/dfcc97c4e1de3f738e7f.png",
+      "/assets/mlbb-cdn/f0a94cef725373354211.jpg",
+      "/assets/mlbb-cdn/51070dfb76431c881dfe.png"
     ]
   },
   {
     "name": "Diggie",
     "images": [
       "/assets/hero-icons/diggie.jpg",
-      "/assets/hero-source/diggie.png"
+      "/assets/hero-source/diggie.png",
+      "/assets/mlbb-cdn/38bb51e8a33cb9128a53.png",
+      "/assets/mlbb-cdn/ecd273de3d59756d6f1f.jpg",
+      "/assets/mlbb-cdn/9d1cf533a511077ff606.png",
+      "/assets/mlbb-cdn/343676e98aae0f07f689.png",
+      "/assets/mlbb-cdn/2c39ae19b8a54ebd1c29.jpg",
+      "/assets/mlbb-cdn/7829ee5c52a1717f3930.png"
     ]
   },
   {
@@ -255,7 +458,14 @@
     "name": "Dyrroth",
     "images": [
       "/assets/hero-icons/dyrroth.jpg",
-      "/assets/hero-source/dyroth.png"
+      "/assets/hero-source/dyroth.png",
+      "/assets/mlbb-cdn/7dacdd34007570b4ddf7.jpg",
+      "/assets/mlbb-cdn/4ae99411fe5570381217.jpg",
+      "/assets/mlbb-cdn/42d0c03eaafc3973aabc.png",
+      "/assets/mlbb-cdn/7c39befb8698fcd7923a.png",
+      "/assets/mlbb-cdn/05dff546022277ecab9d.jpg",
+      "/assets/mlbb-cdn/7c5cee5e78bbad5a4254.jpg",
+      "/assets/mlbb-cdn/1e7850ef6579bd74c38b.png"
     ]
   },
   {
@@ -263,21 +473,39 @@
     "images": [
       "/assets/hero-icons/edith.jpg",
       "/assets/heroes-current/edith.png",
-      "/assets/hero-source/edith.png"
+      "/assets/hero-source/edith.png",
+      "/assets/mlbb-cdn/84e90f200deddf9ffbd2.png",
+      "/assets/mlbb-cdn/658df378736322394c46.jpg",
+      "/assets/mlbb-cdn/e20552fe704af99efeb7.png",
+      "/assets/mlbb-cdn/82c2b3f9ce45010d117a.png",
+      "/assets/mlbb-cdn/760b4684fc144c485721.jpg",
+      "/assets/mlbb-cdn/81256a228c6e9ac18d65.png"
     ]
   },
   {
     "name": "Esmeralda",
     "images": [
       "/assets/hero-icons/esmeralda.jpg",
-      "/assets/hero-source/esmeralda.png"
+      "/assets/hero-source/esmeralda.png",
+      "/assets/mlbb-cdn/bf8ffd00b890c91cc9cc.png",
+      "/assets/mlbb-cdn/40ca5da603ec039edd25.jpg",
+      "/assets/mlbb-cdn/208667d057b6ed83d19f.png",
+      "/assets/mlbb-cdn/2dba36d7a2201abc1329.png",
+      "/assets/mlbb-cdn/33b14d20003146e923d1.jpg",
+      "/assets/mlbb-cdn/a4031a2ff1259bd3c014.png"
     ]
   },
   {
     "name": "Estes",
     "images": [
       "/assets/hero-icons/estes.jpg",
-      "/assets/hero-source/estes.png"
+      "/assets/hero-source/estes.png",
+      "/assets/mlbb-cdn/55a683ea29f3729aa1d0.png",
+      "/assets/mlbb-cdn/f7d31e3f8933be0aa10a.jpg",
+      "/assets/mlbb-cdn/7ca5697285a2beab6d58.png",
+      "/assets/mlbb-cdn/24c161519922ddf10f03.png",
+      "/assets/mlbb-cdn/8c458e377b6ec4290690.jpg",
+      "/assets/mlbb-cdn/bca7491d01c2530883fa.png"
     ]
   },
   {
@@ -285,7 +513,14 @@
     "images": [
       "/assets/hero-icons/eudora.jpg",
       "/assets/heroes-current/eudora.png",
-      "/assets/hero-source/eudora.png"
+      "/assets/hero-source/eudora.png",
+      "/assets/mlbb-cdn/9b4dda4f004c59f01ebc.jpg",
+      "/assets/mlbb-cdn/756f6c5975ed943e5cf8.jpg",
+      "/assets/mlbb-cdn/5df96720007d7a7c3b9f.png",
+      "/assets/mlbb-cdn/2a93cb5c3fa672996d6c.png",
+      "/assets/mlbb-cdn/14aa6ad6777eb9942952.jpg",
+      "/assets/mlbb-cdn/5d7257e041a04c669d5a.jpg",
+      "/assets/mlbb-cdn/ddfe872e6cb7798cdd48.png"
     ]
   },
   {
@@ -293,7 +528,13 @@
     "images": [
       "/assets/hero-icons/fanny.jpg",
       "/assets/heroes-current/fanny.png",
-      "/assets/hero-source/fanny.png"
+      "/assets/hero-source/fanny.png",
+      "/assets/mlbb-cdn/9d81b83c29f9af44307c.png",
+      "/assets/mlbb-cdn/70ad037a01dd7e87a188.jpg",
+      "/assets/mlbb-cdn/3cdb52f88d405f388cb5.png",
+      "/assets/mlbb-cdn/97c0a509df0bf9ca7df3.png",
+      "/assets/mlbb-cdn/bab1695b2e8c41682179.jpg",
+      "/assets/mlbb-cdn/b51ff7a0b7015a3990ea.png"
     ]
   },
   {
@@ -301,7 +542,13 @@
     "images": [
       "/assets/hero-icons/faramis.jpg",
       "/assets/heroes-current/faramis.png",
-      "/assets/hero-source/faramis.png"
+      "/assets/hero-source/faramis.png",
+      "/assets/mlbb-cdn/4ce0b86f1d9a96259277.png",
+      "/assets/mlbb-cdn/b030ed38aeeafea23b1e.jpg",
+      "/assets/mlbb-cdn/026555d5ee8258a5b0a4.png",
+      "/assets/mlbb-cdn/1b792cee081b63fb29f5.png",
+      "/assets/mlbb-cdn/8a59cd9279b5658509cf.jpg",
+      "/assets/mlbb-cdn/8f45d777c6c76dcd42fa.png"
     ]
   },
   {
@@ -309,7 +556,13 @@
     "images": [
       "/assets/hero-icons/floryn.jpg",
       "/assets/heroes-current/floryn.png",
-      "/assets/hero-source/floryn.png"
+      "/assets/hero-source/floryn.png",
+      "/assets/mlbb-cdn/a82144cfdb9f5df18e86.png",
+      "/assets/mlbb-cdn/e3a68f1b80dddc265f61.jpg",
+      "/assets/mlbb-cdn/eeab543655b46bbcc3bc.png",
+      "/assets/mlbb-cdn/764db6dd9248b1b8af6e.png",
+      "/assets/mlbb-cdn/3b58a96f448f5586f70c.jpg",
+      "/assets/mlbb-cdn/3b92f56a36e665fb3032.png"
     ]
   },
   {
@@ -317,7 +570,13 @@
     "images": [
       "/assets/hero-icons/franco.jpg",
       "/assets/heroes-current/franco.png",
-      "/assets/hero-source/franco.png"
+      "/assets/hero-source/franco.png",
+      "/assets/mlbb-cdn/3b24735662a11776b2dd.png",
+      "/assets/mlbb-cdn/295f31efa0bc91376d81.jpg",
+      "/assets/mlbb-cdn/094db8374458810b8384.png",
+      "/assets/mlbb-cdn/f7f2f82138ef09e044d5.png",
+      "/assets/mlbb-cdn/e3ca607fbcafe37d040a.jpg",
+      "/assets/mlbb-cdn/573ec639c963b4aa7c8e.png"
     ]
   },
   {
@@ -331,7 +590,13 @@
     "images": [
       "/assets/hero-icons/fredrinn.jpg",
       "/assets/heroes-current/fredrinn.png",
-      "/assets/hero-source/fredrin.png"
+      "/assets/hero-source/fredrin.png",
+      "/assets/mlbb-cdn/0da44ca733fb5380dcfb.png",
+      "/assets/mlbb-cdn/1b5a44c54625640a84d1.jpg",
+      "/assets/mlbb-cdn/1e5abbbdc5f320dc4284.png",
+      "/assets/mlbb-cdn/3c53b4d400764bc30057.png",
+      "/assets/mlbb-cdn/b4bba4804c87de903f11.jpg",
+      "/assets/mlbb-cdn/e6809c446d18a0be5e8b.png"
     ]
   },
   {
@@ -339,14 +604,27 @@
     "images": [
       "/assets/hero-icons/freya.jpg",
       "/assets/heroes-current/freya.jpg",
-      "/assets/hero-source/freya.png"
+      "/assets/hero-source/freya.png",
+      "/assets/mlbb-cdn/41c9992ac8cdd3a3f33e.jpg",
+      "/assets/mlbb-cdn/02a28aead2a8d9ec3eb3.jpg",
+      "/assets/mlbb-cdn/5c3e62d55235af45ba14.png",
+      "/assets/mlbb-cdn/a6ffb6628eead46d1099.png",
+      "/assets/mlbb-cdn/036239c4551094f0feec.jpg",
+      "/assets/mlbb-cdn/efd0d4667930cc69ae95.jpg",
+      "/assets/mlbb-cdn/e784d3bf4d1a23d0f910.png"
     ]
   },
   {
     "name": "Gatotkaca",
     "images": [
       "/assets/hero-icons/gatotkaca.jpg",
-      "/assets/hero-source/gatotkaca.png"
+      "/assets/hero-source/gatotkaca.png",
+      "/assets/mlbb-cdn/4677e290f360e5d5f6b5.png",
+      "/assets/mlbb-cdn/ed64828f92c2a324805d.jpg",
+      "/assets/mlbb-cdn/2204029effc8d00d8649.png",
+      "/assets/mlbb-cdn/d62fcb740ec76afcad93.png",
+      "/assets/mlbb-cdn/ec9dadb34be364e8bdd3.jpg",
+      "/assets/mlbb-cdn/5a6712e1dfdde6e4b725.png"
     ]
   },
   {
@@ -354,14 +632,28 @@
     "images": [
       "/assets/hero-icons/gloo.jpg",
       "/assets/heroes-current/gloo.png",
-      "/assets/hero-source/gloo.png"
+      "/assets/hero-source/gloo.png",
+      "/assets/mlbb-cdn/329dd0d3856bbebb207f.jpg",
+      "/assets/mlbb-cdn/42319f0a4da9da38fe71.jpg",
+      "/assets/mlbb-cdn/325ebfdc6776ae4d6fb8.png",
+      "/assets/mlbb-cdn/cc9f6485a3c82ce96be3.png",
+      "/assets/mlbb-cdn/cd0aeff8c1d6803d6a13.jpg",
+      "/assets/mlbb-cdn/df82720a320558371b8c.jpg",
+      "/assets/mlbb-cdn/bc1dcce9a0e133b631a8.png"
     ]
   },
   {
     "name": "Gord",
     "images": [
       "/assets/hero-icons/gord.jpg",
-      "/assets/hero-source/gord.png"
+      "/assets/hero-source/gord.png",
+      "/assets/mlbb-cdn/c4685a4517d328b6f6a0.jpg",
+      "/assets/mlbb-cdn/78ca1235a74fd13d1e55.jpg",
+      "/assets/mlbb-cdn/8554c96de9e09e9c233f.png",
+      "/assets/mlbb-cdn/e0fa54104d35180c864f.png",
+      "/assets/mlbb-cdn/8cab6f5c7a27cf50e464.jpg",
+      "/assets/mlbb-cdn/95e61d7e0ddf44dab276.jpg",
+      "/assets/mlbb-cdn/c6ca348f4a5b4776c509.png"
     ]
   },
   {
@@ -369,7 +661,14 @@
     "images": [
       "/assets/hero-icons/granger.jpg",
       "/assets/heroes-current/granger.jpg",
-      "/assets/hero-source/granger.png"
+      "/assets/hero-source/granger.png",
+      "/assets/mlbb-cdn/72578a07482d52b9d1ca.png",
+      "/assets/mlbb-cdn/918439e850a1397938e1.jpg",
+      "/assets/mlbb-cdn/f7b8eaa59ed0f9d12934.png",
+      "/assets/mlbb-cdn/ed68fcdcaac128ce1006.png",
+      "/assets/mlbb-cdn/026d8047b21874af6ddd.jpg",
+      "/assets/mlbb-cdn/fda15790d4d2e763a9b6.jpg",
+      "/assets/mlbb-cdn/d74c60303fa7ad5537e6.png"
     ]
   },
   {
@@ -377,14 +676,27 @@
     "images": [
       "/assets/hero-icons/grock.jpg",
       "/assets/heroes-current/grock.jpg",
-      "/assets/hero-source/grock.png"
+      "/assets/hero-source/grock.png",
+      "/assets/mlbb-cdn/d603bb5d02864fca8ddc.jpg",
+      "/assets/mlbb-cdn/e479a24209944626a226.jpg",
+      "/assets/mlbb-cdn/2ce3945cc67205a1657c.png",
+      "/assets/mlbb-cdn/1f12b4df9fa461bc7d86.png",
+      "/assets/mlbb-cdn/923ea541754a7a03b4cc.jpg",
+      "/assets/mlbb-cdn/31fd6bfc3a47412d00dc.jpg",
+      "/assets/mlbb-cdn/f30b5ddff290cd87dc23.png"
     ]
   },
   {
     "name": "Guinevere",
     "images": [
       "/assets/hero-icons/guinevere.jpg",
-      "/assets/hero-source/guinevere.png"
+      "/assets/hero-source/guinevere.png",
+      "/assets/mlbb-cdn/22f22cea2fa7b132177d.png",
+      "/assets/mlbb-cdn/0fa9016ecacf6ff065a1.jpg",
+      "/assets/mlbb-cdn/4a68c0d542a591d39da9.png",
+      "/assets/mlbb-cdn/f5dbc9f018747da672a8.png",
+      "/assets/mlbb-cdn/e39ea24d6ef33601d5c9.jpg",
+      "/assets/mlbb-cdn/fd2322be0e598d790a0f.png"
     ]
   },
   {
@@ -392,7 +704,14 @@
     "images": [
       "/assets/hero-icons/gusion.jpg",
       "/assets/heroes-current/gusion.png",
-      "/assets/hero-source/gusion.png"
+      "/assets/hero-source/gusion.png",
+      "/assets/mlbb-cdn/16232d5d2ea0ea6a4978.png",
+      "/assets/mlbb-cdn/f9910511cdc8ae43f8e6.jpg",
+      "/assets/mlbb-cdn/3cb76f93b17d55f060c0.png",
+      "/assets/mlbb-cdn/43d602e650c6d02325e9.png",
+      "/assets/mlbb-cdn/ae2e516e776adcf53314.jpg",
+      "/assets/mlbb-cdn/5cb35d96aa723bf1526c.jpg",
+      "/assets/mlbb-cdn/67c60bde3fedd924bf5a.png"
     ]
   },
   {
@@ -400,7 +719,14 @@
     "images": [
       "/assets/hero-icons/hanabi.jpg",
       "/assets/heroes-current/hanabi.png",
-      "/assets/hero-source/hanabi.png"
+      "/assets/hero-source/hanabi.png",
+      "/assets/mlbb-cdn/0039b8c37bc854c5e1f9.jpg",
+      "/assets/mlbb-cdn/eac00bdb45752e359715.jpg",
+      "/assets/mlbb-cdn/875060d26f9a48151372.png",
+      "/assets/mlbb-cdn/5eecd823adbddc284641.png",
+      "/assets/mlbb-cdn/6526d3f23e91035734ed.jpg",
+      "/assets/mlbb-cdn/5cc8eebc0e4a9a641dd0.jpg",
+      "/assets/mlbb-cdn/b9ba282b5b760401f2e6.png"
     ]
   },
   {
@@ -408,14 +734,27 @@
     "images": [
       "/assets/hero-icons/hanzo.jpg",
       "/assets/heroes-current/hanzo.jpg",
-      "/assets/hero-source/hanzo.png"
+      "/assets/hero-source/hanzo.png",
+      "/assets/mlbb-cdn/b6fcd873e67b84c8cf5c.jpg",
+      "/assets/mlbb-cdn/a5de7ec69cfd5517d4a1.jpg",
+      "/assets/mlbb-cdn/adfa5f0a8523bc003ffb.png",
+      "/assets/mlbb-cdn/ecc941d3cbad1ccefeeb.png",
+      "/assets/mlbb-cdn/5bc25aedf860e4d0f14e.jpg",
+      "/assets/mlbb-cdn/1fd628b92a140f8a8582.jpg",
+      "/assets/mlbb-cdn/572b4c59b3a6541c3cbe.png"
     ]
   },
   {
     "name": "Harith",
     "images": [
       "/assets/hero-icons/harith.jpg",
-      "/assets/hero-source/harith.png"
+      "/assets/hero-source/harith.png",
+      "/assets/mlbb-cdn/ebcf53a6c1aa95cd4cc9.png",
+      "/assets/mlbb-cdn/b4b89e78ec41f5088e04.jpg",
+      "/assets/mlbb-cdn/0e36b691794dab72630e.png",
+      "/assets/mlbb-cdn/214fc557325bcc1c54c0.png",
+      "/assets/mlbb-cdn/edb1761a60da6908d0e0.jpg",
+      "/assets/mlbb-cdn/2363f337756315c757f9.png"
     ]
   },
   {
@@ -423,7 +762,13 @@
     "images": [
       "/assets/hero-icons/harley.jpg",
       "/assets/heroes-current/harley.PNG",
-      "/assets/hero-source/harley.png"
+      "/assets/hero-source/harley.png",
+      "/assets/mlbb-cdn/c6b392e132a3b0821bc5.png",
+      "/assets/mlbb-cdn/152d81699e8d09d017e1.jpg",
+      "/assets/mlbb-cdn/c90235eb06e8c1b90e7b.png",
+      "/assets/mlbb-cdn/d0a531651975a395603c.png",
+      "/assets/mlbb-cdn/ea1541c9480fa0d80514.jpg",
+      "/assets/mlbb-cdn/1e49259dfd94e5b8682f.png"
     ]
   },
   {
@@ -431,7 +776,13 @@
     "images": [
       "/assets/hero-icons/hayabusa.jpg",
       "/assets/heroes-current/hayabusa.png",
-      "/assets/hero-source/hayabusa.png"
+      "/assets/hero-source/hayabusa.png",
+      "/assets/mlbb-cdn/3c6a490b1d82796b01b0.png",
+      "/assets/mlbb-cdn/2c56e240833be0d14c6e.jpg",
+      "/assets/mlbb-cdn/36eff0d9701f445a85f4.png",
+      "/assets/mlbb-cdn/c8bcdd3554a6a5c2f205.png",
+      "/assets/mlbb-cdn/4fca3364b58de81343d0.jpg",
+      "/assets/mlbb-cdn/82842b51c58e71ab2047.png"
     ]
   },
   {
@@ -439,7 +790,13 @@
     "images": [
       "/assets/hero-icons/helcurt.jpg",
       "/assets/heroes-current/helcurt.png",
-      "/assets/hero-source/helcurt.png"
+      "/assets/hero-source/helcurt.png",
+      "/assets/mlbb-cdn/bcbe0f62e0e3642d64ad.jpg",
+      "/assets/mlbb-cdn/ea9c596cd1f9f50bffe4.jpg",
+      "/assets/mlbb-cdn/4c7f1a6e3900519af74b.png",
+      "/assets/mlbb-cdn/7186144642b0289b711d.png",
+      "/assets/mlbb-cdn/7b594eca07bd02818d9c.jpg",
+      "/assets/mlbb-cdn/9fa782f6be94344974ae.png"
     ]
   },
   {
@@ -447,28 +804,51 @@
     "images": [
       "/assets/hero-icons/hilda.jpg",
       "/assets/heroes-current/hilda.png",
-      "/assets/hero-source/hilda.png"
+      "/assets/hero-source/hilda.png",
+      "/assets/mlbb-cdn/a616f9b402ec1feb9bf5.png",
+      "/assets/mlbb-cdn/a3759ce185b5e7966df5.jpg",
+      "/assets/mlbb-cdn/f7976f29db189daab404.png",
+      "/assets/mlbb-cdn/966dff10e3a69b4955ef.png",
+      "/assets/mlbb-cdn/c6aefdc56463d5f3ab30.jpg",
+      "/assets/mlbb-cdn/de0331b34ef80f9f2046.png"
     ]
   },
   {
     "name": "Hirara",
     "images": [
       "/assets/hero-icons/hirara.jpg",
-      "/assets/heroes-current/hirara.jpg"
+      "/assets/heroes-current/hirara.jpg",
+      "/assets/mlbb-cdn/f3b96c97adaef0e33d79.jpg",
+      "/assets/mlbb-cdn/d68f7a47ae2f2233022a.jpg",
+      "/assets/mlbb-cdn/471363d374cf0f3f83ff.webp",
+      "/assets/mlbb-cdn/42d0c03eaafc3973aabc.png",
+      "/assets/mlbb-cdn/1e7850ef6579bd74c38b.png"
     ]
   },
   {
     "name": "Hylos",
     "images": [
       "/assets/hero-icons/hylos.jpg",
-      "/assets/hero-source/hylos.png"
+      "/assets/hero-source/hylos.png",
+      "/assets/mlbb-cdn/504098d3cc8bf23bb02c.png",
+      "/assets/mlbb-cdn/dedadcefd78fa85c2976.jpg",
+      "/assets/mlbb-cdn/f922bf768da65769c701.png",
+      "/assets/mlbb-cdn/a4f299b7eba53a803de4.png",
+      "/assets/mlbb-cdn/dc24da729b0dd609ac17.jpg",
+      "/assets/mlbb-cdn/5f4186cbf9b2cc1b1109.png"
     ]
   },
   {
     "name": "Irithel",
     "images": [
       "/assets/hero-icons/irithel.jpg",
-      "/assets/hero-source/irithel.png"
+      "/assets/hero-source/irithel.png",
+      "/assets/mlbb-cdn/0c515ca72d6c3cb075f8.png",
+      "/assets/mlbb-cdn/bbafe4edb26facd68aea.jpg",
+      "/assets/mlbb-cdn/96cea5b7379af8105d6e.png",
+      "/assets/mlbb-cdn/330792186e93a158e29d.png",
+      "/assets/mlbb-cdn/cbf7cde617feb2cbef43.jpg",
+      "/assets/mlbb-cdn/38178ef06268916ce586.png"
     ]
   },
   {
@@ -476,14 +856,26 @@
     "images": [
       "/assets/hero-icons/ixia.jpg",
       "/assets/heroes-current/ixia.png",
-      "/assets/hero-source/ixia.png"
+      "/assets/hero-source/ixia.png",
+      "/assets/mlbb-cdn/e94673e51717bb6f9921.png",
+      "/assets/mlbb-cdn/98b567b02db37bbc003b.jpg",
+      "/assets/mlbb-cdn/6bdcd2aefcf047ab5339.png",
+      "/assets/mlbb-cdn/5b6d7ac63ee16196601e.png",
+      "/assets/mlbb-cdn/ebce2ebc4e640d4152c1.jpg",
+      "/assets/mlbb-cdn/4123b6704a18a7f856a0.png"
     ]
   },
   {
     "name": "Jawhead",
     "images": [
       "/assets/hero-icons/jawhead.jpg",
-      "/assets/hero-source/jawhead.png"
+      "/assets/hero-source/jawhead.png",
+      "/assets/mlbb-cdn/b442eb096284f6030846.png",
+      "/assets/mlbb-cdn/0f55447f3bd1232930bd.jpg",
+      "/assets/mlbb-cdn/1df5b258a69c3f5b5e99.png",
+      "/assets/mlbb-cdn/cd920200ac929dc7c114.png",
+      "/assets/mlbb-cdn/540abde258b5941ec61e.jpg",
+      "/assets/mlbb-cdn/1cc892abf8d9c4b53843.png"
     ]
   },
   {
@@ -491,7 +883,13 @@
     "images": [
       "/assets/hero-icons/johnson.jpg",
       "/assets/heroes-current/johnson.png",
-      "/assets/hero-source/johnson.png"
+      "/assets/hero-source/johnson.png",
+      "/assets/mlbb-cdn/947518a825fa1664d622.jpg",
+      "/assets/mlbb-cdn/46c2e541c8231ce62b72.jpg",
+      "/assets/mlbb-cdn/1bc254c2047085878247.png",
+      "/assets/mlbb-cdn/fc36db8960b0f9df2189.png",
+      "/assets/mlbb-cdn/645a2f8569c4ffb6be2d.jpg",
+      "/assets/mlbb-cdn/6778b10e25f320078d9e.png"
     ]
   },
   {
@@ -499,7 +897,13 @@
     "images": [
       "/assets/hero-icons/joy.jpg",
       "/assets/heroes-current/joy.png",
-      "/assets/hero-source/joy.png"
+      "/assets/hero-source/joy.png",
+      "/assets/mlbb-cdn/f5a118c15d1572ca61e7.png",
+      "/assets/mlbb-cdn/0b9c3d221056b9413944.jpg",
+      "/assets/mlbb-cdn/bb0f2f7c4cce1a917d34.png",
+      "/assets/mlbb-cdn/d6487e647f2152965a96.png",
+      "/assets/mlbb-cdn/3b3f06efebe97a3158ab.jpg",
+      "/assets/mlbb-cdn/3e4a34281f3beb151971.png"
     ]
   },
   {
@@ -507,14 +911,28 @@
     "images": [
       "/assets/hero-icons/julian.jpg",
       "/assets/heroes-current/julian.png",
-      "/assets/hero-source/julian.png"
+      "/assets/hero-source/julian.png",
+      "/assets/mlbb-cdn/a84e6ecc3e6e0f57515f.png",
+      "/assets/mlbb-cdn/0b9e0123bd681bd99f64.jpg",
+      "/assets/mlbb-cdn/96cadb57690f24ff31f7.png",
+      "/assets/mlbb-cdn/305fc4887fa8621f94e0.png",
+      "/assets/mlbb-cdn/4330c453c38b0a75e5f3.jpg",
+      "/assets/mlbb-cdn/fda7e388486ff23466df.png"
     ]
   },
   {
     "name": "Kadita",
     "images": [
+      "/assets/mlbb-cdn/ae3bb13508a2555089ae.png",
+      "/assets/mlbb-cdn/83e66646465cfaa5bc04.jpg",
+      "/assets/mlbb-cdn/05bcea1a4789f783cb93.png",
       "/assets/hero-icons/kadita.jpg",
-      "/assets/hero-source/kadita.png"
+      "/assets/mlbb-cdn/9e06d2714f152f948d3d.jpg",
+      "/assets/mlbb-cdn/10da6ddfdfb9a57908b1.jpg",
+      "/assets/mlbb-cdn/b3aca529ee52e93fd8f7.jpg",
+      "/assets/mlbb-cdn/4c30099e4a21e6e5d1e2.png",
+      "/assets/hero-source/kadita.png",
+      "/assets/mlbb-cdn/b35f1683069cbdf3424a.png"
     ]
   },
   {
@@ -522,21 +940,39 @@
     "images": [
       "/assets/hero-icons/kagura.jpg",
       "/assets/heroes-current/kagura.png",
-      "/assets/hero-source/kagura.png"
+      "/assets/hero-source/kagura.png",
+      "/assets/mlbb-cdn/3c0c8fe8e491d23c6861.png",
+      "/assets/mlbb-cdn/03000aedc4e739d9a673.jpg",
+      "/assets/mlbb-cdn/e84727286f6b94892ca2.png",
+      "/assets/mlbb-cdn/6d022dfee1c65e0f2ed8.png",
+      "/assets/mlbb-cdn/289f578101707dc26a8e.jpg",
+      "/assets/mlbb-cdn/4fd4abb3283d5104fd84.png"
     ]
   },
   {
     "name": "Kaja",
     "images": [
       "/assets/hero-icons/kaja.jpg",
-      "/assets/hero-source/kaja.png"
+      "/assets/hero-source/kaja.png",
+      "/assets/mlbb-cdn/30d80788685065e824db.jpg",
+      "/assets/mlbb-cdn/05e67ebde25974feddda.jpg",
+      "/assets/mlbb-cdn/ccb141b1731b887e9f54.png",
+      "/assets/mlbb-cdn/b4b72a85825d7e549489.png",
+      "/assets/mlbb-cdn/6a2e877c93b879dd77ee.jpg",
+      "/assets/mlbb-cdn/f0652c10b43ac99d86b0.jpg",
+      "/assets/mlbb-cdn/24db6e45adb4231fb66e.png"
     ]
   },
   {
     "name": "Kalea",
     "images": [
       "/assets/hero-icons/kalea.jpg",
-      "/assets/hero-source/kalea.png"
+      "/assets/hero-source/kalea.png",
+      "/assets/mlbb-cdn/a735c98b27c055656e75.jpg",
+      "/assets/mlbb-cdn/595b83ab60a607ce26ab.jpg",
+      "/assets/mlbb-cdn/d3b21d94393cbf12a1ec.webp",
+      "/assets/mlbb-cdn/bedb7cfac8b636186738.png",
+      "/assets/mlbb-cdn/bd4bc734cd47bc5d6603.png"
     ]
   },
   {
@@ -544,14 +980,26 @@
     "images": [
       "/assets/hero-icons/karina.jpg",
       "/assets/heroes-current/karina.png",
-      "/assets/hero-source/karina.png"
+      "/assets/hero-source/karina.png",
+      "/assets/mlbb-cdn/01e25becd2d133760499.png",
+      "/assets/mlbb-cdn/bc2a5bc75f70e058b0b4.jpg",
+      "/assets/mlbb-cdn/c80277ab3abe3fcb86b7.png",
+      "/assets/mlbb-cdn/9069b0a978d95a4af1c6.png",
+      "/assets/mlbb-cdn/22b5774c811995c880c7.jpg",
+      "/assets/mlbb-cdn/9415c5192e823e949600.png"
     ]
   },
   {
     "name": "Karrie",
     "images": [
       "/assets/hero-icons/karrie.jpg",
-      "/assets/hero-source/karrie.png"
+      "/assets/hero-source/karrie.png",
+      "/assets/mlbb-cdn/e4c37e3eb28cd279e592.png",
+      "/assets/mlbb-cdn/f83177b597459e8e6a3d.jpg",
+      "/assets/mlbb-cdn/b6c2c3dc34ac3b359009.png",
+      "/assets/mlbb-cdn/706db67d7e1b3637e278.png",
+      "/assets/mlbb-cdn/9d131b0560fe04291ed1.jpg",
+      "/assets/mlbb-cdn/543b0d8f1f8c09106511.png"
     ]
   },
   {
@@ -559,14 +1007,26 @@
     "images": [
       "/assets/hero-icons/khaleed.jpg",
       "/assets/heroes-current/khaleed.jpg",
-      "/assets/hero-source/khaleed.png"
+      "/assets/hero-source/khaleed.png",
+      "/assets/mlbb-cdn/a7731a02cf29d7e6a40c.png",
+      "/assets/mlbb-cdn/eb5527f8f2e4e9d50736.jpg",
+      "/assets/mlbb-cdn/bf5629d55fe46ed22c1d.png",
+      "/assets/mlbb-cdn/47957ec07d6e125460b3.png",
+      "/assets/mlbb-cdn/e4b67726f59ce8643b4c.jpg",
+      "/assets/mlbb-cdn/a29eaf4c36ffef5082ae.png"
     ]
   },
   {
     "name": "Khufra",
     "images": [
       "/assets/hero-icons/khufra.jpg",
-      "/assets/hero-source/khufra.png"
+      "/assets/hero-source/khufra.png",
+      "/assets/mlbb-cdn/ec76678d8dbabfce8166.png",
+      "/assets/mlbb-cdn/d8e00daa020e04c6b08a.jpg",
+      "/assets/mlbb-cdn/2ff73d369d6f75dcabd7.png",
+      "/assets/mlbb-cdn/64dfdc3d66c2c4e320a8.png",
+      "/assets/mlbb-cdn/09ef809d076519e219ca.jpg",
+      "/assets/mlbb-cdn/9a7847736602a75eb3ea.png"
     ]
   },
   {
@@ -574,7 +1034,14 @@
     "images": [
       "/assets/hero-icons/kimmy.jpg",
       "/assets/heroes-current/kimmy.jpg",
-      "/assets/hero-source/kimmy.png"
+      "/assets/hero-source/kimmy.png",
+      "/assets/mlbb-cdn/530f636af2e5ded68edb.jpg",
+      "/assets/mlbb-cdn/c5efb81a79e1c328dfa6.jpg",
+      "/assets/mlbb-cdn/cf0ae2f12143d0ac6bfe.png",
+      "/assets/mlbb-cdn/1e487d27bd75a9988d6e.png",
+      "/assets/mlbb-cdn/07f120f4a22f00781c42.jpg",
+      "/assets/mlbb-cdn/256710a61b907c1a2f70.jpg",
+      "/assets/mlbb-cdn/77dbb01709be8fb556c6.png"
     ]
   },
   {
@@ -582,7 +1049,13 @@
     "images": [
       "/assets/hero-icons/lancelot.jpg",
       "/assets/heroes-current/lancelot.png",
-      "/assets/hero-source/lancelot.png"
+      "/assets/hero-source/lancelot.png",
+      "/assets/mlbb-cdn/c156860a9df7a06eaec7.png",
+      "/assets/mlbb-cdn/d65fd384381c524df31a.jpg",
+      "/assets/mlbb-cdn/0d0d9c169a24c18e3bad.png",
+      "/assets/mlbb-cdn/2a2353ae4d3c75cd6bf9.png",
+      "/assets/mlbb-cdn/8f0746e337e388982786.jpg",
+      "/assets/mlbb-cdn/bfbb4335fca3be7f68a2.png"
     ]
   },
   {
@@ -590,7 +1063,13 @@
     "images": [
       "/assets/hero-icons/lapulapu.jpg",
       "/assets/heroes-current/lapulapu.png",
-      "/assets/hero-source/lapulapu.png"
+      "/assets/hero-source/lapulapu.png",
+      "/assets/mlbb-cdn/3ae7237e405875732731.png",
+      "/assets/mlbb-cdn/95f2e6b6f852f28a3a9b.jpg",
+      "/assets/mlbb-cdn/e38ed9dac609d99f10e0.png",
+      "/assets/mlbb-cdn/8692c25941fa4d1e9d3a.png",
+      "/assets/mlbb-cdn/d46655da9676179d9e86.jpg",
+      "/assets/mlbb-cdn/85537b7aef9b0ed417c9.png"
     ]
   },
   {
@@ -598,7 +1077,13 @@
     "images": [
       "/assets/hero-icons/layla.jpg",
       "/assets/heroes-current/layla.png",
-      "/assets/hero-source/layla.png"
+      "/assets/hero-source/layla.png",
+      "/assets/mlbb-cdn/8c6f2760cf9cea4ddd90.jpg",
+      "/assets/mlbb-cdn/8e9cb0be0002a6b6d7b4.jpg",
+      "/assets/mlbb-cdn/df0f250de49ce385e42f.png",
+      "/assets/mlbb-cdn/5a5587e1b72c639d5fe6.png",
+      "/assets/mlbb-cdn/61ab4c6629d00bc59d47.jpg",
+      "/assets/mlbb-cdn/c9870bbd03ac86f35587.png"
     ]
   },
   {
@@ -606,14 +1091,27 @@
     "images": [
       "/assets/hero-icons/leomord.jpg",
       "/assets/heroes-current/leomord.png",
-      "/assets/hero-source/leomord.png"
+      "/assets/hero-source/leomord.png",
+      "/assets/mlbb-cdn/45e017846c9116795e79.png",
+      "/assets/mlbb-cdn/1ddfbe49ff337e975474.jpg",
+      "/assets/mlbb-cdn/763f3c011d0055ec9dda.png",
+      "/assets/mlbb-cdn/e74db5c9566e1ef33b54.png",
+      "/assets/mlbb-cdn/ed67e656106bfa66aede.jpg",
+      "/assets/mlbb-cdn/10b3b9189671c471654a.png"
     ]
   },
   {
     "name": "Lesley",
     "images": [
       "/assets/hero-icons/lesley.jpg",
-      "/assets/hero-source/lesley.png"
+      "/assets/hero-source/lesley.png",
+      "/assets/mlbb-cdn/ce5cffa99bf64cd84f50.png",
+      "/assets/mlbb-cdn/41e277c3d4168ca37e42.jpg",
+      "/assets/mlbb-cdn/206fed68381f06f9748f.png",
+      "/assets/mlbb-cdn/924fe920b89389463b40.png",
+      "/assets/mlbb-cdn/7cc44099c9bbe24c14b9.jpg",
+      "/assets/mlbb-cdn/6fdb893d386954d52c87.jpg",
+      "/assets/mlbb-cdn/f39f7d0efecb3f07bef8.png"
     ]
   },
   {
@@ -621,7 +1119,13 @@
     "images": [
       "/assets/hero-icons/ling.jpg",
       "/assets/heroes-current/ling.png",
-      "/assets/hero-source/ling.png"
+      "/assets/hero-source/ling.png",
+      "/assets/mlbb-cdn/a777b7ca2403b3223b16.png",
+      "/assets/mlbb-cdn/efb275b1acc3a04ca1a0.jpg",
+      "/assets/mlbb-cdn/ca5c417f773abee3e9e3.png",
+      "/assets/mlbb-cdn/d4c2a3c93f4c45d40d25.png",
+      "/assets/mlbb-cdn/7443db80219d6565ea3a.jpg",
+      "/assets/mlbb-cdn/274cef35553789169e04.png"
     ]
   },
   {
@@ -629,7 +1133,13 @@
     "images": [
       "/assets/hero-icons/lolita.jpg",
       "/assets/heroes-current/lolita.png",
-      "/assets/hero-source/lolita.png"
+      "/assets/hero-source/lolita.png",
+      "/assets/mlbb-cdn/73cc56788ad6dd2786b0.jpg",
+      "/assets/mlbb-cdn/29c028c7d83a21d83af5.jpg",
+      "/assets/mlbb-cdn/2baaa25370caafc20fe6.png",
+      "/assets/mlbb-cdn/508e84103a0bb9d8d7b2.png",
+      "/assets/mlbb-cdn/3fb534935657152cea9d.jpg",
+      "/assets/mlbb-cdn/df39cfe9703c5e00ef6b.png"
     ]
   },
   {
@@ -637,14 +1147,25 @@
     "images": [
       "/assets/hero-icons/lukas.jpg",
       "/assets/heroes-current/lukas.png",
-      "/assets/hero-source/lukas.png"
+      "/assets/hero-source/lukas.png",
+      "/assets/mlbb-cdn/602793e6c2de88097654.jpg",
+      "/assets/mlbb-cdn/5e6256dc1282b5a89d6b.jpg",
+      "/assets/mlbb-cdn/b0e3e78fd7eb4532059b.webp",
+      "/assets/mlbb-cdn/4791e1f0b658bf65a761.png",
+      "/assets/mlbb-cdn/c1f315846854bf328286.png"
     ]
   },
   {
     "name": "Lunox",
     "images": [
       "/assets/hero-icons/lunox.jpg",
-      "/assets/hero-source/lunox.png"
+      "/assets/hero-source/lunox.png",
+      "/assets/mlbb-cdn/591f3f0d272eba3b40ec.png",
+      "/assets/mlbb-cdn/3fec2f50bc73c2d825f7.jpg",
+      "/assets/mlbb-cdn/38758f074e196b29b799.png",
+      "/assets/mlbb-cdn/c2e2fc3c6cc22af605ad.png",
+      "/assets/mlbb-cdn/f8237dba687b58faaf51.jpg",
+      "/assets/mlbb-cdn/36262809d62958ffcd73.png"
     ]
   },
   {
@@ -652,14 +1173,26 @@
     "images": [
       "/assets/hero-icons/luoyi.jpg",
       "/assets/heroes-current/luoyi.png",
-      "/assets/hero-source/luoyi.png"
+      "/assets/hero-source/luoyi.png",
+      "/assets/mlbb-cdn/260d3ae88f7d4164482b.png",
+      "/assets/mlbb-cdn/1aef888ac38d416d58ca.jpg",
+      "/assets/mlbb-cdn/6f2dee2a905791e5df89.png",
+      "/assets/mlbb-cdn/4c92f7c662c02f4d0986.png",
+      "/assets/mlbb-cdn/f8ffd38fe4185b1aef10.jpg",
+      "/assets/mlbb-cdn/f0c972c96b1e782b41e9.png"
     ]
   },
   {
     "name": "Lylia",
     "images": [
       "/assets/hero-icons/lylia.jpg",
-      "/assets/hero-source/lylia.png"
+      "/assets/hero-source/lylia.png",
+      "/assets/mlbb-cdn/34e88783503424d0abad.png",
+      "/assets/mlbb-cdn/70056e4fcfc9aab0847d.jpg",
+      "/assets/mlbb-cdn/d648f995974c9381d9bd.png",
+      "/assets/mlbb-cdn/0824c9c3027a08ec2bca.png",
+      "/assets/mlbb-cdn/5eb6eed90cca49317e08.jpg",
+      "/assets/mlbb-cdn/feeeda09c9e8592e1f80.png"
     ]
   },
   {
@@ -667,22 +1200,41 @@
     "images": [
       "/assets/hero-icons/marcel.jpg",
       "/assets/heroes-current/marcel.jpg",
-      "/assets/hero-source/marcel.png"
+      "/assets/hero-source/marcel.png",
+      "/assets/mlbb-cdn/0489398d1dd70c6d2bb6.jpg",
+      "/assets/mlbb-cdn/e9fb493b2c07f079cd4f.jpg",
+      "/assets/mlbb-cdn/7a1fbc4ac2c780aff6d2.webp",
+      "/assets/mlbb-cdn/d27f5e60359c1f17eef9.png",
+      "/assets/mlbb-cdn/561484fcbbc4ddcf2f51.png"
     ]
   },
   {
     "name": "Martis",
     "images": [
       "/assets/hero-icons/martis.jpg",
-      "/assets/hero-source/martis.png"
+      "/assets/hero-source/martis.png",
+      "/assets/mlbb-cdn/e3c66cb32df5a87cbf4d.png",
+      "/assets/mlbb-cdn/0291cbce0f4acd54d03c.jpg",
+      "/assets/mlbb-cdn/79a544f3cee78101a707.png",
+      "/assets/mlbb-cdn/df0a648eacb398d5f7e2.png",
+      "/assets/mlbb-cdn/cafe318646de7b330ff3.jpg",
+      "/assets/mlbb-cdn/b16486eb33ff8967385f.png"
     ]
   },
   {
     "name": "Masha",
     "images": [
+      "/assets/mlbb-cdn/e3f9c9c308fbab09fdb4.png",
+      "/assets/mlbb-cdn/9a3292ad2d2df49738ef.jpg",
+      "/assets/mlbb-cdn/9a3d05b3f3e468a8b108.png",
       "/assets/hero-icons/masha.jpg",
+      "/assets/mlbb-cdn/224a66154ff45f0d6d1a.jpg",
+      "/assets/mlbb-cdn/4246dc6a366f00c03e27.jpg",
+      "/assets/mlbb-cdn/5248c468735f77ebcd3e.jpg",
+      "/assets/mlbb-cdn/c552629d8326e9861272.png",
       "/assets/heroes-current/masha.png",
-      "/assets/hero-source/masha.png"
+      "/assets/hero-source/masha.png",
+      "/assets/mlbb-cdn/3e108f1c54f3ac1ceec4.png"
     ]
   },
   {
@@ -690,7 +1242,13 @@
     "images": [
       "/assets/hero-icons/mathilda.jpg",
       "/assets/heroes-current/mathilda.png",
-      "/assets/hero-source/mathilda.png"
+      "/assets/hero-source/mathilda.png",
+      "/assets/mlbb-cdn/526f297bf6cb54eb4bec.png",
+      "/assets/mlbb-cdn/70187e271360d72032ff.jpg",
+      "/assets/mlbb-cdn/cecaec337e6a475f47ed.png",
+      "/assets/mlbb-cdn/c1a2aa59dfd2e3eb1b1f.png",
+      "/assets/mlbb-cdn/443cecb37cae7de832e4.jpg",
+      "/assets/mlbb-cdn/581d4168088bc1721600.png"
     ]
   },
   {
@@ -698,14 +1256,26 @@
     "images": [
       "/assets/hero-icons/melissa.jpg",
       "/assets/heroes-current/melissa.png",
-      "/assets/hero-source/melissa.png"
+      "/assets/hero-source/melissa.png",
+      "/assets/mlbb-cdn/3fd4cfe74508e9f28042.png",
+      "/assets/mlbb-cdn/2136004b27dbfadf71f9.jpg",
+      "/assets/mlbb-cdn/75be311429074a08e7f2.png",
+      "/assets/mlbb-cdn/763c4492fcbe16ff2efc.png",
+      "/assets/mlbb-cdn/8e4b9fef6e783baad2bc.jpg",
+      "/assets/mlbb-cdn/991328698f1c19b27165.png"
     ]
   },
   {
     "name": "Minotaur",
     "images": [
       "/assets/hero-icons/minotaur.jpg",
-      "/assets/hero-source/minotaur.png"
+      "/assets/hero-source/minotaur.png",
+      "/assets/mlbb-cdn/c17db6060e63131b1b57.png",
+      "/assets/mlbb-cdn/3803aa28a4d9b580fe63.jpg",
+      "/assets/mlbb-cdn/138d1f79819e67e6c820.png",
+      "/assets/mlbb-cdn/95ae42329d1f312a71d9.png",
+      "/assets/mlbb-cdn/b088c5be7c26b9317cbf.jpg",
+      "/assets/mlbb-cdn/5859cad7d51bcc8379a0.png"
     ]
   },
   {
@@ -713,7 +1283,13 @@
     "images": [
       "/assets/hero-icons/minsitthar.jpg",
       "/assets/heroes-current/minsitthar.png",
-      "/assets/hero-source/minsitthar.png"
+      "/assets/hero-source/minsitthar.png",
+      "/assets/mlbb-cdn/0ba8cd733f859e8fdd76.png",
+      "/assets/mlbb-cdn/5cf4c7aeea2156cc2f08.jpg",
+      "/assets/mlbb-cdn/e029bb3418ec545261c2.png",
+      "/assets/mlbb-cdn/b9a565030b046f16c176.png",
+      "/assets/mlbb-cdn/9afcbb51da7089094dde.jpg",
+      "/assets/mlbb-cdn/cf145b7b7ad4fed4d6be.png"
     ]
   },
   {
@@ -721,7 +1297,14 @@
     "images": [
       "/assets/hero-icons/miya.jpg",
       "/assets/heroes-current/miya.png",
-      "/assets/hero-source/miya.png"
+      "/assets/hero-source/miya.png",
+      "/assets/mlbb-cdn/e3ef128a49ed6856ac59.jpg",
+      "/assets/mlbb-cdn/41c9b03d0176b8e294c5.jpg",
+      "/assets/mlbb-cdn/3e611784d727c1203fef.png",
+      "/assets/mlbb-cdn/d37a8a55adc78d3a47ec.png",
+      "/assets/mlbb-cdn/7127de12f7c78aa16d86.jpg",
+      "/assets/mlbb-cdn/5bd71a554adcab590051.jpg",
+      "/assets/mlbb-cdn/aaed84d7941735ea1add.png"
     ]
   },
   {
@@ -729,7 +1312,13 @@
     "images": [
       "/assets/hero-icons/moskov.jpg",
       "/assets/heroes-current/moskov.png",
-      "/assets/hero-source/moskov.png"
+      "/assets/hero-source/moskov.png",
+      "/assets/mlbb-cdn/a41229675d537e3667c0.png",
+      "/assets/mlbb-cdn/14aa5a45d52ef6f9a6e0.jpg",
+      "/assets/mlbb-cdn/42f59706d752f62bda52.png",
+      "/assets/mlbb-cdn/a5da02ca6e9715a1be60.png",
+      "/assets/mlbb-cdn/66280e3dcef5fe0891d6.jpg",
+      "/assets/mlbb-cdn/e87308fc1d386847e46c.png"
     ]
   },
   {
@@ -737,14 +1326,26 @@
     "images": [
       "/assets/hero-icons/nana.jpg",
       "/assets/heroes-current/nana.png",
-      "/assets/hero-source/nana.png"
+      "/assets/hero-source/nana.png",
+      "/assets/mlbb-cdn/789c3ca64830d34b8c2e.png",
+      "/assets/mlbb-cdn/e3fae8828c54ff530768.jpg",
+      "/assets/mlbb-cdn/dcfe8a1dc5b9d041405f.png",
+      "/assets/mlbb-cdn/0fa4faaab03f494fc037.png",
+      "/assets/mlbb-cdn/c376b71812b91133f6e3.jpg",
+      "/assets/mlbb-cdn/9bedbd23cbdef2ee5467.png"
     ]
   },
   {
     "name": "Natalia",
     "images": [
       "/assets/hero-icons/natalia.jpg",
-      "/assets/hero-source/natalia.png"
+      "/assets/hero-source/natalia.png",
+      "/assets/mlbb-cdn/f489979a2375b8c54fe2.png",
+      "/assets/mlbb-cdn/f1574663a60bfe931d1a.jpg",
+      "/assets/mlbb-cdn/a9f13af6a2db630c7797.png",
+      "/assets/mlbb-cdn/ea881057ef7ff8bd70f7.png",
+      "/assets/mlbb-cdn/fdc3b84ddae5bd0021bf.jpg",
+      "/assets/mlbb-cdn/b9bf73233d0b07b648b0.png"
     ]
   },
   {
@@ -752,7 +1353,13 @@
     "images": [
       "/assets/hero-icons/natan.jpg",
       "/assets/heroes-current/natan.png",
-      "/assets/hero-source/natan.png"
+      "/assets/hero-source/natan.png",
+      "/assets/mlbb-cdn/4166fde66e7f3f7b228a.png",
+      "/assets/mlbb-cdn/7db424668f68e0265f88.jpg",
+      "/assets/mlbb-cdn/ca0835d702c5891abdd8.png",
+      "/assets/mlbb-cdn/8f0924fcd2ea15b0d621.png",
+      "/assets/mlbb-cdn/da23e7b3f78313a726ff.jpg",
+      "/assets/mlbb-cdn/05d24d610be7dda0b9fb.png"
     ]
   },
   {
@@ -760,7 +1367,13 @@
     "images": [
       "/assets/hero-icons/nolan.jpg",
       "/assets/heroes-current/nolan.png",
-      "/assets/hero-source/nolan.png"
+      "/assets/hero-source/nolan.png",
+      "/assets/mlbb-cdn/f432dc861eb85791c0a1.png",
+      "/assets/mlbb-cdn/3d68d8fac4df5e807831.jpg",
+      "/assets/mlbb-cdn/3beb517fed2beb79a8f7.png",
+      "/assets/mlbb-cdn/7cecc7051c5ab04082b8.png",
+      "/assets/mlbb-cdn/8a59df24eea9edff230a.jpg",
+      "/assets/mlbb-cdn/b2c7c8ff259189c44a8a.png"
     ]
   },
   {
@@ -768,7 +1381,13 @@
     "images": [
       "/assets/hero-icons/novaria.jpg",
       "/assets/heroes-current/novaria.png",
-      "/assets/hero-source/novaria.png"
+      "/assets/hero-source/novaria.png",
+      "/assets/mlbb-cdn/1bbd24fd15e7d6642ee7.png",
+      "/assets/mlbb-cdn/967be073476ac01ccd8b.jpg",
+      "/assets/mlbb-cdn/b8d12fd17acf548d0d94.png",
+      "/assets/mlbb-cdn/3b830b70481642dc74a2.png",
+      "/assets/mlbb-cdn/66cb8956129f922ba4a7.jpg",
+      "/assets/mlbb-cdn/0842236f47f5e95a411d.png"
     ]
   },
   {
@@ -776,7 +1395,12 @@
     "images": [
       "/assets/hero-icons/obsidia.jpg",
       "/assets/heroes-current/obsidia.jpg",
-      "/assets/hero-source/obsidia.png"
+      "/assets/hero-source/obsidia.png",
+      "/assets/mlbb-cdn/85477d441e4b6dcb64f1.jpg",
+      "/assets/mlbb-cdn/83014c8265b8918bf962.jpg",
+      "/assets/mlbb-cdn/d22e4ee8ddb6f7590787.webp",
+      "/assets/mlbb-cdn/94c5f47c3834af983e11.png",
+      "/assets/mlbb-cdn/9b1c9d211400bb6eab0f.png"
     ]
   },
   {
@@ -784,22 +1408,42 @@
     "images": [
       "/assets/hero-icons/odette.jpg",
       "/assets/heroes-current/odette.png",
-      "/assets/hero-source/odette.png"
+      "/assets/hero-source/odette.png",
+      "/assets/mlbb-cdn/be5b3ac7fe01d6094d3e.png",
+      "/assets/mlbb-cdn/7ef156ebe0e377609f45.jpg",
+      "/assets/mlbb-cdn/da8b55b31eed126c1d92.png",
+      "/assets/mlbb-cdn/8f1930eb75e80cb3df59.png",
+      "/assets/mlbb-cdn/a11c1b63ce3ee3954a45.jpg",
+      "/assets/mlbb-cdn/98b20e4a33dc94b69873.png"
     ]
   },
   {
     "name": "Paquito",
     "images": [
+      "/assets/mlbb-cdn/08ee9922df3e3d056ca8.png",
+      "/assets/mlbb-cdn/2ce4ee82a7967a89ef50.jpg",
+      "/assets/mlbb-cdn/8e6d610bf3cbf0da06fa.png",
       "/assets/hero-icons/paquito.jpg",
+      "/assets/mlbb-cdn/80f0db1b2c2ce7892555.jpg",
+      "/assets/mlbb-cdn/377228d8c1eed77bbf0f.jpg",
+      "/assets/mlbb-cdn/c8b19681aad258c4122c.jpg",
+      "/assets/mlbb-cdn/9f389ae784f44ab04863.png",
       "/assets/heroes-current/paquito.png",
-      "/assets/hero-source/paquito.png"
+      "/assets/hero-source/paquito.png",
+      "/assets/mlbb-cdn/e026a16d899f45c33c6a.png"
     ]
   },
   {
     "name": "Pharsa",
     "images": [
       "/assets/hero-icons/pharsa.jpg",
-      "/assets/hero-source/pharsa.png"
+      "/assets/hero-source/pharsa.png",
+      "/assets/mlbb-cdn/b628f9b1fd57ec289cad.png",
+      "/assets/mlbb-cdn/9364a01f2a55134df9dd.jpg",
+      "/assets/mlbb-cdn/936514759c1192850953.png",
+      "/assets/mlbb-cdn/e98ce8bdee280c1b8ccd.png",
+      "/assets/mlbb-cdn/665611bfa3e22d957f48.jpg",
+      "/assets/mlbb-cdn/63f8f9944bb609fb8599.png"
     ]
   },
   {
@@ -807,7 +1451,13 @@
     "images": [
       "/assets/hero-icons/phoveus.jpg",
       "/assets/heroes-current/phoveus.jpg",
-      "/assets/hero-source/phoveus.png"
+      "/assets/hero-source/phoveus.png",
+      "/assets/mlbb-cdn/940a9f5e91c5fa48fafb.jpg",
+      "/assets/mlbb-cdn/181a562c9662d6331d38.jpg",
+      "/assets/mlbb-cdn/fec02c4f90b4016b4b70.png",
+      "/assets/mlbb-cdn/7b33103ffd13b3459cbb.png",
+      "/assets/mlbb-cdn/06c9dbb11abfd4865f06.jpg",
+      "/assets/mlbb-cdn/5affefc4894b8a8299a9.png"
     ]
   },
   {
@@ -815,7 +1465,13 @@
     "images": [
       "/assets/hero-icons/popolandkupa.jpg",
       "/assets/heroes-current/popolandkupa.png",
-      "/assets/hero-source/popolandkupa.png"
+      "/assets/hero-source/popolandkupa.png",
+      "/assets/mlbb-cdn/8edd586295ebc6e1b9ce.png",
+      "/assets/mlbb-cdn/8a9a45f4862ddbb46b8e.jpg",
+      "/assets/mlbb-cdn/177c057ec9b24c067e1f.png",
+      "/assets/mlbb-cdn/cec09acbcc97f32c92d1.png",
+      "/assets/mlbb-cdn/f133f1fe1b081ecba4b3.jpg",
+      "/assets/mlbb-cdn/1ca4f0da4f2dd6d7163f.png"
     ]
   },
   {
@@ -823,21 +1479,39 @@
     "images": [
       "/assets/hero-icons/rafaela.jpg",
       "/assets/heroes-current/rafaela.png",
-      "/assets/hero-source/rafaela.png"
+      "/assets/hero-source/rafaela.png",
+      "/assets/mlbb-cdn/ffe54f41054f3052911b.png",
+      "/assets/mlbb-cdn/d1a44f14cdaf9e493b9d.jpg",
+      "/assets/mlbb-cdn/2a26dab48ad0dfed6099.png",
+      "/assets/mlbb-cdn/24451a62c60534cf5c3b.png",
+      "/assets/mlbb-cdn/0bb0b2dd293823d1aae9.jpg",
+      "/assets/mlbb-cdn/9b1fb55036e411fd2eae.png"
     ]
   },
   {
     "name": "Roger",
     "images": [
       "/assets/hero-icons/roger.jpg",
-      "/assets/hero-source/roger.png"
+      "/assets/hero-source/roger.png",
+      "/assets/mlbb-cdn/1a0dbe3d78a0ebf6c81b.jpg",
+      "/assets/mlbb-cdn/fe5e6dec3c857957e1e2.jpg",
+      "/assets/mlbb-cdn/05e1155c4a8d3ada4e5b.png",
+      "/assets/mlbb-cdn/0c7eeb41dd7ae90eb2e4.png",
+      "/assets/mlbb-cdn/2256a2daa450ee60c685.jpg",
+      "/assets/mlbb-cdn/ce085f5c2b7b388df085.png"
     ]
   },
   {
     "name": "Ruby",
     "images": [
       "/assets/hero-icons/ruby.jpg",
-      "/assets/hero-source/ruby.png"
+      "/assets/hero-source/ruby.png",
+      "/assets/mlbb-cdn/659341059688ec3d591a.png",
+      "/assets/mlbb-cdn/d71e19420230b4a61649.jpg",
+      "/assets/mlbb-cdn/03eca00a80449d4fc88c.png",
+      "/assets/mlbb-cdn/f3d2129844dc31dc2052.png",
+      "/assets/mlbb-cdn/228fd25fb36004c34a48.jpg",
+      "/assets/mlbb-cdn/96d0404100a5332329e1.png"
     ]
   },
   {
@@ -845,35 +1519,64 @@
     "images": [
       "/assets/hero-icons/saber.jpg",
       "/assets/heroes-current/saber.png",
-      "/assets/hero-source/saber.png"
+      "/assets/hero-source/saber.png",
+      "/assets/mlbb-cdn/6894e55a8c57ae56b7fc.png",
+      "/assets/mlbb-cdn/9e8b0327d276e09b7d52.jpg",
+      "/assets/mlbb-cdn/4d1583767903125e4532.png",
+      "/assets/mlbb-cdn/efce05429898be17eb0a.png",
+      "/assets/mlbb-cdn/1133881582b3520b7486.jpg",
+      "/assets/mlbb-cdn/cc8ff960c5268bb15b0e.png"
     ]
   },
   {
     "name": "Selena",
     "images": [
       "/assets/hero-icons/selena.jpg",
-      "/assets/hero-source/selena.png"
+      "/assets/hero-source/selena.png",
+      "/assets/mlbb-cdn/390266e8eb93073b93db.png",
+      "/assets/mlbb-cdn/d12fb2d7f9fcebb2c20f.jpg",
+      "/assets/mlbb-cdn/2e41c3955a78cc446211.png",
+      "/assets/mlbb-cdn/29519ebdf306f8969905.png",
+      "/assets/mlbb-cdn/aa7940de2f0df382a56a.jpg",
+      "/assets/mlbb-cdn/abc3dcffa7250eb196eb.png"
     ]
   },
   {
     "name": "Silvanna",
     "images": [
       "/assets/hero-icons/silvanna.jpg",
-      "/assets/hero-source/silvanna.png"
+      "/assets/hero-source/silvanna.png",
+      "/assets/mlbb-cdn/aa71ae1d3a184fd04044.png",
+      "/assets/mlbb-cdn/e14eeb325eded6b2430b.jpg",
+      "/assets/mlbb-cdn/54424d64797845bfc7b1.png",
+      "/assets/mlbb-cdn/43914744c34190729b09.png",
+      "/assets/mlbb-cdn/c797644b846a8aa96e3c.jpg",
+      "/assets/mlbb-cdn/2888cddf9839637e0fcd.png"
     ]
   },
   {
     "name": "Sora",
     "images": [
       "/assets/hero-icons/sora.jpg",
-      "/assets/hero-source/sora.png"
+      "/assets/hero-source/sora.png",
+      "/assets/mlbb-cdn/ed0870042aebcd5b2459.jpg",
+      "/assets/mlbb-cdn/0792720a75f35f73246d.jpg",
+      "/assets/mlbb-cdn/a3333d0070c40de3f52b.webp",
+      "/assets/mlbb-cdn/9417e7fb5d463c593476.png",
+      "/assets/mlbb-cdn/ee610359afe6b10e8d3b.png"
     ]
   },
   {
     "name": "Sun",
     "images": [
       "/assets/hero-icons/sun.jpg",
-      "/assets/hero-source/sun.png"
+      "/assets/hero-source/sun.png",
+      "/assets/mlbb-cdn/c1abae16871c853431ab.jpg",
+      "/assets/mlbb-cdn/1c2a25cfb97e4d60d677.jpg",
+      "/assets/mlbb-cdn/e4970defa3d0052306dd.png",
+      "/assets/mlbb-cdn/6ae7fd26052212affb5d.png",
+      "/assets/mlbb-cdn/201dc4f8014d93deb616.jpg",
+      "/assets/mlbb-cdn/41402e68e1b4a9b82c29.png"
     ]
   },
   {
@@ -881,7 +1584,12 @@
     "images": [
       "/assets/hero-icons/suyou.jpg",
       "/assets/heroes-current/suyou.png",
-      "/assets/hero-source/suyou.png"
+      "/assets/hero-source/suyou.png",
+      "/assets/mlbb-cdn/ad8054de45911e1799de.png",
+      "/assets/mlbb-cdn/80b9799a57ffbd858a14.jpg",
+      "/assets/mlbb-cdn/5cad0826f367027eaf04.webp",
+      "/assets/mlbb-cdn/bea96bef459e498cb932.png",
+      "/assets/mlbb-cdn/69d18b6b78c66ad34c8c.png"
     ]
   },
   {
@@ -889,14 +1597,27 @@
     "images": [
       "/assets/hero-icons/terizla.jpg",
       "/assets/heroes-current/terizla.png",
-      "/assets/hero-source/terizla.png"
+      "/assets/hero-source/terizla.png",
+      "/assets/mlbb-cdn/fb26ffd54e0e13efd498.png",
+      "/assets/mlbb-cdn/da56d8d4e70b68f7c422.jpg",
+      "/assets/mlbb-cdn/001aba6a918136c93c87.png",
+      "/assets/mlbb-cdn/4f0b42e80ed93c0f0ed0.png",
+      "/assets/mlbb-cdn/f19f6afb571158aabbda.jpg",
+      "/assets/mlbb-cdn/8825be413a0d69ae16cb.png"
     ]
   },
   {
     "name": "Thamuz",
     "images": [
       "/assets/hero-icons/thamuz.jpg",
-      "/assets/hero-source/thamuz.png"
+      "/assets/hero-source/thamuz.png",
+      "/assets/mlbb-cdn/956dfc91c2deca4c610b.jpg",
+      "/assets/mlbb-cdn/3abf7a05c814058898f4.jpg",
+      "/assets/mlbb-cdn/81e16f52563ebef0726e.png",
+      "/assets/mlbb-cdn/76bfaece063bf40c2695.png",
+      "/assets/mlbb-cdn/85f5d2a86e1db437abe8.jpg",
+      "/assets/mlbb-cdn/d017c292025f9469a877.jpg",
+      "/assets/mlbb-cdn/9e5de0072737b6d3858d.png"
     ]
   },
   {
@@ -904,21 +1625,39 @@
     "images": [
       "/assets/hero-icons/tigreal.jpg",
       "/assets/heroes-current/tigreal.png",
-      "/assets/hero-source/tigreal.png"
+      "/assets/hero-source/tigreal.png",
+      "/assets/mlbb-cdn/649c8354d1ecc02b5be0.png",
+      "/assets/mlbb-cdn/d5db3141963388d3e1d8.jpg",
+      "/assets/mlbb-cdn/eea687993e3b51f5ebc9.png",
+      "/assets/mlbb-cdn/61168715274c41f718d7.png",
+      "/assets/mlbb-cdn/ece49b0fdcf48a13e45b.jpg",
+      "/assets/mlbb-cdn/09bdd7c2314ac41c7861.png"
     ]
   },
   {
     "name": "Uranus",
     "images": [
       "/assets/hero-icons/uranus.jpg",
-      "/assets/hero-source/uranus.png"
+      "/assets/hero-source/uranus.png",
+      "/assets/mlbb-cdn/5ad873f8698ea7532e73.png",
+      "/assets/mlbb-cdn/ca2e846f1d484569b297.jpg",
+      "/assets/mlbb-cdn/55526b41da4a835501d2.png",
+      "/assets/mlbb-cdn/9e9dab59eb83ff1597af.png",
+      "/assets/mlbb-cdn/5adcd2fa9fb871c65a34.jpg",
+      "/assets/mlbb-cdn/61a438213cce9048503f.png"
     ]
   },
   {
     "name": "Vale",
     "images": [
       "/assets/hero-icons/vale.jpg",
-      "/assets/hero-source/vale.png"
+      "/assets/hero-source/vale.png",
+      "/assets/mlbb-cdn/62f4b3cce149909c6e38.png",
+      "/assets/mlbb-cdn/b5c8b552b79ab1c67304.jpg",
+      "/assets/mlbb-cdn/6384a8c81a1d35a93d1d.png",
+      "/assets/mlbb-cdn/ac87ba7f67729d8b0b3a.png",
+      "/assets/mlbb-cdn/23b6b1d37140728f03af.jpg",
+      "/assets/mlbb-cdn/40abca8cf235c9968f8b.png"
     ]
   },
   {
@@ -926,14 +1665,26 @@
     "images": [
       "/assets/hero-icons/valentina.jpg",
       "/assets/heroes-current/valentina.png",
-      "/assets/hero-source/valentina.png"
+      "/assets/hero-source/valentina.png",
+      "/assets/mlbb-cdn/e5adef63d68ce93242ef.png",
+      "/assets/mlbb-cdn/efea8af85bd343dc7636.jpg",
+      "/assets/mlbb-cdn/e267f3b0526eed31b5d5.png",
+      "/assets/mlbb-cdn/fa7c378f851982bcbeb6.png",
+      "/assets/mlbb-cdn/abaa5029e9d51e0e642e.jpg",
+      "/assets/mlbb-cdn/e642ed8f69dea06f6c7f.png"
     ]
   },
   {
     "name": "Valir",
     "images": [
       "/assets/hero-icons/valir.jpg",
-      "/assets/hero-source/valir.png"
+      "/assets/hero-source/valir.png",
+      "/assets/mlbb-cdn/7e5e26d3148748129fb5.png",
+      "/assets/mlbb-cdn/bb8393bc133fb6125513.jpg",
+      "/assets/mlbb-cdn/33d85b8117326821ee82.png",
+      "/assets/mlbb-cdn/791b6c44b028c276280c.png",
+      "/assets/mlbb-cdn/d32ecb1d2f951ed33410.jpg",
+      "/assets/mlbb-cdn/0b944a902d956b8b9845.png"
     ]
   },
   {
@@ -941,7 +1692,13 @@
     "images": [
       "/assets/hero-icons/vexana.jpg",
       "/assets/heroes-current/vexana.png",
-      "/assets/hero-source/vexana.png"
+      "/assets/hero-source/vexana.png",
+      "/assets/mlbb-cdn/25954170e86efab06188.png",
+      "/assets/mlbb-cdn/6011aa5cc2694b85ac80.jpg",
+      "/assets/mlbb-cdn/a7f5c7b5fe8d796c731b.png",
+      "/assets/mlbb-cdn/c7b1dca0313305864168.png",
+      "/assets/mlbb-cdn/1cb4a5021752bf5afbc5.jpg",
+      "/assets/mlbb-cdn/5793cb54d1cc58e2b701.png"
     ]
   },
   {
@@ -949,7 +1706,14 @@
     "images": [
       "/assets/hero-icons/wanwan.png",
       "/assets/heroes-current/wanwan.png",
-      "/assets/hero-source/wanwan.png"
+      "/assets/hero-source/wanwan.png",
+      "/assets/mlbb-cdn/a7aa3d61efa18057f3bf.png",
+      "/assets/mlbb-cdn/d664c19fee6851884068.png",
+      "/assets/mlbb-cdn/4959cbf76a25991fe996.png",
+      "/assets/mlbb-cdn/6f1269e80835e5612657.png",
+      "/assets/mlbb-cdn/2e5c5eb383cedc9d0efa.jpg",
+      "/assets/mlbb-cdn/346d517d44c95caf5bee.jpg",
+      "/assets/mlbb-cdn/f36cc6a997b5695fd474.png"
     ]
   },
   {
@@ -957,7 +1721,14 @@
     "images": [
       "/assets/hero-icons/xborg.jpg",
       "/assets/heroes-current/xborg.png",
-      "/assets/hero-source/xborg.png"
+      "/assets/hero-source/xborg.png",
+      "/assets/mlbb-cdn/789c91ac9fec123ee41f.jpg",
+      "/assets/mlbb-cdn/c813360aa2150111400c.jpg",
+      "/assets/mlbb-cdn/d583bcb2c18647a1b0aa.png",
+      "/assets/mlbb-cdn/d9127dbfe190129f3fe2.png",
+      "/assets/mlbb-cdn/23f61a3efa237ace9eaa.jpg",
+      "/assets/mlbb-cdn/11bea6d9df9cd951491e.jpg",
+      "/assets/mlbb-cdn/d7820b246d011f57a07e.png"
     ]
   },
   {
@@ -965,7 +1736,13 @@
     "images": [
       "/assets/hero-icons/xavier.jpg",
       "/assets/heroes-current/xavier.png",
-      "/assets/hero-source/xavier.png"
+      "/assets/hero-source/xavier.png",
+      "/assets/mlbb-cdn/0a6bf6d9ecf75fb5b845.png",
+      "/assets/mlbb-cdn/9ec78f3f564627b01a1e.jpg",
+      "/assets/mlbb-cdn/7177416246e7ee338aaa.png",
+      "/assets/mlbb-cdn/44530e9b705c7eddd208.png",
+      "/assets/mlbb-cdn/23ed9e47dd1abcc952de.jpg",
+      "/assets/mlbb-cdn/7382f8d0b96c3348f99b.png"
     ]
   },
   {
@@ -973,7 +1750,13 @@
     "images": [
       "/assets/hero-icons/yisunshin.jpg",
       "/assets/heroes-current/yisunshin.png",
-      "/assets/hero-source/yisunshin.png"
+      "/assets/hero-source/yisunshin.png",
+      "/assets/mlbb-cdn/3b0601fa23cd9946d5f2.png",
+      "/assets/mlbb-cdn/d336b53fc12b000271db.jpg",
+      "/assets/mlbb-cdn/690e635e777d523da6d7.png",
+      "/assets/mlbb-cdn/9fd55b3755e5dde88d22.png",
+      "/assets/mlbb-cdn/0eec353cfda2eb1591c0.jpg",
+      "/assets/mlbb-cdn/6d7d0214b4d70f2fe403.png"
     ]
   },
   {
@@ -981,7 +1764,13 @@
     "images": [
       "/assets/hero-icons/yin.jpg",
       "/assets/heroes-current/yin.png",
-      "/assets/hero-source/yin.png"
+      "/assets/hero-source/yin.png",
+      "/assets/mlbb-cdn/6817b16a366a85cdcb50.png",
+      "/assets/mlbb-cdn/bd33cda5c01d775235af.jpg",
+      "/assets/mlbb-cdn/98f77f3d24db8e6a540e.png",
+      "/assets/mlbb-cdn/8a57292255ac7b211d5b.png",
+      "/assets/mlbb-cdn/a07979a3ccf33e9b171b.jpg",
+      "/assets/mlbb-cdn/1c27c161cde3b27c4d6c.png"
     ]
   },
   {
@@ -989,7 +1778,13 @@
     "images": [
       "/assets/hero-icons/yuzhong.jpg",
       "/assets/heroes-current/yuzhong.png",
-      "/assets/hero-source/yuzhong.png"
+      "/assets/hero-source/yuzhong.png",
+      "/assets/mlbb-cdn/9818d9bd2702fbad310c.png",
+      "/assets/mlbb-cdn/249af18d757804cebe9e.jpg",
+      "/assets/mlbb-cdn/96cbce9a865c23ef3690.png",
+      "/assets/mlbb-cdn/49cebe8374577c4b03b2.png",
+      "/assets/mlbb-cdn/de61612a1bd757877089.jpg",
+      "/assets/mlbb-cdn/878f7d9c0ae60fb16e3a.png"
     ]
   },
   {
@@ -997,7 +1792,14 @@
     "images": [
       "/assets/hero-icons/yve.jpg",
       "/assets/heroes-current/yve.png",
-      "/assets/hero-source/yve.png"
+      "/assets/hero-source/yve.png",
+      "/assets/mlbb-cdn/815876a2057097deda03.jpg",
+      "/assets/mlbb-cdn/5f07b387838b37f37e43.jpg",
+      "/assets/mlbb-cdn/292d577ff9fee49ff6f9.png",
+      "/assets/mlbb-cdn/784efc7885f6bf972af3.png",
+      "/assets/mlbb-cdn/48e80ff94b40071f8318.jpg",
+      "/assets/mlbb-cdn/2f580507dcc8d7a918df.jpg",
+      "/assets/mlbb-cdn/719167d74a0eb82ca22b.png"
     ]
   },
   {
@@ -1005,7 +1807,12 @@
     "images": [
       "/assets/hero-icons/zetian.jpg",
       "/assets/heroes-current/zetian.png",
-      "/assets/hero-source/zetian.png"
+      "/assets/hero-source/zetian.png",
+      "/assets/mlbb-cdn/247cb317f3a940737fa5.jpg",
+      "/assets/mlbb-cdn/302a4453386d5dc8e359.jpg",
+      "/assets/mlbb-cdn/ac256039caa53e8ef23e.webp",
+      "/assets/mlbb-cdn/fb361bbe8b307cbda9a4.png",
+      "/assets/mlbb-cdn/1d3f5b8e2385e5164dd3.png"
     ]
   },
   {
@@ -1013,7 +1820,13 @@
     "images": [
       "/assets/hero-icons/zhask.jpg",
       "/assets/heroes-current/zhask.png",
-      "/assets/hero-source/zhask.png"
+      "/assets/hero-source/zhask.png",
+      "/assets/mlbb-cdn/c171e8f4488d8a260b65.png",
+      "/assets/mlbb-cdn/e4b5e97ec18c80d16578.jpg",
+      "/assets/mlbb-cdn/4623a49d06600ee520c1.png",
+      "/assets/mlbb-cdn/2130d179d852ea4571cc.png",
+      "/assets/mlbb-cdn/495cb772f3eb57e60803.jpg",
+      "/assets/mlbb-cdn/ddc93518638454883e69.png"
     ]
   },
   {
@@ -1021,7 +1834,14 @@
     "images": [
       "/assets/hero-icons/zhuxin.jpg",
       "/assets/heroes-current/zhuxin.png",
-      "/assets/hero-source/zhuxin.png"
+      "/assets/hero-source/zhuxin.png",
+      "/assets/mlbb-cdn/5b8bd203d9178e86f448.jpg",
+      "/assets/mlbb-cdn/f7982728bc399b509672.jpg",
+      "/assets/mlbb-cdn/83f793f2555bc0bf5dbe.webp",
+      "/assets/mlbb-cdn/337163b2a45d2ca84ec5.png",
+      "/assets/mlbb-cdn/4b2df23d3348774d2ab3.png",
+      "/assets/mlbb-cdn/6dba72c6e66a3db8d9f6.jpg",
+      "/assets/mlbb-cdn/328ba5d83483e37bd069.png"
     ]
   },
   {
@@ -1029,7 +1849,13 @@
     "images": [
       "/assets/hero-icons/zilong.jpg",
       "/assets/heroes-current/zilong.png",
-      "/assets/hero-source/zilong.png"
+      "/assets/hero-source/zilong.png",
+      "/assets/mlbb-cdn/9982feba7f775bb12386.png",
+      "/assets/mlbb-cdn/e573b6b402c44f61b934.jpg",
+      "/assets/mlbb-cdn/9587f2c7740d09ebe5d0.png",
+      "/assets/mlbb-cdn/d80b42d9554dbd92b683.png",
+      "/assets/mlbb-cdn/f5ed6f80ca0aa11e7ddc.jpg",
+      "/assets/mlbb-cdn/1d4998435a3479be0e04.png"
     ]
   }
 ]

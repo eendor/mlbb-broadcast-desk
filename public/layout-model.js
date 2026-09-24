@@ -1,5 +1,5 @@
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.HUDLayout=api;})(globalThis,()=>{
-  const scenes=['draft','scoreboard','players','countdown','intermission','postgame','schedule','sponsors','ads','swiss'];
+  const scenes=['draft','scoreboard','players','countdown','intermission','postgame','mvp','schedule','sponsors','ads','swiss'];
   const groups=[
     ['swiss','Swiss bracket','.swiss-bracket'],
     ['draft','Draft package','.broadcast-draft'],['draft-side','Draft team','.broadcast-draft-side'],
@@ -30,7 +30,12 @@
     ['versus','Versus teams','.standby-versus'],['ticker','Ticker','.broadcast-bottom,.ticker'],
     ['winner','Winner block','.winner'],['winner-name','Winner name','.winner h1'],['result-score','Final score','.resultscore'],
     ['tables','Result tables','.tables'],['result-team','Result team','.resultteam'],['result-name','Result team name','.resultteam h2'],
-    ['result-player','Result player','.resultrow'],['schedule','Schedule block','.schedulecontent'],['schedule-title','Schedule title','.schedulecontent h1'],
+    ['result-player','Result player','.resultrow'],
+    ['mvp','MVP package','.mvp-scene'],['mvp-photo','MVP photo','.mvp-photo'],['mvp-splash','Hero splash','.mvp-splash'],
+    ['mvp-title','MVP title','.mvp-title'],['mvp-name','MVP name plate','.mvp-nameplate'],
+    ['mvp-stats','MVP stat cards','.mvp-stats'],['mvp-stat','MVP stat card','.mvp-stat'],
+    ['mvp-equipment','MVP equipment','.mvp-equipment'],['mvp-emblem','MVP emblem','.mvp-emblem'],['mvp-spell','MVP spell','.mvp-spell'],
+    ['schedule','Schedule block','.schedulecontent'],['schedule-title','Schedule title','.schedulecontent h1'],
     ['sponsors','Sponsors block','.sponsor-show'],['sponsor-title','Sponsor heading','.sponsor-show h1'],
     ['sponsor','Sponsor tile','.partner-tile'],['sponsor-name','Sponsor name','.partner-tile>b'],['sponsor-tagline','Sponsor tagline','.partner-tile>small'],
     ['ad-media','Ad media','.ad-media-host'],['ad-label','Advertisement label','.ad-bug'],['ad-standby','Ad standby message','.ad-empty'],

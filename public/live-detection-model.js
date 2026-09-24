@@ -31,19 +31,30 @@
     result.push({field:`${side}.players.${i}.kda`,x:red?1200:590,y,w:140,h:40});
     result.push({field:`${side}.players.${i}.gold`,x:red?1100:740,y,w:110,h:40});
   }
-  const profiles={game,result};
-  const fields=new Set([...game,...result].map(r=>r.field));
+  // Clean 1920 x 1080 draft feed, calibrated against the supplied recording.
+  // Red bans fill from the right edge inward; slots are stored in ban order.
+  const draft=[{field:'draftPhase',x:755,y:8,w:415,h:43},{field:'draftTimer.remaining',x:880,y:54,w:164,h:75}];
+  for(const side of ['blue','red'])for(let i=0;i<5;i++){
+    draft.push({field:`${side}.players.${i}.hero`,x:side==='blue'?60:1746,y:145+i*172,w:114,h:114});
+    draft.push({field:`${side}.players.${i}.name`,x:side==='blue'?10:1620,y:260+i*172,w:290,h:32});
+    draft.push({field:`${side}.bans.${i}`,x:side==='blue'?42+i*110:1826-i*110,y:18,w:54,h:54});
+  }
+  const profiles={game,result,draft};
+  const fields=new Set(Object.values(profiles).flat().map(r=>r.field));
   const isHero=field=>/\.hero$|\.bans\./.test(field);
   function validateRegions(rows,mode){
     const allowed=new Set(profiles[mode]?.map(r=>r.field));
     if(!allowed.size||!Array.isArray(rows)||!rows.length||rows.length>60||new Set(rows.map(r=>r.field)).size!==rows.length)throw Error('Invalid live capture regions');
     for(const r of rows)if(!allowed.has(r.field)||![r.x,r.y,r.w,r.h].every(Number.isFinite)||r.x<0||r.y<0||r.w<1||r.h<1||r.x+r.w>1920.01||r.y+r.h>1080.01)throw Error('Invalid capture region: '+r.field);
-    const anchor=mode==='result'?'resultStatus':'gameTime';if(!rows.some(r=>r.field===anchor))throw Error('Keep the scene-detection region');
+    const anchor=mode==='result'?'resultStatus':mode==='draft'?'draftPhase':'gameTime';if(!rows.some(r=>r.field===anchor))throw Error('Keep the scene-detection region');
     return rows;
   }
   function resultOutcome(text){const s=String(text).trim().replace(/\s+/g,' ');if(/victory/i.test(s))return 'blue';if(/defeat/i.test(s))return 'red';return null;}
+  function draftPhase(text){const s=String(text).trim().replace(/\s+/g,' ');const m=s.match(/^(Allied|Enemy) Team (Ban|Pick)$/i);return m?`${/^allied$/i.test(m[1])?'Allied':'Enemy'} Team ${/^ban$/i.test(m[2])?'Ban':'Pick'}`:/^(Last (?:Change|Changes)|Battle Preparation|Adjust(?:ment)?|Swap Heroes)$/i.test(s)?'Last Changes':null;}
+  function draftClock(text){const s=String(text).trim().replace(/[Oo]/g,'0').replace(/\s/g,'');if(/^00:[0-5]\d$/.test(s))return Number(s.slice(3));return /^\d{1,2}$/.test(s)&&Number(s)<=60?Number(s):null;}
   function classify(readings,threshold=65){
     const good=(field)=>readings.find(r=>r.field===field&&r.value!==null&&r.confidence>=threshold);
+    const phase=good('draftPhase');if(phase&&draftPhase(phase.value)&&good('draftTimer.remaining'))return 'draft';
     const outcome=good('resultStatus');if(outcome&&resultOutcome(outcome.value))return 'result';
     const g=good('gameTime');
     if(g&&/^\d{1,3}:[0-5]\d$/.test(g.value)&&(good('blue.kills')||good('red.kills')))return 'game';
@@ -65,5 +76,5 @@
     if(!players[row].hero&&/^Player [1-5]$/.test(players[row].name)&&(hero||key.length>=4))return row;
     return null;
   }
-  return {profiles,legacyGame,fields,isHero,validateRegions,resultOutcome,classify,sceneGate,playerIndex,spectatorHero};
+  return {profiles,legacyGame,fields,isHero,validateRegions,resultOutcome,draftPhase,draftClock,classify,sceneGate,playerIndex,spectatorHero};
 });

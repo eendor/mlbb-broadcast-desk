@@ -14,7 +14,9 @@ Local OBS overlay control panel for Mobile Legends broadcasts. Includes a white,
 
 On Windows, after installing dependencies, you can instead double-click **Start Broadcast Desk.bat**. It starts a hidden server and opens the panel. Stop that server using `powershell -ExecutionPolicy Bypass -File .\Stop-Broadcast.ps1`. For `npm start`, stop with Ctrl+C.
 
-The server listens only on this computer. Your teammate runs their own copy; a GitHub link does not host or synchronize the panel. A fresh clone starts with default teams. No production state or uploaded ads are included.
+The desk binds to the host computer and prints its private LAN address at startup. On another PC, tablet or phone on the same trusted network, open `http://<host-LAN-IP>:3210` (for example, `http://192.168.1.20:3210`). All devices control the same running desk: edits and timers sync live to every open panel and OBS output. They must use the same host address and server process; separate clones do not sync. A fresh clone starts with default teams, and uploaded media is not included.
+
+LAN control is intentionally limited to private local addresses, but it has no user login: only run it on a network where everyone who can connect is trusted to operate the broadcast. If Windows Firewall asks, allow Node.js on **Private networks**. Screen-capture OCR may need to stay open on the host computer at `http://127.0.0.1:3210`, because browsers restrict screen capture from plain-HTTP LAN addresses.
 
 ## OBS setup
 
@@ -42,7 +44,7 @@ Run `node tests/swiss-browser.cjs` for an isolated check of the controls, all fi
 
 ## Operator workflow
 
-1. Set event, stage, team tags/logos, five players and three bans per side in Teams & draft.
+1. Set event, stage, team tags/logos, five players and five bans per side in Teams & draft.
 2. Choose **Best of 3, 5 or 7** using the top toolbar. Series wins and in-game kills are separate values.
 3. Click hero or ban slots in the Live Production preview to open the picker without leaving the tab. Click supported names, statistics, logos and timers to edit them. Schedule and sponsor areas open their respective controls.
 4. Picked heroes pop in with a team-colored highlight. **MOTION** means a real looping clip is available; **STILL** means the portrait does not continuously animate. Sixteen heroes currently have MP4 artwork. Use the moving-artwork filter or import your own GIF/MP4/WebM and adjust its crop under Teams & draft. Alpha currently has no bundled moving clip.
@@ -64,13 +66,13 @@ All 41 bundled organization logos have transparent PNG copies. Saved original lo
 
 ## OCR and synchronization
 
-For live automation, open **OCR capture → Start live auto-detect**, then choose the clean game window in the browser's capture picker. This starts continuous video capture, enables automatic updates, and recognizes the in-game spectator scoreboard and match-result screen. Draft OCR is intentionally disabled; operate picks and bans manually. Leave the control page open while using other tabs in the desk.
+For live automation, open **OCR capture > Start live auto-detect**, then choose the clean game window. Auto-detect follows drafting, the spectator scoreboard and match results. Keep the desk page open. To replay a recording, choose **Open test video**, select **Auto-detect draft + game + result**, and start continuous OCR.
 
-In-game detection reads the clock, kills, team gold and turret counts from the supplied spectator layout. Match-result detection reads the winner, final kills, duration, player names, KDA and player gold, then switches Program to postgame when scene following is enabled. It does not invent statistics absent from the HUD. Draft picks and bans remain manual.
+In-game detection reads the clock, kills, team gold and turret counts from the supplied spectator layout. Match-result detection reads the winner, final kills, duration, player names, KDA and player gold, then switches Program to postgame when scene following is enabled. It does not invent statistics absent from the HUD. Draft detection reads the phase, countdown (including red final seconds), five picks and five bans per side. Player names stay manual by default; enable **Read draft player names** only when the captured names read cleanly. The draft preset and skin references were checked against the supplied September 13 recording.
 
-**Follow game / result scenes in OBS Program** controls automatic scene switching. Turn it off to choose scenes yourself while continuing live data updates. The fixed OBS source URLs retain their chosen scenes. When the HUD disappears, readings stop; lost capture or a closed panel also stops extrapolating detected clocks. API auto-sync and continuous capture share the existing single-source controls.
+**Follow draft / game / result scenes in OBS Program** controls automatic scene switching. Turn it off to choose scenes yourself while continuing live data updates. The fixed OBS source URLs retain their chosen scenes. When the HUD disappears, readings stop; lost capture or a closed panel also stops extrapolating detected clocks. API auto-sync and continuous capture share the existing single-source controls.
 
-The full-capture presets use the supplied examples as starting positions. For a different game aspect ratio, spectator HUD, result table, or borders, stop scanning, choose **Layout to calibrate**, select a field and drag its box over the corresponding content. Calibration is saved separately for gameplay and match results. Choose the actual game window or a fullscreen clean feed, so browser controls do not cover the clock.
+The full-capture presets use the supplied examples as starting positions. For a different game aspect ratio, spectator HUD, result table, or borders, stop scanning, choose **Layout to calibrate**, select a field and drag its box over the corresponding content. Calibration is saved separately for drafting, gameplay and match results. Black borders and the mirroring title bar in the supplied windowed recording are normalized to the same game coordinates. A panel covering the heading pauses detection. Choose the actual game window or a fullscreen clean feed, so browser controls do not cover the clock.
 
 Hero detection compares visible portraits with bundled artwork and locally saved samples. **It is not a model trained on every MLBB skin.** Unfamiliar artwork, tiny compressed portraits, pending picks and obscured slots can remain unknown. Under **Recognize an unfamiliar skin**, capture a portrait, select the hero shown, and remember it. The displayed sample stays frozen while you label it; subsequent live frames are matched automatically. Samples and calibration stay in this browser's local storage. Blank or uncertain slots do not clear existing picks or bans; use the manual draft controls between matches.
 
@@ -86,16 +88,24 @@ Starting OCR stops API auto-sync, and starting API auto-sync stops continuous OC
 
 Development checks include real Tesseract recognition, multi-reading confirmation, stream delivery, scoreboard recapture, and match-result synchronization. These are **not full-match accuracy validation**. Test your clean capture before a live production. Live portrait matching has the artwork and skin limitations described above.
 
+## Local hero and item artwork
+
+The publisher index supplies 133 heroes and 184 equipment records. **988 image files** (about 54 MiB) are stored in public/assets/mlbb-cdn, including 78 images under the requested community path. All 133 heroes and 181 equipment records have local artwork; three removed items have no image in the publisher index. The manifest records each source URL and SHA-256 hash. The CDN does not permit directory listing, so coverage means the indexed assets, not every unlisted file on the server.
+
+Circular hero pictures appear in selectors and compact HUD slots; existing full portraits and moving clips remain available. The recognition library uses the downloaded variants. Match-result hero and item IDs resolve to local images, including older saved results that contain remote URLs. Refresh this collection with node tools/import-mlbb-assets.cjs.
+
 ## Official match parser
 
-This workflow is intended for **Custom Room Draft Pick (6 Ban)**:
+The official match parser supports completed match results, independently of the live draft detector:
 
 1. Create a match at https://play.mobilelegends.com/match/#/.
 2. Scan the QR code as host/spectator; have players join.
 3. Copy the website's Match ID into Match parser.
 4. Fetch and review the response before applying.
 
-The server calls `https://sg-api.mobilelegends.com/matchTools/v1/getMatchUrl?matchId=<matchId>`. The supplied sample ID returned "match not found" during development. A successful current provider schema is unverified. Recognized JSON team shapes and explicit field mappings are supported; numeric hero IDs or unknown schemas need an adapter built from a real response. Errors leave the last valid broadcast state intact.
+The server calls `https://sg-api.mobilelegends.com/matchTools/v1/getMatchUrl?matchId=<matchId>`. The supplied sample ID returned "match not found" during development, so a successful current result payload still needs verification against a real Match ID. Recognized JSON team shapes and explicit field mappings are supported; numeric hero IDs or unknown schemas need an adapter built from a real response. Errors leave the last valid broadcast state intact.
+
+Moonton's GMS asset service also exposes emblem metadata at source `2718120` (7 emblem families) and emblem talent metadata at source `2718121` (26 talents), using the same `api/gms/source/2713644/{sourceId}` endpoint and headers used for hero/item assets. These are catalogs, not a player's selected in-match build. The current parser has no verified field mapping for selected emblem/talent IDs; test that only after capturing an actual successful Moonton match response.
 
 ## Test and report issues
 
@@ -115,6 +125,7 @@ node tests/live-production-browser.cjs
 node tests/ocr-browser.cjs
 node tests/live-detection-browser.cjs
 node tests/result-detection-browser.cjs
+node tests/draft-video.cjs "D:\Downloads\2026-09-13 19-54-22.mp4"
 node tests/text-fit.cjs
 node tests/logo-transparency.cjs
 ```

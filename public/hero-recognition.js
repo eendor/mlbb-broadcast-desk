@@ -2,7 +2,7 @@
    Unseen skins and weak/ambiguous matches remain unknown. No frames leave this PC. */
 if(typeof document==='undefined'){
   const size=8,dimension=size*size;
-  let library=[],learned=[],references=[];
+  let library=[],learned=[],references=[],bundled=[];
   const integrals=new WeakMap();
   function feature(pixels,width,height,x=0,y=0,w=width,h=height,flip=false){
     let integral=integrals.get(pixels);const stride=width+1;
@@ -21,6 +21,7 @@ if(typeof document==='undefined'){
   function dot(a,b,offset=0){let n=0;for(let i=0;i<dimension;i++)n+=a[i]*b[offset+i];return n/16129;}
   async function build(){
     const catalog=await (await fetch('/assets/hero-recognition.json')).json();
+    bundled=(await (await fetch('/assets/draft-reference-samples.json')).json()).samples;
     for(const hero of catalog){
       const rows=[];
       for(const url of hero.images)try{
@@ -52,14 +53,23 @@ if(typeof document==='undefined'){
       const matches=data.queries.map(q=>{
         const a=feature(q.pixels,16,16),b=feature(q.pixels,16,16,0,0,16,16,true);
         if(!a)return {field:q.field,value:null,similarity:0,reason:'Empty or obscured portrait'};
+        // Exact capture references take a fast path. This includes empty and
+        // overlay-covered slots, which can never become hero selections.
+        const sampleScores=new Map();
+        for(const sample of [...bundled,...learned,...references]){
+          if(sample.kind!==q.kind)continue;const f=feature(sample.pixels,16,16);if(!f)continue;
+          const score=Math.max(dot(a,f),dot(b,f));sampleScores.set(sample.hero,Math.max(sampleScores.get(sample.hero)||-1,score));
+        }
+        const nearest=[...sampleScores].sort((a,b)=>b[1]-a[1]),firstSample=nearest[0];
+        if(firstSample&&firstSample[1]>=.94&&firstSample[1]-(nearest[1]?.[1]||0)>=.06)return {field:q.field,value:firstSample[0],similarity:Math.min(100,Math.round(firstSample[1]*100)),reason:firstSample[0]?'Capture artwork matched':'Empty or covered slot'};
         const ranked=[];
         for(const hero of library){let best=-1;for(let offset=0;offset<hero.packed.length;offset+=dimension)best=Math.max(best,dot(a,hero.packed,offset),dot(b,hero.packed,offset));ranked.push({name:hero.name,score:best,learned:false});}
-        for(const sample of [...learned,...references]){if(sample.kind!==q.kind)continue;const f=feature(sample.pixels,16,16);if(!f)continue;const score=Math.max(dot(a,f),dot(b,f)),entry=ranked.find(h=>h.name===sample.hero);if(entry&&score>entry.score){entry.score=score;entry.learned=true;}}
+        for(const [hero,score] of sampleScores){const entry=ranked.find(h=>h.name===hero);if(entry&&score>entry.score){entry.score=score;entry.learned=true;}}
         ranked.sort((a,b)=>b.score-a.score);const first=ranked[0],margin=first?first.score-(ranked[1]?.score||0):0;
         // Default artwork must match strongly at a distinctly better score than
         // every other hero. Saved, labeled capture samples use a stricter score.
-        const accepted=!!first&&first.score>=(first.learned ? .91 : .88)&&margin>=.065;
-        return {field:q.field,value:accepted?first.name:null,candidate:first?.name,similarity:Math.round((first?.score||0)*100),reason:accepted?'Artwork matched':'Unknown / needs a matching skin sample'};
+        const accepted=!!first&&first.score>=(first.learned ? .94 : .9)&&margin>=.065&&first.score-(sampleScores.get(null)||0)>=.06;
+        return {field:q.field,value:accepted?first.name:null,candidate:first?.name,similarity:Math.min(100,Math.round((first?.score||0)*100)),reason:accepted?'Artwork matched':'Unknown / needs a matching skin sample'};
       });
       self.postMessage({id:data.id,matches});
     }catch(error){self.postMessage({id:data.id,error:error.message});}

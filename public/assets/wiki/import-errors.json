@@ -1,0 +1,3610 @@
+[
+  {
+    "item": {
+      "name": "Aamon",
+      "img": "/assets/heroes-current/aamon.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/ec40f1f098f4e53614be6a5364d38947.png?w=240-390-17101c",
+      "officialId": 125,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/7f6b95b5f40597e49f5a.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_26b1c0ec95ad9e98f81b07d6838a8652.jpg",
+      "gameId": 109,
+      "cdnImages": [
+        "/assets/mlbb-cdn/55783356fc3d561129a8.png",
+        "/assets/mlbb-cdn/7f6b95b5f40597e49f5a.jpg",
+        "/assets/mlbb-cdn/474ece8e4bbc556dea0a.png",
+        "/assets/mlbb-cdn/6652fc3d22b32f2d81ac.png",
+        "/assets/mlbb-cdn/3b5fa20d1fcb101a793e.jpg",
+        "/assets/mlbb-cdn/65ed75296752d0669bef.png"
+      ],
+      "face": "/assets/mlbb-cdn/474ece8e4bbc556dea0a.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "img": "/assets/heroes-current/alice.jpg",
+      "name": "Alice",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/d2c84ad89146a59fb012ad9a7e03c391.jpg?w=240-390-8b818c",
+      "officialId": 189,
+      "icon": "/assets/mlbb-cdn/6fa75423d392d9fc74f4.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/gms/image/66c9a33b830173a5fd93d9940429b491.jpg",
+      "gameId": 4,
+      "cdnImages": [
+        "/assets/mlbb-cdn/30bf2cfad6a44ba31763.jpg",
+        "/assets/mlbb-cdn/6fa75423d392d9fc74f4.jpg",
+        "/assets/mlbb-cdn/8ef366483fcb3920a8d1.png",
+        "/assets/mlbb-cdn/461e17b365c8ac56f935.png",
+        "/assets/mlbb-cdn/c0c198503ada3bde1f54.jpg",
+        "/assets/mlbb-cdn/3005fdce5b786eda7933.jpg",
+        "/assets/mlbb-cdn/1dd8ce8ec8c49be93e12.png"
+      ],
+      "face": "/assets/mlbb-cdn/8ef366483fcb3920a8d1.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "img": "/assets/hero-source/aldous.png",
+      "name": "Aldous",
+      "icon": "/assets/mlbb-cdn/023a5a1bc2eb7d949fb5.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_e4f7847a1b687a2e4f414e531cd66b1b.jpg",
+      "gameId": 64,
+      "cdnImages": [
+        "/assets/mlbb-cdn/4529b19bcf519a75d09a.png",
+        "/assets/mlbb-cdn/023a5a1bc2eb7d949fb5.jpg",
+        "/assets/mlbb-cdn/9c3671acce8727c32af2.png",
+        "/assets/mlbb-cdn/832d0fcb6af7a215cff0.png",
+        "/assets/mlbb-cdn/bbdf3f2915b68e3b8bad.jpg",
+        "/assets/mlbb-cdn/56aad05009f610d06ccd.png"
+      ],
+      "face": "/assets/mlbb-cdn/9c3671acce8727c32af2.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Alucard",
+      "img": "/assets/heroes-current/alucard.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/c7ab766142ece147c7529e8baa8efcfe.png?w=240-390-111120",
+      "officialId": 60,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/f35696a9b2bc613cc318.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_c9a8a8b1bb1fed4190f3168d44810ce3.jpg",
+      "gameId": 7,
+      "cdnImages": [
+        "/assets/mlbb-cdn/4ad80076377309b40773.png",
+        "/assets/mlbb-cdn/f35696a9b2bc613cc318.jpg",
+        "/assets/mlbb-cdn/91150e8938cf6bd0e071.png",
+        "/assets/mlbb-cdn/c508d48f558c2dc565a7.png",
+        "/assets/mlbb-cdn/97b55b3f3208815ededa.jpg",
+        "/assets/mlbb-cdn/e8ee76e5568b4714e015.png"
+      ],
+      "face": "/assets/mlbb-cdn/91150e8938cf6bd0e071.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Alpha",
+      "img": "/assets/heroes-current/alpha.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/a6c95724273429b28edd5ceca9b9f967.png?w=240-390-312838",
+      "officialId": 94,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/dc73c0cd4f4c2ac21fa6.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_0fd2c33fbf0235703b1c936059cf1b8e.jpg",
+      "gameId": 28,
+      "cdnImages": [
+        "/assets/mlbb-cdn/62409518336e0607b3b8.png",
+        "/assets/mlbb-cdn/dc73c0cd4f4c2ac21fa6.jpg",
+        "/assets/mlbb-cdn/89583299034f18d58c7e.png",
+        "/assets/mlbb-cdn/680eebabecda36bda184.png",
+        "/assets/mlbb-cdn/aaa197aebe399eec0f95.jpg",
+        "/assets/mlbb-cdn/38e3302a6f7d4f8f74b6.png"
+      ],
+      "face": "/assets/mlbb-cdn/89583299034f18d58c7e.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "img": "/assets/hero-source/argus.png",
+      "name": "Argus",
+      "icon": "/assets/mlbb-cdn/272b82c0946b20f4622d.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_802afa50ffd43d553c3b924d111249c1.jpg",
+      "gameId": 45,
+      "cdnImages": [
+        "/assets/mlbb-cdn/a79f2eba50fa27f1fc1c.png",
+        "/assets/mlbb-cdn/272b82c0946b20f4622d.jpg",
+        "/assets/mlbb-cdn/e2e060882396fa5e3248.png",
+        "/assets/mlbb-cdn/fbd8617fa2ad9a6f952a.png",
+        "/assets/mlbb-cdn/921247182abd4e03ec5e.jpg",
+        "/assets/mlbb-cdn/ea29535a9431c49bd450.png"
+      ],
+      "face": "/assets/mlbb-cdn/e2e060882396fa5e3248.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Arlott",
+      "img": "/assets/heroes-current/arlott.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/efa2827c59be70811612d872de65f562.png?w=240-390-1c1e2f",
+      "officialId": 163,
+      "downloadedAt": "2026-09-08",
+      "aliases": [
+        "Arlot"
+      ],
+      "icon": "/assets/mlbb-cdn/e39193d60d3837ae5874.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_d29e8f9f2d129f18a944da0a8e9044c2.jpg",
+      "gameId": 120,
+      "cdnImages": [
+        "/assets/mlbb-cdn/b0db404e911ef98df0df.png",
+        "/assets/mlbb-cdn/e39193d60d3837ae5874.jpg",
+        "/assets/mlbb-cdn/c58c3b92a2671cd93d2b.png",
+        "/assets/mlbb-cdn/9487b2dc79ba525df0f9.png",
+        "/assets/mlbb-cdn/0a3ca862ea182d61409d.jpg",
+        "/assets/mlbb-cdn/b9fe4c138bcabf12c75c.png"
+      ],
+      "face": "/assets/mlbb-cdn/9487b2dc79ba525df0f9.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Aulus",
+      "img": "/assets/heroes-current/aulus.jpg",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/7780f00fd76033294b6fa52ff40f6289.jpg?w=240-390-301814",
+      "officialId": 101,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/5bd5a5cf45dc7974a470.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/gms/image/df1df2053afbdda1167d647bbb8b3a81.jpg",
+      "gameId": 108,
+      "cdnImages": [
+        "/assets/mlbb-cdn/eb529a93efd55dc4202c.jpg",
+        "/assets/mlbb-cdn/5bd5a5cf45dc7974a470.jpg",
+        "/assets/mlbb-cdn/231eeb85875c55906c6b.png",
+        "/assets/mlbb-cdn/9fadbb3486929018a272.png",
+        "/assets/mlbb-cdn/43aa986e58910ee304d0.jpg",
+        "/assets/mlbb-cdn/359276bc3d7ea36cb419.jpg",
+        "/assets/mlbb-cdn/d5eda3cdfdd12e79ca6e.png"
+      ],
+      "face": "/assets/mlbb-cdn/231eeb85875c55906c6b.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "img": "/assets/hero-source/angela.png",
+      "name": "Angela",
+      "icon": "/assets/mlbb-cdn/5d340974017aa05ec14c.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_187b8452435b469e8867e8fb2d387a5b.jpg",
+      "gameId": 55,
+      "cdnImages": [
+        "/assets/mlbb-cdn/267486c6e2ab736a9514.png",
+        "/assets/mlbb-cdn/5d340974017aa05ec14c.jpg",
+        "/assets/mlbb-cdn/34069e098236e9c9e5d9.png",
+        "/assets/mlbb-cdn/14a5dda8c2957075fdfc.png",
+        "/assets/mlbb-cdn/31db20963348760f4081.jpg",
+        "/assets/mlbb-cdn/bdee40d0f3293f5b57a0.png"
+      ],
+      "face": "/assets/mlbb-cdn/34069e098236e9c9e5d9.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Aurora",
+      "img": "/assets/heroes-current/aurora.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/11638a9df9fb65fb6280b15a5f9e7b38.png?w=240-390-0e1d2a",
+      "officialId": 174,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/77e0e4359c34b916327a.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_58b97db6a5c286059057d42289612b16.jpg",
+      "gameId": 36,
+      "cdnImages": [
+        "/assets/mlbb-cdn/d183c7a44d7d588a3f8f.png",
+        "/assets/mlbb-cdn/77e0e4359c34b916327a.jpg",
+        "/assets/mlbb-cdn/4dda11cca206c160b4b5.png",
+        "/assets/mlbb-cdn/743ef57e8e453d2b94c4.png",
+        "/assets/mlbb-cdn/bde729e9276651353888.jpg",
+        "/assets/mlbb-cdn/2e16dd4b993e5f94f2d2.png"
+      ],
+      "face": "/assets/mlbb-cdn/4dda11cca206c160b4b5.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Akai",
+      "img": "/assets/heroes-current/akai.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/ad00d3cf07e71e34a5132b3cf56ccfea.png?w=240-390-291c1d",
+      "officialId": 143,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/77b212f22818d7d9861c.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_2fab842e4c04d903b1b46c3c4a1d02ad.jpg",
+      "gameId": 9,
+      "cdnImages": [
+        "/assets/mlbb-cdn/d02d379ab306fdc29f68.png",
+        "/assets/mlbb-cdn/77b212f22818d7d9861c.jpg",
+        "/assets/mlbb-cdn/5091daa828556712db0f.png",
+        "/assets/mlbb-cdn/2000812d7cef309c47b9.png",
+        "/assets/mlbb-cdn/d47f4f02e55d2183a9d8.jpg",
+        "/assets/mlbb-cdn/78cc49f6546646dd3cd8.png"
+      ],
+      "face": "/assets/mlbb-cdn/5091daa828556712db0f.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "img": "/assets/hero-source/balmond.png",
+      "name": "Balmond",
+      "icon": "/assets/mlbb-cdn/c0f54248a18df3f085cb.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_8f49801963afcd9b7c6fe6f59153ccc0.jpg",
+      "gameId": 2,
+      "cdnImages": [
+        "/assets/mlbb-cdn/f7256669afcfe454e97d.png",
+        "/assets/mlbb-cdn/c0f54248a18df3f085cb.jpg",
+        "/assets/mlbb-cdn/4bda651dff264dd7288b.png",
+        "/assets/mlbb-cdn/8fb6d1dd307ec4e50b81.png",
+        "/assets/mlbb-cdn/351c5759873195d11765.jpg",
+        "/assets/mlbb-cdn/6ddce4751acfb27a9f0a.png"
+      ],
+      "face": "/assets/mlbb-cdn/4bda651dff264dd7288b.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Barats",
+      "img": "/assets/heroes-current/barats.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/01d766028f3603a5983e4559cdeb035e.png?w=240-390-0a222b",
+      "officialId": 53,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/bea2f686f2425ade4e8a.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_1b9fec44c21db9ecba0229ac227c7d51.jpg",
+      "gameId": 99,
+      "cdnImages": [
+        "/assets/mlbb-cdn/4d0ad9b6d29c4a644a6c.png",
+        "/assets/mlbb-cdn/bea2f686f2425ade4e8a.jpg",
+        "/assets/mlbb-cdn/92089a0a8d7c6a4cf184.png",
+        "/assets/mlbb-cdn/3bfbfcd9f6ffba86490f.png",
+        "/assets/mlbb-cdn/8daf8531bd44b2254293.jpg",
+        "/assets/mlbb-cdn/253d2e4ec6f22033c8a7.png"
+      ],
+      "face": "/assets/mlbb-cdn/92089a0a8d7c6a4cf184.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Bane",
+      "img": "/assets/heroes-current/bane.png",
+      "source": "https://indoch.s3.ml.moonlian.com/web/manageapi/image_5367baa8d3ff096905908dc84c007796.png?w=240&h=390",
+      "officialId": 35,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/277fd2e641c5321ec275.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_7060e1c063474bb8ff9472d61f7ce4c3.jpg",
+      "gameId": 11,
+      "cdnImages": [
+        "/assets/mlbb-cdn/7f32455c47af566b9fe6.png",
+        "/assets/mlbb-cdn/277fd2e641c5321ec275.jpg",
+        "/assets/mlbb-cdn/727b6e85d2fec5ea0184.png",
+        "/assets/mlbb-cdn/7b2bbad704656cc1bbc0.png",
+        "/assets/mlbb-cdn/9f8cc3e3b441ee6662ea.jpg",
+        "/assets/mlbb-cdn/3e593588e931375edfa7.png"
+      ],
+      "face": "/assets/mlbb-cdn/727b6e85d2fec5ea0184.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Benedetta",
+      "img": "/assets/heroes-current/benedetta.png",
+      "source": "https://indoch.s3.ml.moonlian.com/web/manageapi/image_ec479e9c5f61c87ea56f4fffb240d715.png?w=240&h=390",
+      "officialId": 63,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/394820d43dbe7ef73937.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_2153076135c5ea537f796c4352dd9800.jpg",
+      "animation": "/assets/hero-motion/benedetta.mp4",
+      "animationSource": "https://motionbgs.com/benedetta-mobile-legends",
+      "animationMediaSource": "https://motionbgs.com/media/6492/benedetta-mobile-legends.960x540.mp4",
+      "animationPosition": 50,
+      "gameId": 97,
+      "cdnImages": [
+        "/assets/mlbb-cdn/4e34c8e3c6d32f069fcd.png",
+        "/assets/mlbb-cdn/394820d43dbe7ef73937.jpg",
+        "/assets/mlbb-cdn/d5464186e15608778fdc.png",
+        "/assets/mlbb-cdn/72a94a4792ae610dd035.png",
+        "/assets/mlbb-cdn/08d5f956b4cb05ba2732.jpg",
+        "/assets/mlbb-cdn/6bf91b84e7aeb7dac59d.png"
+      ],
+      "face": "/assets/mlbb-cdn/d5464186e15608778fdc.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Belerick",
+      "icon": "/assets/mlbb-cdn/0f6444ad9a23d2b6a6ed.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_64900b3344e166f05645ac5759207897.jpg",
+      "img": "/assets/hero-icons/belerick.jpg",
+      "aliases": [
+        "Beleric"
+      ],
+      "gameId": 70,
+      "cdnImages": [
+        "/assets/mlbb-cdn/f5ee670040d881497811.png",
+        "/assets/mlbb-cdn/0f6444ad9a23d2b6a6ed.jpg",
+        "/assets/mlbb-cdn/b7d633809818feb75774.png",
+        "/assets/mlbb-cdn/0a0453b455244e54b624.png",
+        "/assets/mlbb-cdn/e9979b1a6794bbfe8b35.jpg",
+        "/assets/mlbb-cdn/afa97636b115f7012f1d.png"
+      ],
+      "face": "/assets/mlbb-cdn/b7d633809818feb75774.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Beatrix",
+      "img": "/assets/heroes-current/beatrix.png",
+      "source": "https://akmwebstatic.yuanzhanapp.com/web/admin/image/702ef8bfd189f6fe2ddb164ba5e18c78.png?w=240&h=390&c=876070",
+      "officialId": 80,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/4b349e2860a603fdcd57.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_2f25a8ef9bbb2d52eaaea8d6eee85d22.jpg",
+      "animation": "/assets/hero-motion/beatrix.mp4",
+      "animationSource": "https://motionbgs.com/beatrix-mobile-legends",
+      "animationMediaSource": "https://motionbgs.com/media/4027/beatrix-mobile-legends.960x540.mp4",
+      "animationPosition": 50,
+      "gameId": 105,
+      "cdnImages": [
+        "/assets/mlbb-cdn/39ffeff4d67f65fae889.png",
+        "/assets/mlbb-cdn/4b349e2860a603fdcd57.jpg",
+        "/assets/mlbb-cdn/5b70b97a9bbde335aab0.png",
+        "/assets/mlbb-cdn/85fac5b32b16a0d44a02.png",
+        "/assets/mlbb-cdn/3371fbc0fa57705095ca.jpg",
+        "/assets/mlbb-cdn/9510b9c93d8897514f82.png"
+      ],
+      "face": "/assets/mlbb-cdn/5b70b97a9bbde335aab0.png",
+      "wikiIcon": "/assets/wiki/heroes/icon-beatrix.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "img": "/assets/hero-source/badang.png",
+      "name": "Badang",
+      "icon": "/assets/mlbb-cdn/698b688f21c03833e934.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_ce3e2759eb9ccd7a94ae3a2ee4e8b8e7.jpg",
+      "gameId": 77,
+      "cdnImages": [
+        "/assets/mlbb-cdn/a04a4af16ed22cacf987.png",
+        "/assets/mlbb-cdn/698b688f21c03833e934.jpg",
+        "/assets/mlbb-cdn/a4923eab51939602e353.png",
+        "/assets/mlbb-cdn/a856df3c48f6b334606b.png",
+        "/assets/mlbb-cdn/40b2b85727d9ec509216.jpg",
+        "/assets/mlbb-cdn/c5c4d95483763aa9ea25.png"
+      ],
+      "face": "/assets/mlbb-cdn/a4923eab51939602e353.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Carmilla",
+      "img": "/assets/heroes-current/carmilla.png",
+      "source": "https://indoch.s3.ml.moonlian.com/web/manageapi/image_b433c18e14138250b702bf9d720c34dc.png",
+      "officialId": 31,
+      "downloadedAt": "2026-09-08",
+      "aliases": [
+        "Carmila"
+      ],
+      "icon": "/assets/mlbb-cdn/af0980085c5b88b1840c.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_08d58580aaeaab354c2d267d8746c42d.jpg",
+      "animation": "/assets/hero-motion/carmilla.mp4",
+      "animationSource": "https://motionbgs.com/carmilla-mobile-legends",
+      "animationMediaSource": "https://motionbgs.com/media/6488/carmilla-mobile-legends.960x540.mp4",
+      "animationPosition": 50,
+      "gameId": 92,
+      "cdnImages": [
+        "/assets/mlbb-cdn/5a4700d91658ee0cea1b.png",
+        "/assets/mlbb-cdn/af0980085c5b88b1840c.jpg",
+        "/assets/mlbb-cdn/f6eca22419b8848f5abb.png",
+        "/assets/mlbb-cdn/ebf226f8742b092cdf97.png",
+        "/assets/mlbb-cdn/12ecd6eac2c84c6a38e8.jpg",
+        "/assets/mlbb-cdn/44e87955d42b6a300fa5.png"
+      ],
+      "face": "/assets/mlbb-cdn/f6eca22419b8848f5abb.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Chip",
+      "img": "/assets/heroes-current/chip.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/4eae70cfb8f0648ec6f918c5c489c718.png?w=240-390-2b1e1b",
+      "officialId": 175,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/b2df1d5510b3a4889c46.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_fb8b4e345db174545e967b7bcbd219f4.jpg",
+      "gameId": 124,
+      "cdnImages": [
+        "/assets/mlbb-cdn/d681275820e51c2f2d95.png",
+        "/assets/mlbb-cdn/b2df1d5510b3a4889c46.jpg",
+        "/assets/mlbb-cdn/8347675b4bf3a6c86aee.webp",
+        "/assets/mlbb-cdn/2e6a7821a82b3ad8c4e2.png",
+        "/assets/mlbb-cdn/2cccf49df5bbbcb8491d.png",
+        "/assets/mlbb-cdn/c9756c0dd7d0984b0beb.jpg",
+        "/assets/mlbb-cdn/a560d83824245b760260.png"
+      ],
+      "face": "/assets/mlbb-cdn/2e6a7821a82b3ad8c4e2.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Bruno",
+      "img": "/assets/heroes-current/bruno.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/e5f9397576c6b01e9b388c6e7c99f631.png?w=240-390-675d62",
+      "officialId": 168,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/abaf090849ba62b39466.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_03cd0ea0a0f0bd80ca4f7462174f80b1.jpg",
+      "gameId": 12,
+      "cdnImages": [
+        "/assets/mlbb-cdn/84104766aa48146f55ed.jpg",
+        "/assets/mlbb-cdn/abaf090849ba62b39466.jpg",
+        "/assets/mlbb-cdn/13de964d59a17a683988.png",
+        "/assets/mlbb-cdn/61a2ec5d05efb7b175ed.png",
+        "/assets/mlbb-cdn/b5a080c5ca35134248c2.jpg",
+        "/assets/mlbb-cdn/debb3c8a28cd0d011975.png"
+      ],
+      "face": "/assets/mlbb-cdn/13de964d59a17a683988.png",
+      "wikiIcon": "/assets/wiki/heroes/icon-bruno.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "img": "/assets/hero-source/chang_e.png",
+      "name": "Chang'e",
+      "icon": "/assets/mlbb-cdn/dbe749b191b4c1ac01b3.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_bf3d5cdc1c0e33f5aab7732e153c7409.jpg",
+      "gameId": 61,
+      "cdnImages": [
+        "/assets/mlbb-cdn/1c7f4de21212c3523c3e.png",
+        "/assets/mlbb-cdn/dbe749b191b4c1ac01b3.jpg",
+        "/assets/mlbb-cdn/eb1edcd1ee18185c84b1.png",
+        "/assets/mlbb-cdn/2ad1b0d2ecd0bc1000db.png",
+        "/assets/mlbb-cdn/470f60bf3673db3cb93e.jpg",
+        "/assets/mlbb-cdn/5edc2eafcf4e7c3b0693.png"
+      ],
+      "face": "/assets/mlbb-cdn/eb1edcd1ee18185c84b1.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "img": "/assets/hero-source/chou.png",
+      "name": "Chou",
+      "icon": "/assets/mlbb-cdn/bbcc66e5b3cd320b6e25.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_011409dfe1a2cf4cf5f879ea07fb3a8e.jpg",
+      "animation": "/assets/hero-motion/chou.mp4",
+      "animationSource": "https://motionbgs.com/zhou-mobile-legends",
+      "animationMediaSource": "https://motionbgs.com/media/5121/zhou-mobile-legends.960x540.mp4",
+      "animationPosition": 50,
+      "gameId": 26,
+      "cdnImages": [
+        "/assets/mlbb-cdn/6c92c110bda2c84d8e5d.png",
+        "/assets/mlbb-cdn/bbcc66e5b3cd320b6e25.jpg",
+        "/assets/mlbb-cdn/7e8f25346992bf6abcbd.png",
+        "/assets/mlbb-cdn/ceaf9f1ea5ca79120da1.png",
+        "/assets/mlbb-cdn/3dd03b3f3ad2cf450938.jpg",
+        "/assets/mlbb-cdn/63c2473e68a90856caf7.png"
+      ],
+      "face": "/assets/mlbb-cdn/7e8f25346992bf6abcbd.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Baxia",
+      "img": "/assets/heroes-current/baxia.png",
+      "source": "https://indoch.s3.ml.moonlian.com/web/manageapi/image_4fa397d9f01318ccf224938903ce0112.png?w=240&h=390",
+      "officialId": 43,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/003fc5138f761b5e5a29.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_478a4875002331e56e73835a2697ad5d.jpg",
+      "gameId": 87,
+      "cdnImages": [
+        "/assets/mlbb-cdn/114b9e69ef1123dc14d8.png",
+        "/assets/mlbb-cdn/003fc5138f761b5e5a29.jpg",
+        "/assets/mlbb-cdn/8a9430dd2a9bc7f6d60a.png",
+        "/assets/mlbb-cdn/bc60d609100e19c1d88e.png",
+        "/assets/mlbb-cdn/cf269b33f0bc4c38a9c4.jpg",
+        "/assets/mlbb-cdn/7dca64c60f6878cfb462.png"
+      ],
+      "face": "/assets/mlbb-cdn/8a9430dd2a9bc7f6d60a.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "img": "/assets/hero-source/diggie.png",
+      "name": "Diggie",
+      "icon": "/assets/mlbb-cdn/ecd273de3d59756d6f1f.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_91b0167c49a789de46de29c3714da515.jpg",
+      "gameId": 48,
+      "cdnImages": [
+        "/assets/mlbb-cdn/38bb51e8a33cb9128a53.png",
+        "/assets/mlbb-cdn/ecd273de3d59756d6f1f.jpg",
+        "/assets/mlbb-cdn/9d1cf533a511077ff606.png",
+        "/assets/mlbb-cdn/343676e98aae0f07f689.png",
+        "/assets/mlbb-cdn/2c39ae19b8a54ebd1c29.jpg",
+        "/assets/mlbb-cdn/7829ee5c52a1717f3930.png"
+      ],
+      "face": "/assets/mlbb-cdn/9d1cf533a511077ff606.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Atlas",
+      "img": "/assets/heroes-current/atlas.png",
+      "source": "https://indoch.s3.ml.moonlian.com/web/manageapi/image_c4839efa238592eb3b51a1a9301731d1.png?w=240&h=390",
+      "officialId": 33,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/9c434e89b4ecf4b68dee.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_9a217534db9b67c6db2c45d57a0d640c.jpg",
+      "gameId": 93,
+      "cdnImages": [
+        "/assets/mlbb-cdn/71f9195252c949475a65.png",
+        "/assets/mlbb-cdn/9c434e89b4ecf4b68dee.jpg",
+        "/assets/mlbb-cdn/c5c6479ea074a0b43cf2.png",
+        "/assets/mlbb-cdn/e0a89484eac210609dd6.png",
+        "/assets/mlbb-cdn/a1b865abd1fbbc9821bf.jpg",
+        "/assets/mlbb-cdn/89fe2454446b07624f27.png"
+      ],
+      "face": "/assets/mlbb-cdn/c5c6479ea074a0b43cf2.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Cici",
+      "img": "/assets/heroes-current/cici.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/02f13ff61a12eed3f8ce2f67fbb680c5.png?w=240-390-091e27",
+      "officialId": 173,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/d514407edd3758f27c1a.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_eb1705dc650b3980d57c638d02bfb470.jpg",
+      "gameId": 123,
+      "cdnImages": [
+        "/assets/mlbb-cdn/01c4105e9729a15851c8.png",
+        "/assets/mlbb-cdn/d514407edd3758f27c1a.jpg",
+        "/assets/mlbb-cdn/d50790662a22668222ff.png",
+        "/assets/mlbb-cdn/786f06f532d5c1f9468a.png",
+        "/assets/mlbb-cdn/891e4ee78259320cfeb4.jpg",
+        "/assets/mlbb-cdn/2dc33026f48bf2fceed6.png"
+      ],
+      "face": "/assets/mlbb-cdn/786f06f532d5c1f9468a.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Claude",
+      "img": "/assets/heroes-current/claude.png",
+      "source": "https://indoch.s3.ml.moonlian.com/web/manageapi/image_f3218a72210320c53fadea56593a19b8.png?w=240&h=390",
+      "officialId": 67,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/f13ed7e70d72dd3bcaa8.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_1edf19b0839ffd2bffb60b4ee4953239.jpg",
+      "gameId": 65,
+      "cdnImages": [
+        "/assets/mlbb-cdn/56cc69f4fb85c3ff47eb.png",
+        "/assets/mlbb-cdn/f13ed7e70d72dd3bcaa8.jpg",
+        "/assets/mlbb-cdn/2daacc478a08102ad9d3.png",
+        "/assets/mlbb-cdn/f4c8950346c3a64e457e.png",
+        "/assets/mlbb-cdn/8b338abb11ad33263a3c.jpg",
+        "/assets/mlbb-cdn/44a9b4f864803d234384.png"
+      ],
+      "face": "/assets/mlbb-cdn/2daacc478a08102ad9d3.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Clint",
+      "img": "/assets/heroes-current/clint.png",
+      "source": "https://indoch.s3.ml.moonlian.com/web/manageapi/image_2fcf1d15fee92e7df00e626abf279c56.png?w=240&h=390",
+      "officialId": 65,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/afa7630eb22a338f7cd3.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_8136b5ece3387dfe347956f797a14a5d.jpg",
+      "gameId": 13,
+      "cdnImages": [
+        "/assets/mlbb-cdn/821021591ece38976369.jpg",
+        "/assets/mlbb-cdn/afa7630eb22a338f7cd3.jpg",
+        "/assets/mlbb-cdn/918d44ed3347fba8eda7.png",
+        "/assets/mlbb-cdn/7a69cb68a0e01eec58b7.png",
+        "/assets/mlbb-cdn/babd7b5128e7f18401a2.jpg",
+        "/assets/mlbb-cdn/12819664c7eb0c150eed.png"
+      ],
+      "face": "/assets/mlbb-cdn/918d44ed3347fba8eda7.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "img": "/assets/hero-source/cyclops.png",
+      "name": "Cyclops",
+      "icon": "/assets/mlbb-cdn/060a4d202a6ae69acbdd.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_b506976dcb608de1f369ab8f6b3cb055.jpg",
+      "gameId": 33,
+      "cdnImages": [
+        "/assets/mlbb-cdn/8d556f6cfa59cd2bbad3.png",
+        "/assets/mlbb-cdn/060a4d202a6ae69acbdd.jpg",
+        "/assets/mlbb-cdn/e6bd1f8c8e7feb9a3583.png",
+        "/assets/mlbb-cdn/dfcc97c4e1de3f738e7f.png",
+        "/assets/mlbb-cdn/f0a94cef725373354211.jpg",
+        "/assets/mlbb-cdn/51070dfb76431c881dfe.png"
+      ],
+      "face": "/assets/mlbb-cdn/e6bd1f8c8e7feb9a3583.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "img": "/assets/hero-source/esmeralda.png",
+      "name": "Esmeralda",
+      "icon": "/assets/mlbb-cdn/40ca5da603ec039edd25.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_980e6419f7763a9dd26818312d73cc6d.jpg",
+      "gameId": 81,
+      "cdnImages": [
+        "/assets/mlbb-cdn/bf8ffd00b890c91cc9cc.png",
+        "/assets/mlbb-cdn/40ca5da603ec039edd25.jpg",
+        "/assets/mlbb-cdn/208667d057b6ed83d19f.png",
+        "/assets/mlbb-cdn/2dba36d7a2201abc1329.png",
+        "/assets/mlbb-cdn/33b14d20003146e923d1.jpg",
+        "/assets/mlbb-cdn/a4031a2ff1259bd3c014.png"
+      ],
+      "face": "/assets/mlbb-cdn/208667d057b6ed83d19f.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Eudora",
+      "img": "/assets/heroes-current/eudora.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/2c8e0858418ed3d673f5b68c78f87a2f.png?w=240-390-0b142a",
+      "officialId": 52,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/756f6c5975ed943e5cf8.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/gms/image/8db55c33fd2a5c84822a2a6c51e1fb18.jpg",
+      "gameId": 15,
+      "cdnImages": [
+        "/assets/mlbb-cdn/9b4dda4f004c59f01ebc.jpg",
+        "/assets/mlbb-cdn/756f6c5975ed943e5cf8.jpg",
+        "/assets/mlbb-cdn/5df96720007d7a7c3b9f.png",
+        "/assets/mlbb-cdn/2a93cb5c3fa672996d6c.png",
+        "/assets/mlbb-cdn/14aa6ad6777eb9942952.jpg",
+        "/assets/mlbb-cdn/5d7257e041a04c669d5a.jpg",
+        "/assets/mlbb-cdn/ddfe872e6cb7798cdd48.png"
+      ],
+      "face": "/assets/mlbb-cdn/5df96720007d7a7c3b9f.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Dyrroth",
+      "icon": "/assets/mlbb-cdn/4ae99411fe5570381217.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/gms/image/636054ad39847fcc242d0b03feadffac.jpg",
+      "img": "/assets/hero-icons/dyrroth.jpg",
+      "animation": "/assets/hero-motion/dyrroth.mp4",
+      "animationSource": "https://motionbgs.com/dyrroth-mobile-legends",
+      "animationMediaSource": "https://motionbgs.com/media/4051/dyrroth-mobile-legends.960x540.mp4",
+      "animationPosition": 50,
+      "gameId": 85,
+      "cdnImages": [
+        "/assets/mlbb-cdn/7dacdd34007570b4ddf7.jpg",
+        "/assets/mlbb-cdn/4ae99411fe5570381217.jpg",
+        "/assets/mlbb-cdn/42d0c03eaafc3973aabc.png",
+        "/assets/mlbb-cdn/7c39befb8698fcd7923a.png",
+        "/assets/mlbb-cdn/05dff546022277ecab9d.jpg",
+        "/assets/mlbb-cdn/7c5cee5e78bbad5a4254.jpg",
+        "/assets/mlbb-cdn/1e7850ef6579bd74c38b.png"
+      ],
+      "face": "/assets/mlbb-cdn/42d0c03eaafc3973aabc.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Faramis",
+      "img": "/assets/heroes-current/faramis.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/fcf5c1ac9bdeb0a7c9c977b78a018cd0.png?w=240-390-071b2c",
+      "officialId": 155,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/b030ed38aeeafea23b1e.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_a171d8e12dd5eda201750e794dd5e313.jpg",
+      "gameId": 76,
+      "cdnImages": [
+        "/assets/mlbb-cdn/4ce0b86f1d9a96259277.png",
+        "/assets/mlbb-cdn/b030ed38aeeafea23b1e.jpg",
+        "/assets/mlbb-cdn/026555d5ee8258a5b0a4.png",
+        "/assets/mlbb-cdn/1b792cee081b63fb29f5.png",
+        "/assets/mlbb-cdn/8a59cd9279b5658509cf.jpg",
+        "/assets/mlbb-cdn/8f45d777c6c76dcd42fa.png"
+      ],
+      "face": "/assets/mlbb-cdn/026555d5ee8258a5b0a4.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Franco",
+      "img": "/assets/heroes-current/franco.png",
+      "source": "https://indoch.s3.ml.moonlian.com/web/manageapi/image_77bdc4bfda3573405c8a6b3b71510eab.png?w=240&h=390",
+      "officialId": 36,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/295f31efa0bc91376d81.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_ad018d324520174ab87b3a1098507fb6.jpg",
+      "gameId": 10,
+      "cdnImages": [
+        "/assets/mlbb-cdn/3b24735662a11776b2dd.png",
+        "/assets/mlbb-cdn/295f31efa0bc91376d81.jpg",
+        "/assets/mlbb-cdn/094db8374458810b8384.png",
+        "/assets/mlbb-cdn/f7f2f82138ef09e044d5.png",
+        "/assets/mlbb-cdn/e3ca607fbcafe37d040a.jpg",
+        "/assets/mlbb-cdn/573ec639c963b4aa7c8e.png"
+      ],
+      "face": "/assets/mlbb-cdn/094db8374458810b8384.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "img": "/assets/hero-source/estes.png",
+      "name": "Estes",
+      "icon": "/assets/mlbb-cdn/f7d31e3f8933be0aa10a.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_137acad8cd747ef9d0dec755158aff18.jpg",
+      "gameId": 34,
+      "cdnImages": [
+        "/assets/mlbb-cdn/55a683ea29f3729aa1d0.png",
+        "/assets/mlbb-cdn/f7d31e3f8933be0aa10a.jpg",
+        "/assets/mlbb-cdn/7ca5697285a2beab6d58.png",
+        "/assets/mlbb-cdn/24c161519922ddf10f03.png",
+        "/assets/mlbb-cdn/8c458e377b6ec4290690.jpg",
+        "/assets/mlbb-cdn/bca7491d01c2530883fa.png"
+      ],
+      "face": "/assets/mlbb-cdn/7ca5697285a2beab6d58.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Floryn",
+      "img": "/assets/heroes-current/floryn.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/4946909b4e5a6819dde6705f62748a92.png?w=240-390-302f54",
+      "officialId": 119,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/e3a68f1b80dddc265f61.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_854338f3ad90cb9e14aec15c8b8a08c7.jpg",
+      "animation": "/assets/hero-motion/floryn.mp4",
+      "animationSource": "https://motionbgs.com/floryn-mobile-legends",
+      "animationMediaSource": "https://motionbgs.com/media/4023/floryn-mobile-legends.960x540.mp4",
+      "animationPosition": 50,
+      "gameId": 112,
+      "cdnImages": [
+        "/assets/mlbb-cdn/a82144cfdb9f5df18e86.png",
+        "/assets/mlbb-cdn/e3a68f1b80dddc265f61.jpg",
+        "/assets/mlbb-cdn/eeab543655b46bbcc3bc.png",
+        "/assets/mlbb-cdn/764db6dd9248b1b8af6e.png",
+        "/assets/mlbb-cdn/3b58a96f448f5586f70c.jpg",
+        "/assets/mlbb-cdn/3b92f56a36e665fb3032.png"
+      ],
+      "face": "/assets/mlbb-cdn/eeab543655b46bbcc3bc.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Edith",
+      "img": "/assets/heroes-current/edith.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/c8bdd3b2ed65fe78f6407b3ba005db3c.png?w=240-390-161a25",
+      "officialId": 131,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/658df378736322394c46.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_0598a42d46dd271410f403b57eb02e2a.jpg",
+      "gameId": 111,
+      "cdnImages": [
+        "/assets/mlbb-cdn/84e90f200deddf9ffbd2.png",
+        "/assets/mlbb-cdn/658df378736322394c46.jpg",
+        "/assets/mlbb-cdn/e20552fe704af99efeb7.png",
+        "/assets/mlbb-cdn/82c2b3f9ce45010d117a.png",
+        "/assets/mlbb-cdn/760b4684fc144c485721.jpg",
+        "/assets/mlbb-cdn/81256a228c6e9ac18d65.png"
+      ],
+      "face": "/assets/mlbb-cdn/e20552fe704af99efeb7.png",
+      "wikiIcon": "/assets/wiki/heroes/icon-edith.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Cecilion",
+      "img": "/assets/heroes-current/cecilion.png",
+      "source": "https://indoch.s3.ml.moonlian.com/web/manageapi/image_f5cc7eda796be15fd5d8d820e501ba4e.png?w=240&h=390",
+      "officialId": 32,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/66f7a88a49badc6a22d4.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_71d6b7fc8cfe8fd9b0c20ad3be1af4e8.jpg",
+      "gameId": 91,
+      "cdnImages": [
+        "/assets/mlbb-cdn/26a46182ae15cbd203fd.png",
+        "/assets/mlbb-cdn/66f7a88a49badc6a22d4.jpg",
+        "/assets/mlbb-cdn/070cad94937aaea406a9.png",
+        "/assets/mlbb-cdn/1eb8133d6164125eec9c.png",
+        "/assets/mlbb-cdn/62c1ce8977123040beb1.jpg",
+        "/assets/mlbb-cdn/2b3c0165ebaa8ae9789a.png"
+      ],
+      "face": "/assets/mlbb-cdn/070cad94937aaea406a9.png",
+      "wikiIcon": "/assets/wiki/heroes/icon-cecilion.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "img": "/assets/hero-source/gord.png",
+      "name": "Gord",
+      "icon": "/assets/mlbb-cdn/78ca1235a74fd13d1e55.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/gms/image/fe7d492d0a71f96da12ff710d41a76cb.jpg",
+      "gameId": 23,
+      "cdnImages": [
+        "/assets/mlbb-cdn/c4685a4517d328b6f6a0.jpg",
+        "/assets/mlbb-cdn/78ca1235a74fd13d1e55.jpg",
+        "/assets/mlbb-cdn/8554c96de9e09e9c233f.png",
+        "/assets/mlbb-cdn/e0fa54104d35180c864f.png",
+        "/assets/mlbb-cdn/8cab6f5c7a27cf50e464.jpg",
+        "/assets/mlbb-cdn/95e61d7e0ddf44dab276.jpg",
+        "/assets/mlbb-cdn/c6ca348f4a5b4776c509.png"
+      ],
+      "face": "/assets/mlbb-cdn/8554c96de9e09e9c233f.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Freya",
+      "img": "/assets/heroes-current/freya.jpg",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/f7f04fa9063f73a6abf9a1daf3bf3cd2.jpg?w=240-390-6f93b3",
+      "officialId": 191,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/02a28aead2a8d9ec3eb3.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/gms/image/71d910744206adec64f7c5e97b0698c7.jpg",
+      "gameId": 22,
+      "cdnImages": [
+        "/assets/mlbb-cdn/41c9992ac8cdd3a3f33e.jpg",
+        "/assets/mlbb-cdn/02a28aead2a8d9ec3eb3.jpg",
+        "/assets/mlbb-cdn/5c3e62d55235af45ba14.png",
+        "/assets/mlbb-cdn/a6ffb6628eead46d1099.png",
+        "/assets/mlbb-cdn/036239c4551094f0feec.jpg",
+        "/assets/mlbb-cdn/efd0d4667930cc69ae95.jpg",
+        "/assets/mlbb-cdn/e784d3bf4d1a23d0f910.png"
+      ],
+      "face": "/assets/mlbb-cdn/5c3e62d55235af45ba14.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "img": "/assets/heroes-current/grock.jpg",
+      "name": "Grock",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/951283025e7e467e854cc9e2ad39a1d7.jpg?w=240-390-161817",
+      "officialId": 185,
+      "icon": "/assets/mlbb-cdn/e479a24209944626a226.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/gms/image/c5df319054bcefec1d17c771b45b9e10.jpg",
+      "gameId": 44,
+      "cdnImages": [
+        "/assets/mlbb-cdn/d603bb5d02864fca8ddc.jpg",
+        "/assets/mlbb-cdn/e479a24209944626a226.jpg",
+        "/assets/mlbb-cdn/2ce3945cc67205a1657c.png",
+        "/assets/mlbb-cdn/1f12b4df9fa461bc7d86.png",
+        "/assets/mlbb-cdn/923ea541754a7a03b4cc.jpg",
+        "/assets/mlbb-cdn/31fd6bfc3a47412d00dc.jpg",
+        "/assets/mlbb-cdn/f30b5ddff290cd87dc23.png"
+      ],
+      "face": "/assets/mlbb-cdn/2ce3945cc67205a1657c.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Gloo",
+      "img": "/assets/heroes-current/gloo.png",
+      "source": "https://akmwebstatic.yuanzhanapp.com/web/admin/image/f85c102e9803ebbde0e35dde63e995dd.png?w=240&h=390&c=4f6598",
+      "officialId": 85,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/42319f0a4da9da38fe71.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/gms/image/7257d4ee30eff4d5bc5726027eee5f96.jpg",
+      "gameId": 104,
+      "cdnImages": [
+        "/assets/mlbb-cdn/329dd0d3856bbebb207f.jpg",
+        "/assets/mlbb-cdn/42319f0a4da9da38fe71.jpg",
+        "/assets/mlbb-cdn/325ebfdc6776ae4d6fb8.png",
+        "/assets/mlbb-cdn/cc9f6485a3c82ce96be3.png",
+        "/assets/mlbb-cdn/cd0aeff8c1d6803d6a13.jpg",
+        "/assets/mlbb-cdn/df82720a320558371b8c.jpg",
+        "/assets/mlbb-cdn/bc1dcce9a0e133b631a8.png"
+      ],
+      "face": "/assets/mlbb-cdn/325ebfdc6776ae4d6fb8.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "img": "/assets/heroes-current/granger.jpg",
+      "name": "Granger",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/77bf062683e4afbfb4981c9c3f2f3eb9.jpg?w=240-390-111520",
+      "officialId": 180,
+      "icon": "/assets/mlbb-cdn/918439e850a1397938e1.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/gms/image/5d272478f2f89dcae9e6896cb19743ac.jpg",
+      "gameId": 79,
+      "cdnImages": [
+        "/assets/mlbb-cdn/72578a07482d52b9d1ca.png",
+        "/assets/mlbb-cdn/918439e850a1397938e1.jpg",
+        "/assets/mlbb-cdn/f7b8eaa59ed0f9d12934.png",
+        "/assets/mlbb-cdn/ed68fcdcaac128ce1006.png",
+        "/assets/mlbb-cdn/026d8047b21874af6ddd.jpg",
+        "/assets/mlbb-cdn/fda15790d4d2e763a9b6.jpg",
+        "/assets/mlbb-cdn/d74c60303fa7ad5537e6.png"
+      ],
+      "face": "/assets/mlbb-cdn/f7b8eaa59ed0f9d12934.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "img": "/assets/hero-source/guinevere.png",
+      "name": "Guinevere",
+      "icon": "/assets/mlbb-cdn/0fa9016ecacf6ff065a1.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_5acbfb73c47c25d4689f93c3c950fc8f.jpg",
+      "gameId": 80,
+      "cdnImages": [
+        "/assets/mlbb-cdn/22f22cea2fa7b132177d.png",
+        "/assets/mlbb-cdn/0fa9016ecacf6ff065a1.jpg",
+        "/assets/mlbb-cdn/4a68c0d542a591d39da9.png",
+        "/assets/mlbb-cdn/f5dbc9f018747da672a8.png",
+        "/assets/mlbb-cdn/e39ea24d6ef33601d5c9.jpg",
+        "/assets/mlbb-cdn/fd2322be0e598d790a0f.png"
+      ],
+      "face": "/assets/mlbb-cdn/4a68c0d542a591d39da9.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Fanny",
+      "img": "/assets/heroes-current/fanny.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/ce370864923b9afa570979297089b08d.png?w=240-390-2c1d40",
+      "officialId": 55,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/70ad037a01dd7e87a188.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_74fabc6c0d5db065fbb836b6879f36ca.jpg",
+      "animation": "/assets/hero-motion/fanny.mp4",
+      "animationSource": "https://motionbgs.com/fanny-mobile-legends",
+      "animationMediaSource": "https://motionbgs.com/media/9409/fanny-mobile-legends.960x540.mp4",
+      "animationPosition": 50,
+      "gameId": 17,
+      "cdnImages": [
+        "/assets/mlbb-cdn/9d81b83c29f9af44307c.png",
+        "/assets/mlbb-cdn/70ad037a01dd7e87a188.jpg",
+        "/assets/mlbb-cdn/3cdb52f88d405f388cb5.png",
+        "/assets/mlbb-cdn/97c0a509df0bf9ca7df3.png",
+        "/assets/mlbb-cdn/bab1695b2e8c41682179.jpg",
+        "/assets/mlbb-cdn/b51ff7a0b7015a3990ea.png"
+      ],
+      "face": "/assets/mlbb-cdn/3cdb52f88d405f388cb5.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Hanabi",
+      "img": "/assets/heroes-current/hanabi.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/a4a895621bbed97555a2a342ed328aa8.png?w=240-390-0a1c25",
+      "officialId": 116,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/eac00bdb45752e359715.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/gms/image/0208ca2382d8cfdcd277ef5d532316f7.jpg",
+      "animation": "/assets/hero-motion/hanabi.mp4",
+      "animationSource": "https://motionbgs.com/hanabi-mobile-legends",
+      "animationMediaSource": "https://motionbgs.com/media/2695/hanabi-mobile-legends.960x540.mp4",
+      "animationPosition": 50,
+      "gameId": 60,
+      "cdnImages": [
+        "/assets/mlbb-cdn/0039b8c37bc854c5e1f9.jpg",
+        "/assets/mlbb-cdn/eac00bdb45752e359715.jpg",
+        "/assets/mlbb-cdn/875060d26f9a48151372.png",
+        "/assets/mlbb-cdn/5eecd823adbddc284641.png",
+        "/assets/mlbb-cdn/6526d3f23e91035734ed.jpg",
+        "/assets/mlbb-cdn/5cc8eebc0e4a9a641dd0.jpg",
+        "/assets/mlbb-cdn/b9ba282b5b760401f2e6.png"
+      ],
+      "face": "/assets/mlbb-cdn/875060d26f9a48151372.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "img": "/assets/hero-source/gatotkaca.png",
+      "name": "Gatotkaca",
+      "icon": "/assets/mlbb-cdn/ed64828f92c2a324805d.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_a9a9551515638bb9b6128eef1ee916bd.jpg",
+      "gameId": 41,
+      "cdnImages": [
+        "/assets/mlbb-cdn/4677e290f360e5d5f6b5.png",
+        "/assets/mlbb-cdn/ed64828f92c2a324805d.jpg",
+        "/assets/mlbb-cdn/2204029effc8d00d8649.png",
+        "/assets/mlbb-cdn/d62fcb740ec76afcad93.png",
+        "/assets/mlbb-cdn/ec9dadb34be364e8bdd3.jpg",
+        "/assets/mlbb-cdn/5a6712e1dfdde6e4b725.png"
+      ],
+      "face": "/assets/mlbb-cdn/2204029effc8d00d8649.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Fredrinn",
+      "img": "/assets/heroes-current/fredrinn.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/8542f886b2cbffa639296adacf85521d.png?w=240-390-091e27",
+      "officialId": 149,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/1b5a44c54625640a84d1.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_bafe5308a1e6db91ba57e39c45874a92.jpg",
+      "gameId": 117,
+      "cdnImages": [
+        "/assets/mlbb-cdn/0da44ca733fb5380dcfb.png",
+        "/assets/mlbb-cdn/1b5a44c54625640a84d1.jpg",
+        "/assets/mlbb-cdn/1e5abbbdc5f320dc4284.png",
+        "/assets/mlbb-cdn/3c53b4d400764bc30057.png",
+        "/assets/mlbb-cdn/b4bba4804c87de903f11.jpg",
+        "/assets/mlbb-cdn/e6809c446d18a0be5e8b.png"
+      ],
+      "face": "/assets/mlbb-cdn/1e5abbbdc5f320dc4284.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Gusion",
+      "img": "/assets/heroes-current/gusion.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/faa78fe9eefaae0fb4df954d7fd58a88.png?w=240-390-0d1018",
+      "officialId": 122,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/f9910511cdc8ae43f8e6.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/gms/image/a888de3fe448be8f29b50a62d0193aaf.jpg",
+      "gameId": 56,
+      "cdnImages": [
+        "/assets/mlbb-cdn/16232d5d2ea0ea6a4978.png",
+        "/assets/mlbb-cdn/f9910511cdc8ae43f8e6.jpg",
+        "/assets/mlbb-cdn/3cb76f93b17d55f060c0.png",
+        "/assets/mlbb-cdn/43d602e650c6d02325e9.png",
+        "/assets/mlbb-cdn/ae2e516e776adcf53314.jpg",
+        "/assets/mlbb-cdn/5cb35d96aa723bf1526c.jpg",
+        "/assets/mlbb-cdn/67c60bde3fedd924bf5a.png"
+      ],
+      "face": "/assets/mlbb-cdn/3cb76f93b17d55f060c0.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "img": "/assets/heroes-current/hanzo.jpg",
+      "name": "Hanzo",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/2ca37f8e673dcbefc3a407e55e8ab8db.jpg?w=240-390-4f5468",
+      "officialId": 182,
+      "icon": "/assets/mlbb-cdn/a5de7ec69cfd5517d4a1.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/gms/image/4e77b4cc8c101bbd62f548ed10ea1ed4.jpg",
+      "animation": "/assets/hero-motion/hanzo.mp4",
+      "animationSource": "https://motionbgs.com/hanzo-mobile-legends",
+      "animationMediaSource": "https://motionbgs.com/media/2702/hanzo-mobile-legends.960x540.mp4",
+      "animationPosition": 50,
+      "gameId": 69,
+      "cdnImages": [
+        "/assets/mlbb-cdn/b6fcd873e67b84c8cf5c.jpg",
+        "/assets/mlbb-cdn/a5de7ec69cfd5517d4a1.jpg",
+        "/assets/mlbb-cdn/adfa5f0a8523bc003ffb.png",
+        "/assets/mlbb-cdn/ecc941d3cbad1ccefeeb.png",
+        "/assets/mlbb-cdn/5bc25aedf860e4d0f14e.jpg",
+        "/assets/mlbb-cdn/1fd628b92a140f8a8582.jpg",
+        "/assets/mlbb-cdn/572b4c59b3a6541c3cbe.png"
+      ],
+      "face": "/assets/mlbb-cdn/adfa5f0a8523bc003ffb.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Hilda",
+      "img": "/assets/heroes-current/hilda.png",
+      "source": "https://indoch.s3.ml.moonlian.com/web/manageapi/image_5367683249738c3d1e17a8dbc7dfe660.png?w=240&h=390",
+      "officialId": 38,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/a3759ce185b5e7966df5.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_35f2e88037398136c01b314deb573eb0.jpg",
+      "gameId": 35,
+      "cdnImages": [
+        "/assets/mlbb-cdn/a616f9b402ec1feb9bf5.png",
+        "/assets/mlbb-cdn/a3759ce185b5e7966df5.jpg",
+        "/assets/mlbb-cdn/f7976f29db189daab404.png",
+        "/assets/mlbb-cdn/966dff10e3a69b4955ef.png",
+        "/assets/mlbb-cdn/c6aefdc56463d5f3ab30.jpg",
+        "/assets/mlbb-cdn/de0331b34ef80f9f2046.png"
+      ],
+      "face": "/assets/mlbb-cdn/f7976f29db189daab404.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Hayabusa",
+      "img": "/assets/heroes-current/hayabusa.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/d3a714b7b2bb030fe1b0a15ddf7cec5a.png?w=240-390-0e0b0f",
+      "officialId": 110,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/2c56e240833be0d14c6e.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_82560b092a98bcb328def807a2a48cfe.jpg",
+      "gameId": 21,
+      "cdnImages": [
+        "/assets/mlbb-cdn/3c6a490b1d82796b01b0.png",
+        "/assets/mlbb-cdn/2c56e240833be0d14c6e.jpg",
+        "/assets/mlbb-cdn/36eff0d9701f445a85f4.png",
+        "/assets/mlbb-cdn/c8bcdd3554a6a5c2f205.png",
+        "/assets/mlbb-cdn/4fca3364b58de81343d0.jpg",
+        "/assets/mlbb-cdn/82842b51c58e71ab2047.png"
+      ],
+      "face": "/assets/mlbb-cdn/36eff0d9701f445a85f4.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "img": "/assets/hero-source/hylos.png",
+      "name": "Hylos",
+      "icon": "/assets/mlbb-cdn/dedadcefd78fa85c2976.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_bcc177e4f62634fca493732e4058c626.jpg",
+      "gameId": 49,
+      "cdnImages": [
+        "/assets/mlbb-cdn/504098d3cc8bf23bb02c.png",
+        "/assets/mlbb-cdn/dedadcefd78fa85c2976.jpg",
+        "/assets/mlbb-cdn/f922bf768da65769c701.png",
+        "/assets/mlbb-cdn/a4f299b7eba53a803de4.png",
+        "/assets/mlbb-cdn/dc24da729b0dd609ac17.jpg",
+        "/assets/mlbb-cdn/5f4186cbf9b2cc1b1109.png"
+      ],
+      "face": "/assets/mlbb-cdn/f922bf768da65769c701.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Hirara",
+      "icon": "/assets/mlbb-cdn/d68f7a47ae2f2233022a.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/gms/image/f156378413102969d6682fe940755d70.jpg",
+      "img": "/assets/heroes-current/hirara.jpg",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/6b51e20a112b98fbe4ae824a56f8d229.jpg?w=240-390-120d11",
+      "officialId": 193,
+      "gameId": 133,
+      "cdnImages": [
+        "/assets/mlbb-cdn/f3b96c97adaef0e33d79.jpg",
+        "/assets/mlbb-cdn/d68f7a47ae2f2233022a.jpg",
+        "/assets/mlbb-cdn/471363d374cf0f3f83ff.webp",
+        "/assets/mlbb-cdn/42d0c03eaafc3973aabc.png",
+        "/assets/mlbb-cdn/1e7850ef6579bd74c38b.png"
+      ],
+      "face": "/assets/mlbb-cdn/42d0c03eaafc3973aabc.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "img": "/assets/heroes-current/helcurt.png",
+      "name": "Helcurt",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/a0fc3357d512b9ba8f6f4f25fd50ae7d.png?w=240-390-0b1c25",
+      "officialId": 176,
+      "icon": "/assets/mlbb-cdn/ea9c596cd1f9f50bffe4.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_7d54de9ffe40c05d51b4a27318ed5f6d.jpg",
+      "gameId": 51,
+      "cdnImages": [
+        "/assets/mlbb-cdn/bcbe0f62e0e3642d64ad.jpg",
+        "/assets/mlbb-cdn/ea9c596cd1f9f50bffe4.jpg",
+        "/assets/mlbb-cdn/4c7f1a6e3900519af74b.png",
+        "/assets/mlbb-cdn/7186144642b0289b711d.png",
+        "/assets/mlbb-cdn/7b594eca07bd02818d9c.jpg",
+        "/assets/mlbb-cdn/9fa782f6be94344974ae.png"
+      ],
+      "face": "/assets/mlbb-cdn/4c7f1a6e3900519af74b.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "img": "/assets/hero-source/harith.png",
+      "name": "Harith",
+      "icon": "/assets/mlbb-cdn/b4b89e78ec41f5088e04.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_c1dcef05408b7c644298bab812517de3.jpg",
+      "gameId": 73,
+      "cdnImages": [
+        "/assets/mlbb-cdn/ebcf53a6c1aa95cd4cc9.png",
+        "/assets/mlbb-cdn/b4b89e78ec41f5088e04.jpg",
+        "/assets/mlbb-cdn/0e36b691794dab72630e.png",
+        "/assets/mlbb-cdn/214fc557325bcc1c54c0.png",
+        "/assets/mlbb-cdn/edb1761a60da6908d0e0.jpg",
+        "/assets/mlbb-cdn/2363f337756315c757f9.png"
+      ],
+      "face": "/assets/mlbb-cdn/0e36b691794dab72630e.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "img": "/assets/hero-source/irithel.png",
+      "name": "Irithel",
+      "icon": "/assets/mlbb-cdn/bbafe4edb26facd68aea.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_f999fb58616e2d87c29dcb92177990f5.jpg",
+      "gameId": 43,
+      "cdnImages": [
+        "/assets/mlbb-cdn/0c515ca72d6c3cb075f8.png",
+        "/assets/mlbb-cdn/bbafe4edb26facd68aea.jpg",
+        "/assets/mlbb-cdn/96cea5b7379af8105d6e.png",
+        "/assets/mlbb-cdn/330792186e93a158e29d.png",
+        "/assets/mlbb-cdn/cbf7cde617feb2cbef43.jpg",
+        "/assets/mlbb-cdn/38178ef06268916ce586.png"
+      ],
+      "face": "/assets/mlbb-cdn/96cea5b7379af8105d6e.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Johnson",
+      "img": "/assets/heroes-current/johnson.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/48f800cf3914e51678a9024f3a70c424.png?w=240-390-b8ac8e",
+      "officialId": 169,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/46c2e541c8231ce62b72.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_b40543fb2ad8f8ef198c66f0d9eadeef.jpg",
+      "gameId": 32,
+      "cdnImages": [
+        "/assets/mlbb-cdn/947518a825fa1664d622.jpg",
+        "/assets/mlbb-cdn/46c2e541c8231ce62b72.jpg",
+        "/assets/mlbb-cdn/1bc254c2047085878247.png",
+        "/assets/mlbb-cdn/fc36db8960b0f9df2189.png",
+        "/assets/mlbb-cdn/645a2f8569c4ffb6be2d.jpg",
+        "/assets/mlbb-cdn/6778b10e25f320078d9e.png"
+      ],
+      "face": "/assets/mlbb-cdn/1bc254c2047085878247.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "img": "/assets/hero-source/kadita.png",
+      "name": "Kadita",
+      "icon": "/assets/mlbb-cdn/b3aca529ee52e93fd8f7.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_3671cbec60a1b4f62971d37e7ecc0e89.jpg",
+      "animation": "/assets/hero-motion/kadita.mp4",
+      "animationSource": "https://motionbgs.com/kadita-mobile-legends",
+      "animationMediaSource": "https://motionbgs.com/media/4048/kadita-mobile-legends.960x540.mp4",
+      "animationPosition": 50,
+      "gameId": 75,
+      "cdnImages": [
+        "/assets/mlbb-cdn/b35f1683069cbdf3424a.png",
+        "/assets/mlbb-cdn/b3aca529ee52e93fd8f7.jpg",
+        "/assets/mlbb-cdn/ae3bb13508a2555089ae.png",
+        "/assets/mlbb-cdn/05bcea1a4789f783cb93.png",
+        "/assets/mlbb-cdn/10da6ddfdfb9a57908b1.jpg",
+        "/assets/mlbb-cdn/4c30099e4a21e6e5d1e2.png"
+      ],
+      "face": "/assets/mlbb-cdn/ae3bb13508a2555089ae.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "img": "/assets/hero-source/jawhead.png",
+      "name": "Jawhead",
+      "icon": "/assets/mlbb-cdn/0f55447f3bd1232930bd.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_a48e93159c30c31e05dcd6cf7f53c07c.jpg",
+      "gameId": 54,
+      "cdnImages": [
+        "/assets/mlbb-cdn/b442eb096284f6030846.png",
+        "/assets/mlbb-cdn/0f55447f3bd1232930bd.jpg",
+        "/assets/mlbb-cdn/1df5b258a69c3f5b5e99.png",
+        "/assets/mlbb-cdn/cd920200ac929dc7c114.png",
+        "/assets/mlbb-cdn/540abde258b5941ec61e.jpg",
+        "/assets/mlbb-cdn/1cc892abf8d9c4b53843.png"
+      ],
+      "face": "/assets/mlbb-cdn/1df5b258a69c3f5b5e99.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Harley",
+      "img": "/assets/heroes-current/harley.PNG",
+      "source": "https://indoch.s3.ml.moonlian.com/web/manageapi/image_4c035fd9fee19653838e192ad9985ce2.PNG?w=240&h=390",
+      "officialId": 66,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/152d81699e8d09d017e1.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_7b867b2f05de71466a0e98ea6898eff2.jpg",
+      "gameId": 42,
+      "cdnImages": [
+        "/assets/mlbb-cdn/c6b392e132a3b0821bc5.png",
+        "/assets/mlbb-cdn/152d81699e8d09d017e1.jpg",
+        "/assets/mlbb-cdn/c90235eb06e8c1b90e7b.png",
+        "/assets/mlbb-cdn/d0a531651975a395603c.png",
+        "/assets/mlbb-cdn/ea1541c9480fa0d80514.jpg",
+        "/assets/mlbb-cdn/1e49259dfd94e5b8682f.png"
+      ],
+      "face": "/assets/mlbb-cdn/c90235eb06e8c1b90e7b.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Ixia",
+      "img": "/assets/heroes-current/ixia.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/6c9606deac6a98b76019459863b64490.png?w=240-390-1b181a",
+      "officialId": 166,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/98b567b02db37bbc003b.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_48896a3cf0ee41c3d54c2b651ed926ea.jpg",
+      "gameId": 121,
+      "cdnImages": [
+        "/assets/mlbb-cdn/e94673e51717bb6f9921.png",
+        "/assets/mlbb-cdn/98b567b02db37bbc003b.jpg",
+        "/assets/mlbb-cdn/6bdcd2aefcf047ab5339.png",
+        "/assets/mlbb-cdn/5b6d7ac63ee16196601e.png",
+        "/assets/mlbb-cdn/ebce2ebc4e640d4152c1.jpg",
+        "/assets/mlbb-cdn/4123b6704a18a7f856a0.png"
+      ],
+      "face": "/assets/mlbb-cdn/5b6d7ac63ee16196601e.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Karina",
+      "img": "/assets/heroes-current/karina.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/7e19fdeb6a89f8d54549312995d9d912.png?w=240-390-0d1e29",
+      "officialId": 91,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/bc2a5bc75f70e058b0b4.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_37b5cfef887a7afc63dfaf7b6dfd65c4.jpg",
+      "gameId": 8,
+      "cdnImages": [
+        "/assets/mlbb-cdn/01e25becd2d133760499.png",
+        "/assets/mlbb-cdn/bc2a5bc75f70e058b0b4.jpg",
+        "/assets/mlbb-cdn/c80277ab3abe3fcb86b7.png",
+        "/assets/mlbb-cdn/9069b0a978d95a4af1c6.png",
+        "/assets/mlbb-cdn/22b5774c811995c880c7.jpg",
+        "/assets/mlbb-cdn/9415c5192e823e949600.png"
+      ],
+      "face": "/assets/mlbb-cdn/c80277ab3abe3fcb86b7.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "img": "/assets/hero-source/kaja.png",
+      "name": "Kaja",
+      "icon": "/assets/mlbb-cdn/05e67ebde25974feddda.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/gms/image/c45fd271b45fe26a7f2b34a9dfe77b29.jpg",
+      "gameId": 62,
+      "cdnImages": [
+        "/assets/mlbb-cdn/30d80788685065e824db.jpg",
+        "/assets/mlbb-cdn/05e67ebde25974feddda.jpg",
+        "/assets/mlbb-cdn/ccb141b1731b887e9f54.png",
+        "/assets/mlbb-cdn/b4b72a85825d7e549489.png",
+        "/assets/mlbb-cdn/6a2e877c93b879dd77ee.jpg",
+        "/assets/mlbb-cdn/f0652c10b43ac99d86b0.jpg",
+        "/assets/mlbb-cdn/24db6e45adb4231fb66e.png"
+      ],
+      "face": "/assets/mlbb-cdn/ccb141b1731b887e9f54.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "img": "/assets/hero-source/karrie.png",
+      "name": "Karrie",
+      "icon": "/assets/mlbb-cdn/f83177b597459e8e6a3d.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_bd34b1ec70de7a32b724dd606cb56331.jpg",
+      "gameId": 40,
+      "cdnImages": [
+        "/assets/mlbb-cdn/e4c37e3eb28cd279e592.png",
+        "/assets/mlbb-cdn/f83177b597459e8e6a3d.jpg",
+        "/assets/mlbb-cdn/b6c2c3dc34ac3b359009.png",
+        "/assets/mlbb-cdn/706db67d7e1b3637e278.png",
+        "/assets/mlbb-cdn/9d131b0560fe04291ed1.jpg",
+        "/assets/mlbb-cdn/543b0d8f1f8c09106511.png"
+      ],
+      "face": "/assets/mlbb-cdn/b6c2c3dc34ac3b359009.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Joy",
+      "img": "/assets/heroes-current/joy.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/f4073135eca9fb9bbaacc439ae80c3e5.png?w=240-390-091e27",
+      "officialId": 162,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/0b9c3d221056b9413944.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_f647bf6dbb80b4b2b2310ab5af88773d.jpg",
+      "gameId": 118,
+      "cdnImages": [
+        "/assets/mlbb-cdn/f5a118c15d1572ca61e7.png",
+        "/assets/mlbb-cdn/0b9c3d221056b9413944.jpg",
+        "/assets/mlbb-cdn/bb0f2f7c4cce1a917d34.png",
+        "/assets/mlbb-cdn/d6487e647f2152965a96.png",
+        "/assets/mlbb-cdn/3b3f06efebe97a3158ab.jpg",
+        "/assets/mlbb-cdn/3e4a34281f3beb151971.png"
+      ],
+      "face": "/assets/mlbb-cdn/d6487e647f2152965a96.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Julian",
+      "img": "/assets/heroes-current/julian.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/12da6aaec58bd0dca61e5ec93256b38b.png?w=240-390-151d27",
+      "officialId": 146,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/0b9e0123bd681bd99f64.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_5b493fa77cd6ea1a799577a69c86fbd2.jpg",
+      "gameId": 116,
+      "cdnImages": [
+        "/assets/mlbb-cdn/a84e6ecc3e6e0f57515f.png",
+        "/assets/mlbb-cdn/0b9e0123bd681bd99f64.jpg",
+        "/assets/mlbb-cdn/96cadb57690f24ff31f7.png",
+        "/assets/mlbb-cdn/305fc4887fa8621f94e0.png",
+        "/assets/mlbb-cdn/4330c453c38b0a75e5f3.jpg",
+        "/assets/mlbb-cdn/fda7e388486ff23466df.png"
+      ],
+      "face": "/assets/mlbb-cdn/96cadb57690f24ff31f7.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "img": "/assets/hero-source/kalea.png",
+      "name": "Kalea",
+      "icon": "/assets/mlbb-cdn/595b83ab60a607ce26ab.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/gms/image/6bde4242228d5ea98b700c9cfc1e837d.jpg",
+      "gameId": 128,
+      "cdnImages": [
+        "/assets/mlbb-cdn/a735c98b27c055656e75.jpg",
+        "/assets/mlbb-cdn/595b83ab60a607ce26ab.jpg",
+        "/assets/mlbb-cdn/d3b21d94393cbf12a1ec.webp",
+        "/assets/mlbb-cdn/bedb7cfac8b636186738.png",
+        "/assets/mlbb-cdn/bd4bc734cd47bc5d6603.png"
+      ],
+      "face": "/assets/mlbb-cdn/bedb7cfac8b636186738.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Khaleed",
+      "img": "/assets/heroes-current/khaleed.jpg",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/123edb3629140aa63f38d7b9d9120a95.jpg?w=240-390-537284",
+      "officialId": 47,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/eb5527f8f2e4e9d50736.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_155712d0d854711a12f2754865acc17b.jpg",
+      "gameId": 98,
+      "cdnImages": [
+        "/assets/mlbb-cdn/a7731a02cf29d7e6a40c.png",
+        "/assets/mlbb-cdn/eb5527f8f2e4e9d50736.jpg",
+        "/assets/mlbb-cdn/bf5629d55fe46ed22c1d.png",
+        "/assets/mlbb-cdn/47957ec07d6e125460b3.png",
+        "/assets/mlbb-cdn/e4b67726f59ce8643b4c.jpg",
+        "/assets/mlbb-cdn/a29eaf4c36ffef5082ae.png"
+      ],
+      "face": "/assets/mlbb-cdn/bf5629d55fe46ed22c1d.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "img": "/assets/hero-source/khufra.png",
+      "name": "Khufra",
+      "icon": "/assets/mlbb-cdn/d8e00daa020e04c6b08a.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_3ffc413118c62fc17f599cb35172ba9c.jpg",
+      "gameId": 78,
+      "cdnImages": [
+        "/assets/mlbb-cdn/ec76678d8dbabfce8166.png",
+        "/assets/mlbb-cdn/d8e00daa020e04c6b08a.jpg",
+        "/assets/mlbb-cdn/2ff73d369d6f75dcabd7.png",
+        "/assets/mlbb-cdn/64dfdc3d66c2c4e320a8.png",
+        "/assets/mlbb-cdn/09ef809d076519e219ca.jpg",
+        "/assets/mlbb-cdn/9a7847736602a75eb3ea.png"
+      ],
+      "face": "/assets/mlbb-cdn/2ff73d369d6f75dcabd7.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Kagura",
+      "img": "/assets/heroes-current/kagura.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/384906df56b0ca09a5eca8600b10842c.png?w=240-390-fffefe",
+      "officialId": 113,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/03000aedc4e739d9a673.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_64bda78279297278301e236555a15404.jpg",
+      "animation": "/assets/hero-motion/kagura.mp4",
+      "animationSource": "https://motionbgs.com/kagura-mobile-legends",
+      "animationMediaSource": "https://motionbgs.com/media/4043/kagura-mobile-legends.960x540.mp4",
+      "animationPosition": 50,
+      "gameId": 25,
+      "cdnImages": [
+        "/assets/mlbb-cdn/3c0c8fe8e491d23c6861.png",
+        "/assets/mlbb-cdn/03000aedc4e739d9a673.jpg",
+        "/assets/mlbb-cdn/e84727286f6b94892ca2.png",
+        "/assets/mlbb-cdn/6d022dfee1c65e0f2ed8.png",
+        "/assets/mlbb-cdn/289f578101707dc26a8e.jpg",
+        "/assets/mlbb-cdn/4fd4abb3283d5104fd84.png"
+      ],
+      "face": "/assets/mlbb-cdn/e84727286f6b94892ca2.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "img": "/assets/heroes-current/kimmy.jpg",
+      "name": "Kimmy",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/02c87f3dd90c68d21e400a2739846e0e.jpg?w=240-390-000100",
+      "officialId": 183,
+      "icon": "/assets/mlbb-cdn/c5efb81a79e1c328dfa6.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/gms/image/f2851daf34080fb5406f8d602b9fa489.jpg",
+      "animation": "/assets/hero-motion/kimmy.mp4",
+      "animationSource": "https://motionbgs.com/kimmy-mobile-legends",
+      "animationMediaSource": "https://motionbgs.com/media/4050/kimmy-mobile-legends.960x540.mp4",
+      "animationPosition": 50,
+      "gameId": 71,
+      "cdnImages": [
+        "/assets/mlbb-cdn/530f636af2e5ded68edb.jpg",
+        "/assets/mlbb-cdn/c5efb81a79e1c328dfa6.jpg",
+        "/assets/mlbb-cdn/cf0ae2f12143d0ac6bfe.png",
+        "/assets/mlbb-cdn/1e487d27bd75a9988d6e.png",
+        "/assets/mlbb-cdn/07f120f4a22f00781c42.jpg",
+        "/assets/mlbb-cdn/256710a61b907c1a2f70.jpg",
+        "/assets/mlbb-cdn/77dbb01709be8fb556c6.png"
+      ],
+      "face": "/assets/mlbb-cdn/cf0ae2f12143d0ac6bfe.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Leomord",
+      "img": "/assets/heroes-current/leomord.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/89c77878bfe083fb0f85fe9ed50dfc17.png?w=240-390-091e27",
+      "officialId": 161,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/1ddfbe49ff337e975474.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_77c6d6b5b84b658c8f25e6f371658cbd.jpg",
+      "gameId": 67,
+      "cdnImages": [
+        "/assets/mlbb-cdn/45e017846c9116795e79.png",
+        "/assets/mlbb-cdn/1ddfbe49ff337e975474.jpg",
+        "/assets/mlbb-cdn/763f3c011d0055ec9dda.png",
+        "/assets/mlbb-cdn/e74db5c9566e1ef33b54.png",
+        "/assets/mlbb-cdn/ed67e656106bfa66aede.jpg",
+        "/assets/mlbb-cdn/10b3b9189671c471654a.png"
+      ],
+      "face": "/assets/mlbb-cdn/763f3c011d0055ec9dda.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Layla",
+      "img": "/assets/heroes-current/layla.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/df48a2e38ae80ef5899f981c1d77d26c.png?w=240-390-b9cdda",
+      "officialId": 58,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/8e9cb0be0002a6b6d7b4.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_0db5131842bec1fdbdf5f8533ebada2c.jpg",
+      "animation": "/assets/hero-motion/layla.mp4",
+      "animationSource": "https://motionbgs.com/layla-mobile-legends",
+      "animationMediaSource": "https://motionbgs.com/media/4509/layla-mobile-legends.960x540.mp4",
+      "animationPosition": 50,
+      "gameId": 18,
+      "cdnImages": [
+        "/assets/mlbb-cdn/8c6f2760cf9cea4ddd90.jpg",
+        "/assets/mlbb-cdn/8e9cb0be0002a6b6d7b4.jpg",
+        "/assets/mlbb-cdn/df0f250de49ce385e42f.png",
+        "/assets/mlbb-cdn/5a5587e1b72c639d5fe6.png",
+        "/assets/mlbb-cdn/61ab4c6629d00bc59d47.jpg",
+        "/assets/mlbb-cdn/c9870bbd03ac86f35587.png"
+      ],
+      "face": "/assets/mlbb-cdn/df0f250de49ce385e42f.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Ling",
+      "img": "/assets/heroes-current/ling.png",
+      "source": "https://indoch.s3.ml.moonlian.com/web/manageapi/image_1fc0ea74abaab3fcb7ae313d54856933.png?w=240&h=390",
+      "officialId": 42,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/efb275b1acc3a04ca1a0.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_f76a7dfe805afa316e5ec44295b75772.jpg",
+      "animation": "/assets/hero-motion/ling.mp4",
+      "animationSource": "https://motionbgs.com/ling-mobile-legends",
+      "animationMediaSource": "https://motionbgs.com/media/4045/ling-mobile-legends.960x540.mp4",
+      "animationPosition": 50,
+      "gameId": 84,
+      "cdnImages": [
+        "/assets/mlbb-cdn/a777b7ca2403b3223b16.png",
+        "/assets/mlbb-cdn/efb275b1acc3a04ca1a0.jpg",
+        "/assets/mlbb-cdn/ca5c417f773abee3e9e3.png",
+        "/assets/mlbb-cdn/d4c2a3c93f4c45d40d25.png",
+        "/assets/mlbb-cdn/7443db80219d6565ea3a.jpg",
+        "/assets/mlbb-cdn/274cef35553789169e04.png"
+      ],
+      "face": "/assets/mlbb-cdn/ca5c417f773abee3e9e3.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Lancelot",
+      "img": "/assets/heroes-current/lancelot.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/b35b471bdd58d4604a99488aff582c31.png?w=240-390-2f1d1b",
+      "officialId": 104,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/d65fd384381c524df31a.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_015bacc4e1111e5e2b4a33b5e58ff106.jpg",
+      "gameId": 47,
+      "cdnImages": [
+        "/assets/mlbb-cdn/c156860a9df7a06eaec7.png",
+        "/assets/mlbb-cdn/d65fd384381c524df31a.jpg",
+        "/assets/mlbb-cdn/0d0d9c169a24c18e3bad.png",
+        "/assets/mlbb-cdn/2a2353ae4d3c75cd6bf9.png",
+        "/assets/mlbb-cdn/8f0746e337e388982786.jpg",
+        "/assets/mlbb-cdn/bfbb4335fca3be7f68a2.png"
+      ],
+      "face": "/assets/mlbb-cdn/0d0d9c169a24c18e3bad.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Lapu-Lapu",
+      "img": "/assets/heroes-current/lapulapu.png",
+      "source": "https://indoch.s3.ml.moonlian.com/web/manageapi/image_f1f655b626e9a8808e608194eefdc855.png?w=240&h=390",
+      "officialId": 64,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/95f2e6b6f852f28a3a9b.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_d407ccb622db392981d2fceff06d757c.jpg",
+      "gameId": 37,
+      "cdnImages": [
+        "/assets/mlbb-cdn/3ae7237e405875732731.png",
+        "/assets/mlbb-cdn/95f2e6b6f852f28a3a9b.jpg",
+        "/assets/mlbb-cdn/e38ed9dac609d99f10e0.png",
+        "/assets/mlbb-cdn/8692c25941fa4d1e9d3a.png",
+        "/assets/mlbb-cdn/d46655da9676179d9e86.jpg",
+        "/assets/mlbb-cdn/85537b7aef9b0ed417c9.png"
+      ],
+      "face": "/assets/mlbb-cdn/e38ed9dac609d99f10e0.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "img": "/assets/heroes-current/lukas.png",
+      "name": "Lukas",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/618f4d1c92fc3eab4da0a354e1da30bb.png?w=240-390-091e27",
+      "officialId": 181,
+      "icon": "/assets/mlbb-cdn/5e6256dc1282b5a89d6b.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/gms/image/95b6f94a0e37fd02e069223493540e75.jpg",
+      "gameId": 127,
+      "cdnImages": [
+        "/assets/mlbb-cdn/602793e6c2de88097654.jpg",
+        "/assets/mlbb-cdn/5e6256dc1282b5a89d6b.jpg",
+        "/assets/mlbb-cdn/b0e3e78fd7eb4532059b.webp",
+        "/assets/mlbb-cdn/4791e1f0b658bf65a761.png",
+        "/assets/mlbb-cdn/c1f315846854bf328286.png"
+      ],
+      "face": "/assets/mlbb-cdn/4791e1f0b658bf65a761.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "img": "/assets/hero-source/lesley.png",
+      "name": "Lesley",
+      "icon": "/assets/mlbb-cdn/41e277c3d4168ca37e42.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/gms/image/1f0d645266d902f3f927ea7fc04c1bca.jpg",
+      "gameId": 53,
+      "cdnImages": [
+        "/assets/mlbb-cdn/ce5cffa99bf64cd84f50.png",
+        "/assets/mlbb-cdn/41e277c3d4168ca37e42.jpg",
+        "/assets/mlbb-cdn/206fed68381f06f9748f.png",
+        "/assets/mlbb-cdn/924fe920b89389463b40.png",
+        "/assets/mlbb-cdn/7cc44099c9bbe24c14b9.jpg",
+        "/assets/mlbb-cdn/6fdb893d386954d52c87.jpg",
+        "/assets/mlbb-cdn/f39f7d0efecb3f07bef8.png"
+      ],
+      "face": "/assets/mlbb-cdn/206fed68381f06f9748f.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Luo Yi",
+      "img": "/assets/heroes-current/luoyi.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/8899d280ff37581e823039bb845d08bc.png?w=240-390-0a222b",
+      "officialId": 45,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/1aef888ac38d416d58ca.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_52c14752b29b6f9039da26a50e860c5c.jpg",
+      "gameId": 96,
+      "cdnImages": [
+        "/assets/mlbb-cdn/260d3ae88f7d4164482b.png",
+        "/assets/mlbb-cdn/1aef888ac38d416d58ca.jpg",
+        "/assets/mlbb-cdn/6f2dee2a905791e5df89.png",
+        "/assets/mlbb-cdn/4c92f7c662c02f4d0986.png",
+        "/assets/mlbb-cdn/f8ffd38fe4185b1aef10.jpg",
+        "/assets/mlbb-cdn/f0c972c96b1e782b41e9.png"
+      ],
+      "face": "/assets/mlbb-cdn/6f2dee2a905791e5df89.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "img": "/assets/heroes-current/marcel.jpg",
+      "name": "Marcel",
+      "icon": "/assets/mlbb-cdn/e9fb493b2c07f079cd4f.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/gms/image/3542718f699058d42801d88ec9b8fb8b.jpg",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/aff30bf994c34c8b5e806c78a0584475.jpg?w=240-390-0a0a12",
+      "officialId": 192,
+      "gameId": 132,
+      "cdnImages": [
+        "/assets/mlbb-cdn/0489398d1dd70c6d2bb6.jpg",
+        "/assets/mlbb-cdn/e9fb493b2c07f079cd4f.jpg",
+        "/assets/mlbb-cdn/7a1fbc4ac2c780aff6d2.webp",
+        "/assets/mlbb-cdn/d27f5e60359c1f17eef9.png",
+        "/assets/mlbb-cdn/561484fcbbc4ddcf2f51.png"
+      ],
+      "face": "/assets/mlbb-cdn/d27f5e60359c1f17eef9.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Lolita",
+      "img": "/assets/heroes-current/lolita.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/e5e97065ab08daf715bd842e9a19a60d.png?w=240-390-091e27",
+      "officialId": 170,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/29c028c7d83a21d83af5.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_1bc4973e512cf4958fe639e12391666e.jpg",
+      "gameId": 20,
+      "cdnImages": [
+        "/assets/mlbb-cdn/73cc56788ad6dd2786b0.jpg",
+        "/assets/mlbb-cdn/29c028c7d83a21d83af5.jpg",
+        "/assets/mlbb-cdn/2baaa25370caafc20fe6.png",
+        "/assets/mlbb-cdn/508e84103a0bb9d8d7b2.png",
+        "/assets/mlbb-cdn/3fb534935657152cea9d.jpg",
+        "/assets/mlbb-cdn/df39cfe9703c5e00ef6b.png"
+      ],
+      "face": "/assets/mlbb-cdn/2baaa25370caafc20fe6.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "img": "/assets/hero-source/martis.png",
+      "name": "Martis",
+      "icon": "/assets/mlbb-cdn/0291cbce0f4acd54d03c.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_01b9995a75249c3155ca96e4713139a9.jpg",
+      "gameId": 58,
+      "cdnImages": [
+        "/assets/mlbb-cdn/e3c66cb32df5a87cbf4d.png",
+        "/assets/mlbb-cdn/0291cbce0f4acd54d03c.jpg",
+        "/assets/mlbb-cdn/79a544f3cee78101a707.png",
+        "/assets/mlbb-cdn/df0a648eacb398d5f7e2.png",
+        "/assets/mlbb-cdn/cafe318646de7b330ff3.jpg",
+        "/assets/mlbb-cdn/b16486eb33ff8967385f.png"
+      ],
+      "face": "/assets/mlbb-cdn/79a544f3cee78101a707.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "img": "/assets/hero-source/lylia.png",
+      "name": "Lylia",
+      "icon": "/assets/mlbb-cdn/70056e4fcfc9aab0847d.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_8d16667b16673a1919c513fa46bbf2d0.jpg",
+      "gameId": 86,
+      "cdnImages": [
+        "/assets/mlbb-cdn/34e88783503424d0abad.png",
+        "/assets/mlbb-cdn/70056e4fcfc9aab0847d.jpg",
+        "/assets/mlbb-cdn/d648f995974c9381d9bd.png",
+        "/assets/mlbb-cdn/0824c9c3027a08ec2bca.png",
+        "/assets/mlbb-cdn/5eb6eed90cca49317e08.jpg",
+        "/assets/mlbb-cdn/feeeda09c9e8592e1f80.png"
+      ],
+      "face": "/assets/mlbb-cdn/d648f995974c9381d9bd.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Mathilda",
+      "img": "/assets/heroes-current/mathilda.png",
+      "source": "https://akmwebstatic.yuanzhanapp.com/web/manageapi/image_01fd05e1c159f960f4ec059e659d8555.png?w=240&h=390",
+      "officialId": 68,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/70187e271360d72032ff.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_5d6eb0491da5709648beca54f906c0a3.jpg",
+      "gameId": 102,
+      "cdnImages": [
+        "/assets/mlbb-cdn/526f297bf6cb54eb4bec.png",
+        "/assets/mlbb-cdn/70187e271360d72032ff.jpg",
+        "/assets/mlbb-cdn/cecaec337e6a475f47ed.png",
+        "/assets/mlbb-cdn/c1a2aa59dfd2e3eb1b1f.png",
+        "/assets/mlbb-cdn/443cecb37cae7de832e4.jpg",
+        "/assets/mlbb-cdn/581d4168088bc1721600.png"
+      ],
+      "face": "/assets/mlbb-cdn/cecaec337e6a475f47ed.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "img": "/assets/hero-source/minotaur.png",
+      "name": "Minotaur",
+      "icon": "/assets/mlbb-cdn/3803aa28a4d9b580fe63.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_db4fda77f902f3dde09d247498da23cc.jpg",
+      "gameId": 19,
+      "cdnImages": [
+        "/assets/mlbb-cdn/c17db6060e63131b1b57.png",
+        "/assets/mlbb-cdn/3803aa28a4d9b580fe63.jpg",
+        "/assets/mlbb-cdn/138d1f79819e67e6c820.png",
+        "/assets/mlbb-cdn/95ae42329d1f312a71d9.png",
+        "/assets/mlbb-cdn/b088c5be7c26b9317cbf.jpg",
+        "/assets/mlbb-cdn/5859cad7d51bcc8379a0.png"
+      ],
+      "face": "/assets/mlbb-cdn/138d1f79819e67e6c820.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Minsitthar",
+      "img": "/assets/heroes-current/minsitthar.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/7c3dd58ac7ae3d6981653ed4aefef5f3.png?w=240-390-2d201c",
+      "officialId": 164,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/5cf4c7aeea2156cc2f08.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_5a18fa300eb0de4324601c116eab655c.jpg",
+      "gameId": 74,
+      "cdnImages": [
+        "/assets/mlbb-cdn/0ba8cd733f859e8fdd76.png",
+        "/assets/mlbb-cdn/5cf4c7aeea2156cc2f08.jpg",
+        "/assets/mlbb-cdn/e029bb3418ec545261c2.png",
+        "/assets/mlbb-cdn/b9a565030b046f16c176.png",
+        "/assets/mlbb-cdn/9afcbb51da7089094dde.jpg",
+        "/assets/mlbb-cdn/cf145b7b7ad4fed4d6be.png"
+      ],
+      "face": "/assets/mlbb-cdn/e029bb3418ec545261c2.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "img": "/assets/hero-source/lunox.png",
+      "name": "Lunox",
+      "icon": "/assets/mlbb-cdn/3fec2f50bc73c2d825f7.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_8cd47d47126be5496fecb45304368069.jpg",
+      "gameId": 68,
+      "cdnImages": [
+        "/assets/mlbb-cdn/591f3f0d272eba3b40ec.png",
+        "/assets/mlbb-cdn/3fec2f50bc73c2d825f7.jpg",
+        "/assets/mlbb-cdn/38758f074e196b29b799.png",
+        "/assets/mlbb-cdn/c2e2fc3c6cc22af605ad.png",
+        "/assets/mlbb-cdn/f8237dba687b58faaf51.jpg",
+        "/assets/mlbb-cdn/36262809d62958ffcd73.png"
+      ],
+      "face": "/assets/mlbb-cdn/38758f074e196b29b799.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Melissa",
+      "img": "/assets/heroes-current/melissa.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/58b7a044c6ea0a2830d4912ae76d042c.png?w=240-390-091e26",
+      "officialId": 137,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/2136004b27dbfadf71f9.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_5c2a434757066a779c8adec5af05a8d1.jpg",
+      "gameId": 114,
+      "cdnImages": [
+        "/assets/mlbb-cdn/3fd4cfe74508e9f28042.png",
+        "/assets/mlbb-cdn/2136004b27dbfadf71f9.jpg",
+        "/assets/mlbb-cdn/75be311429074a08e7f2.png",
+        "/assets/mlbb-cdn/763c4492fcbe16ff2efc.png",
+        "/assets/mlbb-cdn/8e4b9fef6e783baad2bc.jpg",
+        "/assets/mlbb-cdn/991328698f1c19b27165.png"
+      ],
+      "face": "/assets/mlbb-cdn/75be311429074a08e7f2.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "img": "/assets/hero-source/natalia.png",
+      "name": "Natalia",
+      "icon": "/assets/mlbb-cdn/f1574663a60bfe931d1a.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_79e90c124d786bbfdae31f3a28827e7d.jpg",
+      "gameId": 24,
+      "cdnImages": [
+        "/assets/mlbb-cdn/f489979a2375b8c54fe2.png",
+        "/assets/mlbb-cdn/f1574663a60bfe931d1a.jpg",
+        "/assets/mlbb-cdn/a9f13af6a2db630c7797.png",
+        "/assets/mlbb-cdn/ea881057ef7ff8bd70f7.png",
+        "/assets/mlbb-cdn/fdc3b84ddae5bd0021bf.jpg",
+        "/assets/mlbb-cdn/b9bf73233d0b07b648b0.png"
+      ],
+      "face": "/assets/mlbb-cdn/a9f13af6a2db630c7797.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Natan",
+      "img": "/assets/heroes-current/natan.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/97942f7b78c58d99c18a7b2ee972325f.png?w=240-390-0d1f29",
+      "officialId": 98,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/7db424668f68e0265f88.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_bc73ea56e3e05b4f9ed8046b959e1290.jpg",
+      "gameId": 107,
+      "cdnImages": [
+        "/assets/mlbb-cdn/4166fde66e7f3f7b228a.png",
+        "/assets/mlbb-cdn/7db424668f68e0265f88.jpg",
+        "/assets/mlbb-cdn/ca0835d702c5891abdd8.png",
+        "/assets/mlbb-cdn/8f0924fcd2ea15b0d621.png",
+        "/assets/mlbb-cdn/da23e7b3f78313a726ff.jpg",
+        "/assets/mlbb-cdn/05d24d610be7dda0b9fb.png"
+      ],
+      "face": "/assets/mlbb-cdn/ca0835d702c5891abdd8.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Moskov",
+      "img": "/assets/heroes-current/moskov.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/aa3dd9b5eda12b75cd8269cabd56e017.png?w=240-390-454c75",
+      "officialId": 172,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/14aa5a45d52ef6f9a6e0.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_843f1c2c3a1b2d4da2fc2ec73cf47cfa.jpg",
+      "gameId": 31,
+      "cdnImages": [
+        "/assets/mlbb-cdn/a41229675d537e3667c0.png",
+        "/assets/mlbb-cdn/14aa5a45d52ef6f9a6e0.jpg",
+        "/assets/mlbb-cdn/42f59706d752f62bda52.png",
+        "/assets/mlbb-cdn/a5da02ca6e9715a1be60.png",
+        "/assets/mlbb-cdn/66280e3dcef5fe0891d6.jpg",
+        "/assets/mlbb-cdn/e87308fc1d386847e46c.png"
+      ],
+      "face": "/assets/mlbb-cdn/42f59706d752f62bda52.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Nolan",
+      "img": "/assets/heroes-current/nolan.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/72c944811c947552cd3ec9805e4f1f03.png?w=240-390-fffffd",
+      "officialId": 171,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/3d68d8fac4df5e807831.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_cae4b6dafe9d345f84eee1c983333c0c.jpg",
+      "gameId": 122,
+      "cdnImages": [
+        "/assets/mlbb-cdn/f432dc861eb85791c0a1.png",
+        "/assets/mlbb-cdn/3d68d8fac4df5e807831.jpg",
+        "/assets/mlbb-cdn/3beb517fed2beb79a8f7.png",
+        "/assets/mlbb-cdn/7cecc7051c5ab04082b8.png",
+        "/assets/mlbb-cdn/8a59df24eea9edff230a.jpg",
+        "/assets/mlbb-cdn/b2c7c8ff259189c44a8a.png"
+      ],
+      "face": "/assets/mlbb-cdn/7cecc7051c5ab04082b8.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Nana",
+      "img": "/assets/heroes-current/nana.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/7fbe15372ca4a57146e1947df07bcf42.png?w=240-390-0f1d2e",
+      "officialId": 59,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/e3fae8828c54ff530768.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_4258783f9b44a4ad1c67c0b8781051fa.jpg",
+      "gameId": 5,
+      "cdnImages": [
+        "/assets/mlbb-cdn/789c3ca64830d34b8c2e.png",
+        "/assets/mlbb-cdn/e3fae8828c54ff530768.jpg",
+        "/assets/mlbb-cdn/dcfe8a1dc5b9d041405f.png",
+        "/assets/mlbb-cdn/0fa4faaab03f494fc037.png",
+        "/assets/mlbb-cdn/c376b71812b91133f6e3.jpg",
+        "/assets/mlbb-cdn/9bedbd23cbdef2ee5467.png"
+      ],
+      "face": "/assets/mlbb-cdn/dcfe8a1dc5b9d041405f.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Masha",
+      "img": "/assets/heroes-current/masha.png",
+      "source": "https://indoch.s3.ml.moonlian.com/web/manageapi/image_2912dd6f4124e93494a9ce29f99986b1.png?w=240&h=390",
+      "officialId": 37,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/5248c468735f77ebcd3e.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_59893811b0123dc6babca117f5ead017.jpg",
+      "gameId": 88,
+      "cdnImages": [
+        "/assets/mlbb-cdn/3e108f1c54f3ac1ceec4.png",
+        "/assets/mlbb-cdn/5248c468735f77ebcd3e.jpg",
+        "/assets/mlbb-cdn/e3f9c9c308fbab09fdb4.png",
+        "/assets/mlbb-cdn/9a3d05b3f3e468a8b108.png",
+        "/assets/mlbb-cdn/4246dc6a366f00c03e27.jpg",
+        "/assets/mlbb-cdn/c552629d8326e9861272.png"
+      ],
+      "face": "/assets/mlbb-cdn/e3f9c9c308fbab09fdb4.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "img": "/assets/heroes-current/obsidia.jpg",
+      "name": "Obsidia",
+      "icon": "/assets/mlbb-cdn/83014c8265b8918bf962.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/gms/image/1dca7f088da27d5a12faf83f7c1f8269.jpg",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/8d7f3c9e3aeea85abc3bf42354be5afa.jpg?w=240-390-1b1837",
+      "officialId": 186,
+      "gameId": 130,
+      "cdnImages": [
+        "/assets/mlbb-cdn/85477d441e4b6dcb64f1.jpg",
+        "/assets/mlbb-cdn/83014c8265b8918bf962.jpg",
+        "/assets/mlbb-cdn/d22e4ee8ddb6f7590787.webp",
+        "/assets/mlbb-cdn/94c5f47c3834af983e11.png",
+        "/assets/mlbb-cdn/9b1c9d211400bb6eab0f.png"
+      ],
+      "face": "/assets/mlbb-cdn/94c5f47c3834af983e11.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Paquito",
+      "img": "/assets/heroes-current/paquito.png",
+      "source": "https://akmwebstatic.yuanzhanapp.com/web/admin/image/475333a2dfd9be9581ea4cc4961ed3b4.png?w=240&h=390&c=62473c",
+      "officialId": 71,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/c8b19681aad258c4122c.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_ef4c59d1923663a6aaa77d1c0a7ff258.jpg",
+      "gameId": 103,
+      "cdnImages": [
+        "/assets/mlbb-cdn/e026a16d899f45c33c6a.png",
+        "/assets/mlbb-cdn/c8b19681aad258c4122c.jpg",
+        "/assets/mlbb-cdn/08ee9922df3e3d056ca8.png",
+        "/assets/mlbb-cdn/8e6d610bf3cbf0da06fa.png",
+        "/assets/mlbb-cdn/377228d8c1eed77bbf0f.jpg",
+        "/assets/mlbb-cdn/9f389ae784f44ab04863.png"
+      ],
+      "face": "/assets/mlbb-cdn/08ee9922df3e3d056ca8.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Novaria",
+      "img": "/assets/heroes-current/novaria.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/5d225aed60b23c5849db55999eceb342.png?w=240-390-374d85",
+      "officialId": 165,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/967be073476ac01ccd8b.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_b2599c8a6c681afdee9a06a92190a58d.jpg",
+      "gameId": 119,
+      "cdnImages": [
+        "/assets/mlbb-cdn/1bbd24fd15e7d6642ee7.png",
+        "/assets/mlbb-cdn/967be073476ac01ccd8b.jpg",
+        "/assets/mlbb-cdn/b8d12fd17acf548d0d94.png",
+        "/assets/mlbb-cdn/3b830b70481642dc74a2.png",
+        "/assets/mlbb-cdn/66cb8956129f922ba4a7.jpg",
+        "/assets/mlbb-cdn/0842236f47f5e95a411d.png"
+      ],
+      "face": "/assets/mlbb-cdn/3b830b70481642dc74a2.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Rafaela",
+      "img": "/assets/heroes-current/rafaela.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/b1c459854d6a827a62359e34df43d314.png?w=240-390-fefefe",
+      "officialId": 57,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/d1a44f14cdaf9e493b9d.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_491618ae5cb3d561f5f02fbb3d82a83d.jpg",
+      "gameId": 14,
+      "cdnImages": [
+        "/assets/mlbb-cdn/ffe54f41054f3052911b.png",
+        "/assets/mlbb-cdn/d1a44f14cdaf9e493b9d.jpg",
+        "/assets/mlbb-cdn/2a26dab48ad0dfed6099.png",
+        "/assets/mlbb-cdn/24451a62c60534cf5c3b.png",
+        "/assets/mlbb-cdn/0bb0b2dd293823d1aae9.jpg",
+        "/assets/mlbb-cdn/9b1fb55036e411fd2eae.png"
+      ],
+      "face": "/assets/mlbb-cdn/2a26dab48ad0dfed6099.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "img": "/assets/hero-source/roger.png",
+      "name": "Roger",
+      "icon": "/assets/mlbb-cdn/fe5e6dec3c857957e1e2.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_ff92c4b5afb41060af1b951ba9f03edd.jpg",
+      "gameId": 39,
+      "cdnImages": [
+        "/assets/mlbb-cdn/1a0dbe3d78a0ebf6c81b.jpg",
+        "/assets/mlbb-cdn/fe5e6dec3c857957e1e2.jpg",
+        "/assets/mlbb-cdn/05e1155c4a8d3ada4e5b.png",
+        "/assets/mlbb-cdn/0c7eeb41dd7ae90eb2e4.png",
+        "/assets/mlbb-cdn/2256a2daa450ee60c685.jpg",
+        "/assets/mlbb-cdn/ce085f5c2b7b388df085.png"
+      ],
+      "face": "/assets/mlbb-cdn/05e1155c4a8d3ada4e5b.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Popol and Kupa",
+      "img": "/assets/heroes-current/popolandkupa.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/ad0bbc18089f9c2bda1dbb0b34970792.png?w=240-390-0a222b",
+      "officialId": 46,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/8a9a45f4862ddbb46b8e.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_555eb8df475f57d6f01a1f2a2675671c.jpg",
+      "gameId": 94,
+      "cdnImages": [
+        "/assets/mlbb-cdn/8edd586295ebc6e1b9ce.png",
+        "/assets/mlbb-cdn/8a9a45f4862ddbb46b8e.jpg",
+        "/assets/mlbb-cdn/177c057ec9b24c067e1f.png",
+        "/assets/mlbb-cdn/cec09acbcc97f32c92d1.png",
+        "/assets/mlbb-cdn/f133f1fe1b081ecba4b3.jpg",
+        "/assets/mlbb-cdn/1ca4f0da4f2dd6d7163f.png"
+      ],
+      "face": "/assets/mlbb-cdn/177c057ec9b24c067e1f.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Odette",
+      "img": "/assets/heroes-current/odette.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/f4965076f56c7dedc70453c8fd24fcfc.png?w=240-390-091b25",
+      "officialId": 107,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/7ef156ebe0e377609f45.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_7448f16293a6be9311f82d581e78749a.jpg",
+      "gameId": 46,
+      "cdnImages": [
+        "/assets/mlbb-cdn/be5b3ac7fe01d6094d3e.png",
+        "/assets/mlbb-cdn/7ef156ebe0e377609f45.jpg",
+        "/assets/mlbb-cdn/da8b55b31eed126c1d92.png",
+        "/assets/mlbb-cdn/8f1930eb75e80cb3df59.png",
+        "/assets/mlbb-cdn/a11c1b63ce3ee3954a45.jpg",
+        "/assets/mlbb-cdn/98b20e4a33dc94b69873.png"
+      ],
+      "face": "/assets/mlbb-cdn/da8b55b31eed126c1d92.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Saber",
+      "img": "/assets/heroes-current/saber.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/c2ce30d9fcdf77028f04d552fd51cbb4.png?w=240-390-fffeff",
+      "officialId": 56,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/9e8b0327d276e09b7d52.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_15e49c7cc5398ca2d903a485145c0702.jpg",
+      "gameId": 3,
+      "cdnImages": [
+        "/assets/mlbb-cdn/6894e55a8c57ae56b7fc.png",
+        "/assets/mlbb-cdn/9e8b0327d276e09b7d52.jpg",
+        "/assets/mlbb-cdn/4d1583767903125e4532.png",
+        "/assets/mlbb-cdn/efce05429898be17eb0a.png",
+        "/assets/mlbb-cdn/1133881582b3520b7486.jpg",
+        "/assets/mlbb-cdn/cc8ff960c5268bb15b0e.png"
+      ],
+      "face": "/assets/mlbb-cdn/4d1583767903125e4532.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "img": "/assets/heroes-current/phoveus.jpg",
+      "name": "Phoveus",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/ea3b0b308795fd10ac8c76cfd5335674.jpg?w=240-390-54595d",
+      "officialId": 177,
+      "icon": "/assets/mlbb-cdn/181a562c9662d6331d38.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_b811616b91e45a75437a6d5b9f386bd3.jpg",
+      "gameId": 106,
+      "cdnImages": [
+        "/assets/mlbb-cdn/940a9f5e91c5fa48fafb.jpg",
+        "/assets/mlbb-cdn/181a562c9662d6331d38.jpg",
+        "/assets/mlbb-cdn/fec02c4f90b4016b4b70.png",
+        "/assets/mlbb-cdn/7b33103ffd13b3459cbb.png",
+        "/assets/mlbb-cdn/06c9dbb11abfd4865f06.jpg",
+        "/assets/mlbb-cdn/5affefc4894b8a8299a9.png"
+      ],
+      "face": "/assets/mlbb-cdn/fec02c4f90b4016b4b70.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "img": "/assets/hero-source/ruby.png",
+      "name": "Ruby",
+      "icon": "/assets/mlbb-cdn/d71e19420230b4a61649.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_2cfc71331f6e2435394bfa44c322405c.jpg",
+      "gameId": 29,
+      "cdnImages": [
+        "/assets/mlbb-cdn/659341059688ec3d591a.png",
+        "/assets/mlbb-cdn/d71e19420230b4a61649.jpg",
+        "/assets/mlbb-cdn/03eca00a80449d4fc88c.png",
+        "/assets/mlbb-cdn/f3d2129844dc31dc2052.png",
+        "/assets/mlbb-cdn/228fd25fb36004c34a48.jpg",
+        "/assets/mlbb-cdn/96d0404100a5332329e1.png"
+      ],
+      "face": "/assets/mlbb-cdn/03eca00a80449d4fc88c.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "img": "/assets/hero-source/pharsa.png",
+      "name": "Pharsa",
+      "icon": "/assets/mlbb-cdn/9364a01f2a55134df9dd.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_353d39f8ae9ea1454e34ad8546db8417.jpg",
+      "gameId": 52,
+      "cdnImages": [
+        "/assets/mlbb-cdn/b628f9b1fd57ec289cad.png",
+        "/assets/mlbb-cdn/9364a01f2a55134df9dd.jpg",
+        "/assets/mlbb-cdn/936514759c1192850953.png",
+        "/assets/mlbb-cdn/e98ce8bdee280c1b8ccd.png",
+        "/assets/mlbb-cdn/665611bfa3e22d957f48.jpg",
+        "/assets/mlbb-cdn/63f8f9944bb609fb8599.png"
+      ],
+      "face": "/assets/mlbb-cdn/936514759c1192850953.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Miya",
+      "img": "/assets/heroes-current/miya.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/2a368dc13be516280f1e64aa0abad047.png?w=240-390-091e27",
+      "officialId": 50,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/41c9b03d0176b8e294c5.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/gms/image/6667b3e9109ca180e63c524471f29278.jpg",
+      "gameId": 1,
+      "cdnImages": [
+        "/assets/mlbb-cdn/e3ef128a49ed6856ac59.jpg",
+        "/assets/mlbb-cdn/41c9b03d0176b8e294c5.jpg",
+        "/assets/mlbb-cdn/3e611784d727c1203fef.png",
+        "/assets/mlbb-cdn/d37a8a55adc78d3a47ec.png",
+        "/assets/mlbb-cdn/7127de12f7c78aa16d86.jpg",
+        "/assets/mlbb-cdn/5bd71a554adcab590051.jpg",
+        "/assets/mlbb-cdn/aaed84d7941735ea1add.png"
+      ],
+      "face": "/assets/mlbb-cdn/3e611784d727c1203fef.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "img": "/assets/hero-source/selena.png",
+      "name": "Selena",
+      "icon": "/assets/mlbb-cdn/d12fb2d7f9fcebb2c20f.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_4ce7dbe0cbcbaf4c2fcc47bd96780b35.jpg",
+      "animation": "/assets/hero-motion/selena.mp4",
+      "animationSource": "https://motionbgs.com/selena-mobile-legends",
+      "animationMediaSource": "https://motionbgs.com/media/6489/selena-mobile-legends.960x540.mp4",
+      "animationPosition": 50,
+      "gameId": 63,
+      "cdnImages": [
+        "/assets/mlbb-cdn/390266e8eb93073b93db.png",
+        "/assets/mlbb-cdn/d12fb2d7f9fcebb2c20f.jpg",
+        "/assets/mlbb-cdn/2e41c3955a78cc446211.png",
+        "/assets/mlbb-cdn/29519ebdf306f8969905.png",
+        "/assets/mlbb-cdn/aa7940de2f0df382a56a.jpg",
+        "/assets/mlbb-cdn/abc3dcffa7250eb196eb.png"
+      ],
+      "face": "/assets/mlbb-cdn/2e41c3955a78cc446211.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "img": "/assets/hero-source/silvanna.png",
+      "name": "Silvanna",
+      "icon": "/assets/mlbb-cdn/e14eeb325eded6b2430b.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_a9de8642b6e62f44652c519f153620d2.jpg",
+      "gameId": 90,
+      "cdnImages": [
+        "/assets/mlbb-cdn/aa71ae1d3a184fd04044.png",
+        "/assets/mlbb-cdn/e14eeb325eded6b2430b.jpg",
+        "/assets/mlbb-cdn/54424d64797845bfc7b1.png",
+        "/assets/mlbb-cdn/43914744c34190729b09.png",
+        "/assets/mlbb-cdn/c797644b846a8aa96e3c.jpg",
+        "/assets/mlbb-cdn/2888cddf9839637e0fcd.png"
+      ],
+      "face": "/assets/mlbb-cdn/54424d64797845bfc7b1.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "img": "/assets/hero-source/thamuz.png",
+      "name": "Thamuz",
+      "icon": "/assets/mlbb-cdn/3abf7a05c814058898f4.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/gms/image/1699a938c6938947e534aa2874341d58.jpg",
+      "gameId": 72,
+      "cdnImages": [
+        "/assets/mlbb-cdn/956dfc91c2deca4c610b.jpg",
+        "/assets/mlbb-cdn/3abf7a05c814058898f4.jpg",
+        "/assets/mlbb-cdn/81e16f52563ebef0726e.png",
+        "/assets/mlbb-cdn/76bfaece063bf40c2695.png",
+        "/assets/mlbb-cdn/85f5d2a86e1db437abe8.jpg",
+        "/assets/mlbb-cdn/d017c292025f9469a877.jpg",
+        "/assets/mlbb-cdn/9e5de0072737b6d3858d.png"
+      ],
+      "face": "/assets/mlbb-cdn/81e16f52563ebef0726e.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "img": "/assets/hero-source/sora.png",
+      "name": "Sora",
+      "icon": "/assets/mlbb-cdn/0792720a75f35f73246d.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/gms/image/d6348e65d8d0d4ca8b0738d691cef440.jpg",
+      "gameId": 131,
+      "cdnImages": [
+        "/assets/mlbb-cdn/ed0870042aebcd5b2459.jpg",
+        "/assets/mlbb-cdn/0792720a75f35f73246d.jpg",
+        "/assets/mlbb-cdn/a3333d0070c40de3f52b.webp",
+        "/assets/mlbb-cdn/9417e7fb5d463c593476.png",
+        "/assets/mlbb-cdn/ee610359afe6b10e8d3b.png"
+      ],
+      "face": "/assets/mlbb-cdn/9417e7fb5d463c593476.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Tigreal",
+      "img": "/assets/heroes-current/tigreal.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/f755c21415067cc3bfb53c8ef003c98d.png?w=240-390-11121c",
+      "officialId": 61,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/d5db3141963388d3e1d8.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_ec2ad5967a2d8a0ac5e2cef2a1e24411.jpg",
+      "gameId": 6,
+      "cdnImages": [
+        "/assets/mlbb-cdn/649c8354d1ecc02b5be0.png",
+        "/assets/mlbb-cdn/d5db3141963388d3e1d8.jpg",
+        "/assets/mlbb-cdn/eea687993e3b51f5ebc9.png",
+        "/assets/mlbb-cdn/61168715274c41f718d7.png",
+        "/assets/mlbb-cdn/ece49b0fdcf48a13e45b.jpg",
+        "/assets/mlbb-cdn/09bdd7c2314ac41c7861.png"
+      ],
+      "face": "/assets/mlbb-cdn/eea687993e3b51f5ebc9.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "img": "/assets/hero-source/uranus.png",
+      "name": "Uranus",
+      "icon": "/assets/mlbb-cdn/ca2e846f1d484569b297.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_1e52a042e596bd333ccab46d00bb8c72.jpg",
+      "gameId": 59,
+      "cdnImages": [
+        "/assets/mlbb-cdn/5ad873f8698ea7532e73.png",
+        "/assets/mlbb-cdn/ca2e846f1d484569b297.jpg",
+        "/assets/mlbb-cdn/55526b41da4a835501d2.png",
+        "/assets/mlbb-cdn/9e9dab59eb83ff1597af.png",
+        "/assets/mlbb-cdn/5adcd2fa9fb871c65a34.jpg",
+        "/assets/mlbb-cdn/61a438213cce9048503f.png"
+      ],
+      "face": "/assets/mlbb-cdn/55526b41da4a835501d2.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "img": "/assets/hero-source/sun.png",
+      "name": "Sun",
+      "icon": "/assets/mlbb-cdn/1c2a25cfb97e4d60d677.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_5dd440a371270f458071305b9bf107b5.jpg",
+      "gameId": 27,
+      "cdnImages": [
+        "/assets/mlbb-cdn/c1abae16871c853431ab.jpg",
+        "/assets/mlbb-cdn/1c2a25cfb97e4d60d677.jpg",
+        "/assets/mlbb-cdn/e4970defa3d0052306dd.png",
+        "/assets/mlbb-cdn/6ae7fd26052212affb5d.png",
+        "/assets/mlbb-cdn/201dc4f8014d93deb616.jpg",
+        "/assets/mlbb-cdn/41402e68e1b4a9b82c29.png"
+      ],
+      "face": "/assets/mlbb-cdn/e4970defa3d0052306dd.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "img": "/assets/hero-source/vale.png",
+      "name": "Vale",
+      "icon": "/assets/mlbb-cdn/b5c8b552b79ab1c67304.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_25040275a37d04d6ed8930a64f9e20bd.jpg",
+      "gameId": 66,
+      "cdnImages": [
+        "/assets/mlbb-cdn/62f4b3cce149909c6e38.png",
+        "/assets/mlbb-cdn/b5c8b552b79ab1c67304.jpg",
+        "/assets/mlbb-cdn/6384a8c81a1d35a93d1d.png",
+        "/assets/mlbb-cdn/ac87ba7f67729d8b0b3a.png",
+        "/assets/mlbb-cdn/23b6b1d37140728f03af.jpg",
+        "/assets/mlbb-cdn/40abca8cf235c9968f8b.png"
+      ],
+      "face": "/assets/mlbb-cdn/6384a8c81a1d35a93d1d.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Valentina",
+      "img": "/assets/heroes-current/valentina.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/e821fc8b4a68acbea15401e43ff65ab1.png?w=240-390-091e27",
+      "officialId": 128,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/efea8af85bd343dc7636.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_cdd151e2293c14b2abc3c1c8e57d4392.jpg",
+      "gameId": 110,
+      "cdnImages": [
+        "/assets/mlbb-cdn/e5adef63d68ce93242ef.png",
+        "/assets/mlbb-cdn/efea8af85bd343dc7636.jpg",
+        "/assets/mlbb-cdn/e267f3b0526eed31b5d5.png",
+        "/assets/mlbb-cdn/fa7c378f851982bcbeb6.png",
+        "/assets/mlbb-cdn/abaa5029e9d51e0e642e.jpg",
+        "/assets/mlbb-cdn/e642ed8f69dea06f6c7f.png"
+      ],
+      "face": "/assets/mlbb-cdn/e267f3b0526eed31b5d5.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "X.Borg",
+      "img": "/assets/heroes-current/xborg.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/01855b9a97c125d411bfc859766d92e4.png?w=240-390-091e27",
+      "officialId": 167,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/c813360aa2150111400c.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/gms/image/52e2334206e3b30354b129f86ada1ef5.jpg",
+      "gameId": 83,
+      "cdnImages": [
+        "/assets/mlbb-cdn/789c91ac9fec123ee41f.jpg",
+        "/assets/mlbb-cdn/c813360aa2150111400c.jpg",
+        "/assets/mlbb-cdn/d583bcb2c18647a1b0aa.png",
+        "/assets/mlbb-cdn/d9127dbfe190129f3fe2.png",
+        "/assets/mlbb-cdn/23f61a3efa237ace9eaa.jpg",
+        "/assets/mlbb-cdn/11bea6d9df9cd951491e.jpg",
+        "/assets/mlbb-cdn/d7820b246d011f57a07e.png"
+      ],
+      "face": "/assets/mlbb-cdn/d583bcb2c18647a1b0aa.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "img": "/assets/heroes-current/suyou.png",
+      "name": "Suyou",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/184961f1f3fd867aa0390c268b68ce7a.png?w=240-390-232432",
+      "officialId": 179,
+      "icon": "/assets/mlbb-cdn/80b9799a57ffbd858a14.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/gms/image/13912f0dbc96b6cf53a00e80ff731dab.jpg",
+      "gameId": 126,
+      "cdnImages": [
+        "/assets/mlbb-cdn/ad8054de45911e1799de.png",
+        "/assets/mlbb-cdn/80b9799a57ffbd858a14.jpg",
+        "/assets/mlbb-cdn/5cad0826f367027eaf04.webp",
+        "/assets/mlbb-cdn/bea96bef459e498cb932.png",
+        "/assets/mlbb-cdn/69d18b6b78c66ad34c8c.png"
+      ],
+      "face": "/assets/mlbb-cdn/bea96bef459e498cb932.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Wanwan",
+      "img": "/assets/heroes-current/wanwan.png",
+      "source": "https://indoch.s3.ml.moonlian.com/web/manageapi/image_68895bea5398c45b040ffeccac26aea9.png?w=240&h=390",
+      "officialId": 44,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/d664c19fee6851884068.png",
+      "iconSource": "https://akmweb.youngjoygame.com/web/gms/image/9b163e2146ae6b0e84941032c3f10a41.png",
+      "animation": "/assets/hero-motion/wanwan.mp4",
+      "animationSource": "https://motionbgs.com/wanwan-mobile-legends",
+      "animationMediaSource": "https://motionbgs.com/media/4990/wanwan-mobile-legends.960x540.mp4",
+      "animationPosition": 50,
+      "gameId": 89,
+      "cdnImages": [
+        "/assets/mlbb-cdn/a7aa3d61efa18057f3bf.png",
+        "/assets/mlbb-cdn/d664c19fee6851884068.png",
+        "/assets/mlbb-cdn/4959cbf76a25991fe996.png",
+        "/assets/mlbb-cdn/6f1269e80835e5612657.png",
+        "/assets/mlbb-cdn/2e5c5eb383cedc9d0efa.jpg",
+        "/assets/mlbb-cdn/346d517d44c95caf5bee.jpg",
+        "/assets/mlbb-cdn/f36cc6a997b5695fd474.png"
+      ],
+      "face": "/assets/mlbb-cdn/4959cbf76a25991fe996.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Vexana",
+      "img": "/assets/heroes-current/vexana.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/c27bdf6dc8442aa88ed110ecc3fa9dce.png?w=240-390-091e27",
+      "officialId": 158,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/6011aa5cc2694b85ac80.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_f1a01e297d30d147c16342efc357275e.jpg",
+      "gameId": 38,
+      "cdnImages": [
+        "/assets/mlbb-cdn/25954170e86efab06188.png",
+        "/assets/mlbb-cdn/6011aa5cc2694b85ac80.jpg",
+        "/assets/mlbb-cdn/a7f5c7b5fe8d796c731b.png",
+        "/assets/mlbb-cdn/c7b1dca0313305864168.png",
+        "/assets/mlbb-cdn/1cb4a5021752bf5afbc5.jpg",
+        "/assets/mlbb-cdn/5793cb54d1cc58e2b701.png"
+      ],
+      "face": "/assets/mlbb-cdn/a7f5c7b5fe8d796c731b.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "img": "/assets/hero-source/valir.png",
+      "name": "Valir",
+      "icon": "/assets/mlbb-cdn/bb8393bc133fb6125513.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_7a285a7d75ceb5fecceec6b2608b232f.jpg",
+      "gameId": 57,
+      "cdnImages": [
+        "/assets/mlbb-cdn/7e5e26d3148748129fb5.png",
+        "/assets/mlbb-cdn/bb8393bc133fb6125513.jpg",
+        "/assets/mlbb-cdn/33d85b8117326821ee82.png",
+        "/assets/mlbb-cdn/791b6c44b028c276280c.png",
+        "/assets/mlbb-cdn/d32ecb1d2f951ed33410.jpg",
+        "/assets/mlbb-cdn/0b944a902d956b8b9845.png"
+      ],
+      "face": "/assets/mlbb-cdn/33d85b8117326821ee82.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Yin",
+      "img": "/assets/heroes-current/yin.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/75df01afb6d1596307eb7dfb4dbad5a5.png?w=240-390-23100e",
+      "officialId": 134,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/bd33cda5c01d775235af.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_5324c7bcbfd9932aca9b8d2e7b8e307a.jpg",
+      "gameId": 113,
+      "cdnImages": [
+        "/assets/mlbb-cdn/6817b16a366a85cdcb50.png",
+        "/assets/mlbb-cdn/bd33cda5c01d775235af.jpg",
+        "/assets/mlbb-cdn/98f77f3d24db8e6a540e.png",
+        "/assets/mlbb-cdn/8a57292255ac7b211d5b.png",
+        "/assets/mlbb-cdn/a07979a3ccf33e9b171b.jpg",
+        "/assets/mlbb-cdn/1c27c161cde3b27c4d6c.png"
+      ],
+      "face": "/assets/mlbb-cdn/98f77f3d24db8e6a540e.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Xavier",
+      "img": "/assets/heroes-current/xavier.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/7db8c1b12c39977979a67bcff5fb8d0f.png?w=240-390-0b1a25",
+      "officialId": 140,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/9ec78f3f564627b01a1e.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_6ebaf2a24b6b6cf256c9bae408b0400e.jpg",
+      "gameId": 115,
+      "cdnImages": [
+        "/assets/mlbb-cdn/0a6bf6d9ecf75fb5b845.png",
+        "/assets/mlbb-cdn/9ec78f3f564627b01a1e.jpg",
+        "/assets/mlbb-cdn/7177416246e7ee338aaa.png",
+        "/assets/mlbb-cdn/44530e9b705c7eddd208.png",
+        "/assets/mlbb-cdn/23ed9e47dd1abcc952de.jpg",
+        "/assets/mlbb-cdn/7382f8d0b96c3348f99b.png"
+      ],
+      "face": "/assets/mlbb-cdn/7177416246e7ee338aaa.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Terizla",
+      "img": "/assets/heroes-current/terizla.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/5ac9496204a1c644b9b418ad89af6827.png?w=240-390-0a222b",
+      "officialId": 152,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/da56d8d4e70b68f7c422.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_2352b6ef3a86441e2a3880fa436df1de.jpg",
+      "gameId": 82,
+      "cdnImages": [
+        "/assets/mlbb-cdn/fb26ffd54e0e13efd498.png",
+        "/assets/mlbb-cdn/da56d8d4e70b68f7c422.jpg",
+        "/assets/mlbb-cdn/001aba6a918136c93c87.png",
+        "/assets/mlbb-cdn/4f0b42e80ed93c0f0ed0.png",
+        "/assets/mlbb-cdn/f19f6afb571158aabbda.jpg",
+        "/assets/mlbb-cdn/8825be413a0d69ae16cb.png"
+      ],
+      "face": "/assets/mlbb-cdn/001aba6a918136c93c87.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Yi Sun-shin",
+      "img": "/assets/heroes-current/yisunshin.png",
+      "source": "https://indoch.s3.ml.moonlian.com/web/manageapi/image_f2f80316967f5deb0f50b323232e3268.png?w=240&h=390?w=240&h=390",
+      "officialId": 40,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/d336b53fc12b000271db.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_42a497ad29f61bdc1cea4bc6a9e1e163.jpg",
+      "gameId": 30,
+      "cdnImages": [
+        "/assets/mlbb-cdn/3b0601fa23cd9946d5f2.png",
+        "/assets/mlbb-cdn/d336b53fc12b000271db.jpg",
+        "/assets/mlbb-cdn/690e635e777d523da6d7.png",
+        "/assets/mlbb-cdn/9fd55b3755e5dde88d22.png",
+        "/assets/mlbb-cdn/0eec353cfda2eb1591c0.jpg",
+        "/assets/mlbb-cdn/6d7d0214b4d70f2fe403.png"
+      ],
+      "face": "/assets/mlbb-cdn/690e635e777d523da6d7.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Yu Zhong",
+      "img": "/assets/heroes-current/yuzhong.png",
+      "source": "https://indoch.s3.ml.moonlian.com/web/manageapi/image_a3b94d40d6e61d59a897a7915d598195.png?w=240&h=390?w=240&h=390",
+      "officialId": 41,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/249af18d757804cebe9e.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_97280cb443adc3bcb4ca9b36a0fada53.jpg",
+      "gameId": 95,
+      "cdnImages": [
+        "/assets/mlbb-cdn/9818d9bd2702fbad310c.png",
+        "/assets/mlbb-cdn/249af18d757804cebe9e.jpg",
+        "/assets/mlbb-cdn/96cbce9a865c23ef3690.png",
+        "/assets/mlbb-cdn/49cebe8374577c4b03b2.png",
+        "/assets/mlbb-cdn/de61612a1bd757877089.jpg",
+        "/assets/mlbb-cdn/878f7d9c0ae60fb16e3a.png"
+      ],
+      "face": "/assets/mlbb-cdn/96cbce9a865c23ef3690.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "img": "/assets/heroes-current/zetian.png",
+      "name": "Zetian",
+      "icon": "/assets/mlbb-cdn/302a4453386d5dc8e359.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/gms/image/b617a6b4d9e2c22a5bc24d886e453399.jpg",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/9e5658d890fbbce2e394b0ad506da0c5.png?w=240-390-5c3528",
+      "officialId": 184,
+      "gameId": 129,
+      "cdnImages": [
+        "/assets/mlbb-cdn/247cb317f3a940737fa5.jpg",
+        "/assets/mlbb-cdn/302a4453386d5dc8e359.jpg",
+        "/assets/mlbb-cdn/ac256039caa53e8ef23e.webp",
+        "/assets/mlbb-cdn/fb361bbe8b307cbda9a4.png",
+        "/assets/mlbb-cdn/1d3f5b8e2385e5164dd3.png"
+      ],
+      "face": "/assets/mlbb-cdn/fb361bbe8b307cbda9a4.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Zhask",
+      "img": "/assets/heroes-current/zhask.png",
+      "source": "https://akmwebstatic.yuanzhanapp.com/web/admin/image/49efef7137ca46b7098c8bb3bcd2aa28.png?w=240&h=390&c=463d5e",
+      "officialId": 77,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/e4b5e97ec18c80d16578.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_6e99f11105dc89bff1932cd4b3809c12.jpg",
+      "gameId": 50,
+      "cdnImages": [
+        "/assets/mlbb-cdn/c171e8f4488d8a260b65.png",
+        "/assets/mlbb-cdn/e4b5e97ec18c80d16578.jpg",
+        "/assets/mlbb-cdn/4623a49d06600ee520c1.png",
+        "/assets/mlbb-cdn/2130d179d852ea4571cc.png",
+        "/assets/mlbb-cdn/495cb772f3eb57e60803.jpg",
+        "/assets/mlbb-cdn/ddc93518638454883e69.png"
+      ],
+      "face": "/assets/mlbb-cdn/4623a49d06600ee520c1.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Yve",
+      "img": "/assets/heroes-current/yve.png",
+      "source": "https://akmwebstatic.yuanzhanapp.com/web/admin/image/272752e09e9af5f7f12b97f771f21584.png?w=240&h=390&c=5b4773",
+      "officialId": 74,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/5f07b387838b37f37e43.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/gms/image/0b6e910cb702dcbb68614c9bac4ba590.jpg",
+      "gameId": 101,
+      "cdnImages": [
+        "/assets/mlbb-cdn/815876a2057097deda03.jpg",
+        "/assets/mlbb-cdn/5f07b387838b37f37e43.jpg",
+        "/assets/mlbb-cdn/292d577ff9fee49ff6f9.png",
+        "/assets/mlbb-cdn/784efc7885f6bf972af3.png",
+        "/assets/mlbb-cdn/48e80ff94b40071f8318.jpg",
+        "/assets/mlbb-cdn/2f580507dcc8d7a918df.jpg",
+        "/assets/mlbb-cdn/719167d74a0eb82ca22b.png"
+      ],
+      "face": "/assets/mlbb-cdn/292d577ff9fee49ff6f9.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "name": "Zilong",
+      "img": "/assets/heroes-current/zilong.png",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/05e4f5bd48ed4a8f574ad80a79fa0129.png?w=240-390-0a222b",
+      "officialId": 51,
+      "downloadedAt": "2026-09-08",
+      "aliases": [],
+      "icon": "/assets/mlbb-cdn/e573b6b402c44f61b934.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage/100_90df181873c42df22049aa056662a934.jpg",
+      "gameId": 16,
+      "cdnImages": [
+        "/assets/mlbb-cdn/9982feba7f775bb12386.png",
+        "/assets/mlbb-cdn/e573b6b402c44f61b934.jpg",
+        "/assets/mlbb-cdn/9587f2c7740d09ebe5d0.png",
+        "/assets/mlbb-cdn/d80b42d9554dbd92b683.png",
+        "/assets/mlbb-cdn/f5ed6f80ca0aa11e7ddc.jpg",
+        "/assets/mlbb-cdn/1d4998435a3479be0e04.png"
+      ],
+      "face": "/assets/mlbb-cdn/9587f2c7740d09ebe5d0.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": {
+      "img": "/assets/heroes-current/zhuxin.png",
+      "name": "Zhuxin",
+      "source": "https://akmweb.youngjoygame.com/web/admin/image/b384b153e08247f9bcf0bd5719235677.png?w=240-390-0c1d27",
+      "officialId": 178,
+      "icon": "/assets/mlbb-cdn/f7982728bc399b509672.jpg",
+      "iconSource": "https://akmweb.youngjoygame.com/web/svnres/file/mlbb/homepage_92/100_999ac33ac284f6dc38a5f5ae7a6921b8.jpg",
+      "gameId": 125,
+      "cdnImages": [
+        "/assets/mlbb-cdn/5b8bd203d9178e86f448.jpg",
+        "/assets/mlbb-cdn/f7982728bc399b509672.jpg",
+        "/assets/mlbb-cdn/83f793f2555bc0bf5dbe.webp",
+        "/assets/mlbb-cdn/337163b2a45d2ca84ec5.png",
+        "/assets/mlbb-cdn/4b2df23d3348774d2ab3.png",
+        "/assets/mlbb-cdn/6dba72c6e66a3db8d9f6.jpg",
+        "/assets/mlbb-cdn/328ba5d83483e37bd069.png"
+      ],
+      "face": "/assets/mlbb-cdn/337163b2a45d2ca84ec5.png"
+    },
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Aegis.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/e/e5/Aegis.png/revision/latest?cb=20220714103353"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Petrify.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/6/6d/Petrify.png/revision/latest?cb=20210818141936"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Retribution.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/f/fb/Retribution.png/revision/latest?cb=20220714103440"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Healing_Spell.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/5/52/Healing_Spell.png/revision/latest?cb=20180206135835"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Deadly_Magic.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/5/52/Deadly_Magic.png/revision/latest?cb=20210802144459"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Purify.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/2/22/Purify.png/revision/latest?cb=20220714103432"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Rapid_Touchdown.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/0/05/Rapid_Touchdown.png/revision/latest?cb=20171010092033"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Iron_Wall.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/e/e6/Iron_Wall.png/revision/latest?cb=20210818142053"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:King's_Calling.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/1/1d/King%27s_Calling.png/revision/latest?cb=20230315070647"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Arrival.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/3/33/Arrival.png/revision/latest?cb=20210912082709"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Weaken.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/0/00/Weaken.png/revision/latest?cb=20180206135952"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Inspire.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/c/c4/Inspire.png/revision/latest?cb=20220714103424"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Sprint.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/b/bb/Sprint.png/revision/latest?cb=20220714103448"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Vengeance.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/8/85/Vengeance.png/revision/latest?cb=20210912082750"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Spiral_Strangling.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/8/8b/Spiral_Strangling.png/revision/latest?cb=20210802142752"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Bouncing_Ball.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/4/4c/Bouncing_Ball.png/revision/latest?cb=20240113140156"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Flicker.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/1/1e/Flicker.png/revision/latest?cb=20210818154536"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Immortality.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/8/84/Immortality.png/revision/latest?cb=20240728121655"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Track.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/5/51/Track.png/revision/latest?cb=20200426082602"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Flameshot.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/f/f2/Flameshot.png/revision/latest?cb=20211203154737"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Revitalize.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/f/f9/Revitalize.png/revision/latest?cb=20210912083310"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Golden_Staff.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/8/80/Golden_Staff.png/revision/latest?cb=20210627031811"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Flame_Retribution.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/9/9f/Flame_Retribution.png/revision/latest?cb=20220714103414"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Recall.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/4/43/Recall.png/revision/latest?cb=20220202062533"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Interference.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/c/ca/Interference.png/revision/latest?cb=20210818142820"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Ice_Retribution.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/b/bd/Ice_Retribution.png/revision/latest?cb=20220714103419"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Bloody_Retribution.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/4/4c/Bloody_Retribution.png/revision/latest?cb=20220714103400"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Healing.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/f/f3/Healing.png/revision/latest?cb=20211106164127"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Fist_Wind.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/5/55/Fist_Wind.png/revision/latest?cb=20260919021046"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Assassin_Emblem.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/3/3a/Assassin_Emblem.png/revision/latest?cb=20211211181156"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Subtalent_-_Bravery_1.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/5/53/Subtalent_-_Bravery_1.png/revision/latest?cb=20200103112133"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Jungle_Emblem.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/c/c1/Jungle_Emblem.png/revision/latest?cb=20211211181147"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Subtalent_-_Thrill_1.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/3/3b/Subtalent_-_Thrill_1.png/revision/latest?cb=20200103112223"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Marksman_Emblem.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/3/3c/Marksman_Emblem.png/revision/latest?cb=20211211181228"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Fighter_Emblem.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/7/7b/Fighter_Emblem.png/revision/latest?cb=20211211181220"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Physical_Emblem.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/c/c3/Physical_Emblem.png/revision/latest?cb=20211211181121"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Bargain_Hunter.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/6/69/Bargain_Hunter.png/revision/latest?cb=20240110092404"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Festival_of_Blood.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/0/0c/Festival_of_Blood.png/revision/latest?cb=20240110092801"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Firmness.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/b/b9/Firmness.png/revision/latest?cb=20240110092715"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Fatal.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/5/5e/Fatal.png/revision/latest?cb=20240110093008"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Focusing_Mark.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/3/3c/Focusing_Mark.png/revision/latest?cb=20240110090547"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Concussive_Blast.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/7/74/Concussive_Blast.png/revision/latest?cb=20240110090058"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Agility.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/1/14/Agility.png/revision/latest?cb=20240110092852"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Quantum_Charge.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/9/9b/Quantum_Charge.png/revision/latest?cb=20240110073633"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Rupture.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/3/38/Rupture.png/revision/latest?cb=20240110090923"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Master_Assassin.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/8/85/Master_Assassin.png/revision/latest?cb=20240110090930"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Killing_Spree.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/b/be/Killing_Spree.png/revision/latest?cb=20240110090345"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Brave_Smite.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/f/fd/Brave_Smite.png/revision/latest?cb=20240110090449"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Impure_Rage.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/b/b5/Impure_Rage.png/revision/latest?cb=20240110073456"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Inspire_(Talent).png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/3/32/Inspire_%28Talent%29.png/revision/latest?cb=20240110092358"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Pull_Yourself_Together.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/6/69/Pull_Yourself_Together.png/revision/latest?cb=20240110092946"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Seasoned_Hunter.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/f/f9/Seasoned_Hunter.png/revision/latest?cb=20240215060636"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Swift.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/0/00/Swift.png/revision/latest?cb=20240215060501"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Tenacity.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/9/99/Tenacity.png/revision/latest?cb=20240110090110"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Vitality.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/b/be/Vitality.png/revision/latest?cb=20240110090031"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Weakness_Finder.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/2/28/Weakness_Finder.png/revision/latest?cb=20240110090533"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Lethal_Ignition.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/c/ce/Lethal_Ignition.png/revision/latest?cb=20231008041104"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Weapon_Master_(Talent).png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/3/33/Weapon_Master_%28Talent%29.png/revision/latest?cb=20240110093039"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Custom_Tank_Emblem.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/e/ec/Custom_Tank_Emblem.png/revision/latest?cb=20240110091054"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Custom_Mage_Emblem.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/5/5e/Custom_Mage_Emblem.png/revision/latest?cb=20240110091219"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Thrill.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/2/2e/Thrill.png/revision/latest?cb=20240215060116"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Custom_Fighter_Emblem.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/b/ba/Custom_Fighter_Emblem.png/revision/latest?cb=20240110091232"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Custom_Assassin_Emblem.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/9/94/Custom_Assassin_Emblem.png/revision/latest?cb=20240110091213"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Custom_Marksman_Emblem.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/4/4c/Custom_Marksman_Emblem.png/revision/latest?cb=20240110091250"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Basic_Common_Emblem.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/7/7f/Basic_Common_Emblem.png/revision/latest?cb=20240110091014"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Custom_Support_Emblem.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/c/c7/Custom_Support_Emblem.png/revision/latest?cb=20240110091241"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:War_Cry.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/a/a9/War_Cry.png/revision/latest?cb=20240620124101"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Mage_Emblem.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/4/44/Mage_Emblem.png/revision/latest?cb=20211211181210"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Temporal_Reign.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/2/21/Temporal_Reign.png/revision/latest?cb=20240620124057"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:High_and_Dry.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/9/9f/High_and_Dry.png/revision/latest?cb=20220105135119"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Support_Emblem.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/4/47/Support_Emblem.png/revision/latest?cb=20200327050857"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Magic_Worship.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/5/50/Magic_Worship.png/revision/latest?cb=20220105135532"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Electro_Flash.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/f/ff/Electro_Flash.png/revision/latest?cb=20220106075043"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Wilderness_Blessing.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/b/b2/Wilderness_Blessing.png/revision/latest?cb=20240215060613"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Mystery_Shop.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/f/f3/Mystery_Shop.png/revision/latest?cb=20220105134155"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Subtalent_-_Fatal_1.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/e/e5/Subtalent_-_Fatal_1.png/revision/latest?cb=20200103112023"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Tank_Emblem.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/2/23/Tank_Emblem.png/revision/latest?cb=20200327043849"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Demon_Slayer.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/a/ac/Demon_Slayer.png/revision/latest?cb=20220106083840"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Subtalent_-_Vitality_1.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/f/f9/Subtalent_-_Vitality_1.png/revision/latest?cb=20200103112334"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Subtalent_-_Firmness_1.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/5/54/Subtalent_-_Firmness_1.png/revision/latest?cb=20200103112319"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Subtalent_-_Mastery_1.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/8/8a/Subtalent_-_Mastery_1.png/revision/latest?cb=20200103112120"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Subtalent_-_Agility_1.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/5/50/Subtalent_-_Agility_1.png/revision/latest?cb=20200103112107"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Subtalent_-_Fortress_2.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/c/c8/Subtalent_-_Fortress_2.png/revision/latest?cb=20200103115834"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Subtalent_-_Persistence_2.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/b/b4/Subtalent_-_Persistence_2.png/revision/latest?cb=20200103115619"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Subtalent_-_Catastrophe_2.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/d/df/Subtalent_-_Catastrophe_2.png/revision/latest?cb=20200103115652"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Subtalent_-_Purity_2.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/8/8c/Subtalent_-_Purity_2.png/revision/latest?cb=20200103115816"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Subtalent_-_Doom_2.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/3/3a/Subtalent_-_Doom_2.png/revision/latest?cb=20200103114709"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Subtalent_-_Invasion_2.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/d/d3/Subtalent_-_Invasion_2.png/revision/latest?cb=20200103115726"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Subtalent_-_Observation_2.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/1/1f/Subtalent_-_Observation_2.png/revision/latest?cb=20200103115925"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Subtalent_-_Shield_1.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/9/90/Subtalent_-_Shield_1.png/revision/latest?cb=20200103112307"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Magic_Emblem.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/d/dc/Magic_Emblem.png/revision/latest?cb=20200327043713"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Subtalent_-_Flow_2.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/3/3f/Subtalent_-_Flow_2.png/revision/latest?cb=20200103120004"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Subtalent_-_Rupture_2.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/5/50/Subtalent_-_Rupture_2.png/revision/latest?cb=20200513123941"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Life_Drain.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/2/26/Life_Drain.png/revision/latest?cb=20230912075129"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Subtalent_-_Desire_2.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/1/11/Subtalent_-_Desire_2.png/revision/latest?cb=20200103115945"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Subtalent_-_Swift_2.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/5/56/Subtalent_-_Swift_2.png/revision/latest?cb=20200103120052"
+    ],
+    "error": "HTTP 403"
+  },
+  {
+    "item": [
+      "File:Subtalent_-_Inspire_2.png",
+      "https://static.wikia.nocookie.net/mobile-legends/images/9/95/Subtalent_-_Inspire_2.png/revision/latest?cb=20200103115904"
+    ],
+    "error": "HTTP 403"
+  }
+]

@@ -25,7 +25,7 @@
   const hosts = new WeakMap();
   const reducedMotion = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
   function hostState(host) {
-    if (!hosts.has(host)) hosts.set(host,{signature:null,view:null,animations:new Set(),camera:0});
+    if (!hosts.has(host)) hosts.set(host,{signature:null,view:null,animations:new Set(),camera:0,runToken:0,motion:null,pending:null});
     return hosts.get(host);
   }
   function load() {
@@ -75,17 +75,21 @@
     });
   }
   function finishMotion(state) {
+    state.runToken++;
     for (const animation of [...state.animations]) {
       animation.cancel();
       animation.cleanup?.();
     }
     state.animations.clear();
+    state.restore?.();state.restore=null;state.motion=null;
   }
   function effect(state,el,frames,timing,cleanup=()=>{}) {
     const animation=el.animate(frames,{fill:'both',...timing});
     animation.id='swiss-advance';
     animation.cleanup=()=>{cleanup();state.animations.delete(animation);};
-    animation.onfinish=()=>{animation.cleanup();animation.cancel();};
+    // finished resolves before the finish event. Clean up in that same promise
+    // queue so the next flight cannot briefly overlap the previous clone.
+    animation.finished.then(()=>{animation.cleanup();animation.cancel();},()=>animation.cleanup());
     animation.oncancel=()=>animation.cleanup();
     state.animations.add(animation);
     return animation;
@@ -94,13 +98,13 @@
     effect(state,slot,[{filter:'brightness(1.8)'},{filter:'brightness(1)'}],{duration:700,delay,easing:'ease-out'});
   }
   function hop(state,slot,delay=0) {
-    effect(state,slot,[{transform:'translateY(-18px)'},{transform:'translateY(0px)'}],{duration:600,delay,easing:'cubic-bezier(.22,.75,.18,1)'});
+    return effect(state,slot,[{transform:'translateY(-18px)'},{transform:'translateY(0px)'}],{duration:700,delay,easing:'cubic-bezier(.22,.75,.18,1)'});
   }
   function draw(svg, swiss, logos, state) {
     finishMotion(state);
     const previous = new Map(), previousTeams = new Map();
     svg.querySelectorAll('[data-swiss-live] [data-slot]').forEach(slot=>{
-      const item={node:slot,x:Number(slot.dataset.x),y:Number(slot.dataset.y),result:slot.dataset.result};
+      const item={node:slot,team:slot.dataset.team,x:Number(slot.dataset.x),y:Number(slot.dataset.y),result:slot.dataset.result};
       previous.set(slot.dataset.slot,item);
       if (slot.closest('[data-match-id]')) previousTeams.set(slot.dataset.team,item);
     });
@@ -113,11 +117,11 @@
     function transition(slot) {
       if (!animate) return;
       const old=previous.get(slot.dataset.slot);
-      if (old) {
+      if (old&&old.team===slot.dataset.team&&old.x===Number(slot.dataset.x)&&old.y===Number(slot.dataset.y)) {
         if (slot.dataset.result==='win'&&old.result!=='win') wins.push(slot);
       } else {
         const from=previousTeams.get(slot.dataset.team);
-        if (from) arrivals.push({slot,from});
+        if (from&&(from.x!==Number(slot.dataset.x)||from.y!==Number(slot.dataset.y))) arrivals.push({slot,from});
       }
     }
     const teams = new Map(swiss.teams.map(t => [t.name,t]));
@@ -210,25 +214,41 @@
         text.setAttribute('lengthAdjust', 'spacingAndGlyphs');
       }
     });
-    wins.forEach(slot=>{pulse(state,slot);hop(state,slot);});
+    const jobs=[];
+    // Each team's complete movement finishes before the next team starts.
+    // A winner who is already flying gets its highlight as part of that flight.
+    const movingTeams=new Set(arrivals.map(({slot})=>slot.dataset.team));
+    for (const slot of wins.filter(slot=>!movingTeams.has(slot.dataset.team))) jobs.push(()=>{
+      pulse(state,slot);return hop(state,slot).finished.catch(()=>{});
+    });
     if (arrivals.length) {
       const motion=node('g',{'data-swiss-motion':'',transform:'scale(.8)','aria-hidden':'true','pointer-events':'none'});
       svg.append(motion);
-      arrivals.forEach(({slot,from},index)=>{
+      arrivals.forEach(({slot})=>{slot.style.opacity='0';});
+      state.restore=()=>{arrivals.forEach(({slot})=>slot.style.removeProperty('opacity'));motion.remove();};
+      arrivals.forEach(({slot,from})=>jobs.push(()=>{
         const flight=slot.cloneNode(true);
         for (const attr of [...flight.attributes]) if (attr.name.startsWith('data-')) flight.removeAttribute(attr.name);
         flight.setAttribute('data-swiss-flight','');
+        flight.setAttribute('data-flight-team',slot.dataset.team);
+        flight.style.removeProperty('opacity');
         flight.style.transformOrigin='0 0';
         flight.style.transformBox='view-box';
         const dx=from.x-Number(slot.dataset.x),dy=from.y-Number(slot.dataset.y);
         slot.style.opacity='0';motion.append(flight);
-        effect(state,flight,[
-          {transform:`translate(${dx}px,${dy}px)`,opacity:.8},
-          {transform:'translate(0px,0px)',opacity:1},
+        return effect(state,flight,[
+          {transform:`translate(${dx}px,${dy}px)`,opacity:.8,filter:'brightness(1.5)'},
+          {transform:'translate(0px,0px)',opacity:1,filter:'brightness(1)'},
         ],{duration:1050,delay:0,easing:'cubic-bezier(.22,.75,.18,1)'},()=>{
           slot.style.removeProperty('opacity');flight.remove();
-          if (!motion.children.length) motion.remove();
-        });
+        }).finished.catch(()=>{});
+      }));
+    }
+    if(jobs.length){
+      const token=state.runToken;
+      state.motion=(async()=>{for(const job of jobs){if(token!==state.runToken)break;await job();}})().finally(()=>{
+        if(token!==state.runToken)return;
+        state.restore?.();state.restore=null;state.motion=null;state.flush?.();
       });
     }
   }
@@ -287,7 +307,16 @@
       }
       if (!host.querySelector(':scope > .swiss-fx')) host.append(fx());
       const signature=JSON.stringify(swiss);
-      if (signature!==state.signature) {draw(svg,swiss,logos,state);state.signature=signature;}
+      state.flush=()=>{
+        if(state.motion||!state.pending)return;
+        const next=state.pending;state.pending=null;state.signature=next.signature;
+        draw(svg,next.swiss,logos,state);
+      };
+      // Keep new results queued while a team is travelling; repeated SSE renders
+      // cannot interrupt a flight or reveal all waiting teams together.
+      state.pending=signature!==state.signature?{swiss:structuredClone(swiss),signature}:null;
+      if(!swiss||reducedMotion())finishMotion(state);
+      state.flush();
       camera(host,svg,SwissView.valid(options.view)?options.view:'overview',state);
       host.dataset.ready = 'true';
       host.dispatchEvent(new Event('swiss-rendered'));

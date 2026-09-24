@@ -31,7 +31,7 @@ test('live layouts fit the capture and detect distinct HUD evidence across frame
   for(const [mode,rows]of Object.entries(Model.profiles))Model.validateRegions(rows,mode);
   const game=[{field:'gameTime',value:'01:47',confidence:95},{field:'red.kills',value:2,confidence:95}];
   const result=[{field:'resultStatus',value:'VICTORY',confidence:95}];
-  assert.equal(Model.profiles.draft,undefined);assert.equal(Model.classify(game),'game');assert.equal(Model.classify(result),'result');
+  assert.equal(Model.profiles.draft.filter(r=>Model.isHero(r.field)).length,20);assert.equal(Model.classify(game),'game');assert.equal(Model.classify(result),'result');
   assert.equal(Model.classify([game[0]]),null);
   const gate=Model.sceneGate();assert.equal(gate.observe('result'),null);assert.equal(gate.observe('game'),null);assert.equal(gate.observe('game'),'game');assert.equal(gate.observe(null),null);assert.equal(gate.observe('game'),null);
 });
@@ -47,9 +47,25 @@ test('unidentified or conflicting player rows never overwrite a populated roster
   const conflict=prepare(state,body('game',[{field:'blue.players.0.hero',value:'Akai'},{field:'blue.players.1.hero',value:'Akai'},{field:'blue.players.1.kda',value:'8/1/1'}]),10000);
   assert.equal(conflict.patch.blue,undefined);
 });
-test('draft detection is rejected while manual draft state remains untouched',()=>{
+test('draft sync accepts five bans, phase and countdown without changing match data',()=>{
   const state=defaults();state.blue.bans[0]='Fanny';
-  assert.throws(()=>prepare(state,body('draft',[]),10000));
+  state.schedule=[{time:'20:00',blue:'Original',red:'Opponent',note:'Scheduled'}];
+  const before=structuredClone(state);
+  const out=prepare(state,body('draft',[{field:'draftPhase',value:'Enemy Team Pick'},{field:'draftTimer.remaining',value:19},{field:'blue.bans.4',value:'Paquito'},{field:'red.players.4.hero',value:'Suyou'}]),10000);
+  assert.equal(out.patch.scene,'draft');assert.equal(out.patch.phase,'Enemy Team Pick');assert.equal(out.patch.draftTimer.endAt,29000);
+  assert.equal(out.patch.blue.bans[0],'Fanny');assert.equal(out.patch.blue.bans[4],'Paquito');assert.equal(out.patch.red.players[4].hero,'Suyou');
+  const merged=validate(merge(structuredClone(state),out.patch));assert.deepEqual(merged.schedule,before.schedule);assert.deepEqual(state,before);
+  assert.throws(()=>prepare(state,body('draft',[{field:'blue.bans.5',value:'Akai'}]),10000));
+  assert.throws(()=>prepare(state,body('draft',[{field:'blue.players.1.hero',value:'Unknown hero'}]),10000));
   assert.throws(()=>prepare(state,body('game',[{field:'blue.bans.0',value:'Akai'}]),10000));
   const manual=prepare(state,{...body('game',[]),switchScene:false},10000);assert.equal(manual.patch.scene,undefined);assert.equal(state.blue.bans[0],'Fanny');
+});
+
+test('draft requires both its explicit heading and a valid countdown',()=>{
+  const phase={field:'draftPhase',value:'Allied Team Ban',confidence:96},clock={field:'draftTimer.remaining',value:21,confidence:96};
+  assert.equal(Model.classify([phase,clock]),'draft');assert.equal(Model.classify([phase]),null);
+  assert.equal(Model.draftClock('00:21'),21);assert.equal(Model.draftClock('6'),6);assert.equal(Model.draftClock('01:21'),null);
+  assert.equal(Model.draftPhase('Last Change'),'Last Changes');assert.equal(Model.draftPhase('BAN PHASE'),null);
+  const state=defaults();state.blue.bans=['','',''];validate(state);
+  const {patch}=prepare(state,body('draft',[{field:'blue.bans.4',value:'Paquito'}]),10000);assert.equal(patch.blue.bans.length,5);validate(merge(state,patch));
 });
