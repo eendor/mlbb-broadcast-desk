@@ -72,6 +72,8 @@ window.LiveDetection=(()=>{
     if(result.expired)throw Error('Another control tab owns live detection. Restart here to take control.');
     $('#ocrDelivery').textContent='Delivery: '+Math.round(performance.now()-sentAt)+' ms';
     $('#sourceSummary').textContent='Live capture · '+(mode==='result'?'Match result':mode==='draft'?'Draft picks and bans':'In-game scoreboard');
+    if(result.playoffs?.status==='applied')toast(result.playoffs.message);
+    const playoffStatus=$('#playoffResultStatus');if(playoffStatus&&result.playoffs?.message)playoffStatus.textContent=result.playoffs.message;
   }
   async function details({pool,frame,sampledAt,continuous,current,ownSession,mode,layout,min}){
     const started=performance.now(),row=rowIndex++%5;
@@ -145,7 +147,7 @@ window.LiveDetection=(()=>{
     if(!valid())return;
     hudMs=Math.round(performance.now()-started);health();paint();
     status((mode==='result'?'Match result detected':mode==='draft'?'Draft detected':'In-game scoreboard detected')+' · '+lastAccepted.length+' readings'+($('#ocrAutoApply').checked?' · Live':' · Review mode'));
-    $('#ocrStatus').textContent=detailError||(mode==='draft'?'Reading the draft phase, timer, five picks and five bans per side. Covered or uncertain portraits stay pending.':'Clock, kills, team gold and towers update continuously. In-game output uses only the top scoreboard.');
+    $('#ocrStatus').textContent=detailError||(mode==='draft'?'Reading the draft phase, timer, five picks and this round\'s ban slots. Covered or uncertain portraits stay pending.':'Clock, kills, team gold and towers update continuously. In-game output uses only the top scoreboard.');
     if(!continuous&&detailJob)await detailJob;
     if(!valid())return;
     if(!detailJob){

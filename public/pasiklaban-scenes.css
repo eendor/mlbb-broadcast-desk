@@ -92,6 +92,41 @@
 .resultteam.red { border-color: #b9434c; }
 .resultrow { border-top-color: #e4b54a35; }
 .resultrow small,.fixture small,.fixture i { color: #c0cbd0; }
+
+/* Endgame / Match result — PASIKLABAN theme */
+.endgame-scene .eg-banner.blue { background: linear-gradient(100deg,#0a3560,#1077c0); }
+.endgame-scene .eg-banner.red { background: linear-gradient(260deg,#8a2b34,#c74049); }
+.endgame-scene .eg-banner.win { box-shadow: inset 0 0 0 2px #e6b849, 0 4px 16px #020b1688; }
+.endgame-scene .eg-banner.win .eg-banner-text span { color: #ffd873; }
+.endgame-scene .eg-series { color: #fff4d8; }
+.endgame-scene .eg-crest .logo { background: #f9f1df; border: 2px solid #e6b849; border-radius: 50%; padding: 4px; }
+.endgame-scene .eg-crest .logo.initial { background: linear-gradient(145deg,#164562,#0b2235); color: #fff4d8; }
+.endgame-scene .eg-center-badge b { color: #f2c14d; }
+.endgame-scene .eg-team-head b { color: #fff4d8; }
+.endgame-scene .eg-team-head small { color: #f2bd43; }
+.endgame-scene .endgame-team.blue .eg-player { background: linear-gradient(100deg,#0a1c2be0,#0d2740c0); border-left: 3px solid #1687c7; }
+.endgame-scene .endgame-team.red .eg-player { background: linear-gradient(260deg,#241016e0,#33131ac0); border-right: 3px solid #b9434c; }
+.endgame-scene .eg-name { color: #fff4d8; }
+.endgame-scene .eg-hero { color: #f2bd43; }
+.endgame-scene .eg-metrics b { color: #fff4d8; }
+.endgame-scene .eg-metrics small { color: #c0cbd0; }
+.endgame-scene .eg-level { background: #f2c14d; }
+.endgame-scene .eg-runes img,.endgame-scene .eg-runes i,.endgame-scene .eg-item { border-color: #e4b54a55; background: #0a1c2b; }
+.endgame-scene .eg-clock { background: #0a1c2be0; border: 1px solid #e4b54a55; }
+.endgame-scene .eg-clock span { color: #f2bd43; }
+.endgame-scene .eg-clock b { color: #fff4d8; }
+.endgame-scene .eg-obj { background: #0a1c2bcc; }
+.endgame-scene .eg-obj-icon small { color: #c0cbd0; }
+.endgame-scene .eg-obj-icon .sb-icon { filter: brightness(0) invert(1) sepia(1) saturate(4) hue-rotate(5deg); }
+.endgame-scene .eg-pic.has-photo { position: relative; overflow: hidden !important; background: #09131e; }
+.endgame-scene .eg-photo-wrap { position: absolute; inset: 0; overflow: hidden; }
+.endgame-scene .eg-player-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 12%; transform: scale(1.36); transform-origin: 50% 15%; display: block; animation: none !important; will-change: auto !important; }
+.endgame-scene .eg-photo-shade { position: absolute; inset: 0; background: linear-gradient(to top, rgba(8,18,28,0.82) 0%, rgba(8,18,28,0.15) 42%, transparent 70%); pointer-events: none; }
+.endgame-scene .endgame-team.red .eg-photo-shade { background: linear-gradient(to top, rgba(28,10,14,0.82) 0%, rgba(28,10,14,0.15) 42%, transparent 70%); }
+.endgame-scene .eg-hero-badge { position: absolute; bottom: 5px; right: 5px; width: 40px; height: 40px; border-radius: 50%; border: 2px solid #ffd873; box-shadow: 0 3px 10px rgba(0,0,0,0.85); overflow: hidden; background: #0a141f; z-index: 10; display: flex; align-items: center; justify-content: center; }
+.endgame-scene .endgame-team.red .eg-hero-badge { right: auto; left: 5px; }
+.endgame-scene .eg-hero-badge img, .endgame-scene .eg-hero-badge .result-hero { position: static !important; width: 100% !important; height: 100% !important; object-fit: cover !important; object-position: 50% 12% !important; display: block !important; animation: none !important; will-change: auto !important; }
+
 .fixture { color: #fff4d8; background: #0b2031dd; border-bottom-color: #e4b54a55; }
 .fixture time { color: #f2bd43; }
 .ticker,.broadcast-bottom { background: linear-gradient(90deg,#071624f5,#102b3cf5,#071624f5); color: #f8e7bc; border-top: 1px solid #e5ae395c; }
@@ -101,20 +136,12 @@
 .showheader img,.broadcast-brand>img,.draft-event-strip img,.standby-partners img,.partner-art img { filter: drop-shadow(0 2px 4px #020b1670); }
 .showheader .msl-mark,.broadcast-brand .msl-mark { width: 248px; height: 66px; max-width: 260px; padding: 7px 12px; object-fit: contain; background: linear-gradient(135deg,#0a2032,#17415a); border: 2px solid #e6b849; border-radius: 7px; filter: none; box-shadow: 0 0 0 3px #0878c966,0 4px 14px #020b1688; }
 .im-partners img.msl-partner-mark,.standby-partners img.msl-partner-mark { width: 112px; height: 56px; padding: 5px 8px; object-fit: contain; background: linear-gradient(135deg,#0a2032,#17415a); border: 1px solid #e6b849; border-radius: 5px; filter: none; }
-.sb-team-logo .logo,.draft-center-team .logo,.standby-versus .logo,.fixture-logo { background: #f9f1df; border: 2px solid #e6b849; border-radius: 50%; padding: 4px; box-shadow: 0 2px 10px #020b1688; }
-.sb-team-logo .initial,.draft-center-team .initial,.standby-versus .initial { color: #fff4d8; background: linear-gradient(145deg,#164562,#0b2235); }
+.draft-center-team .logo,.standby-versus .logo,.fixture-logo { background: #f9f1df; border: 2px solid #e6b849; border-radius: 50%; padding: 4px; box-shadow: 0 2px 10px #020b1688; }
+.draft-center-team .initial,.standby-versus .initial { color: #fff4d8; background: linear-gradient(145deg,#164562,#0b2235); }
 .im-fixture .logo,.im-featured-logo { background: #f9f1df; border: 2px solid #e6b849; border-radius: 50%; padding: 4px; }
 .im-fixture .fixture-initial { color: #fff4d8; background: #103149; border-color: #e6b849; }
 
-/* Transparent game HUD scenes preserve the captured game image behind them. */
-.reference-scoreboard { filter: drop-shadow(0 4px 8px #020b14bb); border-top-color: #e0a72e; border-bottom-color: #0878c9; }
-.sb-flag,.sb-team-logo,.sb-center { background: linear-gradient(#fff9e8,#e7d9b8); }
-.sb-objectives { border-color: #d2a54066; }
-.sb-lower h2 { background: linear-gradient(110deg,#075a9d,#1684c4); }
-.sb-lower.red h2 { background: linear-gradient(110deg,#812234,#c2474c); }
-.sb-kills.blue { background: linear-gradient(110deg,#07548f,#168bd0); }
-.sb-kills.red { background: linear-gradient(110deg,#812234,#c2474c); }
-.sb-center { border-top: 3px solid #e0a72e; }
+/* The reference game HUD owns its palette in scoreboard-reference.css. */
 
 .broadcast-draft {
   background: linear-gradient(145deg,#0c2031,#17394c 50%,#0a1c2c);
@@ -250,22 +277,24 @@
 .mvp-scene .mvp-title { font-family: 'Barlow Condensed','Rajdhani',sans-serif; }
 @media(prefers-reduced-motion:reduce) { .draft-hero-media,.heroimage,.rail-hero img,.result-hero,.mvp-splash,.mvp-photo:not(.mvp-empty) { animation:none!important;will-change:auto; } }
 
-/* Original PASIKLABAN live-sports HUD motion: reveal on-air once, then animate only changed stats. */
-.reference-scoreboard.hud-enter .sb-team-logo.blue,.reference-scoreboard.hud-enter .sb-team-data.blue,.reference-scoreboard.hud-enter .sb-kills.blue { animation:hud-enter-blue .55s cubic-bezier(.2,.8,.2,1) both; }
-.reference-scoreboard.hud-enter .sb-team-logo.red,.reference-scoreboard.hud-enter .sb-team-data.red,.reference-scoreboard.hud-enter .sb-kills.red { animation:hud-enter-red .55s cubic-bezier(.2,.8,.2,1) both; }
-.reference-scoreboard.hud-enter .sb-center { animation:hud-enter-center .45s .12s ease-out both; }
-.reference-scoreboard .sb-kills.hud-changed { animation:hud-score-bump .48s ease-out; }
-.reference-scoreboard .sb-objectives .hud-changed b { animation:hud-number-flash .5s ease-out; }
-.reference-scoreboard .sb-wins i.newly-won { animation:hud-win-light .65s ease-out; }
-@keyframes hud-enter-blue { from { opacity:0;transform:translateX(-34px); } to { opacity:1;transform:translateX(0); } }
-@keyframes hud-enter-red { from { opacity:0;transform:translateX(34px); } to { opacity:1;transform:translateX(0); } }
-@keyframes hud-enter-center { from { opacity:0;transform:translateY(-12px) scale(.96); } to { opacity:1;transform:translateY(0) scale(1); } }
-@keyframes hud-score-bump { 0% { transform:scale(1); } 38% { transform:scale(1.18);filter:brightness(1.45); } 100% { transform:scale(1); } }
-@keyframes hud-number-flash { 0% { color:#fff;transform:translateY(-4px) scale(1.15);text-shadow:0 0 12px #ffd55c; } 100% { color:inherit;transform:none;text-shadow:none; } }
-@keyframes hud-win-light { 0% { box-shadow:0 0 0 #f5c44d; } 45% { box-shadow:0 0 15px 5px #f5c44d; } 100% { box-shadow:0 0 0 #f5c44d; } }
-@media(prefers-reduced-motion:reduce) { .reference-scoreboard.hud-enter *, .reference-scoreboard .hud-changed, .reference-scoreboard .newly-won { animation:none!important; } }
+/* Score updates and entrance motion live with the reference HUD styles. */
 
-/* Playoffs bracket feed and official team poster feature. */
-.playoffs-scene { width:1920px;height:1080px;display:grid;place-items:center;background:#071522;overflow:hidden; }
-.playoffs-video { width:100%;height:100%;object-fit:contain;background:#071522; }
-.intermission-desk .im-featured-photo>img.playoff-team-poster { width:100%;height:100%;object-fit:contain;object-position:center;transform:none;filter:drop-shadow(0 8px 16px #020b1688);padding:10px 22px 86px; }
+
+/* The playoffs bracket with moving flame video background */
+.playoffs-bracket{position:relative;width:1920px;height:1080px;background:#15100b;overflow:hidden}
+.playoff-video-bg{position:absolute;inset:0;width:1920px;height:1080px;object-fit:cover;pointer-events:none;z-index:1}
+.playoffs-bracket>svg{position:absolute;inset:0;display:block;width:1920px;height:1080px;pointer-events:none;z-index:2}
+.playoff-slot{cursor:pointer}
+.playoff-slot text{filter:none}
+.intermission-desk .im-featured-photo{inset:0 0 98px;display:block;padding:0;background:#0b2538}
+.intermission-desk .im-featured-photo>img.playoff-team-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center;transform:none;filter:none;padding:0}
+.intermission-desk .im-featured-photo .im-featured-photo-logo{padding:20px;margin:0;width:100%;height:100%}
+.intermission-desk .im-featured-photo-logo .im-featured-logo{width:220px;height:220px}
+
+/* Keep the player's portrait on the right of the hero artwork so the hero's face is unblocked. */
+.mvp-splash-wrap{left:0!important;width:620px!important;overflow:hidden!important}
+.mvp-splash{position:absolute!important;left:-30px!important;top:0!important;width:115%!important;height:100%!important;object-fit:cover!important;object-position:25% 15%!important;opacity:.88!important;filter:saturate(1.1) brightness(0.95)!important}
+.mvp-photo:not(.mvp-empty){position:absolute!important;left:auto!important;right:25px!important;bottom:0!important;width:72%!important;height:72%!important;max-width:72%!important;object-fit:contain!important;object-position:50% 100%!important;margin:0!important;filter:drop-shadow(0 14px 28px rgba(0,0,0,0.75))!important;transform:none;animation:mvp-player-settle 8s ease-in-out infinite alternate}
+.mvp-scene .mvp-nameplate{left:90px!important;bottom:80px!important;z-index:5!important}
+@keyframes mvp-player-settle{from{transform:translateY(0)}to{transform:translateY(-3px)}}
+@media(prefers-reduced-motion:reduce){.mvp-photo:not(.mvp-empty){animation:none!important}}

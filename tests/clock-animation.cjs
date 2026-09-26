@@ -12,11 +12,13 @@ const {spawn}=require('node:child_process'),fs=require('node:fs'),os=require('no
       for(let seconds=60;seconds<64;seconds++){state.gameTime='01:0'+(seconds-60);state.gameClock={running:true,seconds,syncedAt:Date.now()-5000};render();}
       const clock=document.querySelector('.sb-center>strong').textContent;
       state.blue.kills++;render();
-      return {clock,animations,clockAnimations:document.querySelector('.sb-center').getAnimations().length};
+      const kill=document.querySelector('.sb-kills.blue');
+      return {clock,animations,clockAnimations:document.querySelector('.sb-center').getAnimations().length,killAnimation:getComputedStyle(kill.querySelector('.sb-value-current')).animationName,sweep:getComputedStyle(kill,'::after').animationName};
     });
     assert.equal(result.clock,'01:08');assert.equal(result.clockAnimations,0);
     assert.equal(result.animations.includes('sb-center'),false);
-    assert.ok(result.animations.some(c=>c.includes('sb-kills')),'Kill edits retain their animation');
+    assert.equal(result.killAnimation,'sb-value-in','Kill edits roll the new value into place');
+    assert.equal(result.sweep,'sb-score-sweep','Kill panels highlight the update without moving');
     console.log('PASS: clock updates in place, renders current elapsed time immediately, and kill edits still animate');
   }finally{await browser?.close();child.kill();}
 })().catch(e=>{console.error(e);process.exitCode=1;});

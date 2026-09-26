@@ -1,0 +1,1296 @@
+{
+  "poses": [
+    {
+      "team": "APO",
+      "pose": "formal",
+      "filename": "Aquil.jpg",
+      "url": "/assets/playoffs/portraits/5d8e7b1317f957058ad85831.jpg",
+      "thumb": "/assets/playoffs/portraits/5d8e7b1317f957058ad85831-thumb.webp"
+    },
+    {
+      "team": "APO",
+      "pose": "formal",
+      "filename": "Del123.jpg",
+      "url": "/assets/playoffs/portraits/7d76c36c813ba31902027817.jpg",
+      "thumb": "/assets/playoffs/portraits/7d76c36c813ba31902027817-thumb.webp"
+    },
+    {
+      "team": "APO",
+      "pose": "formal",
+      "filename": "Dracarys.jpg",
+      "url": "/assets/playoffs/portraits/c0ea8e8d562061073d3468d9.jpg",
+      "thumb": "/assets/playoffs/portraits/c0ea8e8d562061073d3468d9-thumb.webp"
+    },
+    {
+      "team": "APO",
+      "pose": "formal",
+      "filename": "Prime Cris.jpg",
+      "url": "/assets/playoffs/portraits/cb80a15edbb208531b8166f0.jpg",
+      "thumb": "/assets/playoffs/portraits/cb80a15edbb208531b8166f0-thumb.webp"
+    },
+    {
+      "team": "APO",
+      "pose": "formal",
+      "filename": "Silvs.jpg",
+      "url": "/assets/playoffs/portraits/fee4dc776e8951651a98446f.jpg",
+      "thumb": "/assets/playoffs/portraits/fee4dc776e8951651a98446f-thumb.webp"
+    },
+    {
+      "team": "APO",
+      "pose": "formal",
+      "filename": "Solace.jpg",
+      "url": "/assets/playoffs/portraits/59fb613a2c1cfe8a4b1672e2.jpg",
+      "thumb": "/assets/playoffs/portraits/59fb613a2c1cfe8a4b1672e2-thumb.webp"
+    },
+    {
+      "team": "FSMS",
+      "pose": "formal",
+      "filename": "BATAK MAG RELAPSE.jpg",
+      "url": "/assets/playoffs/portraits/fbd8ef3c51e491e70c31b080.jpg",
+      "thumb": "/assets/playoffs/portraits/fbd8ef3c51e491e70c31b080-thumb.webp"
+    },
+    {
+      "team": "FSMS",
+      "pose": "formal",
+      "filename": "Juswa.jpg",
+      "url": "/assets/playoffs/portraits/ca23c1db14f31daf95634823.jpg",
+      "thumb": "/assets/playoffs/portraits/ca23c1db14f31daf95634823-thumb.webp"
+    },
+    {
+      "team": "FSMS",
+      "pose": "formal",
+      "filename": "Mr.Pandita_.jpg",
+      "url": "/assets/playoffs/portraits/3206f95ee1a82a0aac61d81c.jpg",
+      "thumb": "/assets/playoffs/portraits/3206f95ee1a82a0aac61d81c-thumb.webp"
+    },
+    {
+      "team": "FSMS",
+      "pose": "formal",
+      "filename": "NAGING SAPAT BA AKO_.jpg",
+      "url": "/assets/playoffs/portraits/81dd3fd838f7c7f77def9132.jpg",
+      "thumb": "/assets/playoffs/portraits/81dd3fd838f7c7f77def9132-thumb.webp"
+    },
+    {
+      "team": "FSMS",
+      "pose": "formal",
+      "filename": "Nyl_.jpg",
+      "url": "/assets/playoffs/portraits/47e35ee07fa7600fa71caed5.jpg",
+      "thumb": "/assets/playoffs/portraits/47e35ee07fa7600fa71caed5-thumb.webp"
+    },
+    {
+      "team": "FSMS",
+      "pose": "formal",
+      "filename": "Rold.jpg",
+      "url": "/assets/playoffs/portraits/9dd9f1fd5a1859bb2737a6dc.jpg",
+      "thumb": "/assets/playoffs/portraits/9dd9f1fd5a1859bb2737a6dc-thumb.webp"
+    },
+    {
+      "team": "JMES",
+      "pose": "formal",
+      "filename": "+hedgehog+.jpg",
+      "url": "/assets/playoffs/portraits/33362f4a6980212b9f823940.jpg",
+      "thumb": "/assets/playoffs/portraits/33362f4a6980212b9f823940-thumb.webp"
+    },
+    {
+      "team": "JMES",
+      "pose": "formal",
+      "filename": "Bubblegum.jpg",
+      "url": "/assets/playoffs/portraits/56b9815bac98331807c51dc2.jpg",
+      "thumb": "/assets/playoffs/portraits/56b9815bac98331807c51dc2-thumb.webp"
+    },
+    {
+      "team": "JMES",
+      "pose": "formal",
+      "filename": "cheifûū.jpg",
+      "url": "/assets/playoffs/portraits/4b6e105eedc0f3ce378fa302.jpg",
+      "thumb": "/assets/playoffs/portraits/4b6e105eedc0f3ce378fa302-thumb.webp"
+    },
+    {
+      "team": "JMES",
+      "pose": "formal",
+      "filename": "flins.jpg",
+      "url": "/assets/playoffs/portraits/406e07ae93dbfd3b1903b08c.jpg",
+      "thumb": "/assets/playoffs/portraits/406e07ae93dbfd3b1903b08c-thumb.webp"
+    },
+    {
+      "team": "JMES",
+      "pose": "formal",
+      "filename": "Licorice.jpg",
+      "url": "/assets/playoffs/portraits/754988bde8ef8080ebc0eeb8.jpg",
+      "thumb": "/assets/playoffs/portraits/754988bde8ef8080ebc0eeb8-thumb.webp"
+    },
+    {
+      "team": "JMES",
+      "pose": "formal",
+      "filename": "why cant u for once.jpg",
+      "url": "/assets/playoffs/portraits/27dfeb77f349ad1e48774218.jpg",
+      "thumb": "/assets/playoffs/portraits/27dfeb77f349ad1e48774218-thumb.webp"
+    },
+    {
+      "team": "PICE",
+      "pose": "formal",
+      "filename": "CEEJAY.jpg",
+      "url": "/assets/playoffs/portraits/f944dbc4e462d3b5e9fdfbb0.jpg",
+      "thumb": "/assets/playoffs/portraits/f944dbc4e462d3b5e9fdfbb0-thumb.webp"
+    },
+    {
+      "team": "PICE",
+      "pose": "formal",
+      "filename": "Cronus.jpg",
+      "url": "/assets/playoffs/portraits/dafcd2e742305e5fb29840fd.jpg",
+      "thumb": "/assets/playoffs/portraits/dafcd2e742305e5fb29840fd-thumb.webp"
+    },
+    {
+      "team": "PICE",
+      "pose": "formal",
+      "filename": "Escanor.jpg",
+      "url": "/assets/playoffs/portraits/e4505049315a28d3b216acea.jpg",
+      "thumb": "/assets/playoffs/portraits/e4505049315a28d3b216acea-thumb.webp"
+    },
+    {
+      "team": "PICE",
+      "pose": "formal",
+      "filename": "Gravity.jpg",
+      "url": "/assets/playoffs/portraits/e8b18b730f02469a3b1a7cf9.jpg",
+      "thumb": "/assets/playoffs/portraits/e8b18b730f02469a3b1a7cf9-thumb.webp"
+    },
+    {
+      "team": "PICE",
+      "pose": "formal",
+      "filename": "Nathzz Wongsawat.jpg",
+      "url": "/assets/playoffs/portraits/6fc6a3f0ad118e2023a400a3.jpg",
+      "thumb": "/assets/playoffs/portraits/6fc6a3f0ad118e2023a400a3-thumb.webp"
+    },
+    {
+      "team": "PICE",
+      "pose": "formal",
+      "filename": "Reinhart.jpg",
+      "url": "/assets/playoffs/portraits/1b3d682719ea125ac07fcde0.jpg",
+      "thumb": "/assets/playoffs/portraits/1b3d682719ea125ac07fcde0-thumb.webp"
+    },
+    {
+      "team": "PSITS",
+      "pose": "formal",
+      "filename": "KZO.jpg",
+      "url": "/assets/playoffs/portraits/df2376e75ed59ba9d168d82c.jpg",
+      "thumb": "/assets/playoffs/portraits/df2376e75ed59ba9d168d82c-thumb.webp"
+    },
+    {
+      "team": "PSITS",
+      "pose": "formal",
+      "filename": "LenXer.jpg",
+      "url": "/assets/playoffs/portraits/063203d5fe6459531de3ea44.jpg",
+      "thumb": "/assets/playoffs/portraits/063203d5fe6459531de3ea44-thumb.webp"
+    },
+    {
+      "team": "PSITS",
+      "pose": "formal",
+      "filename": "Nocturne.jpg",
+      "url": "/assets/playoffs/portraits/20628ff4dd6f9e9e223cf6ff.jpg",
+      "thumb": "/assets/playoffs/portraits/20628ff4dd6f9e9e223cf6ff-thumb.webp"
+    },
+    {
+      "team": "PSITS",
+      "pose": "formal",
+      "filename": "Seffyroth.jpg",
+      "url": "/assets/playoffs/portraits/001394dff67906cfa273629b.jpg",
+      "thumb": "/assets/playoffs/portraits/001394dff67906cfa273629b-thumb.webp"
+    },
+    {
+      "team": "PSITS",
+      "pose": "formal",
+      "filename": "WesternK9.jpg",
+      "url": "/assets/playoffs/portraits/682c9fd82d8d1c10637b596e.jpg",
+      "thumb": "/assets/playoffs/portraits/682c9fd82d8d1c10637b596e-thumb.webp"
+    },
+    {
+      "team": "ULS-CED",
+      "pose": "formal",
+      "filename": "Iyahrie.jpg",
+      "url": "/assets/playoffs/portraits/6ab00edf2fdb0c34c5377cf0.jpg",
+      "thumb": "/assets/playoffs/portraits/6ab00edf2fdb0c34c5377cf0-thumb.webp"
+    },
+    {
+      "team": "ULS-CED",
+      "pose": "formal",
+      "filename": "Kapitan Setzy.jpg",
+      "url": "/assets/playoffs/portraits/a252236b023c2473a0a8c1de.jpg",
+      "thumb": "/assets/playoffs/portraits/a252236b023c2473a0a8c1de-thumb.webp"
+    },
+    {
+      "team": "ULS-CED",
+      "pose": "formal",
+      "filename": "KiKiKaKa.jpg",
+      "url": "/assets/playoffs/portraits/214e4c78cc49df8389694f3d.jpg",
+      "thumb": "/assets/playoffs/portraits/214e4c78cc49df8389694f3d-thumb.webp"
+    },
+    {
+      "team": "ULS-CED",
+      "pose": "formal",
+      "filename": "nezara_p.jpg",
+      "url": "/assets/playoffs/portraits/bf2572d748d7aa2cc59a0a7c.jpg",
+      "thumb": "/assets/playoffs/portraits/bf2572d748d7aa2cc59a0a7c-thumb.webp"
+    },
+    {
+      "team": "ULS-CED",
+      "pose": "formal",
+      "filename": "Reiji.jpg",
+      "url": "/assets/playoffs/portraits/962dffaa07780c684b342550.jpg",
+      "thumb": "/assets/playoffs/portraits/962dffaa07780c684b342550-thumb.webp"
+    },
+    {
+      "team": "ULS-CED",
+      "pose": "formal",
+      "filename": "seomi.jpg",
+      "url": "/assets/playoffs/portraits/bb98cdb292ddd633bc907f37.jpg",
+      "thumb": "/assets/playoffs/portraits/bb98cdb292ddd633bc907f37-thumb.webp"
+    },
+    {
+      "team": "EARTH SAVERS",
+      "pose": "formal",
+      "filename": "Cyfer.jpg",
+      "url": "/assets/playoffs/portraits/14defbd9d43e9cc1e890cca1.jpg",
+      "thumb": "/assets/playoffs/portraits/14defbd9d43e9cc1e890cca1-thumb.webp"
+    },
+    {
+      "team": "EARTH SAVERS",
+      "pose": "formal",
+      "filename": "KAISER.jpg",
+      "url": "/assets/playoffs/portraits/897fa71bb464a4a3b3eef636.jpg",
+      "thumb": "/assets/playoffs/portraits/897fa71bb464a4a3b3eef636-thumb.webp"
+    },
+    {
+      "team": "EARTH SAVERS",
+      "pose": "formal",
+      "filename": "music and cats.jpg",
+      "url": "/assets/playoffs/portraits/21b3489267c0bf9477c78a09.jpg",
+      "thumb": "/assets/playoffs/portraits/21b3489267c0bf9477c78a09-thumb.webp"
+    },
+    {
+      "team": "EARTH SAVERS",
+      "pose": "formal",
+      "filename": "Solo┃levelingッ.jpg",
+      "url": "/assets/playoffs/portraits/37307ad27e9e1c22d05f1e65.jpg",
+      "thumb": "/assets/playoffs/portraits/37307ad27e9e1c22d05f1e65-thumb.webp"
+    },
+    {
+      "team": "EARTH SAVERS",
+      "pose": "formal",
+      "filename": "Turzxc.jpg",
+      "url": "/assets/playoffs/portraits/c0be6a8027b1637cdd643890.jpg",
+      "thumb": "/assets/playoffs/portraits/c0be6a8027b1637cdd643890-thumb.webp"
+    },
+    {
+      "team": "UFTTS",
+      "pose": "formal",
+      "filename": "Morrie.jpg",
+      "url": "/assets/playoffs/portraits/1ae9740429ec24d5fb840536.jpg",
+      "thumb": "/assets/playoffs/portraits/1ae9740429ec24d5fb840536-thumb.webp"
+    },
+    {
+      "team": "UFTTS",
+      "pose": "formal",
+      "filename": "Nadskie.jpg",
+      "url": "/assets/playoffs/portraits/7bf95fdfe824e197c7a22965.jpg",
+      "thumb": "/assets/playoffs/portraits/7bf95fdfe824e197c7a22965-thumb.webp"
+    },
+    {
+      "team": "UFTTS",
+      "pose": "formal",
+      "filename": "No. 1 Party Anthem.jpg",
+      "url": "/assets/playoffs/portraits/92bc88bf0adb712a68f6071c.jpg",
+      "thumb": "/assets/playoffs/portraits/92bc88bf0adb712a68f6071c-thumb.webp"
+    },
+    {
+      "team": "UFTTS",
+      "pose": "formal",
+      "filename": "OG _ANa.BIT.jpg",
+      "url": "/assets/playoffs/portraits/fdff801f56f47c67d774052b.jpg",
+      "thumb": "/assets/playoffs/portraits/fdff801f56f47c67d774052b-thumb.webp"
+    },
+    {
+      "team": "UFTTS",
+      "pose": "formal",
+      "filename": "YAOSHI.jpg",
+      "url": "/assets/playoffs/portraits/73741bf06bd1e836738b8ff6.jpg",
+      "thumb": "/assets/playoffs/portraits/73741bf06bd1e836738b8ff6-thumb.webp"
+    },
+    {
+      "team": "UFTTS",
+      "pose": "formal",
+      "filename": "ᴇʟᴇᴠᴇɴ.jpg",
+      "url": "/assets/playoffs/portraits/e402c2a150dc6ec7310c1e0b.jpg",
+      "thumb": "/assets/playoffs/portraits/e402c2a150dc6ec7310c1e0b-thumb.webp"
+    },
+    {
+      "team": "APO",
+      "pose": "freestyle",
+      "filename": "Aquil.jpg",
+      "url": "/assets/playoffs/portraits/6edf673b8fcb30a5f3633659.jpg",
+      "thumb": "/assets/playoffs/portraits/6edf673b8fcb30a5f3633659-thumb.webp"
+    },
+    {
+      "team": "APO",
+      "pose": "freestyle",
+      "filename": "Del123.jpg",
+      "url": "/assets/playoffs/portraits/c50289ff001d796b15f65652.jpg",
+      "thumb": "/assets/playoffs/portraits/c50289ff001d796b15f65652-thumb.webp"
+    },
+    {
+      "team": "APO",
+      "pose": "freestyle",
+      "filename": "Dracarys.jpg",
+      "url": "/assets/playoffs/portraits/13cfd485131afecc8e93cd0f.jpg",
+      "thumb": "/assets/playoffs/portraits/13cfd485131afecc8e93cd0f-thumb.webp"
+    },
+    {
+      "team": "APO",
+      "pose": "freestyle",
+      "filename": "Prime Cris.jpg",
+      "url": "/assets/playoffs/portraits/ff77b4baa9f04691093d0e82.jpg",
+      "thumb": "/assets/playoffs/portraits/ff77b4baa9f04691093d0e82-thumb.webp"
+    },
+    {
+      "team": "APO",
+      "pose": "freestyle",
+      "filename": "Silvs.jpg",
+      "url": "/assets/playoffs/portraits/8a8d92e57574168a8b47fb60.jpg",
+      "thumb": "/assets/playoffs/portraits/8a8d92e57574168a8b47fb60-thumb.webp"
+    },
+    {
+      "team": "APO",
+      "pose": "freestyle",
+      "filename": "Solace.jpg",
+      "url": "/assets/playoffs/portraits/7c1704719fa7b1f6cd386526.jpg",
+      "thumb": "/assets/playoffs/portraits/7c1704719fa7b1f6cd386526-thumb.webp"
+    },
+    {
+      "team": "EARTH SAVERS",
+      "pose": "freestyle",
+      "filename": "Cyfer.jpg",
+      "url": "/assets/playoffs/portraits/6255bb2db7aa8ccd6b6c4320.jpg",
+      "thumb": "/assets/playoffs/portraits/6255bb2db7aa8ccd6b6c4320-thumb.webp"
+    },
+    {
+      "team": "EARTH SAVERS",
+      "pose": "freestyle",
+      "filename": "KAISER.jpg",
+      "url": "/assets/playoffs/portraits/343153c4b1c328220e7d760e.jpg",
+      "thumb": "/assets/playoffs/portraits/343153c4b1c328220e7d760e-thumb.webp"
+    },
+    {
+      "team": "EARTH SAVERS",
+      "pose": "freestyle",
+      "filename": "music and cats.jpg",
+      "url": "/assets/playoffs/portraits/804910ab62ff36f5e756ecd2.jpg",
+      "thumb": "/assets/playoffs/portraits/804910ab62ff36f5e756ecd2-thumb.webp"
+    },
+    {
+      "team": "EARTH SAVERS",
+      "pose": "freestyle",
+      "filename": "Solo┃levelingッ.jpg",
+      "url": "/assets/playoffs/portraits/631969b9a8fdc981befab7fd.jpg",
+      "thumb": "/assets/playoffs/portraits/631969b9a8fdc981befab7fd-thumb.webp"
+    },
+    {
+      "team": "EARTH SAVERS",
+      "pose": "freestyle",
+      "filename": "Turzxc.jpg",
+      "url": "/assets/playoffs/portraits/74b6634c9a4d2dce991cc5c4.jpg",
+      "thumb": "/assets/playoffs/portraits/74b6634c9a4d2dce991cc5c4-thumb.webp"
+    },
+    {
+      "team": "FSMS",
+      "pose": "freestyle",
+      "filename": "BATAK MAG RELAPSE.jpg",
+      "url": "/assets/playoffs/portraits/b38329a77026f5ae13b5c77e.jpg",
+      "thumb": "/assets/playoffs/portraits/b38329a77026f5ae13b5c77e-thumb.webp"
+    },
+    {
+      "team": "FSMS",
+      "pose": "freestyle",
+      "filename": "Juswa.jpg",
+      "url": "/assets/playoffs/portraits/4d29ae52acfa5e8f7ed0b87b.jpg",
+      "thumb": "/assets/playoffs/portraits/4d29ae52acfa5e8f7ed0b87b-thumb.webp"
+    },
+    {
+      "team": "FSMS",
+      "pose": "freestyle",
+      "filename": "Mr.Pandita_.jpg",
+      "url": "/assets/playoffs/portraits/b963e90dddc90ef0e7fa173c.jpg",
+      "thumb": "/assets/playoffs/portraits/b963e90dddc90ef0e7fa173c-thumb.webp"
+    },
+    {
+      "team": "FSMS",
+      "pose": "freestyle",
+      "filename": "NAGING SAPAT BA AKO_.jpg",
+      "url": "/assets/playoffs/portraits/0a2f1d503ad8080ef9dac807.jpg",
+      "thumb": "/assets/playoffs/portraits/0a2f1d503ad8080ef9dac807-thumb.webp"
+    },
+    {
+      "team": "FSMS",
+      "pose": "freestyle",
+      "filename": "Nyl_.jpg",
+      "url": "/assets/playoffs/portraits/4649eed38f559290ec209465.jpg",
+      "thumb": "/assets/playoffs/portraits/4649eed38f559290ec209465-thumb.webp"
+    },
+    {
+      "team": "FSMS",
+      "pose": "freestyle",
+      "filename": "Rold.jpg",
+      "url": "/assets/playoffs/portraits/edefe1c6b5d60b6e5f1c217f.jpg",
+      "thumb": "/assets/playoffs/portraits/edefe1c6b5d60b6e5f1c217f-thumb.webp"
+    },
+    {
+      "team": "JMES",
+      "pose": "freestyle",
+      "filename": "+hedgehog+.jpg",
+      "url": "/assets/playoffs/portraits/35d034a89a2a981080832543.jpg",
+      "thumb": "/assets/playoffs/portraits/35d034a89a2a981080832543-thumb.webp"
+    },
+    {
+      "team": "JMES",
+      "pose": "freestyle",
+      "filename": "Bubblegum.jpg",
+      "url": "/assets/playoffs/portraits/531324d9210734be21bd8a6d.jpg",
+      "thumb": "/assets/playoffs/portraits/531324d9210734be21bd8a6d-thumb.webp"
+    },
+    {
+      "team": "JMES",
+      "pose": "freestyle",
+      "filename": "cheifûū.jpg",
+      "url": "/assets/playoffs/portraits/2aa16e93c0b740e67e73fca2.jpg",
+      "thumb": "/assets/playoffs/portraits/2aa16e93c0b740e67e73fca2-thumb.webp"
+    },
+    {
+      "team": "JMES",
+      "pose": "freestyle",
+      "filename": "flins.jpg",
+      "url": "/assets/playoffs/portraits/6410f2988d853be38892ad58.jpg",
+      "thumb": "/assets/playoffs/portraits/6410f2988d853be38892ad58-thumb.webp"
+    },
+    {
+      "team": "JMES",
+      "pose": "freestyle",
+      "filename": "Licorice.jpg",
+      "url": "/assets/playoffs/portraits/1cadf41653d488db04a47102.jpg",
+      "thumb": "/assets/playoffs/portraits/1cadf41653d488db04a47102-thumb.webp"
+    },
+    {
+      "team": "JMES",
+      "pose": "freestyle",
+      "filename": "why cant u for once.jpg",
+      "url": "/assets/playoffs/portraits/3e020550d067633308b71858.jpg",
+      "thumb": "/assets/playoffs/portraits/3e020550d067633308b71858-thumb.webp"
+    },
+    {
+      "team": "PICE",
+      "pose": "freestyle",
+      "filename": "CEEJAY.jpg",
+      "url": "/assets/playoffs/portraits/c9854942a8083ef286082346.jpg",
+      "thumb": "/assets/playoffs/portraits/c9854942a8083ef286082346-thumb.webp"
+    },
+    {
+      "team": "PICE",
+      "pose": "freestyle",
+      "filename": "Cronus.jpg",
+      "url": "/assets/playoffs/portraits/03818963dd7736ead1abec11.jpg",
+      "thumb": "/assets/playoffs/portraits/03818963dd7736ead1abec11-thumb.webp"
+    },
+    {
+      "team": "PICE",
+      "pose": "freestyle",
+      "filename": "Escanor.jpg",
+      "url": "/assets/playoffs/portraits/6596a8681483770210bdaabd.jpg",
+      "thumb": "/assets/playoffs/portraits/6596a8681483770210bdaabd-thumb.webp"
+    },
+    {
+      "team": "PICE",
+      "pose": "freestyle",
+      "filename": "Gravity.jpg",
+      "url": "/assets/playoffs/portraits/997f945212aadc7c3bd04b2b.jpg",
+      "thumb": "/assets/playoffs/portraits/997f945212aadc7c3bd04b2b-thumb.webp"
+    },
+    {
+      "team": "PICE",
+      "pose": "freestyle",
+      "filename": "Nathzz Wongsawat.jpg",
+      "url": "/assets/playoffs/portraits/e44139ba76ab52a347494292.jpg",
+      "thumb": "/assets/playoffs/portraits/e44139ba76ab52a347494292-thumb.webp"
+    },
+    {
+      "team": "PICE",
+      "pose": "freestyle",
+      "filename": "Reinhart.jpg",
+      "url": "/assets/playoffs/portraits/096dbc75631de468f5de6d42.jpg",
+      "thumb": "/assets/playoffs/portraits/096dbc75631de468f5de6d42-thumb.webp"
+    },
+    {
+      "team": "PSITS",
+      "pose": "freestyle",
+      "filename": "KZO.jpg",
+      "url": "/assets/playoffs/portraits/2021a22fae493486ae5b6ec2.jpg",
+      "thumb": "/assets/playoffs/portraits/2021a22fae493486ae5b6ec2-thumb.webp"
+    },
+    {
+      "team": "PSITS",
+      "pose": "freestyle",
+      "filename": "LenXer.jpg",
+      "url": "/assets/playoffs/portraits/aec80017f547540dfe0d2947.jpg",
+      "thumb": "/assets/playoffs/portraits/aec80017f547540dfe0d2947-thumb.webp"
+    },
+    {
+      "team": "PSITS",
+      "pose": "freestyle",
+      "filename": "Nocturne.jpg",
+      "url": "/assets/playoffs/portraits/9b34b09fc16c165648984e4e.jpg",
+      "thumb": "/assets/playoffs/portraits/9b34b09fc16c165648984e4e-thumb.webp"
+    },
+    {
+      "team": "PSITS",
+      "pose": "freestyle",
+      "filename": "Seffyroth.jpg",
+      "url": "/assets/playoffs/portraits/5d4ef2e70e1d967fbb21959d.jpg",
+      "thumb": "/assets/playoffs/portraits/5d4ef2e70e1d967fbb21959d-thumb.webp"
+    },
+    {
+      "team": "PSITS",
+      "pose": "freestyle",
+      "filename": "WesternK9.jpg",
+      "url": "/assets/playoffs/portraits/031e11266ce696e92480000c.jpg",
+      "thumb": "/assets/playoffs/portraits/031e11266ce696e92480000c-thumb.webp"
+    },
+    {
+      "team": "UFTTS",
+      "pose": "freestyle",
+      "filename": "Morrie.jpg",
+      "url": "/assets/playoffs/portraits/3a1e296e760f080db0a1aa00.jpg",
+      "thumb": "/assets/playoffs/portraits/3a1e296e760f080db0a1aa00-thumb.webp"
+    },
+    {
+      "team": "UFTTS",
+      "pose": "freestyle",
+      "filename": "Nadskie.jpg",
+      "url": "/assets/playoffs/portraits/57782e60ee68835535f47144.jpg",
+      "thumb": "/assets/playoffs/portraits/57782e60ee68835535f47144-thumb.webp"
+    },
+    {
+      "team": "UFTTS",
+      "pose": "freestyle",
+      "filename": "No. 1 Party Anthem.jpg",
+      "url": "/assets/playoffs/portraits/3bdccfb231a3f8b3f4a05fcc.jpg",
+      "thumb": "/assets/playoffs/portraits/3bdccfb231a3f8b3f4a05fcc-thumb.webp"
+    },
+    {
+      "team": "UFTTS",
+      "pose": "freestyle",
+      "filename": "OG _ANa.BIT.jpg",
+      "url": "/assets/playoffs/portraits/0c15aee5282b28235312dae3.jpg",
+      "thumb": "/assets/playoffs/portraits/0c15aee5282b28235312dae3-thumb.webp"
+    },
+    {
+      "team": "UFTTS",
+      "pose": "freestyle",
+      "filename": "YAOSHI.jpg",
+      "url": "/assets/playoffs/portraits/31f8eacda27c3168c85c5f9a.jpg",
+      "thumb": "/assets/playoffs/portraits/31f8eacda27c3168c85c5f9a-thumb.webp"
+    },
+    {
+      "team": "UFTTS",
+      "pose": "freestyle",
+      "filename": "ᴇʟᴇᴠᴇɴ.jpg",
+      "url": "/assets/playoffs/portraits/d1fd5f2514c13da3aa1b887e.jpg",
+      "thumb": "/assets/playoffs/portraits/d1fd5f2514c13da3aa1b887e-thumb.webp"
+    },
+    {
+      "team": "ULS-CED",
+      "pose": "freestyle",
+      "filename": "Iyahrie.jpg",
+      "url": "/assets/playoffs/portraits/8126b43af48fb9073b427f6c.jpg",
+      "thumb": "/assets/playoffs/portraits/8126b43af48fb9073b427f6c-thumb.webp"
+    },
+    {
+      "team": "ULS-CED",
+      "pose": "freestyle",
+      "filename": "Kapitan Setzy.jpg",
+      "url": "/assets/playoffs/portraits/278b3b4b8910f661054b15c8.jpg",
+      "thumb": "/assets/playoffs/portraits/278b3b4b8910f661054b15c8-thumb.webp"
+    },
+    {
+      "team": "ULS-CED",
+      "pose": "freestyle",
+      "filename": "KiKiKaKa.jpg",
+      "url": "/assets/playoffs/portraits/430749af91861f96bcb67f54.jpg",
+      "thumb": "/assets/playoffs/portraits/430749af91861f96bcb67f54-thumb.webp"
+    },
+    {
+      "team": "ULS-CED",
+      "pose": "freestyle",
+      "filename": "nezara_p.jpg",
+      "url": "/assets/playoffs/portraits/f0594dd6342d338aa4b29054.jpg",
+      "thumb": "/assets/playoffs/portraits/f0594dd6342d338aa4b29054-thumb.webp"
+    },
+    {
+      "team": "ULS-CED",
+      "pose": "freestyle",
+      "filename": "Reiji.jpg",
+      "url": "/assets/playoffs/portraits/8d2dad8112fb98837a7819e7.jpg",
+      "thumb": "/assets/playoffs/portraits/8d2dad8112fb98837a7819e7-thumb.webp"
+    },
+    {
+      "team": "ULS-CED",
+      "pose": "freestyle",
+      "filename": "seomi.jpg",
+      "url": "/assets/playoffs/portraits/2f66e648ef3a065c191b74ea.jpg",
+      "thumb": "/assets/playoffs/portraits/2f66e648ef3a065c191b74ea-thumb.webp"
+    }
+  ],
+  "players": [
+    {
+      "team": "EARTH SAVERS",
+      "ign": "KAISER.",
+      "source": "Earth Savers Club.docx",
+      "url": "/assets/playoffs/portraits/88af08ab88dec40ae8e02f64.jpg",
+      "thumb": "/assets/playoffs/portraits/88af08ab88dec40ae8e02f64-thumb.webp"
+    },
+    {
+      "team": "EARTH SAVERS",
+      "ign": "Solo┃levelingッ",
+      "source": "Earth Savers Club.docx",
+      "url": "/assets/playoffs/portraits/296ee9dca6239331c675bf3c.jpg",
+      "thumb": "/assets/playoffs/portraits/296ee9dca6239331c675bf3c-thumb.webp"
+    },
+    {
+      "team": "EARTH SAVERS",
+      "ign": "Turzxc",
+      "source": "Earth Savers Club.docx",
+      "url": "/assets/playoffs/portraits/f5c546c6f1f0b967af653e5c.jpg",
+      "thumb": "/assets/playoffs/portraits/f5c546c6f1f0b967af653e5c-thumb.webp"
+    },
+    {
+      "team": "EARTH SAVERS",
+      "ign": "music and cats",
+      "source": "Earth Savers Club.docx",
+      "url": "/assets/playoffs/portraits/b6a93ab5593e8a1c4cb62b7f.jpg",
+      "thumb": "/assets/playoffs/portraits/b6a93ab5593e8a1c4cb62b7f-thumb.webp"
+    },
+    {
+      "team": "EARTH SAVERS",
+      "ign": "Cyfer",
+      "source": "Earth Savers Club.docx",
+      "url": "/assets/playoffs/portraits/2de95455149f7615694515e6.jpg",
+      "thumb": "/assets/playoffs/portraits/2de95455149f7615694515e6-thumb.webp"
+    },
+    {
+      "team": "JMES",
+      "ign": "why cant u for once",
+      "source": "Junior Marketing Executives Society.docx",
+      "url": "/assets/playoffs/portraits/b29b8ce2569170d933448d6f.jpg",
+      "thumb": "/assets/playoffs/portraits/b29b8ce2569170d933448d6f-thumb.webp"
+    },
+    {
+      "team": "JMES",
+      "ign": "flins",
+      "source": "Junior Marketing Executives Society.docx",
+      "url": "/assets/playoffs/portraits/d39ab72301e1389c1d6ece22.jpg",
+      "thumb": "/assets/playoffs/portraits/d39ab72301e1389c1d6ece22-thumb.webp"
+    },
+    {
+      "team": "JMES",
+      "ign": "+hedgehog+",
+      "source": "Junior Marketing Executives Society.docx",
+      "url": "/assets/playoffs/portraits/dd72c127ae546444c6d0af7d.jpg",
+      "thumb": "/assets/playoffs/portraits/dd72c127ae546444c6d0af7d-thumb.webp"
+    },
+    {
+      "team": "JMES",
+      "ign": "Licorice",
+      "source": "Junior Marketing Executives Society.docx",
+      "url": "/assets/playoffs/portraits/5a7a45be62171e10963a4794.jpg",
+      "thumb": "/assets/playoffs/portraits/5a7a45be62171e10963a4794-thumb.webp"
+    },
+    {
+      "team": "JMES",
+      "ign": "Bubblegum",
+      "source": "Junior Marketing Executives Society.docx",
+      "url": "/assets/playoffs/portraits/359e87c2826f46888f8a80ce.jpg",
+      "thumb": "/assets/playoffs/portraits/359e87c2826f46888f8a80ce-thumb.webp"
+    },
+    {
+      "team": "JMES",
+      "ign": "cheifûū",
+      "source": "Junior Marketing Executives Society.docx",
+      "url": "/assets/playoffs/portraits/07d6f2fcb9792058ce23f2e8.jpg",
+      "thumb": "/assets/playoffs/portraits/07d6f2fcb9792058ce23f2e8-thumb.webp"
+    },
+    {
+      "team": "PICE",
+      "ign": "CEEJAY",
+      "source": "Philippines Institution of Civil Engineers.docx",
+      "url": "/assets/playoffs/portraits/ab1ebaa787724edacc266d33.jpg",
+      "thumb": "/assets/playoffs/portraits/ab1ebaa787724edacc266d33-thumb.webp"
+    },
+    {
+      "team": "PICE",
+      "ign": "Gravity",
+      "source": "Philippines Institution of Civil Engineers.docx",
+      "url": "/assets/playoffs/portraits/769ae5a1c3c3c0b09dc4072b.jpg",
+      "thumb": "/assets/playoffs/portraits/769ae5a1c3c3c0b09dc4072b-thumb.webp"
+    },
+    {
+      "team": "PICE",
+      "ign": "Reinhart",
+      "source": "Philippines Institution of Civil Engineers.docx",
+      "url": "/assets/playoffs/portraits/cf4a813a7bc41cd99dc71fd2.jpg",
+      "thumb": "/assets/playoffs/portraits/cf4a813a7bc41cd99dc71fd2-thumb.webp"
+    },
+    {
+      "team": "PICE",
+      "ign": "Escanor",
+      "source": "Philippines Institution of Civil Engineers.docx",
+      "url": "/assets/playoffs/portraits/ec4b46541d76979af2d852be.jpg",
+      "thumb": "/assets/playoffs/portraits/ec4b46541d76979af2d852be-thumb.webp"
+    },
+    {
+      "team": "PICE",
+      "ign": "Cronus.",
+      "source": "Philippines Institution of Civil Engineers.docx",
+      "url": "/assets/playoffs/portraits/f0d3479e6664c09233131878.jpg",
+      "thumb": "/assets/playoffs/portraits/f0d3479e6664c09233131878-thumb.webp"
+    },
+    {
+      "team": "PICE",
+      "ign": "Nathzz Wongsawat",
+      "source": "Philippines Institution of Civil Engineers.docx",
+      "url": "/assets/playoffs/portraits/c74179233663658fa6f853f5.jpg",
+      "thumb": "/assets/playoffs/portraits/c74179233663658fa6f853f5-thumb.webp"
+    },
+    {
+      "team": "ULS-CED",
+      "ign": "nezara:p",
+      "source": "ULS.docx",
+      "url": "/assets/playoffs/portraits/796ad91f5eeeb200383e8b0b.jpg",
+      "thumb": "/assets/playoffs/portraits/796ad91f5eeeb200383e8b0b-thumb.webp"
+    },
+    {
+      "team": "ULS-CED",
+      "ign": "Reiji",
+      "source": "ULS.docx",
+      "url": "/assets/playoffs/portraits/415c2219f66da75e2e43a601.jpg",
+      "thumb": "/assets/playoffs/portraits/415c2219f66da75e2e43a601-thumb.webp"
+    },
+    {
+      "team": "ULS-CED",
+      "ign": "KiKiKaKa",
+      "source": "ULS.docx",
+      "url": "/assets/playoffs/portraits/befdb7ebe04ace8536823fab.jpg",
+      "thumb": "/assets/playoffs/portraits/befdb7ebe04ace8536823fab-thumb.webp"
+    },
+    {
+      "team": "ULS-CED",
+      "ign": "Kapitan Setzy",
+      "source": "ULS.docx",
+      "url": "/assets/playoffs/portraits/b4df800bf6b465789e0c7040.jpg",
+      "thumb": "/assets/playoffs/portraits/b4df800bf6b465789e0c7040-thumb.webp"
+    },
+    {
+      "team": "ULS-CED",
+      "ign": "seomi",
+      "source": "ULS.docx",
+      "url": "/assets/playoffs/portraits/799fdf5e376ce1dbe43ecf27.jpg",
+      "thumb": "/assets/playoffs/portraits/799fdf5e376ce1dbe43ecf27-thumb.webp"
+    },
+    {
+      "team": "ULS-CED",
+      "ign": "Iyahrie",
+      "source": "ULS.docx",
+      "url": "/assets/playoffs/portraits/3fd4fcda840ee25eedc2b7d8.jpg",
+      "thumb": "/assets/playoffs/portraits/3fd4fcda840ee25eedc2b7d8-thumb.webp"
+    },
+    {
+      "team": "FSMS",
+      "ign": "Rold",
+      "source": "FSMS.docx",
+      "url": "/assets/playoffs/portraits/84138a1c96dba3358ef51dff.jpg",
+      "thumb": "/assets/playoffs/portraits/84138a1c96dba3358ef51dff-thumb.webp"
+    },
+    {
+      "team": "FSMS",
+      "ign": "Nyl?",
+      "source": "FSMS.docx",
+      "url": "/assets/playoffs/portraits/aacea17e09bbaca552c6ae3f.jpg",
+      "thumb": "/assets/playoffs/portraits/aacea17e09bbaca552c6ae3f-thumb.webp"
+    },
+    {
+      "team": "FSMS",
+      "ign": "Juswa",
+      "source": "FSMS.docx",
+      "url": "/assets/playoffs/portraits/756e0f6a342ad191dfaa2888.jpg",
+      "thumb": "/assets/playoffs/portraits/756e0f6a342ad191dfaa2888-thumb.webp"
+    },
+    {
+      "team": "FSMS",
+      "ign": "Mr.Pandita?",
+      "source": "FSMS.docx",
+      "url": "/assets/playoffs/portraits/1971e79942d9e709ac962b74.jpg",
+      "thumb": "/assets/playoffs/portraits/1971e79942d9e709ac962b74-thumb.webp"
+    },
+    {
+      "team": "FSMS",
+      "ign": "NAGING SAPAT BA AKO?",
+      "source": "FSMS.docx",
+      "url": "/assets/playoffs/portraits/be73ca7cd810376e4c2e8d20.jpg",
+      "thumb": "/assets/playoffs/portraits/be73ca7cd810376e4c2e8d20-thumb.webp"
+    },
+    {
+      "team": "FSMS",
+      "ign": "BATAK MAG RELAPSE",
+      "source": "FSMS.docx",
+      "url": "/assets/playoffs/portraits/6720bc6c583a3e8c791b9b83.jpg",
+      "thumb": "/assets/playoffs/portraits/6720bc6c583a3e8c791b9b83-thumb.webp"
+    },
+    {
+      "team": "APO",
+      "ign": "Silvs.",
+      "source": "ALPHA PHI OMEGA.pdf",
+      "url": "/assets/playoffs/portraits/af25eb90dafc33168870b620.jpg",
+      "thumb": "/assets/playoffs/portraits/af25eb90dafc33168870b620-thumb.webp"
+    },
+    {
+      "team": "APO",
+      "ign": "Del123.",
+      "source": "ALPHA PHI OMEGA.pdf",
+      "url": "/assets/playoffs/portraits/258385856517fc91eb8e3d7d.jpg",
+      "thumb": "/assets/playoffs/portraits/258385856517fc91eb8e3d7d-thumb.webp"
+    },
+    {
+      "team": "APO",
+      "ign": "Dracarys.",
+      "source": "ALPHA PHI OMEGA.pdf",
+      "url": "/assets/playoffs/portraits/276408234857a88bee8db289.jpg",
+      "thumb": "/assets/playoffs/portraits/276408234857a88bee8db289-thumb.webp"
+    },
+    {
+      "team": "APO",
+      "ign": "Prime Cris.",
+      "source": "ALPHA PHI OMEGA.pdf",
+      "url": "/assets/playoffs/portraits/e9d1cbb61d96a26b10951e9e.jpg",
+      "thumb": "/assets/playoffs/portraits/e9d1cbb61d96a26b10951e9e-thumb.webp"
+    },
+    {
+      "team": "APO",
+      "ign": "Aquil.",
+      "source": "ALPHA PHI OMEGA.pdf",
+      "url": "/assets/playoffs/portraits/a037f5656aa3a1d05bff454a.jpg",
+      "thumb": "/assets/playoffs/portraits/a037f5656aa3a1d05bff454a-thumb.webp"
+    },
+    {
+      "team": "APO",
+      "ign": "Solace.",
+      "source": "ALPHA PHI OMEGA.pdf",
+      "url": "/assets/playoffs/portraits/88875f698ad865759bfced94.jpg",
+      "thumb": "/assets/playoffs/portraits/88875f698ad865759bfced94-thumb.webp"
+    },
+    {
+      "team": "PSITS",
+      "ign": "Nocturne",
+      "source": "Philippine Society of Information Technology Students.pdf",
+      "url": "/assets/playoffs/portraits/1d490148caf41f78cc5e3cee.jpg",
+      "thumb": "/assets/playoffs/portraits/1d490148caf41f78cc5e3cee-thumb.webp"
+    },
+    {
+      "team": "PSITS",
+      "ign": "Seffyroth",
+      "source": "Philippine Society of Information Technology Students.pdf",
+      "url": "/assets/playoffs/portraits/5b0ca8f97ade31de2353456a.jpg",
+      "thumb": "/assets/playoffs/portraits/5b0ca8f97ade31de2353456a-thumb.webp"
+    },
+    {
+      "team": "PSITS",
+      "ign": "KZO",
+      "source": "Philippine Society of Information Technology Students.pdf",
+      "url": "/assets/playoffs/portraits/4d37144b1379acf31db8ddcb.jpg",
+      "thumb": "/assets/playoffs/portraits/4d37144b1379acf31db8ddcb-thumb.webp"
+    },
+    {
+      "team": "PSITS",
+      "ign": "WesternK9",
+      "source": "Philippine Society of Information Technology Students.pdf",
+      "url": "/assets/playoffs/portraits/5c1bd93646c077c923166a46.jpg",
+      "thumb": "/assets/playoffs/portraits/5c1bd93646c077c923166a46-thumb.webp"
+    },
+    {
+      "team": "PSITS",
+      "ign": "LenXer.",
+      "source": "Philippine Society of Information Technology Students.pdf",
+      "url": "/assets/playoffs/portraits/875fda3a2ba5ba9b51c30cb1.jpg",
+      "thumb": "/assets/playoffs/portraits/875fda3a2ba5ba9b51c30cb1-thumb.webp"
+    },
+    {
+      "team": "UFTTS",
+      "ign": "Nadskie.",
+      "source": "Union of Filipino Tourism and Travel Students.pdf",
+      "url": "/assets/playoffs/portraits/83d3ab9f3f351c8c22d56b04.jpg",
+      "thumb": "/assets/playoffs/portraits/83d3ab9f3f351c8c22d56b04-thumb.webp"
+    },
+    {
+      "team": "UFTTS",
+      "ign": "YAOSHI",
+      "source": "Union of Filipino Tourism and Travel Students.pdf",
+      "url": "/assets/playoffs/portraits/a17e905fe5efa1131d57a38f.jpg",
+      "thumb": "/assets/playoffs/portraits/a17e905fe5efa1131d57a38f-thumb.webp"
+    },
+    {
+      "team": "UFTTS",
+      "ign": "OG |ANa.BIT",
+      "source": "Union of Filipino Tourism and Travel Students.pdf",
+      "url": "/assets/playoffs/portraits/ae2771d56d58add2523829bf.jpg",
+      "thumb": "/assets/playoffs/portraits/ae2771d56d58add2523829bf-thumb.webp"
+    },
+    {
+      "team": "UFTTS",
+      "ign": "No. 1 Party Anthem",
+      "source": "Union of Filipino Tourism and Travel Students.pdf",
+      "url": "/assets/playoffs/portraits/300ebff0217999adac9d7018.jpg",
+      "thumb": "/assets/playoffs/portraits/300ebff0217999adac9d7018-thumb.webp"
+    },
+    {
+      "team": "UFTTS",
+      "ign": "ᴇʟᴇᴠᴇɴ",
+      "source": "Union of Filipino Tourism and Travel Students.pdf",
+      "url": "/assets/playoffs/portraits/25bb60a7849f593d4f03bb00.jpg",
+      "thumb": "/assets/playoffs/portraits/25bb60a7849f593d4f03bb00-thumb.webp"
+    },
+    {
+      "team": "UFTTS",
+      "ign": "Morrie",
+      "source": "Union of Filipino Tourism and Travel Students.pdf",
+      "url": "/assets/playoffs/portraits/2da2b3b258e89f921f88afd5.jpg",
+      "thumb": "/assets/playoffs/portraits/2da2b3b258e89f921f88afd5-thumb.webp"
+    }
+  ],
+  "formalPlayers": [
+    {
+      "team": "JMES",
+      "ign": "why cant u for once",
+      "source": "why cant u for once.jpg",
+      "url": "/assets/playoffs/portraits/27dfeb77f349ad1e48774218.jpg",
+      "thumb": "/assets/playoffs/portraits/27dfeb77f349ad1e48774218-thumb.webp"
+    },
+    {
+      "team": "JMES",
+      "ign": "flins",
+      "source": "flins.jpg",
+      "url": "/assets/playoffs/portraits/406e07ae93dbfd3b1903b08c.jpg",
+      "thumb": "/assets/playoffs/portraits/406e07ae93dbfd3b1903b08c-thumb.webp"
+    },
+    {
+      "team": "JMES",
+      "ign": "+hedgehog+",
+      "source": "+hedgehog+.jpg",
+      "url": "/assets/playoffs/portraits/33362f4a6980212b9f823940.jpg",
+      "thumb": "/assets/playoffs/portraits/33362f4a6980212b9f823940-thumb.webp"
+    },
+    {
+      "team": "JMES",
+      "ign": "Licorice",
+      "source": "Licorice.jpg",
+      "url": "/assets/playoffs/portraits/754988bde8ef8080ebc0eeb8.jpg",
+      "thumb": "/assets/playoffs/portraits/754988bde8ef8080ebc0eeb8-thumb.webp"
+    },
+    {
+      "team": "JMES",
+      "ign": "Bubblegum",
+      "source": "Bubblegum.jpg",
+      "url": "/assets/playoffs/portraits/56b9815bac98331807c51dc2.jpg",
+      "thumb": "/assets/playoffs/portraits/56b9815bac98331807c51dc2-thumb.webp"
+    },
+    {
+      "team": "JMES",
+      "ign": "cheifûū",
+      "source": "cheifûū.jpg",
+      "url": "/assets/playoffs/portraits/4b6e105eedc0f3ce378fa302.jpg",
+      "thumb": "/assets/playoffs/portraits/4b6e105eedc0f3ce378fa302-thumb.webp"
+    },
+    {
+      "team": "PSITS",
+      "ign": "Nocturne",
+      "source": "Nocturne.jpg",
+      "url": "/assets/playoffs/portraits/20628ff4dd6f9e9e223cf6ff.jpg",
+      "thumb": "/assets/playoffs/portraits/20628ff4dd6f9e9e223cf6ff-thumb.webp"
+    },
+    {
+      "team": "PSITS",
+      "ign": "Seffyroth",
+      "source": "Seffyroth.jpg",
+      "url": "/assets/playoffs/portraits/001394dff67906cfa273629b.jpg",
+      "thumb": "/assets/playoffs/portraits/001394dff67906cfa273629b-thumb.webp"
+    },
+    {
+      "team": "PSITS",
+      "ign": "KZO",
+      "source": "KZO.jpg",
+      "url": "/assets/playoffs/portraits/df2376e75ed59ba9d168d82c.jpg",
+      "thumb": "/assets/playoffs/portraits/df2376e75ed59ba9d168d82c-thumb.webp"
+    },
+    {
+      "team": "PSITS",
+      "ign": "WesternK9",
+      "source": "WesternK9.jpg",
+      "url": "/assets/playoffs/portraits/682c9fd82d8d1c10637b596e.jpg",
+      "thumb": "/assets/playoffs/portraits/682c9fd82d8d1c10637b596e-thumb.webp"
+    },
+    {
+      "team": "PSITS",
+      "ign": "LenXer.",
+      "source": "LenXer.jpg",
+      "url": "/assets/playoffs/portraits/063203d5fe6459531de3ea44.jpg",
+      "thumb": "/assets/playoffs/portraits/063203d5fe6459531de3ea44-thumb.webp"
+    },
+    {
+      "team": "ULS-CED",
+      "ign": "nezara:p",
+      "source": "nezara_p.jpg",
+      "url": "/assets/playoffs/portraits/bf2572d748d7aa2cc59a0a7c.jpg",
+      "thumb": "/assets/playoffs/portraits/bf2572d748d7aa2cc59a0a7c-thumb.webp"
+    },
+    {
+      "team": "ULS-CED",
+      "ign": "Reiji",
+      "source": "Reiji.jpg",
+      "url": "/assets/playoffs/portraits/962dffaa07780c684b342550.jpg",
+      "thumb": "/assets/playoffs/portraits/962dffaa07780c684b342550-thumb.webp"
+    },
+    {
+      "team": "ULS-CED",
+      "ign": "KiKiKaKa",
+      "source": "KiKiKaKa.jpg",
+      "url": "/assets/playoffs/portraits/214e4c78cc49df8389694f3d.jpg",
+      "thumb": "/assets/playoffs/portraits/214e4c78cc49df8389694f3d-thumb.webp"
+    },
+    {
+      "team": "ULS-CED",
+      "ign": "Kapitan Setzy",
+      "source": "Kapitan Setzy.jpg",
+      "url": "/assets/playoffs/portraits/a252236b023c2473a0a8c1de.jpg",
+      "thumb": "/assets/playoffs/portraits/a252236b023c2473a0a8c1de-thumb.webp"
+    },
+    {
+      "team": "ULS-CED",
+      "ign": "seomi",
+      "source": "seomi.jpg",
+      "url": "/assets/playoffs/portraits/bb98cdb292ddd633bc907f37.jpg",
+      "thumb": "/assets/playoffs/portraits/bb98cdb292ddd633bc907f37-thumb.webp"
+    },
+    {
+      "team": "ULS-CED",
+      "ign": "Iyahrie",
+      "source": "Iyahrie.jpg",
+      "url": "/assets/playoffs/portraits/6ab00edf2fdb0c34c5377cf0.jpg",
+      "thumb": "/assets/playoffs/portraits/6ab00edf2fdb0c34c5377cf0-thumb.webp"
+    },
+    {
+      "team": "UFTTS",
+      "ign": "Nadskie.",
+      "source": "Nadskie.jpg",
+      "url": "/assets/playoffs/portraits/7bf95fdfe824e197c7a22965.jpg",
+      "thumb": "/assets/playoffs/portraits/7bf95fdfe824e197c7a22965-thumb.webp"
+    },
+    {
+      "team": "UFTTS",
+      "ign": "YAOSHI",
+      "source": "YAOSHI.jpg",
+      "url": "/assets/playoffs/portraits/73741bf06bd1e836738b8ff6.jpg",
+      "thumb": "/assets/playoffs/portraits/73741bf06bd1e836738b8ff6-thumb.webp"
+    },
+    {
+      "team": "UFTTS",
+      "ign": "OG |ANa.BIT",
+      "source": "OG _ANa.BIT.jpg",
+      "url": "/assets/playoffs/portraits/fdff801f56f47c67d774052b.jpg",
+      "thumb": "/assets/playoffs/portraits/fdff801f56f47c67d774052b-thumb.webp"
+    },
+    {
+      "team": "UFTTS",
+      "ign": "No. 1 Party Anthem",
+      "source": "No. 1 Party Anthem.jpg",
+      "url": "/assets/playoffs/portraits/92bc88bf0adb712a68f6071c.jpg",
+      "thumb": "/assets/playoffs/portraits/92bc88bf0adb712a68f6071c-thumb.webp"
+    },
+    {
+      "team": "UFTTS",
+      "ign": "ᴇʟᴇᴠᴇɴ",
+      "source": "ᴇʟᴇᴠᴇɴ.jpg",
+      "url": "/assets/playoffs/portraits/e402c2a150dc6ec7310c1e0b.jpg",
+      "thumb": "/assets/playoffs/portraits/e402c2a150dc6ec7310c1e0b-thumb.webp"
+    },
+    {
+      "team": "UFTTS",
+      "ign": "Morrie",
+      "source": "Morrie.jpg",
+      "url": "/assets/playoffs/portraits/1ae9740429ec24d5fb840536.jpg",
+      "thumb": "/assets/playoffs/portraits/1ae9740429ec24d5fb840536-thumb.webp"
+    },
+    {
+      "team": "FSMS",
+      "ign": "Rold",
+      "source": "Rold.jpg",
+      "url": "/assets/playoffs/portraits/9dd9f1fd5a1859bb2737a6dc.jpg",
+      "thumb": "/assets/playoffs/portraits/9dd9f1fd5a1859bb2737a6dc-thumb.webp"
+    },
+    {
+      "team": "FSMS",
+      "ign": "Nyl?",
+      "source": "Nyl_.jpg",
+      "url": "/assets/playoffs/portraits/47e35ee07fa7600fa71caed5.jpg",
+      "thumb": "/assets/playoffs/portraits/47e35ee07fa7600fa71caed5-thumb.webp"
+    },
+    {
+      "team": "FSMS",
+      "ign": "Juswa",
+      "source": "Juswa.jpg",
+      "url": "/assets/playoffs/portraits/ca23c1db14f31daf95634823.jpg",
+      "thumb": "/assets/playoffs/portraits/ca23c1db14f31daf95634823-thumb.webp"
+    },
+    {
+      "team": "FSMS",
+      "ign": "Mr.Pandita?",
+      "source": "Mr.Pandita_.jpg",
+      "url": "/assets/playoffs/portraits/3206f95ee1a82a0aac61d81c.jpg",
+      "thumb": "/assets/playoffs/portraits/3206f95ee1a82a0aac61d81c-thumb.webp"
+    },
+    {
+      "team": "FSMS",
+      "ign": "NAGING SAPAT BA AKO?",
+      "source": "NAGING SAPAT BA AKO_.jpg",
+      "url": "/assets/playoffs/portraits/81dd3fd838f7c7f77def9132.jpg",
+      "thumb": "/assets/playoffs/portraits/81dd3fd838f7c7f77def9132-thumb.webp"
+    },
+    {
+      "team": "FSMS",
+      "ign": "BATAK MAG RELAPSE",
+      "source": "BATAK MAG RELAPSE.jpg",
+      "url": "/assets/playoffs/portraits/fbd8ef3c51e491e70c31b080.jpg",
+      "thumb": "/assets/playoffs/portraits/fbd8ef3c51e491e70c31b080-thumb.webp"
+    },
+    {
+      "team": "APO",
+      "ign": "Silvs.",
+      "source": "Silvs.jpg",
+      "url": "/assets/playoffs/portraits/fee4dc776e8951651a98446f.jpg",
+      "thumb": "/assets/playoffs/portraits/fee4dc776e8951651a98446f-thumb.webp"
+    },
+    {
+      "team": "APO",
+      "ign": "Del123.",
+      "source": "Del123.jpg",
+      "url": "/assets/playoffs/portraits/7d76c36c813ba31902027817.jpg",
+      "thumb": "/assets/playoffs/portraits/7d76c36c813ba31902027817-thumb.webp"
+    },
+    {
+      "team": "APO",
+      "ign": "Dracarys.",
+      "source": "Dracarys.jpg",
+      "url": "/assets/playoffs/portraits/c0ea8e8d562061073d3468d9.jpg",
+      "thumb": "/assets/playoffs/portraits/c0ea8e8d562061073d3468d9-thumb.webp"
+    },
+    {
+      "team": "APO",
+      "ign": "Prime Cris.",
+      "source": "Prime Cris.jpg",
+      "url": "/assets/playoffs/portraits/cb80a15edbb208531b8166f0.jpg",
+      "thumb": "/assets/playoffs/portraits/cb80a15edbb208531b8166f0-thumb.webp"
+    },
+    {
+      "team": "APO",
+      "ign": "Aquil.",
+      "source": "Aquil.jpg",
+      "url": "/assets/playoffs/portraits/5d8e7b1317f957058ad85831.jpg",
+      "thumb": "/assets/playoffs/portraits/5d8e7b1317f957058ad85831-thumb.webp"
+    },
+    {
+      "team": "APO",
+      "ign": "Solace.",
+      "source": "Solace.jpg",
+      "url": "/assets/playoffs/portraits/59fb613a2c1cfe8a4b1672e2.jpg",
+      "thumb": "/assets/playoffs/portraits/59fb613a2c1cfe8a4b1672e2-thumb.webp"
+    },
+    {
+      "team": "EARTH SAVERS",
+      "ign": "KAISER.",
+      "source": "KAISER.jpg",
+      "url": "/assets/playoffs/portraits/897fa71bb464a4a3b3eef636.jpg",
+      "thumb": "/assets/playoffs/portraits/897fa71bb464a4a3b3eef636-thumb.webp"
+    },
+    {
+      "team": "EARTH SAVERS",
+      "ign": "Solo┃levelingッ",
+      "source": "Solo┃levelingッ.jpg",
+      "url": "/assets/playoffs/portraits/37307ad27e9e1c22d05f1e65.jpg",
+      "thumb": "/assets/playoffs/portraits/37307ad27e9e1c22d05f1e65-thumb.webp"
+    },
+    {
+      "team": "EARTH SAVERS",
+      "ign": "Turzxc",
+      "source": "Turzxc.jpg",
+      "url": "/assets/playoffs/portraits/c0be6a8027b1637cdd643890.jpg",
+      "thumb": "/assets/playoffs/portraits/c0be6a8027b1637cdd643890-thumb.webp"
+    },
+    {
+      "team": "EARTH SAVERS",
+      "ign": "music and cats",
+      "source": "music and cats.jpg",
+      "url": "/assets/playoffs/portraits/21b3489267c0bf9477c78a09.jpg",
+      "thumb": "/assets/playoffs/portraits/21b3489267c0bf9477c78a09-thumb.webp"
+    },
+    {
+      "team": "EARTH SAVERS",
+      "ign": "Cyfer",
+      "source": "Cyfer.jpg",
+      "url": "/assets/playoffs/portraits/14defbd9d43e9cc1e890cca1.jpg",
+      "thumb": "/assets/playoffs/portraits/14defbd9d43e9cc1e890cca1-thumb.webp"
+    },
+    {
+      "team": "PICE",
+      "ign": "CEEJAY",
+      "source": "CEEJAY.jpg",
+      "url": "/assets/playoffs/portraits/f944dbc4e462d3b5e9fdfbb0.jpg",
+      "thumb": "/assets/playoffs/portraits/f944dbc4e462d3b5e9fdfbb0-thumb.webp"
+    },
+    {
+      "team": "PICE",
+      "ign": "Gravity",
+      "source": "Gravity.jpg",
+      "url": "/assets/playoffs/portraits/e8b18b730f02469a3b1a7cf9.jpg",
+      "thumb": "/assets/playoffs/portraits/e8b18b730f02469a3b1a7cf9-thumb.webp"
+    },
+    {
+      "team": "PICE",
+      "ign": "Reinhart",
+      "source": "Reinhart.jpg",
+      "url": "/assets/playoffs/portraits/1b3d682719ea125ac07fcde0.jpg",
+      "thumb": "/assets/playoffs/portraits/1b3d682719ea125ac07fcde0-thumb.webp"
+    },
+    {
+      "team": "PICE",
+      "ign": "Escanor",
+      "source": "Escanor.jpg",
+      "url": "/assets/playoffs/portraits/e4505049315a28d3b216acea.jpg",
+      "thumb": "/assets/playoffs/portraits/e4505049315a28d3b216acea-thumb.webp"
+    },
+    {
+      "team": "PICE",
+      "ign": "Cronus.",
+      "source": "Cronus.jpg",
+      "url": "/assets/playoffs/portraits/dafcd2e742305e5fb29840fd.jpg",
+      "thumb": "/assets/playoffs/portraits/dafcd2e742305e5fb29840fd-thumb.webp"
+    },
+    {
+      "team": "PICE",
+      "ign": "Nathzz Wongsawat",
+      "source": "Nathzz Wongsawat.jpg",
+      "url": "/assets/playoffs/portraits/6fc6a3f0ad118e2023a400a3.jpg",
+      "thumb": "/assets/playoffs/portraits/6fc6a3f0ad118e2023a400a3-thumb.webp"
+    }
+  ]
+}

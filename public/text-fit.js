@@ -4,11 +4,13 @@
     '.draft-center-team>b', '.broadcast-player-name', '.broadcast-bans>span',
     '.draft-center-clock>span', '.draft-match-label', '.draft-unpicked', '.vertical-hero',
     '.rail-name>b', '.rail-numbers>strong', '.sb-lead', '.logo.initial',
+    '.sb-match-event', '.sb-match-format', '.sb-caster-names',
     '.broadcast-brand h1', '.broadcast-brand p', '.broadcast-topline>b',
     '.fixture-side>span', '.fixture-caption>*', '.standby-versus>b',
     '.broadcast-ad-placeholder h2', '.broadcast-ad-placeholder p',
     '.broadcast-bottom', '.ticker', '.showheader>span', '.winner h1',
     '.resultteam h2', '.resultrow>span', '.resultrow>b',
+    '.eg-banner-text b', '.eg-team-head b', '.eg-name',
     '.fixture>strong', '.fixture>time', '.fixture>small',
     '.sponsor-show h1', '.partner-tile>b', '.partner-tile>small', '.ad-bug>b'
   ].join(',');

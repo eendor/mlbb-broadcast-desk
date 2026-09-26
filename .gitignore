@@ -18,6 +18,11 @@ Thumbs.db
 /SCHEDULE SAMPLE/
 /UEC LOGOS/
 /USM PASIKLABAN 2026 REGISTRATION.png
+/PASIKLABAN LOGOS/
+/PLAYOFFS/
+.opencode/
+__pycache__/
+analyze_ml/
 # One-off development migration/download scripts and obsolete browser checks.
 /scripts/
 /tests/artwork-check.cjs

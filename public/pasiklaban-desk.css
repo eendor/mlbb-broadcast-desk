@@ -1,0 +1,29 @@
+/* Control desk palette follows the event's gold, cream and woven red identity. */
+:root { --bg:#1c1512; --panel:#2c211a; --line:#60452f; --muted:#bda487; --ink:#fff0d5; --lime:#efb653; --blue:#75b9e1; --red:#ee958b; }
+body { background:radial-gradient(ellipse at 80% 0,#7e442028,transparent 50%),var(--bg); }
+aside { background:linear-gradient(180deg,#291c16,#211713); border-color:#865b30; }
+aside::after { content:''; position:absolute; left:0; right:0; bottom:0; height:18px; background:url('/assets/pasiklaban/weave.svg') center/120px 60px; pointer-events:none; }
+.brand { color:#ffe3a3; }
+.brandmark { background:linear-gradient(#ffdc82,#d7942f); color:#602a17; }
+nav button.active { background:#7d392740; color:#ffd382; border-color:#a26b36; }
+.panel,.summary { background:linear-gradient(135deg,#302219,#271d18); border-color:#62452e; }
+.panel:focus-within { border-color:#c89341; }
+button,.filebutton { background:#432f23; border-color:#7b5636; color:#ffedcf; }
+button:hover,.filebutton:hover { background:#68432b; border-color:#c89445; }
+button.primary,.primary { color:#4c2717; background:linear-gradient(110deg,#dfa03b,#ffdb83); border-color:#e2aa4b; }
+button.primary:hover,.primary:hover { background:#ffe19a; }
+input,select,textarea { color:#fff0d8; background:#211814; border-color:#694a31; accent-color:#e8ac47; }
+input:focus,select:focus,textarea:focus { border-color:#e6b456; outline-color:#e6b456; }
+.connection { color:#f9cd83; background:#50352266; border-color:#886139; }
+.series-toolbar { background:linear-gradient(105deg,#573423,#342218); border-color:#916133; border-left-color:#eeb54c; }
+.series-toolbar select { border-color:#b88640; }
+.series-toolbar span,.series-toolbar>small { color:#efd5ad; }
+.scenes button.active { background:#72372266; border-color:#e0aa4e; color:#ffdb91; }
+.previewfoot,.layout-workbench,.layout-help,.ocr-health { background:#251a15; color:#d7bfa1; border-color:#765336; }
+.edit-dialog,.hero-dialog,.ocr-dialog { background:#2a1d16; color:#ffedcc; border-color:#a97939; }
+pre { background:#211712; color:#f5c980; }
+footer { color:#b49674; border-color:#62452e; }
+.playoff-automation { border:1px solid #93652f; background:#51311d44; padding:14px 18px; margin-bottom:20px; border-radius:8px; }
+.playoff-automation label { display:flex; align-items:center; gap:10px; font-weight:700; color:#ffda94; }
+.playoff-automation input { width:auto; margin:0; }
+#playoffResultStatus { color:#f2c77e; font-size:12px; line-height:1.5; }

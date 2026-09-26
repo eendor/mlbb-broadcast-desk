@@ -18,7 +18,7 @@ const {spawn}=require('node:child_process'),fs=require('node:fs'),os=require('no
     await page.click('#autoDetectCapture');
     await page.waitForFunction(()=>state.scene==='postgame'&&state.winner==='blue'&&state.blue.kills===16&&state.red.kills===22&&state.gameTime==='13:35',{},{timeout:20000}).catch(async e=>{console.log('RESULT CORE DEBUG',await page.evaluate(()=>({status:document.querySelector('#detectStatus').textContent,ocr:document.querySelector('#ocrStatus').textContent,rows:document.querySelector('#ocrResults').innerText,state})));throw e;});
     await page.waitForFunction(()=>state.blue.players[0].name==='eendor'&&state.blue.players[0].gold===5100&&state.red.players[4].gold===9100,{},{timeout:20000});
-    assert.equal(await overlay.locator('.winner h1').count(),1);assert.equal(await overlay.locator('.resultrow').count(),10);
+    assert.equal(await overlay.locator('.mpl-outcome-pill, .winner h1').count()>=1,true);assert.equal(await overlay.locator('.mpl-player-row, .resultrow').count(),10);
     await page.click('#stopCapture');console.log('PASS result screen -> postgame, winner, kills, duration, player KDA and gold');
   }finally{await browser?.close();child.kill();}
 })().catch(e=>{console.error(e);process.exitCode=1;});

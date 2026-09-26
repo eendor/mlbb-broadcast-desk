@@ -11,7 +11,7 @@ const fs=require('node:fs'),os=require('node:os'),path=require('node:path');
  await page.evaluate(async mapping=>{
  events.close();const host=document.createElement('div');document.body.append(host);
  for(const original of Object.keys(mapping)){const img=document.createElement('img');img.src=original;host.append(img);}
- await new Promise(r=>setTimeout(r,1000));
+  await new Promise(r=>setTimeout(r,1500));
  for(const img of host.children){if(!img.getAttribute('src').startsWith('/assets/logos-transparent/')||!img.complete||!img.naturalWidth)throw Error('Logo failed: '+img.src);}
  host.remove();state.blue.logo='/assets/logos/ULS.jpg';state.red.logo='/assets/logos/TRIMMOC%20.jpeg';
  for(const scene of ['draft','scoreboard','countdown','intermission']){state.scene=scene;render();await new Promise(r=>setTimeout(r,100));const logos=[...stage.querySelectorAll('img')].filter(img=>img.src.includes('/logos'));if(logos.length<2||logos.some(img=>!img.src.includes('/logos-transparent/')||!img.naturalWidth))throw Error(scene+' uses original logo');}

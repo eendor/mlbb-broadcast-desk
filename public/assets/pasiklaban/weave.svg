@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="160" viewBox="0 0 320 160">
+  <defs>
+    <pattern id="teeth" width="8" height="14" patternUnits="userSpaceOnUse"><rect width="8" height="14" fill="#efe1ac"/><path d="M4 0v10" stroke="#20170f" stroke-width="3"/></pattern>
+    <pattern id="diamonds" width="80" height="64" patternUnits="userSpaceOnUse" y="48">
+      <rect width="80" height="64" fill="#a62028"/>
+      <path d="M40 3 67 32 40 61 13 32Z" fill="#e5af40"/><path d="M40 10 60 32 40 54 20 32Z" fill="#fff1bd"/><path d="M40 18 53 32 40 46 27 32Z" fill="#80202a"/><path d="m40 26 6 6-6 6-6-6Z" fill="#f1c24f"/>
+      <path d="m0 22 10 10L0 42m80-20L70 32l10 10" fill="none" stroke="#edcf7e" stroke-width="3"/>
+      <path d="m8 4 4 4-4 4-4-4Zm64 48 4 4-4 4-4-4Z" fill="#eee0b0"/>
+    </pattern>
+    <pattern id="threads" width="4" height="4" patternUnits="userSpaceOnUse"><path d="M0 0h4M0 2h4" stroke="#fff" stroke-opacity=".12"/><path d="M1 0v4M3 0v4" stroke="#170900" stroke-opacity=".16"/></pattern>
+    <linearGradient id="fold" x2="0" y2="1"><stop stop-color="#130700" stop-opacity=".4"/><stop offset=".22" stop-color="#fff4c7" stop-opacity=".22"/><stop offset=".5" stop-color="#fff4c7" stop-opacity="0"/><stop offset=".82" stop-color="#170b00" stop-opacity=".12"/><stop offset="1" stop-color="#170b00" stop-opacity=".45"/></linearGradient>
+  </defs>
+  <rect width="320" height="160" fill="#36191a"/>
+  <path d="M0 4h320M0 156h320" stroke="#e2b14c" stroke-width="5"/>
+  <path d="M0 12h320M0 148h320M0 39h320M0 121h320" stroke="#fcdf9b" stroke-width="4"/>
+  <rect y="18" width="320" height="14" fill="url(#teeth)"/><rect y="128" width="320" height="14" fill="url(#teeth)"/>
+  <rect y="48" width="320" height="64" fill="url(#diamonds)"/>
+  <path d="M0 44h320M0 116h320" stroke="#c76228" stroke-width="4"/>
+  <rect width="320" height="160" fill="url(#threads)"/><rect width="320" height="160" fill="url(#fold)"/>
+</svg>

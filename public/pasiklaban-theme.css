@@ -1,0 +1,154 @@
+/* PASIKLABAN 2026: gilded type, cream paper, ember light and red woven cloth. */
+#stage { --accent:#e9a531; --fire:#e77b23; --fire-deep:#9b4121; --cream:#fff5d9; --pk-ink:#482615; --pk-gold:#d99a32; --pk-red:#a6242d; --pk-night:#251713; }
+.fullscreen,.mpl-result-scene {
+  color:#482615;
+  background:radial-gradient(ellipse at 8% 110%,#f7b92ebf,transparent 54%),radial-gradient(ellipse at 98% 0,#ffd96b8c,transparent 46%),linear-gradient(135deg,#f3ebd2,#fff8e5 48%,#f2dba0);
+}
+.fullscreen::before { content:''; position:absolute; inset:0; background:url('/assets/pasiklaban/fabric-frame.svg') center/100% 100% no-repeat; opacity:.85; pointer-events:none; }
+.fullscreen::after { border-color:#b47b294a; }
+.fabric-bg { background:radial-gradient(ellipse at 0 100%,#f4b6379c,transparent 50%),radial-gradient(ellipse at 90% 0,#ffe9a6b0,transparent 50%),linear-gradient(130deg,#f6edd4,#fff8e8 45%,#ead199); }
+.fabric-bg::before { inset:0; width:auto; height:auto; border:0; border-radius:0; box-shadow:none; transform:none; background:url('/assets/pasiklaban/fabric-frame.svg') center/100% 100% no-repeat; }
+.fabric-bg::after { display:none; }
+.fabric-bg i { left:-20%; width:140%; height:95px; top:-55px; border:0; border-radius:50%; background:url('/assets/pasiklaban/weave.svg') 0 0/190px 95px repeat-x; box-shadow:0 12px 22px #70401530; filter:none; opacity:.72; animation:pasiklaban-cloth-drift 22s ease-in-out infinite alternate; }
+.fabric-bg i:nth-child(2) { top:auto; bottom:-65px; height:140px; background-size:280px 140px; transform:rotate(-7deg); animation-delay:-9s; opacity:.65; }
+.fabric-bg i:nth-child(3) { display:none; }
+@keyframes pasiklaban-cloth-drift { to { translate:24px 12px; rotate:2deg; } }
+.broadcast-corner { display:none; }
+.broadcast-topline,.broadcast-bottom { color:#75431f; }
+.broadcast-brand h1 { color:#a65523; text-shadow:0 2px 0 #ffe4a1,0 4px 12px #ce962525; }
+.broadcast-brand p { color:#653b24; }
+.broadcast-brand p>b { background:#a82f29; color:#fff2d5; }
+.broadcast-brand>img { content:url('/assets/pasiklaban/emblem.png'); filter:drop-shadow(0 5px 8px #ae702637); }
+.broadcast-show-clock>span { background:linear-gradient(120deg,#e6a740,#ffdb83); color:#643219; border-color:#bb822b; }
+.broadcast-show-clock>b { color:#864221; text-shadow:0 2px #fff6dd; }
+.broadcast-fixtures h2 { color:#7d4320; background:linear-gradient(#fff7df,#efd9a4); border:1px solid #bb8b40; border-bottom:3px solid #b57424; }
+.fixture-caption { color:#794522; background:#fff6df; border-color:#c99a52; }
+.fixture-match { background:#fff7e3; color:#6f3920; border-color:#c6974c; }
+.fixture-side.blue,.intermission-desk .im-side.blue,.im-fixture .im-side.blue { background:linear-gradient(105deg,#785032,#a46a32); }
+.fixture-side.red,.intermission-desk .im-side.red,.im-fixture .im-side.red { background:linear-gradient(105deg,#87282c,#b74231); }
+.fixture-side>span,.fixture-side.red>span { background:transparent; }
+.fixture-initial { color:#7b4322; }
+.fixture-vs { color:#9b612a; }
+.standby-partners { color:#6b4227; }
+.broadcast-ad-stage { border:2px solid #c8933b; box-shadow:0 0 0 5px #fff1c4,0 12px 35px #74401240; }
+.broadcast-ad-placeholder { background:radial-gradient(ellipse at 55% 15%,#794528,#2d1c15 70%); color:#fff0ce; }
+.broadcast-ad-placeholder::before { content:''; position:absolute; inset:0; background:url('/assets/pasiklaban/fabric-frame.svg') center/100% 100% no-repeat; opacity:.36; pointer-events:none; }
+.broadcast-ad-placeholder>* { position:relative; }
+.broadcast-ad-placeholder h2 { color:#ffca5c; text-shadow:0 3px #622915; }
+.broadcast-ad-placeholder>img { content:url('/assets/pasiklaban/wordmark.png'); width:420px; height:145px; }
+.standby-versus .initial { color:#723818; background:#ffefc7; }
+.ticker,.broadcast-bottom { color:#fff0ce; background:linear-gradient(90deg,#4e2319f5,#7b3524f5,#4e2319f5); border-top:2px solid #c99035; }
+.broadcast-bottom { padding:9px 16px; bottom:14px; }
+.showheader { color:#855027; }
+.showheader img:first-child { content:url('/assets/pasiklaban/wordmark.png'); width:330px; max-width:330px; height:100px; }
+.eventbug { background:#4d291deb; color:#fff2cf; border-color:#e3ad46; }
+
+/* Night palette for intermission and player spotlights. */
+.intermission-desk,.mvp-scene { color:#fff1d1; background:radial-gradient(ellipse at 70% 8%,#87512666,transparent 52%),radial-gradient(ellipse at 40% 110%,#ce632d50,transparent 48%),linear-gradient(135deg,#231915,#3c231a,#1d1513); }
+.intermission-desk .fabric-bg { background:radial-gradient(ellipse at 50% 105%,#a3442755,transparent 60%),linear-gradient(140deg,#241916,#3b251b,#211713); }
+.intermission-desk .fabric-bg::before { opacity:.7; }
+.intermission-desk .im-label { color:#ffda83; background:linear-gradient(110deg,#49271d,#6b3824); border-color:#d69e40; box-shadow:0 2px #c9913550; }
+.intermission-desk .im-fixture-meta { background:#39241b; color:#f6ca78; border-color:#ba843a77; }
+.intermission-desk .im-fixture-body { background:#382419; color:#fff1d1; border-color:#b9833977; }
+.intermission-desk .im-score b { color:#ffe9b9; }
+.intermission-desk .im-clock .im-label { color:#522b1b; background:linear-gradient(110deg,#e6ae4c,#ffdc86); border-color:#e6ae4c; }
+.intermission-desk .im-clock>b { color:#ffdfa0; text-shadow:0 3px #632b19; }
+.intermission-desk .im-feed,.intermission-desk .im-featured { background:#291b17; border-color:#cb943c; box-shadow:0 8px 24px #10060488; }
+.intermission-desk .im-feed-placeholder { background:radial-gradient(ellipse at 50% 5%,#744429,#392318 62%,#221713); border-color:#d99f39; }
+.intermission-desk .im-feed-placeholder h2 { color:#ffcb62; text-shadow:0 2px #652c1a; }
+.intermission-desk .im-feed-placeholder p { color:#ecd6b4; }
+.intermission-desk .im-brand { background:linear-gradient(145deg,#573021,#2a1c17); border-color:#cb943c; }
+.intermission-desk .im-featured-banner { background:linear-gradient(110deg,#4a291df5,#713923f5); border-color:#d9a243; }
+.im-partners img { background:#fff4da; border-radius:5px; padding:6px; }
+.im-partners .msl-partner-mark { content:url('/assets/msl-ph-black-wide.png'); }
+.mvp-scene .mvp-title { color:#ffc662; text-shadow:0 3px #73321d,0 8px 30px #110a05; }
+.mvp-scene .mvp-matchline { color:#f3ca86; }
+.mvp-scene .mvp-stat,.mvp-scene .mvp-block { color:#fff0d1; background:linear-gradient(140deg,#593421ef,#301e16ef); border-color:#c292435e; }
+.mvp-scene .mvp-stat b,.mvp-scene .mvp-stat small,.mvp-scene .mvp-block>span { color:#ffdb92; }
+.mvp-scene .mvp-nameplate { color:#452417; background:linear-gradient(110deg,#dca13e,#fff0b3,#dfae51); border-color:#e4b353; }
+.mvp-badge { background:#842f28; color:#fff0ce; }
+.mvp-scene .showheader { background:transparent !important; border:none !important; box-shadow:none !important; border-radius:0 !important; padding:0 !important; }
+
+/* Draft and player rails keep their game-side color cues and capture positions. */
+.broadcast-draft { background:#422a1d; border-color:#d29b3c; box-shadow:0 6px 25px #1b0c0988,inset 0 1px #fff0b455; }
+.broadcast-bans { background:linear-gradient(100deg,#38211b,#633123,#38211b); }
+.broadcast-ban { background:#241815; border-color:#bb853a66; }
+.broadcast-pick { background:linear-gradient(135deg,#60462c,#2d2119); border-color:#b8813966; }
+.broadcast-draft-side.red .broadcast-pick { background:linear-gradient(135deg,#672e2b,#321a18); }
+.broadcast-player-name { background:#362118ef; color:#fff2d3; border-top:2px solid #bb8b43; }
+.broadcast-draft-side.red .broadcast-player-name { background:#54201fef; }
+.vertical-hero { color:#ffdf95; background:#2d1b15a6; }
+.broadcast-draft-center,.draft-center-body { background:linear-gradient(140deg,#5e3823,#302018); }
+.draft-event-strip { background:#472b1e url('/assets/pasiklaban/weave.svg') center/240px 120px; border-color:#d2a04a; }
+.draft-event-strip::before { content:''; position:absolute; inset:0; background:#25160dc4; pointer-events:none; }
+.draft-event-strip { position:relative; }
+.draft-event-strip>img { position:relative; }
+.draft-event-strip .msl-mini { background:#3e281ded; border-color:#d3a453; }
+.draft-match-label { color:#4f2717; background:linear-gradient(110deg,#e2ad4b,#ffe4a0,#d99839); }
+.draft-center-team>b,.draft-center-clock>span { color:#ffe9b5; }
+.draft-center-clock>b,.draft-center-team>small { color:#ffca64; text-shadow:0 2px #4a2115; }
+.draft-bottom-line { background:url('/assets/pasiklaban/weave.svg') center/160px 80px; }
+.player-rail .rail-player { background:#fff3d8; border-color:#c6954a; color:#4c2b1c; }
+.rail-body { background:#fff2d8; }
+.player-rail .rail-name { border-bottom:2px solid #e0b259; }
+.rail-hero { border-color:#c19549; background:#ebd7ac; }
+
+/* Schedules, partners and ad holding screens use the warm paper palette. */
+.schedulecontent,.schedulecontent h1 { color:#74401f; }
+.schedulecontent .eyebrow { color:#ad6c2d; }
+.schedulecontent .fixture { color:#5a321f; background:#fff8e9ee; border:1px solid #ca9c57; border-bottom:3px solid #b37831; }
+.schedulecontent .fixture time { color:#995722; }
+.schedulecontent .fixture small,.schedulecontent .fixture i { color:#886346; }
+.schedule-side.blue { background:linear-gradient(100deg,#a27137,#744b2c); color:#fff4d8; }
+.schedule-side.red { background:linear-gradient(100deg,#aa3930,#76262c); color:#fff4d8; }
+.break-screen { background:radial-gradient(ellipse at 10% 100%,#f0b644aa,transparent 55%),linear-gradient(135deg,#f3e7c7,#fff8e5,#edcf8d); }
+.break-screen .motion-background { opacity:.06; filter:sepia(1); }
+.sponsor-show h1 { color:#915321; }
+.partner-tile { color:#5e321e; background:linear-gradient(#fffaf0,#f6e6bf); border-color:#c38f40; border-bottom:5px solid #a76a27; box-shadow:0 12px 30px #854a1524; }
+.partner-art { background:#fffdfa; border:1px solid #e6c17d; }
+.partner-tile>small { color:#8a623d; }
+.partner-empty,.ad-empty,.ad-empty .eyebrow { color:#824b27; }
+.ads-screen { background:radial-gradient(ellipse at 50% 5%,#6c4027,#271b16); }
+.ads-screen.fullscreen::before { opacity:.55; }
+.ads-screen .ad-empty { color:#ffe4a8; }
+.ad-empty p { color:#e5c8a6; }
+.ad-bug { background:#3d241ced; border-color:#edb54f; color:#fff0d3; }
+.ad-bug span { color:#ffc96c; }
+.ad-progress i { background:linear-gradient(90deg,#a52e29,#e8a636,#ffdf8c); }
+
+/* Result cards retain readable team colors within the Pasiklaban frame. */
+.mpl-result-scene .mpl-halftone { opacity:.12; background-image:radial-gradient(#9b5a24 1.8px,transparent 1.8px); }
+.mpl-result-scene .mpl-tournament-logo img { content:url('/assets/pasiklaban/emblem.png'); }
+.mpl-result-scene .mpl-match-pill { color:#6b361b; background:linear-gradient(#fff4d0,#e4b95f); border-color:#b67d32; }
+.mpl-result-scene .mpl-player-row { background:linear-gradient(100deg,#fffaeced,#f5e6c5ed); border-color:#c89b52; box-shadow:0 2px 8px #69331119; }
+.mpl-result-scene .mpl-card-objectives,.mpl-result-scene .mpl-card-killmap,.mpl-result-scene .mpl-card-sponsor { background:#fff5ddeb; border-color:#c79a4e; box-shadow:0 4px 16px #713d1a20; }
+.mpl-result-scene .mpl-stat-label,.mpl-result-scene .mpl-obj-label { color:#916342; }
+.mpl-result-scene .mpl-stat-val,.mpl-result-scene .mpl-obj-time { color:#532c1a; }
+.mpl-result-scene .mpl-sponsor-ribbon,.mpl-result-scene .mpl-killmap-head { color:#fff0d2; background:#87432a; }
+.mpl-result-scene .mpl-player-name { color:#5b301a; }
+
+.playoffs-bracket { background:#3e2419; }
+.playoffs-bracket::after { content:''; position:absolute; inset:0; z-index:3; pointer-events:none; border:4px solid #d3a04e; box-shadow:inset 0 0 25px #66321555; }
+
+/* Traditional interlaced weaving transition with alternating panels. */
+.scene-change-cover { position:fixed; inset:0; transform:none !important; overflow:hidden; z-index:99999; pointer-events:none; background:transparent; }
+.weave-track { position:absolute; inset:0; overflow:hidden; pointer-events:none; background:#1e100c; }
+.weave-panel { position:absolute; left:0; right:0; height:calc(100% / 6 + 3px); background:linear-gradient(90deg,#24140e 0%,#4a2118 20%,#76331f 50%,#4a2118 80%,#24140e 100%),url('/assets/pasiklaban/weave.svg') repeat-x center/auto 85%; background-blend-mode:overlay; border-top:2px solid #dfa547; border-bottom:2px solid #8e2b17; box-shadow:0 8px 24px rgba(16,5,2,0.7); will-change:transform; }
+.weave-panel.p0 { top:0; z-index:1; }
+.weave-panel.p1 { top:calc(100% / 6 * 1 - 1px); z-index:2; background-position:60px center; }
+.weave-panel.p2 { top:calc(100% / 6 * 2 - 1px); z-index:3; }
+.weave-panel.p3 { top:calc(100% / 6 * 3 - 1px); z-index:4; background-position:120px center; }
+.weave-panel.p4 { top:calc(100% / 6 * 4 - 1px); z-index:5; }
+.weave-panel.p5 { top:calc(100% / 6 * 5 - 1px); z-index:6; background-position:180px center; }
+.stinger-bg-shimmer { position:absolute; inset:-40%; background:linear-gradient(115deg,transparent 30%,rgba(255,225,140,0.18) 50%,transparent 70%); animation:stinger-shimmer 2.2s ease-in-out infinite alternate; pointer-events:none; z-index:7; }
+.scene-change-cover .weave-ribbon { position:absolute; left:-25%; width:150%; height:clamp(80px,16vh,180px); background:url('/assets/pasiklaban/weave.svg') center/auto 100% repeat-x; box-shadow:0 16px 36px rgba(18,5,3,0.8),inset 0 3px rgba(255,232,163,0.55); border-top:2px solid #edbc60; border-bottom:2px solid #edbc60; pointer-events:none; z-index:8; will-change:transform; }
+.scene-change-cover .ribbon-1 { top:6%; transform:rotate(-16deg); }
+.scene-change-cover .ribbon-2 { top:48%; transform:rotate(15deg); opacity:.85; }
+.scene-change-cover .ribbon-3 { bottom:4%; transform:rotate(-16deg); }
+.stinger-centerpiece { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); display:flex; flex-direction:column; align-items:center; justify-content:center; z-index:12; pointer-events:none; will-change:transform,opacity; }
+.stinger-emblem { width:140px; height:140px; object-fit:contain; filter:drop-shadow(0 0 28px rgba(240,175,55,0.85)); margin-bottom:10px; animation:pasiklaban-emblem-glow 1.8s ease-in-out infinite alternate; }
+.scene-change-cover .weave-wordmark { position:relative; width:min(58vw,860px); height:auto; max-height:220px; object-fit:contain; filter:drop-shadow(0 14px 28px rgba(25,6,8,0.85)); }
+@keyframes pasiklaban-emblem-glow { 0% { filter:drop-shadow(0 0 16px rgba(233,165,49,0.6)); transform:scale(1); } 100% { filter:drop-shadow(0 0 38px rgba(255,225,120,0.95)); transform:scale(1.06); } }
+@keyframes stinger-shimmer { from { transform:translateX(-25%); } to { transform:translateX(25%); } }
+@media(prefers-reduced-motion:reduce) { .fabric-bg i,.scene-change-cover .weave-ribbon,.stinger-centerpiece,.stinger-emblem,.stinger-bg-shimmer,.weave-panel { animation:none; } }
+

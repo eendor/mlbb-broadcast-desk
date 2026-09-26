@@ -38,7 +38,8 @@ const bans={blue:['Brody','Carmilla','Cici','Gloo','Paquito'],red:['Barats','Eud
   for(const side of ['blue','red']){assert.deepEqual(state[side].players.map(p=>p.hero),picks[side]);assert.deepEqual(state[side].bans,bans[side]);}
   assert.equal(state.phase,'Last Changes');assert.equal(state.draftTimer.remaining,6);
   await output.waitForFunction(()=>document.querySelectorAll('.broadcast-pick[data-hero]').length===10&&state.red.players[4].hero==='Suyou');
-  assert.equal(await output.locator('.broadcast-ban').count(),10);
+  // Default state has no later-round context, so the draft shows 3 bans per side.
+  assert.equal(await output.locator('.broadcast-ban').count(),6);
   await output.waitForFunction(()=>[...document.querySelectorAll('.broadcast-ban img,.broadcast-pick img')].every(img=>img.complete&&img.naturalWidth>0));
   await output.screenshot({path:'data/draft-video-final.png'});
   // A system volume panel covering the anchor must hold the last valid state.
@@ -60,6 +61,6 @@ const bans={blue:['Brody','Carmilla','Cici','Gloo','Paquito'],red:['Barats','Eud
   await page.request.post(base+'/api/state',{data:{scene:'postgame',blue:{players:s.blue.players}}});
   await output.waitForSelector('.result-items img');assert.equal(await output.locator('.result-items img').first().getAttribute('src'),item.icon);
   assert.deepEqual(errors,[]);
-  console.log('PASS real draft footage: early/late bans, pending and covered slots, five picks and bans per side, window normalization, red countdown, MP4 playback -> API -> OBS, stop/freeze, local result artwork and schedule preservation. Final frame, three reads: '+final.ms+' ms.');
+  console.log('PASS real draft footage: early/late bans, pending and covered slots, five picks, round-based ban slots, window normalization, red countdown, MP4 playback -> API -> OBS, stop/freeze, local result artwork and schedule preservation. Final frame, three reads: '+final.ms+' ms.');
  }finally{await browser.close();server.closeAllConnections();await new Promise(r=>server.close(r));}
 })().catch(e=>{console.error(e);process.exitCode=1;});

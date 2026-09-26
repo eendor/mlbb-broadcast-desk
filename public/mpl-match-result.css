@@ -1,0 +1,849 @@
+/* ==========================================================================
+   MPL Match Result Screen — Recreated purely in CSS & SVG (1920x1080)
+   ========================================================================== */
+
+.mpl-result-scene {
+  position: absolute;
+  inset: 0;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  font-family: 'Rajdhani', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #111827;
+  user-select: none;
+  background-color: #ffffff;
+  /* Fluid vibrant MPL backdrop recreated with pure CSS mesh/radial gradients */
+  background-image:
+    radial-gradient(ellipse 75% 60% at 10% 100%, rgba(246, 148, 36, 0.95) 0%, rgba(249, 190, 74, 0.8) 32%, rgba(255, 235, 175, 0.3) 55%, transparent 75%),
+    radial-gradient(ellipse 55% 45% at 0% 50%, rgba(251, 189, 76, 0.75) 0%, rgba(253, 215, 130, 0.3) 40%, transparent 65%),
+    radial-gradient(ellipse 70% 55% at 15% 5%, rgba(128, 186, 249, 0.85) 0%, rgba(186, 216, 252, 0.6) 35%, rgba(230, 242, 255, 0.2) 55%, transparent 70%),
+    radial-gradient(ellipse 75% 60% at 85% 10%, rgba(226, 118, 182, 0.85) 0%, rgba(239, 160, 206, 0.6) 35%, rgba(250, 215, 235, 0.2) 55%, transparent 70%),
+    radial-gradient(ellipse 80% 55% at 95% 95%, rgba(246, 114, 56, 0.95) 0%, rgba(251, 166, 85, 0.8) 35%, rgba(255, 210, 160, 0.25) 55%, transparent 75%),
+    radial-gradient(circle at 50% 45%, #ffffff 0%, #f6f8fc 65%, #edf2f9 100%);
+}
+
+/* Halftone dot texture overlays */
+.mpl-halftone {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.38;
+}
+.mpl-halftone.left {
+  bottom: 0;
+  left: 0;
+  width: 480px;
+  height: 480px;
+  background-image: radial-gradient(#d97706 1.8px, transparent 1.8px);
+  background-size: 14px 14px;
+  mask-image: radial-gradient(circle at 0% 100%, black 0%, transparent 70%);
+  -webkit-mask-image: radial-gradient(circle at 0% 100%, black 0%, transparent 70%);
+}
+.mpl-halftone.right {
+  top: 0;
+  right: 0;
+  width: 480px;
+  height: 480px;
+  background-image: radial-gradient(#db2777 1.8px, transparent 1.8px);
+  background-size: 14px 14px;
+  mask-image: radial-gradient(circle at 100% 0%, black 0%, transparent 70%);
+  -webkit-mask-image: radial-gradient(circle at 100% 0%, black 0%, transparent 70%);
+}
+
+/* Top decorative edge & anniversary header */
+.mpl-top-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 30px;
+  background: linear-gradient(90deg, #1c152d, #291c42 50%, #1c152d);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 40px;
+  z-index: 4;
+}
+.mpl-anniversary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+.mpl-anniversary-symbols {
+  display: flex;
+  gap: 6px;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 12px;
+}
+.mpl-top-arrow {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-top: 14px solid #f97316;
+  z-index: 5;
+}
+
+/* Bottom-left tagline */
+.mpl-bottom-tagline {
+  position: absolute;
+  bottom: 22px;
+  left: 48px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 4;
+}
+.mpl-bottom-icon {
+  width: 32px;
+  height: 32px;
+  background: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.mpl-bottom-icon svg {
+  width: 20px;
+  height: 20px;
+  fill: #f97316;
+}
+.mpl-bottom-copy {
+  display: flex;
+  flex-direction: column;
+}
+.mpl-bottom-copy strong {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 17px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  color: #1f2937;
+  line-height: 1.1;
+}
+.mpl-bottom-copy small {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  color: #4b5563;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+/* ==========================================================================
+   Header Banners (Top Section)
+   ========================================================================== */
+.mpl-header {
+  position: absolute;
+  top: 52px;
+  left: 55px;
+  right: 55px;
+  height: 98px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 10;
+}
+
+/* Team Banner Structure */
+.mpl-banner {
+  display: flex;
+  align-items: stretch;
+  height: 82px;
+  width: 710px;
+}
+.mpl-banner.blue {
+  flex-direction: row;
+}
+.mpl-banner.red {
+  flex-direction: row;
+}
+
+/* Team Logo Card */
+.mpl-banner-logo {
+  width: 90px;
+  height: 82px;
+  background: #ffffff;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  flex-shrink: 0;
+  padding: 6px;
+}
+.mpl-banner-logo img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+.mpl-banner-logo .initial {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 26px;
+  font-weight: 900;
+  color: #1f2937;
+}
+
+/* Team Angled Tag Bar */
+.mpl-tag-bar {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 44px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 0 28px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+.mpl-tag-bar.blue {
+  background: #187bf5;
+  clip-path: polygon(0 0, 100% 0, calc(100% - 20px) 100%, 0 100%);
+  margin-left: 10px;
+  padding-right: 32px;
+}
+.mpl-tag-bar.red {
+  background: #e61937;
+  clip-path: polygon(20px 0, 100% 0, 100% 100%, 0 100%);
+  margin-right: 10px;
+  padding-left: 32px;
+  justify-content: flex-end;
+}
+
+/* Status & Series Section */
+.mpl-banner-status {
+  background: #f4f6fa;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 0 22px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+.mpl-banner.blue .mpl-banner-status {
+  margin-left: -14px;
+  padding-left: 24px;
+}
+.mpl-banner.red .mpl-banner-status {
+  margin-right: -14px;
+  padding-right: 24px;
+}
+
+/* Series Tally Ticks */
+.mpl-series-ticks {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.mpl-series-tick {
+  width: 9px;
+  height: 38px;
+  background: #20242a;
+  border-radius: 2px;
+  transition: background 0.2s ease;
+}
+.mpl-series-tick.won-blue {
+  background: #187bf5;
+}
+.mpl-series-tick.won-red {
+  background: #e61937;
+}
+
+/* Outcome Badges */
+.mpl-outcome-pill {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 26px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  padding: 4px 22px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+.mpl-outcome-pill.defeat {
+  background: #d4dae2;
+  color: #262c36;
+}
+.mpl-outcome-pill.victory-red {
+  background: #e61937;
+  color: #ffffff;
+}
+.mpl-outcome-pill.victory-blue {
+  background: #187bf5;
+  color: #ffffff;
+}
+
+/* Kills Box */
+.mpl-kills-box {
+  width: 78px;
+  height: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 52px;
+  font-weight: 900;
+  line-height: 1;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  flex-shrink: 0;
+}
+.mpl-kills-box.blue {
+  background: #187bf5;
+}
+.mpl-kills-box.red {
+  background: #e61937;
+}
+
+/* Center Tournament Badge */
+.mpl-center-crest {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 260px;
+}
+.mpl-tournament-logo {
+  height: 72px;
+  max-width: 190px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mpl-tournament-logo img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+}
+.mpl-match-pill {
+  background: #fcd34d;
+  color: #78350f;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 3px 18px;
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.35);
+  line-height: 1.2;
+}
+
+/* ==========================================================================
+   Main Stage Grid: Left Players (705px) | Center (310px) | Right Players (705px)
+   ========================================================================== */
+.mpl-body {
+  position: absolute;
+  top: 172px;
+  bottom: 60px;
+  left: 55px;
+  right: 55px;
+  display: grid;
+  grid-template-columns: 710px 310px 710px;
+  justify-content: space-between;
+  align-items: stretch;
+  z-index: 10;
+}
+
+/* Team Columns */
+.mpl-team-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+/* Player Row Card */
+.mpl-player-row {
+  height: 148px;
+  display: flex;
+  align-items: stretch;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  background: #ffffff;
+}
+
+/* Left side (Blue team) layout */
+.mpl-player-row.blue {
+  flex-direction: row;
+}
+/* Right side (Red team) layout: Symmetric mirror */
+.mpl-player-row.red {
+  flex-direction: row;
+}
+
+/* 1. Hero Box */
+.mpl-player-hero {
+  width: 106px;
+  position: relative;
+  overflow: hidden;
+  background: #111827;
+  flex-shrink: 0;
+}
+.mpl-player-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+.mpl-hero-empty {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4b5563;
+  font-size: 28px;
+}
+.mpl-hero-lvl {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 24px;
+  background: #000000;
+  color: #ffffff;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+/* 2. Player Photo Box */
+.mpl-player-photo-box {
+  width: 154px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.mpl-player-photo-box.blue {
+  background: #1682f6;
+}
+.mpl-player-photo-box.red {
+  background: #e61937;
+}
+
+.mpl-player-cutout {
+  position: absolute;
+  inset: 0;
+  bottom: 26px;
+  width: 100%;
+  height: calc(100% - 26px);
+  object-fit: cover;
+  object-position: center 10%;
+  transform: scale(1.32);
+  transform-origin: center 18%;
+  display: block;
+}
+.mpl-player-silhouette {
+  position: absolute;
+  inset: 0;
+  bottom: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.25;
+}
+.mpl-player-silhouette svg {
+  width: 72px;
+  height: 72px;
+  fill: #ffffff;
+}
+
+/* Battle Spell Circular Badge */
+.mpl-spell-badge {
+  position: absolute;
+  bottom: 24px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2.5px solid #f59e0b;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.5), inset 0 0 4px rgba(0,0,0,0.4);
+  background: #181c22;
+  overflow: hidden;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mpl-player-row.blue .mpl-spell-badge {
+  left: 6px;
+}
+.mpl-player-row.red .mpl-spell-badge {
+  right: 6px;
+}
+.mpl-spell-badge img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Player Nameplate at Bottom of Photo */
+.mpl-nameplate {
+  height: 26px;
+  display: flex;
+  align-items: stretch;
+  position: relative;
+  z-index: 6;
+  width: 100%;
+}
+.mpl-player-row.blue .mpl-nameplate {
+  background: #0b60c4;
+}
+.mpl-player-row.red .mpl-nameplate {
+  background: #b81229;
+}
+
+.mpl-role-box {
+  width: 26px;
+  height: 26px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.mpl-role-box svg,
+.mpl-role-box img {
+  width: 18px;
+  height: 18px;
+  filter: brightness(0);
+}
+.mpl-ign-box {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 26px;
+  padding: 0 8px;
+}
+.mpl-player-row.blue .mpl-ign-box {
+  justify-content: flex-start;
+}
+.mpl-player-row.red .mpl-ign-box {
+  justify-content: flex-end;
+}
+
+/* 3. Stats Column (KDA & Gold) */
+.mpl-player-stats {
+  width: 140px;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 12px 14px;
+  flex-shrink: 0;
+}
+.mpl-player-row.red .mpl-player-stats {
+  text-align: right;
+  align-items: flex-end;
+}
+.mpl-stat-unit {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+.mpl-stat-label {
+  font-size: 11px;
+  font-weight: 800;
+  color: #64748b;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+.mpl-stat-val {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 30px;
+  font-weight: 900;
+  color: #0f172a;
+  letter-spacing: 0.5px;
+  line-height: 1;
+}
+
+/* 4. Emblems & Talents Column */
+.mpl-player-emblems {
+  width: 110px;
+  background: #edf0f4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  flex-shrink: 0;
+}
+.mpl-main-emblem {
+  width: 44px;
+  height: 44px;
+  background: #3b4d63;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.12);
+}
+.mpl-main-emblem img {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+}
+.mpl-talents-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.mpl-talent-slot {
+  width: 26px;
+  height: 26px;
+  background: #314052;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08);
+}
+.mpl-talent-slot img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+/* 5. Items Grid (6 slots, 3x2) */
+.mpl-player-items {
+  width: 200px;
+  background: #edf0f4;
+  display: grid;
+  grid-template-columns: repeat(3, 48px);
+  grid-template-rows: repeat(2, 48px);
+  gap: 4px;
+  align-content: center;
+  justify-content: center;
+  padding: 6px;
+  flex-shrink: 0;
+}
+.mpl-item-slot {
+  width: 48px;
+  height: 48px;
+  background: #22272e;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06);
+}
+.mpl-item-slot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.mpl-item-slot.empty {
+  background: #252a32;
+}
+
+/* ==========================================================================
+   Center Column (Objectives, Kill Map, Sponsor)
+   ========================================================================== */
+.mpl-center-column {
+  width: 310px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+/* Card 1: Objectives & Gold */
+.mpl-card-objectives {
+  background: #ffffff;
+  border-radius: 6px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+.mpl-obj-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 39px;
+  padding: 0 18px;
+  border-bottom: 1px solid #edf0f5;
+}
+.mpl-obj-row:last-child {
+  border-bottom: none;
+}
+.mpl-obj-row.time-row {
+  height: 44px;
+  background: #ffffff;
+}
+.mpl-obj-label {
+  font-size: 13px;
+  font-weight: 800;
+  color: #6b7280;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.mpl-obj-time {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 28px;
+  font-weight: 900;
+  color: #111827;
+}
+.mpl-obj-val {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+  width: 60px;
+}
+.mpl-obj-val.blue {
+  color: #187bf5;
+  text-align: left;
+}
+.mpl-obj-val.red {
+  color: #e61937;
+  text-align: right;
+}
+.mpl-obj-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+}
+.mpl-obj-icon.gold-coin {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #111827;
+  color: #ffffff;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 20px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mpl-obj-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Card 2: Kill Map */
+.mpl-card-killmap {
+  background: #ffffff;
+  border-radius: 6px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.mpl-killmap-head {
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  color: #111827;
+  text-transform: uppercase;
+  border-bottom: 1px solid #edf0f5;
+}
+.mpl-killmap-svg-wrap {
+  width: 100%;
+  height: 320px;
+  background: #202428;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.mpl-killmap-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Kill Dots Glow & Animation */
+.mpl-dot-blue {
+  fill: #187bf5;
+  stroke: #ffffff;
+  stroke-width: 1.5;
+  filter: drop-shadow(0 0 4px rgba(24, 123, 245, 0.8));
+}
+.mpl-dot-red {
+  fill: #e61937;
+  stroke: #ffffff;
+  stroke-width: 1.5;
+  filter: drop-shadow(0 0 4px rgba(230, 25, 55, 0.8));
+}
+
+/* Card 3: Sponsor Box */
+.mpl-card-sponsor {
+  height: 82px;
+  background: #ffffff;
+  border-radius: 6px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
+}
+.mpl-sponsor-ribbon {
+  width: 110px;
+  background: #fcd34d;
+  clip-path: polygon(0 0, 84% 0, 100% 50%, 84% 100%, 0 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 14px;
+  color: #78350f;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 15px;
+  font-weight: 900;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+.mpl-sponsor-showcase {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+}
+.mpl-sponsor-showcase img {
+  max-height: 52px;
+  max-width: 160px;
+  object-fit: contain;
+}

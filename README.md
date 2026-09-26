@@ -28,6 +28,16 @@ This Program source follows the scene selected in Live Production. Use it for th
 
 For fixed sources, append `?scene=draft`, `?scene=scoreboard`, `?scene=players`, `?scene=countdown`, `?scene=intermission`, `?scene=sponsors`, `?scene=ads`, `?scene=postgame`, or `?scene=schedule`. Switching separate OBS scenes uses OBS's own transition settings. Draft, scoreboard and player rails have transparent backgrounds.
 
+Program scene changes use the Pasiklaban red, gold and cream woven-fabric wipe. The other broadcast scenes and control desk share the same event palette. The in-game HUD stays at X 365 / Y 5 and 1190 × 116 so it continues covering the native ML HUD; the USM seal and caster card extend to its sides. Art Roselle and Ralph Duco appear in the caster strip. Score and objective updates roll into place, with a light sweep for kills and a highlight for new series wins; the clock ticks steadily.
+
+## Automatic playoff results
+
+**Playoffs → Auto-update playoffs from match results** is enabled by default. Three distinct registered player IGNs identify each organization, including substitutes and names with small-cap lettering or decorative punctuation. The match parser previews the detected names, tags and logos. **Apply parsed data** records the game; fetching or parsing alone does not change the bracket.
+
+Live auto-detection also records a confirmed result once enough fresh player names, the winner, final kills and duration have arrived. The organization receives its win regardless of its blue/red position. The matching playoff series uses its configured best-of format and advances its winner when clinched. Unrecognized rosters, incomplete results and team pairings that do not match a ready bracket fixture leave the bracket unchanged.
+
+Recorded games persist in production backups and are protected against duplicate application. Capture scoring waits for the next draft or opening game clock (the first three minutes) before accepting another result screen. Turn automatic scoring off to operate the bracket manually.
+
 Disable "Shutdown source when not visible" to keep sources loaded. Refresh the panel and OBS browser sources after pulling updates. For ad audio, enable "Control audio via OBS" in Browser Source properties and verify the mixer. Videos default to muted.
 
 ## Swiss bracket broadcast
@@ -44,7 +54,7 @@ Run `node tests/swiss-browser.cjs` for an isolated check of the controls, all fi
 
 ## Operator workflow
 
-1. Set event, stage, team tags/logos, five players and five bans per side in Teams & draft.
+1. Set event, stage, team tags/logos, five players and each round's bans in Teams & draft. Ban slots follow the playoff round: three per side in quarterfinals, five in semifinals, third place and grand finals.
 2. Choose **Best of 3, 5 or 7** using the top toolbar. Series wins and in-game kills are separate values.
 3. Click hero or ban slots in the Live Production preview to open the picker without leaving the tab. Click supported names, statistics, logos and timers to edit them. Schedule and sponsor areas open their respective controls.
 4. Picked heroes pop in with a team-colored highlight. **MOTION** means a real looping clip is available; **STILL** means the portrait does not continuously animate. Sixteen heroes currently have MP4 artwork. Use the moving-artwork filter or import your own GIF/MP4/WebM and adjust its crop under Teams & draft. Alpha currently has no bundled moving clip.
@@ -68,7 +78,7 @@ All 41 bundled organization logos have transparent PNG copies. Saved original lo
 
 For live automation, open **OCR capture > Start live auto-detect**, then choose the clean game window. Auto-detect follows drafting, the spectator scoreboard and match results. Keep the desk page open. To replay a recording, choose **Open test video**, select **Auto-detect draft + game + result**, and start continuous OCR.
 
-In-game detection reads the clock, kills, team gold and turret counts from the supplied spectator layout. Match-result detection reads the winner, final kills, duration, player names, KDA and player gold, then switches Program to postgame when scene following is enabled. It does not invent statistics absent from the HUD. Draft detection reads the phase, countdown (including red final seconds), five picks and five bans per side. Player names stay manual by default; enable **Read draft player names** only when the captured names read cleanly. The draft preset and skin references were checked against the supplied September 13 recording.
+In-game detection reads the clock, kills, team gold and turret counts from the supplied spectator layout. Match-result detection reads the winner, final kills, duration, player names, KDA and player gold, then switches Program to postgame when scene following is enabled. It does not invent statistics absent from the HUD. Draft detection reads the phase, countdown (including red final seconds), five picks and each side's ban slots for the current round (three per side in quarterfinals, five in semifinals, third place and grand finals). Player names stay manual by default; enable **Read draft player names** only when the captured names read cleanly. The draft preset and skin references were checked against the supplied September 13 recording.
 
 **Follow draft / game / result scenes in OBS Program** controls automatic scene switching. Turn it off to choose scenes yourself while continuing live data updates. The fixed OBS source URLs retain their chosen scenes. When the HUD disappears, readings stop; lost capture or a closed panel also stops extrapolating detected clocks. API auto-sync and continuous capture share the existing single-source controls.
 

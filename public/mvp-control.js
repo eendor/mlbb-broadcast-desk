@@ -109,7 +109,7 @@
     }
     return best;
   }
-  function fillFrom(side,i){
+  async function fillFrom(side,i){
     const p=state[side].players[Number(i)];
     if(!p)throw Error('No player data to pull from');
     const {k,a}=parseKda(p.kda);
@@ -124,7 +124,7 @@
     // Prefer parsed equipment; otherwise the inferred class build; otherwise keep current.
     const items=parsedItems.some(Boolean)?parsedItems:(builtItems.some(Boolean)?builtItems:cur.items);
     const emblems=[emblem||cur.emblems[0]||'', cur.emblems[1]||'', cur.emblems[2]||'', cur.emblems[3]||''];
-    return save({mvp:{player:side+'.'+i,name:p.name||'',role:p.role||'',hero:p.hero||'',kda:p.kda||'',gpm,kp,items,emblems,spell:spell||cur.spell}});
+    await save({mvp:{player:side+'.'+i,name:p.name||'',role:p.role||'',hero:p.hero||'',kda:p.kda||'',gpm,kp,items,emblems,spell:spell||cur.spell,photo:'',photoSource:'',photoStatus:'',photoError:''}});await window.MvpPhotos?.apply(p.name,state[side].tag);
   }
   // Auto-fill from the currently selected player (manual override).
   function autofill(){const [side,i]=state.mvp.player.split('.');return fillFrom(side,Number(i));}
@@ -145,21 +145,16 @@
     if($('#mvpAutofill'))$('#mvpAutofill').onclick=run(()=>autofill());
     if($('#mvpAutoDetect'))$('#mvpAutoDetect').onclick=run(async()=>{await autoDetect();toast('MVP auto-detected from match KDA');});
     if($('#mvpShow'))$('#mvpShow').onclick=run(()=>save({scene:'mvp'}));
-    if($('#mvpClearPhoto'))$('#mvpClearPhoto').onclick=run(()=>save({mvp:{photo:''}}));
+    if($('#mvpClearPhoto'))$('#mvpClearPhoto').onclick=run(()=>save({mvp:{photo:'',photoSource:'',photoStatus:'',photoError:''}}));
     if($('#mvpPhoto'))$('#mvpPhoto').onchange=run(async e=>{
       const f=e.target.files[0];if(!f)return;
       if(f.size>25*1024*1024)throw Error('Photo must be under 25 MB');
       const r=await fetch('/api/media',{method:'POST',headers:{'Content-Type':'application/octet-stream'},body:f});
       const d=await r.json();if(!r.ok)throw Error(d.error);
       e.target.value='';
-      // Immediately show the raw photo, then swap to the background-removed cutout.
-      await save({mvp:{photo:d.url}});
-      toast('Photo uploaded — removing background…');
-      try{
-        const cut=await api('/api/photo/cutout',{url:d.url});
-        await save({mvp:{photo:cut.url}});
-        toast(cut.cutout?'Background removed':(cut.error||'Using original photo'),!cut.cutout);
-      }catch(err){toast('Background removal skipped: '+err.message,true);}
+      toast('Photo uploaded ? removing background?');
+      await api('/api/mvp/photo',{url:d.url,name:state.mvp.name});
+      toast('Background removed');
     });
   }
 

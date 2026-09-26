@@ -72,6 +72,7 @@
 .intermission-desk .im-feed-placeholder p{font-size:20px;color:#414752;max-width:80%}
 .intermission-desk .im-rail{display:flex;flex-direction:column;gap:16px;min-height:0}
 .intermission-desk .im-featured{position:relative;flex:1;min-height:280px;border:2px solid #fff;border-radius:4px;overflow:hidden;background:linear-gradient(145deg,#dfe3eb,#fff 52%,#cfd5e1);box-shadow:0 8px 24px #1113}
+.intermission-desk .im-featured .playoff-team-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 42%}
 .intermission-desk .im-featured:after{content:"";position:absolute;right:0;top:0;width:12px;height:100%;background:linear-gradient(#174cf4 0 50%,#e5090b 50%);opacity:.9;pointer-events:none}
 .intermission-desk .im-featured-photo{position:absolute;inset:0;display:grid;place-items:end center;padding:16px 24px 82px}
 .intermission-desk .im-featured-photo>img{width:100%;height:100%;object-fit:contain;object-position:50% 100%;filter:drop-shadow(0 8px 12px #1114)}
@@ -89,3 +90,78 @@
 .intermission-desk .im-partners img{width:48px;height:48px;object-fit:contain;border-radius:50%;background:#fff;padding:4px;border:1px solid #c6cad3}
 .intermission-desk .im-partners img.msl-partner-mark{width:88px;border-radius:6px;padding:4px 8px}
 @media(prefers-reduced-motion:reduce){.intermission-desk .fabric-bg i{animation:none}}
+
+/* ===== Endgame / Match result — detailed MPL-style layout ===== */
+.endgame-scene{padding:0}
+.endgame-banners{position:absolute;top:28px;left:40px;right:40px;height:112px;display:grid;grid-template-columns:1fr 210px 1fr;align-items:stretch;gap:22px;z-index:3}
+.eg-banner{height:112px;display:flex;align-items:center;gap:16px;padding:0 26px;position:relative;overflow:hidden;box-shadow:0 6px 22px #0009}
+.eg-banner.blue{clip-path:polygon(0 0,100% 0,calc(100% - 30px) 100%,0 100%);background:linear-gradient(100deg,#0b3aa8,#1d6bf0)}
+.eg-banner.red{flex-direction:row-reverse;clip-path:polygon(30px 0,100% 0,100% 100%,0 100%);background:linear-gradient(260deg,#b3121b,#e5252f)}
+.eg-banner.lose{filter:saturate(.5) brightness(.78)}
+.eg-crest{flex-shrink:0}
+.eg-crest .logo{width:78px;height:78px}
+.eg-banner-text{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center}
+.eg-banner.red .eg-banner-text{align-items:flex-end;text-align:right}
+.eg-banner-text b{font-size:36px;font-weight:900;letter-spacing:1px;color:#fff;white-space:nowrap;overflow:hidden;line-height:1}
+.eg-banner-text span{font-size:16px;letter-spacing:6px;font-weight:800;margin-top:5px}
+.eg-banner.win{outline:2px solid #e6b849;outline-offset:-2px}
+.eg-banner.win .eg-banner-text span{color:#ffe08a}
+.eg-banner.lose .eg-banner-text span{color:#e9d3d5}
+.eg-series{flex-shrink:0;font-size:66px;font-weight:900;color:#fff;line-height:1;min-width:56px;text-align:center;text-shadow:0 2px 8px #0006}
+.eg-center-badge{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;overflow:hidden}
+.eg-center-badge .eg-event{width:50px;height:50px;object-fit:contain}
+.eg-center-badge b{font-size:14px;letter-spacing:3px;font-weight:800;white-space:nowrap}
+.eg-center-badge .eg-msl{width:104px;height:30px;object-fit:contain}
+.endgame-body{position:absolute;top:158px;bottom:78px;left:40px;right:40px;display:grid;grid-template-columns:minmax(0,1fr) 250px minmax(0,1fr);gap:18px;z-index:2}
+.endgame-team{display:flex;flex-direction:column;gap:9px;min-width:0}
+.eg-team-head{display:flex;align-items:baseline;gap:12px;padding:0 6px 2px}
+.endgame-team.red .eg-team-head{flex-direction:row-reverse;text-align:right}
+.eg-team-head b{font-size:25px;font-weight:900;letter-spacing:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;flex-shrink:1}
+.eg-team-head small{font-size:15px;font-weight:800;letter-spacing:2px;white-space:nowrap}
+.eg-player{flex:1;min-height:0;display:grid;grid-template-columns:112px minmax(0,1fr) 148px auto auto;align-items:stretch;gap:12px;padding:0 14px 0 0;border-radius:8px;box-shadow:0 3px 12px #0007;overflow:hidden}
+.endgame-team.blue .eg-player{background:linear-gradient(100deg,#10263bee,#0c1c2cf2);border:1px solid #2f7fd055;border-left:4px solid #2f9df0}
+.endgame-team.red .eg-player{grid-template-columns:auto auto 148px minmax(0,1fr) 112px;padding:0 0 0 14px;background:linear-gradient(260deg,#2a141bee,#1f0f14f2);border:1px solid #c0404855;border-right:4px solid #e04048}
+.endgame-team.red .eg-items{grid-column:1;grid-row:1}
+.endgame-team.red .eg-emb{grid-column:2;grid-row:1}
+.endgame-team.red .eg-nums{grid-column:3;grid-row:1;text-align:right}
+.endgame-team.red .eg-who{grid-column:4;grid-row:1;align-items:flex-end;text-align:right}
+.endgame-team.red .eg-pic{grid-column:5;grid-row:1}
+.endgame-team.red .eg-lvl{flex-direction:row-reverse}
+.eg-pic{position:relative;min-height:122px;overflow:hidden;background:#0f1a26;flex-shrink:0}
+.eg-pic .result-hero{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 12%;display:block}
+.eg-pic>span{position:absolute;inset:0;display:grid;place-items:center;font-size:42px}
+.endgame-team.blue .eg-pic{border-right:2px solid #3f97e855}
+.endgame-team.red .eg-pic{border-left:2px solid #e05a6255}
+.eg-who{min-width:0;display:flex;flex-direction:column;justify-content:center;gap:8px;padding:12px 0}
+.eg-name{font-size:22px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.15}
+.eg-lvl{display:flex;align-items:center;gap:10px;min-width:0}
+.eg-lvl span{font-size:13px;font-weight:900;letter-spacing:1px;background:#0a141f;color:#ffd873;padding:4px 10px;border-radius:3px;border:1px solid #e6b84955;white-space:nowrap;flex-shrink:0}
+.eg-lvl small{font-size:12px;font-weight:700;letter-spacing:2px;opacity:.6;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.eg-nums{min-width:0;display:flex;flex-direction:column;justify-content:center;gap:10px;padding:12px 0}
+.eg-kda small,.eg-gold small{display:block;font-size:10px;letter-spacing:2px;opacity:.6}
+.eg-kda b{display:block;font-size:30px;font-weight:900;line-height:1.15;font-variant-numeric:tabular-nums}
+.eg-gold b{display:block;font-size:27px;font-weight:900;line-height:1.15;color:#ffd873;font-variant-numeric:tabular-nums}
+.eg-emb{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;flex-shrink:0}
+.eg-emb-main{width:56px;height:56px;border-radius:8px;object-fit:contain;background:#0a141f;border:1px solid #e6b84966;display:block;box-shadow:0 2px 6px #0007}
+.eg-emb-sub{width:40px;height:40px;border-radius:7px;object-fit:contain;background:#0a141f;border:1px solid #e6b84955;display:block}
+.eg-items{display:grid;grid-template-columns:repeat(3,50px);grid-template-rows:repeat(2,50px);gap:6px;flex-shrink:0;align-content:center}
+.eg-item{width:50px;height:50px;border-radius:7px;background:#0a141f;border:1px dashed #ffffff2a;overflow:hidden}
+.eg-item.filled{border:1px solid #e6b84977;background:#101d2b;box-shadow:0 2px 6px #0007}
+.eg-item img{width:100%;height:100%;object-fit:contain;display:block}
+.endgame-mid{display:flex;flex-direction:column;align-items:center;gap:12px;padding-top:2px;min-width:0}
+.eg-clock{width:100%;display:flex;flex-direction:column;align-items:center;padding:10px 0 12px;border-radius:8px;background:#0a1725ee;border:1px solid #e6b84955;box-shadow:0 3px 12px #0007}
+.eg-clock span{font-size:12px;letter-spacing:4px;font-weight:800;color:#f2bd43}
+.eg-clock b{font-size:46px;font-weight:900;font-variant-numeric:tabular-nums;line-height:1.1;color:#fff}
+.eg-objectives{width:100%;display:flex;flex-direction:column;gap:7px}
+.eg-obj{display:grid;grid-template-columns:52px minmax(0,1fr) 52px;align-items:center;gap:6px;padding:7px 4px;border-radius:7px;background:#0a1725dd;border:1px solid #ffffff14}
+.eg-obj i{font-style:normal;font-size:22px;font-weight:900;text-align:center;font-variant-numeric:tabular-nums}
+.eg-obj i.blue{color:#4aa8ff}
+.eg-obj i.red{color:#ff6a72}
+.eg-obj-icon{display:flex;flex-direction:column;align-items:center;gap:1px;min-width:0}
+.eg-obj-icon .sb-icon{width:28px;height:28px;filter:none}
+.eg-obj-icon small{font-size:10px;letter-spacing:2px;opacity:.7;white-space:nowrap}
+.eg-mid-brand{margin-top:auto;padding-bottom:2px}
+.eg-mid-brand img{width:104px;height:56px;object-fit:contain;opacity:.9}
+.eg-match{width:100%;text-align:center;font-size:14px;font-weight:900;letter-spacing:3px;color:#0a141f;background:linear-gradient(90deg,#f2c14d,#ffe08a,#f2c14d);border-radius:6px;padding:7px 4px;white-space:nowrap;overflow:hidden;flex-shrink:0}
+.eg-killicon{font-size:24px;color:#f2c14d;line-height:1.2}
+

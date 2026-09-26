@@ -1,7 +1,7 @@
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.HUDLayout=api;})(globalThis,()=>{
   const scenes=['draft','scoreboard','players','countdown','intermission','postgame','mvp','schedule','sponsors','ads','swiss','playoffs'];
   const groups=[
-    ['swiss','Swiss bracket','.swiss-bracket'],['playoffs','Playoffs bracket','.playoffs-video'],
+    ['swiss','Swiss bracket','.swiss-bracket'],['playoffs','Playoffs bracket','.playoffs-bracket'],
     ['draft','Draft package','.broadcast-draft'],['draft-side','Draft team','.broadcast-draft-side'],
     ['bans','Ban strip','.broadcast-bans'],['ban','Ban slot','.broadcast-ban'],
     ['pick','Hero panel','.broadcast-pick'],['hero-art','Hero artwork','.draft-hero-media'],
@@ -28,9 +28,9 @@
     ['ad-stage','Ad / standby panel','.broadcast-ad-stage'],['standby-copy','Standby content','.broadcast-ad-placeholder'],
     ['standby-title','Standby headline','.broadcast-ad-placeholder h2'],['standby-subtitle','Standby subtitle','.broadcast-ad-placeholder p'],
     ['versus','Versus teams','.standby-versus'],['ticker','Ticker','.broadcast-bottom,.ticker'],
-    ['winner','Winner block','.winner'],['winner-name','Winner name','.winner h1'],['result-score','Final score','.resultscore'],
-    ['tables','Result tables','.tables'],['result-team','Result team','.resultteam'],['result-name','Result team name','.resultteam h2'],
-    ['result-player','Result player','.resultrow'],
+    ['winner','Winner block','.winner,.eg-banner'],['winner-name','Winner name','.winner h1,.eg-banner-text b'],['result-score','Final score','.resultscore,.eg-series'],
+    ['tables','Result tables','.tables,.endgame-body'],['result-team','Result team','.resultteam,.endgame-team'],['result-name','Result team name','.resultteam h2,.eg-team-head'],
+    ['result-player','Result player','.resultrow,.eg-player'],
     ['mvp','MVP package','.mvp-scene'],['mvp-photo','MVP photo','.mvp-photo'],['mvp-splash','Hero splash','.mvp-splash'],
     ['mvp-title','MVP title','.mvp-title'],['mvp-name','MVP name plate','.mvp-nameplate'],
     ['mvp-stats','MVP stat cards','.mvp-stats'],['mvp-stat','MVP stat card','.mvp-stat'],

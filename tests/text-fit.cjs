@@ -12,7 +12,7 @@ const fs=require('node:fs'),os=require('node:os'),path=require('node:path');
   const errors=[];page.on('pageerror',e=>errors.push(e.message));
   await page.goto(base+'/overlay.html?preview=1');await page.waitForSelector('.broadcast-draft');
   await page.evaluate(()=>{events.close();state.blue.tag='USMADSSS';state.red.tag='USMADSSS';state.blue.name=state.red.name='UNIVERSITY CHAMPIONSHIP ESPORTS TEAM';state.event='UNIVERSITY MOBILE LEGENDS CHAMPIONSHIP';state.blue.players.forEach(p=>p.name='VeryLongPlayerName123');state.red.players.forEach(p=>p.name='VeryLongPlayerName123');state.schedule=[{time:'19:30 GMT+8',blue:'LONG TEAM NAME',red:'USMADSSS',note:'BO7'}];render();});
-  const cases={draft:'.draft-center-team>b,.broadcast-player-name,.broadcast-bans>span',scoreboard:'.sb-team-label,.rail-name>b',countdown:'.broadcast-brand h1,.fixture-side>span,.standby-versus>b',intermission:'.broadcast-brand h1,.fixture-side>span',postgame:'.winner h1,.resultteam h2,.resultrow>span',schedule:'.fixture>strong',sponsors:'.sponsor-show h1'};
+  const cases={draft:'.draft-center-team>b,.broadcast-player-name,.broadcast-bans>span',scoreboard:'.sb-team-label,.rail-name>b',countdown:'.broadcast-brand h1,.fixture-side>span,.standby-versus>b',intermission:'.broadcast-brand h1,.fixture-side>span',postgame:'.eg-banner-text b,.eg-team-head b,.eg-name',schedule:'.fixture>strong',sponsors:'.sponsor-show h1'};
   for(const [scene,selector] of Object.entries(cases)){
    await page.evaluate(scene=>{state.scene=scene;render();},scene);
    await page.waitForTimeout(80);

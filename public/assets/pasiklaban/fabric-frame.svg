@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" fill="none">
+  <defs>
+    <pattern id="cloth" width="72" height="96" patternUnits="userSpaceOnUse">
+      <rect width="72" height="96" fill="#a32428"/><path d="M3 0v96M69 0v96" stroke="#edbc56" stroke-width="5"/><path d="M10 0v96M62 0v96" stroke="#221b16" stroke-width="6"/>
+      <path d="M17 0v96M55 0v96" stroke="#fff0c0" stroke-width="3"/>
+      <path d="m36 6 13 18-13 18-13-18Zm0 48 13 18-13 18-13-18Z" fill="#efc35e"/><path d="m36 16 6 8-6 8-6-8Zm0 48 6 8-6 8-6-8Z" fill="#7b202a"/>
+      <path d="M0 2h72M0 5h72M0 8h72M0 11h72M0 14h72M0 17h72M0 20h72M0 23h72M0 26h72M0 29h72M0 32h72M0 35h72M0 38h72M0 41h72M0 44h72M0 47h72M0 50h72M0 53h72M0 56h72M0 59h72M0 62h72M0 65h72M0 68h72M0 71h72M0 74h72M0 77h72M0 80h72M0 83h72M0 86h72M0 89h72M0 92h72M0 95h72" stroke="#fff5ce" stroke-opacity=".08"/>
+    </pattern>
+    <linearGradient id="silk"><stop stop-color="#200608" stop-opacity=".7"/><stop offset=".4" stop-color="#ffe6a3" stop-opacity=".25"/><stop offset=".7" stop-color="#200608" stop-opacity=".08"/><stop offset="1" stop-color="#200608" stop-opacity=".5"/></linearGradient>
+    <filter id="shadow" x="-50%" y="-30%" width="200%" height="180%"><feDropShadow dx="10" dy="16" stdDeviation="15" flood-color="#4e2412" flood-opacity=".3"/></filter>
+  </defs>
+  <g filter="url(#shadow)" stroke-linecap="round">
+    <g stroke="#f2c563" stroke-width="123"><path d="M-135-100C230 150 200 310 0 590S-90 940 115 1180"/><path d="M1870-180C1620 50 2040 250 1900 580S1930 910 2070 1130"/><path d="M-210 1120C350 940 490 1250 1040 1100S1700 950 2110 1090"/></g>
+    <g stroke="url(#cloth)" stroke-width="115"><path d="M-135-100C230 150 200 310 0 590S-90 940 115 1180"/><path d="M1870-180C1620 50 2040 250 1900 580S1930 910 2070 1130"/><path d="M-210 1120C350 940 490 1250 1040 1100S1700 950 2110 1090"/></g>
+    <g stroke="url(#silk)" stroke-width="115"><path d="M-135-100C230 150 200 310 0 590S-90 940 115 1180"/><path d="M1870-180C1620 50 2040 250 1900 580S1930 910 2070 1130"/><path d="M-210 1120C350 940 490 1250 1040 1100S1700 950 2110 1090"/></g>
+  </g>
+</svg>
