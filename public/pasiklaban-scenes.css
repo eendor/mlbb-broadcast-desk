@@ -264,3 +264,8 @@
 @keyframes hud-number-flash { 0% { color:#fff;transform:translateY(-4px) scale(1.15);text-shadow:0 0 12px #ffd55c; } 100% { color:inherit;transform:none;text-shadow:none; } }
 @keyframes hud-win-light { 0% { box-shadow:0 0 0 #f5c44d; } 45% { box-shadow:0 0 15px 5px #f5c44d; } 100% { box-shadow:0 0 0 #f5c44d; } }
 @media(prefers-reduced-motion:reduce) { .reference-scoreboard.hud-enter *, .reference-scoreboard .hud-changed, .reference-scoreboard .newly-won { animation:none!important; } }
+
+/* Playoffs bracket feed and official team poster feature. */
+.playoffs-scene { width:1920px;height:1080px;display:grid;place-items:center;background:#071522;overflow:hidden; }
+.playoffs-video { width:100%;height:100%;object-fit:contain;background:#071522; }
+.intermission-desk .im-featured-photo>img.playoff-team-poster { width:100%;height:100%;object-fit:contain;object-position:center;transform:none;filter:drop-shadow(0 8px 16px #020b1688);padding:10px 22px 86px; }

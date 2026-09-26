@@ -1,7 +1,7 @@
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.HUDLayout=api;})(globalThis,()=>{
-  const scenes=['draft','scoreboard','players','countdown','intermission','postgame','mvp','schedule','sponsors','ads','swiss'];
+  const scenes=['draft','scoreboard','players','countdown','intermission','postgame','mvp','schedule','sponsors','ads','swiss','playoffs'];
   const groups=[
-    ['swiss','Swiss bracket','.swiss-bracket'],
+    ['swiss','Swiss bracket','.swiss-bracket'],['playoffs','Playoffs bracket','.playoffs-video'],
     ['draft','Draft package','.broadcast-draft'],['draft-side','Draft team','.broadcast-draft-side'],
     ['bans','Ban strip','.broadcast-bans'],['ban','Ban slot','.broadcast-ban'],
     ['pick','Hero panel','.broadcast-pick'],['hero-art','Hero artwork','.draft-hero-media'],
