@@ -203,6 +203,7 @@
 .partner-empty { color: #edc65a; }
 .ad-bug { background: #0a2032ed; border-color: #f2ae27; }
 .ad-bug span { color: #f2c14d; }
+.ad-bug img, .ad-bug .ad-bug-logo { height: 24px; width: auto; max-width: 140px; object-fit: contain; vertical-align: middle; }
 .ad-progress i { background: linear-gradient(90deg,#0878c9,#f2ae27,#168bce); }
 
 @media(prefers-reduced-motion:reduce) {

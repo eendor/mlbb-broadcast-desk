@@ -15,10 +15,10 @@
 @keyframes pasiklaban-cloth-drift { to { translate:24px 12px; rotate:2deg; } }
 .broadcast-corner { display:none; }
 .broadcast-topline,.broadcast-bottom { color:#75431f; }
-.broadcast-brand h1 { color:#a65523; text-shadow:0 2px 0 #ffe4a1,0 4px 12px #ce962525; }
-.broadcast-brand p { color:#653b24; }
+.broadcast-brand h1 { display:none !important; }
+.broadcast-brand p { color:#653b24; margin-top: 6px; }
 .broadcast-brand p>b { background:#a82f29; color:#fff2d5; }
-.broadcast-brand>img { content:url('/assets/pasiklaban/emblem.png'); filter:drop-shadow(0 5px 8px #ae702637); }
+.broadcast-brand>img { content:url('/assets/pasiklaban/wordmark.png') !important; width: 330px !important; height: 100px !important; object-fit: contain; filter:drop-shadow(0 5px 8px #ae702637); }
 .broadcast-show-clock>span { background:linear-gradient(120deg,#e6a740,#ffdb83); color:#643219; border-color:#bb822b; }
 .broadcast-show-clock>b { color:#864221; text-shadow:0 2px #fff6dd; }
 .broadcast-fixtures h2 { color:#7d4320; background:linear-gradient(#fff7df,#efd9a4); border:1px solid #bb8b40; border-bottom:3px solid #b57424; }
