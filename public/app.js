@@ -12,7 +12,53 @@ const events=new EventSource('/api/events');events.onmessage=e=>{render(JSON.par
 Promise.all([api('/assets/catalog.json'),api('/assets/match-team-logos.json')]).then(([c,matchLogos])=>{organizationLogos=[...(c.logos||[]),...Object.entries(matchLogos).filter(([n])=>!(c.logos||[]).some(l=>l.name.trim().toUpperCase()===n.trim().toUpperCase())).map(([name,url])=>({name,url}))];$('#heroes').innerHTML=c.heroes.map(h=>'<option value="'+esc(h.name)+'">').join('');$$('.logoSelect').forEach(s=>{s.innerHTML+='<optgroup label="Qualified tournament teams">'+Object.entries(matchLogos).filter(([name])=>(state?.swiss?.teams||[]).some(t=>t.status==="qualified"&&t.name.trim().toUpperCase()===name.trim().toUpperCase())).map(([name,url])=>'<option value="'+esc(url)+'">'+esc(name)+'</option>').join('')+'</optgroup><optgroup label="Other organization logos">'+c.logos.map(l=>'<option value="'+esc(l.url)+'">'+esc(l.name)+'</option>').join('')+'</optgroup>';if(state)s.value=at(state,s.dataset.path);});if(state&&!scheduleDirty)renderSchedule(state.schedule);}).catch(e=>toast(e.message,true));
 function mappings(){const v=JSON.parse($('#mapping').value);if(!v||Array.isArray(v)||typeof v!=='object')throw Error('Mappings must be a JSON object');localStorage.setItem('mapping',JSON.stringify(v));return v;}$('#mapping').value=localStorage.getItem('mapping')||'{}';$('#matchId').value=localStorage.getItem('matchId')||'';
 let parsedMatchId='';
-function showParsed(d){parsedMatchId=d?.matchId||'';parsedPatch=d?.patch??null;$('#applyParsed').disabled=!parsedPatch;$('#parsed').textContent=JSON.stringify(d,null,2);$('#parserStatus').textContent=parsedPatch?'READY TO APPLY':'CHECK RESPONSE';const rev=$('#matchObjectivesReview');if(rev){if(parsedPatch){rev.style.display='block';const bName=parsedPatch.blue?.name||state?.blue?.name||'BLUE SIDE';const rName=parsedPatch.red?.name||state?.red?.name||'RED SIDE';$('#objReviewBlueTeam').textContent=bName.toUpperCase();$('#objReviewRedTeam').textContent=rName.toUpperCase();$('#reviewBlueTurrets').value=parsedPatch.blue?.turrets??state?.blue?.turrets??0;$('#reviewBlueLord').value=parsedPatch.blue?.lord??state?.blue?.lord??0;$('#reviewBlueTurtle').value=parsedPatch.blue?.turtle??state?.blue?.turtle??0;$('#reviewRedTurrets').value=parsedPatch.red?.turrets??state?.red?.turrets??0;$('#reviewRedLord').value=parsedPatch.red?.lord??state?.red?.lord??0;$('#reviewRedTurtle').value=parsedPatch.red?.turtle??state?.red?.turtle??0;}else{rev.style.display='none';}}}
+function showParsed(d){
+  parsedMatchId=d?.matchId||'';
+  parsedPatch=d?.patch??null;
+  $('#applyParsed').disabled=!parsedPatch;
+  $('#parsed').textContent=JSON.stringify(d,null,2);
+  $('#parserStatus').textContent=parsedPatch?'READY TO APPLY':'CHECK RESPONSE';
+  const rev=$('#matchObjectivesReview');
+  if(rev){
+    if(parsedPatch){
+      rev.style.display='block';
+      const bName=parsedPatch.blue?.tag||parsedPatch.blue?.name||state?.blue?.tag||state?.blue?.name||'BLUE SIDE';
+      const rName=parsedPatch.red?.tag||parsedPatch.red?.name||state?.red?.tag||state?.red?.name||'RED SIDE';
+      const winLabel=parsedPatch.winner==='blue'?' [WINNER]':parsedPatch.winner==='red'?'':'';
+      const winLabelR=parsedPatch.winner==='red'?' [WINNER]':'';
+      $('#objReviewBlueTeam').textContent=`BLUE SIDE · ${bName.toUpperCase()}${winLabel}`;
+      $('#objReviewRedTeam').textContent=`RED SIDE · ${rName.toUpperCase()}${winLabelR}`;
+      $('#reviewBlueTurrets').value=parsedPatch.blue?.turrets??state?.blue?.turrets??0;
+      $('#reviewBlueLord').value=parsedPatch.blue?.lord??state?.blue?.lord??0;
+      $('#reviewBlueTurtle').value=parsedPatch.blue?.turtle??state?.blue?.turtle??0;
+      $('#reviewRedTurrets').value=parsedPatch.red?.turrets??state?.red?.turrets??0;
+      $('#reviewRedLord').value=parsedPatch.red?.lord??state?.red?.lord??0;
+      $('#reviewRedTurtle').value=parsedPatch.red?.turtle??state?.red?.turtle??0;
+      const mvpBadge=$('#objReviewMvpBadge');
+      if(mvpBadge){
+        mvpBadge.textContent=parsedPatch.mvp?.name?`🏆 Game MVP: ${parsedPatch.mvp.name} (${parsedPatch.mvp.player?.split('.')[0]?.toUpperCase()}) · KDA ${parsedPatch.mvp.kda||''}`:'';
+      }
+    }else{
+      rev.style.display='none';
+    }
+  }
+}
+function swapParsedSides(){
+  if(!parsedPatch)return;
+  const temp=parsedPatch.blue;
+  parsedPatch.blue=parsedPatch.red;
+  parsedPatch.red=temp;
+  if(parsedPatch.winner==='blue')parsedPatch.winner='red';
+  else if(parsedPatch.winner==='red')parsedPatch.winner='blue';
+  if(parsedPatch.mvp&&typeof parsedPatch.mvp==='object'){
+    const [side,slot]=String(parsedPatch.mvp.player||'').split('.');
+    const nextSide=side==='blue'?'red':(side==='red'?'blue':side);
+    parsedPatch.mvp.player=`${nextSide}.${slot||0}`;
+  }
+  showParsed({patch:parsedPatch,matchId:parsedMatchId});
+  toast(`Sides swapped: ${parsedPatch.blue?.tag||'Blue'} ⇄ ${parsedPatch.red?.tag||'Red'}`);
+}
+$('#swapParsedSides')?.addEventListener('click',()=>swapParsedSides());
 async function fetchMatch(){if(pollBusy)return;pollBusy=true;showParsed(null);try{localStorage.setItem('matchId',$('#matchId').value);const d=await api('/api/match/fetch',{matchId:$('#matchId').value,mapping:mappings()});$('#raw').value=JSON.stringify(d.raw,null,2);showParsed(d.parsed?{...d.parsed,matchId:$('#matchId').value.trim()}:{error:d.error});if(d.error)throw Error(d.error);toast('Post-match result parsed. Review and apply it.');}finally{pollBusy=false;}}
 $('#fetchMatch').onclick=run(()=>fetchMatch());$('#parseJson').onclick=run(async()=>{showParsed(null);showParsed(await api('/api/match/parse',{raw:JSON.parse($('#raw').value),mapping:mappings()}));});$('#applyParsed').onclick=run(async()=>{
   if(!parsedPatch)return;
@@ -21,7 +67,11 @@ $('#fetchMatch').onclick=run(()=>fetchMatch());$('#parseJson').onclick=run(async
     const input=$('#review'+(side==='blue'?'Blue':'Red')+suffix);
     if(input)objectives[side][key]=Math.max(0,parseInt(input.value||'0',10));
   }
-  const result=await api('/api/match/apply',{raw:JSON.parse($('#raw').value),mapping:mappings(),matchId:parsedMatchId,objectives});
+  for(const side of ['blue','red'])for(const key of ['turrets','lord','turtle']){
+    parsedPatch[side]??={};
+    parsedPatch[side][key]=objectives[side][key];
+  }
+  const result=await api('/api/match/apply',{patch:parsedPatch,raw:JSON.parse($('#raw').value),mapping:mappings(),matchId:parsedMatchId,objectives,mvp:parsedPatch.mvp});
   $('#sourceSummary').textContent='Post-match result · '+new Date().toLocaleTimeString();
   toast('Post-match result applied. '+(result.playoffs?.message||''));
 });$('#raw').oninput=()=>showParsed(null);$('#mapping').oninput=()=>showParsed(null);

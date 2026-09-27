@@ -95,15 +95,16 @@
     const gpm=Number(playerGpm(p))||0;
     return kda*3 + kp*4 + gpm/2000;
   }
-  // Pick the highest-scoring player across both teams (winner side gets a small
-  // edge, mirroring in-game MVP which favours the victors).
+  // Game MVP strictly belongs to the winning team. If winner is not decided yet,
+  // evaluate both teams.
   function pickMvp(){
+    const winSide=['blue','red'].includes(state?.winner)?state.winner:null;
+    const sides=winSide?[winSide]:['blue','red'];
     let best=null;
-    for(const side of ['blue','red']){
-      const teamKills=state[side].kills;
-      const winnerBonus=state.winner===side?0.5:0;
-      state[side].players.forEach((p,i)=>{
-        const score=mvpScore(p,teamKills)+winnerBonus;
+    for(const side of sides){
+      const teamKills=state[side]?.kills||0;
+      (state[side]?.players||[]).forEach((p,i)=>{
+        const score=mvpScore(p,teamKills);
         if(!best||score>best.score)best={side,i,p,teamKills,score};
       });
     }

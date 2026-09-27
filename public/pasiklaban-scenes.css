@@ -295,6 +295,6 @@
 .mvp-splash-wrap{left:0!important;width:620px!important;overflow:hidden!important}
 .mvp-splash{position:absolute!important;left:-30px!important;top:0!important;width:115%!important;height:100%!important;object-fit:cover!important;object-position:25% 15%!important;opacity:.88!important;filter:saturate(1.1) brightness(0.95)!important}
 .mvp-photo:not(.mvp-empty){position:absolute!important;left:auto!important;right:25px!important;bottom:0!important;width:72%!important;height:72%!important;max-width:72%!important;object-fit:contain!important;object-position:50% 100%!important;margin:0!important;filter:drop-shadow(0 14px 28px rgba(0,0,0,0.75))!important;transform:none;animation:mvp-player-settle 8s ease-in-out infinite alternate}
-.mvp-scene .mvp-nameplate{left:90px!important;bottom:80px!important;z-index:5!important}
+.mvp-scene .mvp-nameplate{left:90px!important;bottom:120px!important;z-index:5!important}
 @keyframes mvp-player-settle{from{transform:translateY(0)}to{transform:translateY(-3px)}}
 @media(prefers-reduced-motion:reduce){.mvp-photo:not(.mvp-empty){animation:none!important}}

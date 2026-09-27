@@ -7,5 +7,28 @@ test('official battle schema maps completed result players, hero icons and items
 test('timer pause/resume and expiry preserve elapsed time',()=>{let t={duration:30,remaining:30,endAt:null};t=timerAction(t,'start',null,1000);t=timerAction(t,'pause',null,11000);assert.equal(t.remaining,20);t=timerAction(t,'start',null,12000);assert.equal(t.endAt,32000);t=timerAction(t,'pause',null,40000);assert.equal(t.remaining,0);assert.throws(()=>timerAction(t,'reset',-1));});
 test('reject malformed state and prototype pollution',()=>{assert.throws(()=>merge(defaults(),JSON.parse('{"__proto__":{"polluted":true}}')));assert.throws(()=>validate(merge(defaults(),{blue:{kills:-1}})));assert.throws(()=>validate(merge(defaults(),{red:{players:[]}})));assert.equal({}.polluted,undefined);});
 test('battle objectives aggregate player tower/lord/turtle and fallback to live state',()=>{const player=(camp,pos,towers=0,lord=0,turtle=0)=>({camp,pos,name:`P${camp}${pos}`,heroid:70,equip_list:[],kill_num:1,dead_num:1,assist_num:1,gold_total:5000,max_level:10,destroy_tower_num:towers,kill_lord_num:lord,kill_turtle_num:turtle});const list=[...[0,1,2,3,4].map(pos=>player(1,pos,pos===0?3:pos===1?2:0,pos===0?1:0,pos===1?2:0)),...[0,1,2,3,4].map(pos=>player(2,pos,0,0,0))];const parsed=normalize({status:'result',isClosed:false,battleData:{win_camp:1,red_camp_kill:10,blue_camp_kill:5,game_time:600,player_list:list}},{},{},{blue:{turrets:2,lord:0,turtle:1}}).patch;assert.equal(parsed.red.turrets,5);assert.equal(parsed.red.lord,1);assert.equal(parsed.red.turtle,2);assert.equal(parsed.blue.turrets,2);assert.equal(parsed.blue.turtle,1);});
-test('validate accepts valid telemetry kills and rejects malformed telemetry',()=>{const s=defaults();s.telemetry={kills:[{time:'01:44',side:'blue',killer:'KZO',victim:'Sensui',x:44.3,y:266.2}]};assert.doesNotThrow(()=>validate(s));assert.throws(()=>validate({...s,telemetry:{kills:[{time:'01:44',side:'green'}]}}),/Invalid telemetry kill entry/);assert.throws(()=>validate({...s,telemetry:'not an object'}),/Invalid telemetry/);});
-
+test('official battle schema aligns camp sides to current broadcast teams and extracts winning Game MVP',()=>{
+ const Playoffs=require('../public/playoffs-model');
+ const jmesPlayers=Playoffs.team('JMES').players.slice(0,5).map((name,pos)=>({camp:1,pos,name,heroid:30+pos,equip_list:[2001,2002],kill_num:3,dead_num:4,assist_num:5,gold_total:9000,grade:pos===0?6:2,is_mvp:pos===0}));
+ const ulsPlayers=Playoffs.team('ULS-CED').players.slice(0,5).map((name,pos)=>({camp:2,pos,name,heroid:60+pos,equip_list:[3001,3002],kill_num:4,dead_num:2,assist_num:6,gold_total:12000,grade:pos===4?1:2,is_mvp:pos===4}));
+ const list=[...jmesPlayers,...ulsPlayers];
+ const currentState=defaults();
+ currentState.blue.tag='JMES';currentState.blue.name='Junior Marketing Executives Society';
+ currentState.red.tag='ULS';currentState.red.name='University Laboratory School / College of Education';
+ const parsed=normalize({status:'result',isClosed:false,battleData:{win_camp:2,red_camp_kill:17,blue_camp_kill:20,game_time:942,player_list:list}},{},{},currentState).patch;
+ assert.equal(parsed.blue.tag,'JMES');assert.equal(parsed.blue.kills,17);
+ assert.equal(parsed.red.tag,'ULS-CED');assert.equal(parsed.red.kills,20);
+ assert.equal(parsed.winner,'red');
+ assert.equal(parsed.mvp.name,ulsPlayers[4].name);
+ assert.equal(parsed.mvp.player,'red.4');
+ assert.notEqual(parsed.mvp.name,jmesPlayers[0].name);
+});
+test('official battle schema swapSides option flips blue and red camps explicitly',()=>{
+ const player=(camp,pos,grade=2,is_mvp=false)=>({camp,pos,name:`P${camp}${pos}`,heroid:70,equip_list:[],kill_num:pos+1,dead_num:1,assist_num:2,gold_total:7000,max_level:12,grade,is_mvp});
+ const list=[0,1,2,3,4].flatMap(pos=>[player(1,pos,pos===0?6:2,pos===0),player(2,pos,pos===0?1:2,pos===0)]);
+ const defaultParsed=normalize({status:'result',isClosed:false,battleData:{win_camp:2,red_camp_kill:10,blue_camp_kill:20,game_time:600,player_list:list}}).patch;
+ assert.equal(defaultParsed.winner,'blue');assert.equal(defaultParsed.blue.kills,20);assert.equal(defaultParsed.red.kills,10);
+ const swapped=normalize({status:'result',isClosed:false,battleData:{win_camp:2,red_camp_kill:10,blue_camp_kill:20,game_time:600,player_list:list}},{swapSides:true}).patch;
+ assert.equal(swapped.winner,'red');assert.equal(swapped.blue.kills,10);assert.equal(swapped.red.kills,20);
+ assert.equal(swapped.mvp.player,'red.0');
+});

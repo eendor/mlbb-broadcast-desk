@@ -427,7 +427,37 @@ app.post('/api/swiss/parse-discord-result',async(req,res)=>{
         const winCampRaw=battle.win_camp;
         if(![1,'1',2,'2'].includes(winCampRaw))throw Error('Match result not available yet');
         winCamp=Number(winCampRaw);
-        winnerTeam=winCamp===1?redSide:blueSide;
+        const camp1Players=(battle.player_list||[]).filter(p=>Number(p.camp)===1);
+        const camp2Players=(battle.player_list||[]).filter(p=>Number(p.camp)===2);
+        const id1=Playoffs.identify(camp1Players.map(p=>p.name));
+        const id2=Playoffs.identify(camp2Players.map(p=>p.name));
+        const sideScore=(teamIdent,campPlayers,teamName)=>{
+          if(!teamName)return 0;
+          let s=0;
+          const target=String(teamName).toLowerCase().trim();
+          if(teamIdent?.team){
+            const tid=String(teamIdent.team.id||'').toLowerCase().trim();
+            const tname=String(teamIdent.team.name||'').toLowerCase().trim();
+            const aliases=(teamIdent.team.aliases||[]).map(a=>String(a).toLowerCase().trim());
+            if(target===tid||aliases.includes(target)||target===tname)s+=20;
+            else if(tid.includes(target)||target.includes(tid)||aliases.some(a=>a.includes(target)||target.includes(a)))s+=10;
+          }
+          const reg=Playoffs.team(teamName);
+          if(reg){
+            const norm=str=>String(str||'').toLowerCase().replace(/[^a-z0-9]/g,'');
+            const regNames=(reg.players||[]).map(norm);
+            for(const p of campPlayers){
+              const np=norm(p.name);
+              if(np&&regNames.some(rn=>rn===np||(rn.length>=4&&(rn.includes(np)||np.includes(rn)))))s+=3;
+            }
+          }
+          return s;
+        };
+        const s1Blue=sideScore(id1,camp1Players,blueSide)+sideScore(id2,camp2Players,redSide);
+        const s1Red=sideScore(id1,camp1Players,redSide)+sideScore(id2,camp2Players,blueSide);
+        const camp1Team=s1Blue>s1Red?blueSide:(s1Red>s1Blue?redSide:redSide);
+        const camp2Team=camp1Team===blueSide?redSide:blueSide;
+        winnerTeam=winCamp===1?camp1Team:camp2Team;
         winnerSide=matchTeam(m,winnerTeam);
         if(!winnerSide)throw Error(`Could not map winner "${winnerTeam}" to ${m.blue} / ${m.red}`);
       }

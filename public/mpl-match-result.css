@@ -454,9 +454,9 @@
   width: 100%;
   height: calc(100% - 26px);
   object-fit: cover;
-  object-position: center 6%;
-  transform: scale(1.20);
-  transform-origin: center 22%;
+  object-position: center top;
+  transform: scale(1.04);
+  transform-origin: center top;
   display: block;
 }
 .mpl-player-silhouette {
