@@ -23,6 +23,22 @@ app.post('/api/playoffs/match',(req,res)=>res.json(commit({playoffs:Playoffs.edi
 app.post('/api/playoffs/format',(req,res)=>res.json(commit({playoffs:Playoffs.format(state.playoffs,req.body.round,req.body.bestOf)})));
 app.post('/api/playoffs/team',(req,res)=>{const side=req.body.side,t=Playoffs.team(req.body.team);if(!['blue','red'].includes(side)||!t)throw Error('Choose a qualified team');const players=defaults()[side].players.map((p,i)=>({...p,name:t.players[i]}));res.json(commit({[side]:{...defaults()[side],name:t.name,tag:t.id,logo:'/assets/playoffs/logos/'+t.id.replaceAll(' ','-')+'.png',players}}));});
 app.post('/api/ads/action',(req,res)=>res.json(commit({breaks:{rotation:Breaks.rotationAction(state.breaks,req.body.action)}})));
+const { downloadYoutubeAd } = require('./lib/ytdlp-ads');
+app.post('/api/ads/ytdlp', async (req, res) => {
+  const adsDir = path.join(__dirname, 'public/assets/ads');
+  const newAd = await downloadYoutubeAd(req.body.url, adsDir);
+  const existing = state.breaks?.ads || [];
+  const ads = existing.some(a => a.src === newAd.src)
+    ? existing.map(a => (a.src === newAd.src ? newAd : a))
+    : [...existing, newAd];
+  const nextBreaks = {
+    ...state.breaks,
+    ads,
+    rotation: { running: true, startAt: Date.now(), index: ads.length - 1 }
+  };
+  Breaks.validate(nextBreaks);
+  res.json({ ad: newAd, state: commit({ breaks: nextBreaks }) });
+});
 app.post('/api/layout',(req,res)=>{const {scene,id,value,resetScene}=req.body;if(!require('./public/layout-model').scenes.includes(scene))throw Error('Invalid layout scene');let layouts=state.layouts.filter(r=>!(r.scene===scene&&(resetScene===true||r.id===id)));if(resetScene!==true&&value!==null)layouts.push({scene,id,...value});res.json(commit({layouts}));});
 const ocrSamples=new Map();
 let detection=null;
