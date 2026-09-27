@@ -4,6 +4,7 @@ test-results/
 playwright-report/
 public/assets/uploads/
 public/assets/ads/*.mp4
+public/assets/commercials/*.mp4
 .env
 .env.*
 !.env.example

@@ -8,7 +8,7 @@ const app=express(),port=Number(process.env.PORT||3210),dataDir=process.env.DATA
 const clients=new Set();function commit(patch){if(patch.gameTime!==undefined&&!patch.gameClock)patch={...patch,gameClock:{...state.gameClock,running:false}};const next=validate(merge(structuredClone(state),patch));fs.writeFileSync(file+'.tmp',JSON.stringify(next,null,2));fs.renameSync(file+'.tmp',file);state=next;for(const res of clients)res.write(`data: ${JSON.stringify(state)}\n\n`);return state;}
 app.use((req,res,next)=>{res.setHeader('X-Content-Type-Options','nosniff');res.setHeader('Content-Disposition','inline');if(!lanAccess.allowsRequest(req))return res.status(403).json({error:'Use localhost or this computer’s private LAN address'});if(req.method==='POST'&&req.headers.origin&&req.headers.origin!==`http://${req.headers.host}`)return res.status(403).json({error:'Origin rejected'});next();});app.use(express.json({limit:'12mb'}));
 const staticOpts={setHeaders:(res,fp)=>{res.setHeader('Content-Disposition','inline');res.setHeader('X-Content-Type-Options','nosniff');if(fp.endsWith('.wasm'))res.setHeader('Content-Type','application/wasm');}};
-app.use(express.static(path.join(__dirname,'public'),staticOpts));app.use('/vendor/tesseract',express.static(path.join(__dirname,'node_modules/tesseract.js/dist'),staticOpts));app.use('/vendor/core',express.static(path.join(__dirname,'node_modules/tesseract.js-core'),staticOpts));app.use('/vendor/lang',express.static(path.join(__dirname,'node_modules/@tesseract.js-data/eng/4.0.0_best_int'),staticOpts));
+app.use(express.static(path.join(__dirname,'public'),staticOpts));app.use('/assets/ads',express.static(path.join(__dirname,'public/assets/commercials'),staticOpts));app.use('/vendor/tesseract',express.static(path.join(__dirname,'node_modules/tesseract.js/dist'),staticOpts));app.use('/vendor/core',express.static(path.join(__dirname,'node_modules/tesseract.js-core'),staticOpts));app.use('/vendor/lang',express.static(path.join(__dirname,'node_modules/@tesseract.js-data/eng/4.0.0_best_int'),staticOpts));
 app.post('/api/media',express.raw({type:'application/octet-stream',limit:'200mb'}),(req,res)=>res.json(saveMedia(req.body,path.join(__dirname,'public/assets/uploads'))));
 const cutout=require('./lib/photo-cutout').createCutout(__dirname,dataDir);
 app.post('/api/photo/cutout',async(req,res)=>{try{res.json(await cutout(String(req.body.url||'')));}catch(e){res.status(503).json({cutout:false,error:e.message});}});
@@ -25,7 +25,7 @@ app.post('/api/playoffs/team',(req,res)=>{const side=req.body.side,t=Playoffs.te
 app.post('/api/ads/action',(req,res)=>res.json(commit({breaks:{rotation:Breaks.rotationAction(state.breaks,req.body.action)}})));
 const { downloadYoutubeAd } = require('./lib/ytdlp-ads');
 app.post('/api/ads/ytdlp', async (req, res) => {
-  const adsDir = path.join(__dirname, 'public/assets/ads');
+  const adsDir = path.join(__dirname, 'public/assets/commercials');
   const newAd = await downloadYoutubeAd(req.body.url, adsDir);
   const existing = state.breaks?.ads || [];
   const ads = existing.some(a => a.src === newAd.src)
