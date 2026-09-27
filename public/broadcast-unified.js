@@ -9,7 +9,8 @@ function broadcastFixtures(s){const rows=s.schedule.length?s.schedule.slice(0,3)
 function fixtureScore(s,r){const matchBlue=[s.blue.name,s.blue.tag].some(n=>n&&n.toLowerCase()===String(r.blue||'').toLowerCase());const matchRed=[s.red.name,s.red.tag].some(n=>n&&n.toLowerCase()===String(r.red||'').toLowerCase());if(matchBlue&&matchRed)return [s.blue.score,s.red.score];const note=String(r.note||'');const m=note.match(/(\d+)\s*[-:]\s*(\d+)/);return m?[Number(m[1]),Number(m[2])]:[0,0];}
 function intermissionFixtures(s){const rows=(s.schedule.length?s.schedule:[{time:'UP NEXT',blue:s.blue.tag,red:s.red.tag,note:'BO'+s.bestOf,blueLogo:s.blue.logo,redLogo:s.red.logo}]).slice(0,2);return '<div class="im-fixtures"><div class="im-label">TODAY\'S MATCHES</div><div class="im-fixture-row">'+rows.map((r,i)=>{const bo=[3,5,7].includes(r.bestOf)?'BO'+r.bestOf:/^BO[357]$/i.test(r.note)?r.note:'BO'+s.bestOf;const [bs,rs]=fixtureScore(s,r);return '<article class="im-fixture"><div class="im-fixture-meta"><b>MATCH '+(i+1)+'</b><span>'+esc(r.time)+'</span><b>'+esc(bo)+'</b></div><div class="im-fixture-body"><div class="im-side blue"><span>'+esc(r.blue)+'</span>'+matchLogo(s,r.blue,r.blueLogo)+'</div><div class="im-score"><i class="blue">'+bs+'</i><b>-</b><i class="red">'+rs+'</i></div><div class="im-side red">'+matchLogo(s,r.red,r.redLogo)+'<span>'+esc(r.red)+'</span></div></div></article>';}).join('')+'</div></div>';}
 let teamSlideshowTimer=null,teamSlideIndex=0,lastTeamTransition='';
-const TEAM_SLIDESHOW_TRANSITIONS=['trans-fade-zoom','trans-slide-left','trans-slide-right','trans-slide-up','trans-zoom-blast','trans-zoom-sink','trans-wipe-diagonal','trans-iris-diamond','trans-iris-circle','trans-flash-wipe','trans-curtain-split'];
+const TEAM_SLIDESHOW_TRANSITIONS=['trans-crossfade','trans-slide-left','trans-slide-right','trans-zoom-in','trans-zoom-out'];
+function cryptoRand(){const a=new Uint32Array(1);crypto.getRandomValues(a);return a[0]/4294967296;}
 function getSlideshowTeamList(s){
  const defaultList=[{id:'JMES',name:'Junior Marketing Executives Society',poster:'JMES'},{id:'PSITS',name:'Philippine Society of Information Technology Students',poster:'PSITS'},{id:'ULS-CED',name:'University Laboratory School / College of Education',poster:'ULS-CED'},{id:'UFTTS',name:'Union of Filipino Tourism and Travel Students',poster:'UFTTS'},{id:'FSMS',name:"Future Secondary Mentors' Society",poster:'FSMS'},{id:'APO',name:'Alpha Phi Omega',poster:'APO'},{id:'EARTH SAVERS',name:'Earth Savers Club',poster:'EARTH SAVERS'},{id:'PICE',name:'Philippine Institute of Civil Engineers',poster:'PICE'}];
  const source=(typeof Playoffs!=='undefined'&&Array.isArray(Playoffs.teams)&&Playoffs.teams.length)?Playoffs.teams:defaultList;
@@ -26,24 +27,21 @@ function advanceTeamSlide(){
  teamSlideIndex=(teamSlideIndex+1)%teams.length;
  const nextTeam=teams[teamSlideIndex];
  const candidates=TEAM_SLIDESHOW_TRANSITIONS.filter(c=>c!==lastTeamTransition);
- const transition=candidates[Math.floor(Math.random()*candidates.length)]||TEAM_SLIDESHOW_TRANSITIONS[0];
+ const transition=candidates[Math.floor(cryptoRand()*candidates.length)]||TEAM_SLIDESHOW_TRANSITIONS[0];
  lastTeamTransition=transition;
  const incImg=incoming.querySelector('img');if(incImg){incImg.src=nextTeam.src;incImg.alt=nextTeam.name+' team photo';}
- TEAM_SLIDESHOW_TRANSITIONS.forEach(c=>stageEl.classList.remove(c));stageEl.classList.remove('flash-active');
+ TEAM_SLIDESHOW_TRANSITIONS.forEach(c=>stageEl.classList.remove(c));
  outgoing.className=outgoing.className.replace(/\b(transition-in|transition-out|active)\b/g,'').trim();
  incoming.className=incoming.className.replace(/\b(transition-in|transition-out|active)\b/g,'').trim();
- const prog=document.querySelector('.team-slideshow-progress');
- if(prog){prog.classList.remove('animating');void prog.offsetWidth;prog.classList.add('animating');}
- if(transition==='trans-flash-wipe')stageEl.classList.add('flash-active');
  stageEl.classList.add(transition);outgoing.classList.add('active','transition-out');incoming.classList.add('transition-in');
- setTimeout(()=>{outgoing.classList.remove('active','transition-out');incoming.classList.remove('transition-in');incoming.classList.add('active');stageEl.classList.remove(transition,'flash-active');},950);
+ setTimeout(()=>{outgoing.classList.remove('active','transition-out');incoming.classList.remove('transition-in');incoming.classList.add('active');stageEl.classList.remove(transition);},900);
 }
 function startTeamSlideshow(){if(teamSlideshowTimer)clearInterval(teamSlideshowTimer);teamSlideshowTimer=setInterval(advanceTeamSlide,5500);}
 function intermissionFeatured(s){
  const teams=getSlideshowTeamList(s);if(!teams.length)return '<div class="im-featured" data-edit="tab:breaks"><div class="im-featured-photo-logo">Select a qualified team photo</div></div>';
  if(teamSlideIndex===0&&s?.playoffs){const feat=typeof Playoffs!=='undefined'&&Playoffs.feature?Playoffs.feature(s.playoffs,s):null;if(feat){const idx=teams.findIndex(t=>t.id===feat.id);if(idx>=0)teamSlideIndex=idx;}}
  const curTeam=teams[teamSlideIndex%teams.length];
- return '<div class="im-featured im-team-slideshow" data-edit="tab:breaks"><div class="team-slides-stage"><div class="team-slide slide-a active"><img class="im-featured-photo-image playoff-team-poster" src="'+esc(curTeam.src)+'" alt="'+esc(curTeam.name)+' team photo"></div><div class="team-slide slide-b"><img class="im-featured-photo-image playoff-team-poster" src="" alt=""></div><div class="team-slide-flash" aria-hidden="true"></div></div><div class="team-slideshow-progress animating"><i class="team-progress-bar"></i></div></div>';
+ return '<div class="im-featured im-team-slideshow" data-edit="tab:breaks"><div class="team-slides-stage"><div class="team-slide slide-a active"><img class="im-featured-photo-image playoff-team-poster" src="'+esc(curTeam.src)+'" alt="'+esc(curTeam.name)+' team photo"></div><div class="team-slide slide-b"><img class="im-featured-photo-image playoff-team-poster" src="" alt=""></div><div class="team-slide-flash" aria-hidden="true"></div></div></div>';
 }
 function intermissionBrand(s){const partners=s.breaks.sponsors.slice(0,6);return '<div class="im-brand" data-edit="tab:breaks"><img class="im-wordmark" src="/assets/pasiklaban/wordmark.png" alt="'+esc(s.event)+'"><div class="im-partners">'+partners.map(p=>'<img class="'+(isMslPartner(p)?'msl-partner-mark':'')+'" src="'+esc(isMslPartner(p)?'/assets/msl-ph-white-wide.png':p.image)+'" alt="'+esc(p.name)+'" title="'+esc(p.name)+'">').join('')+(!partners.length?'<img class="msl-partner-mark" src="/assets/msl-ph-white-wide.png" alt="MSL"><img src="/assets/mlbb.png" alt="MLBB"><img src="/assets/uec.png" alt="UEC">':'')+'</div></div>';}
 function renderIntermissionDesk(s){breakSceneName='ads';breakSceneState=s;adKey='';stage.innerHTML='<div class="fullscreen intermission-desk">'+broadcastBackdrop()+'<div class="im-top">'+intermissionFixtures(s)+'<div class="im-clock"><div class="im-label">STARTS IN:</div><b data-clock="breakTimer" data-edit="breakTimer.remaining">'+clock(s.breakTimer)+'</b></div></div><div class="im-main"><div class="im-feed ads-screen" data-edit="tab:breaks"><div class="ad-media-host"></div>'+(!s.breaks.ads.length?'<div class="im-feed-placeholder"><img src="/assets/pasiklaban/emblem.png" alt=""><h2>'+esc(s.breaks.headline)+'</h2><p>'+esc(s.breaks.message)+'</p></div>':'')+'<div class="ad-progress"><i></i></div><div class="ad-playback-error" hidden>Ad playback unavailable</div></div><div class="im-rail">'+intermissionFeatured(s)+intermissionBrand(s)+'</div></div></div>';tickAds();startTeamSlideshow();}
