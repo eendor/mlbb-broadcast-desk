@@ -299,11 +299,6 @@ const PostgameOCR = (() => {
             isMvp
           };
 
-          if (isMvp) {
-            data.mvp = { side, slot: i };
-            data.winner = side;
-          }
-
           data[side].players.push(player);
         }
       }
@@ -319,6 +314,39 @@ const PostgameOCR = (() => {
         data[side].kills = teamKills;
         data[side].gold = teamGold;
       }
+
+      // Determine Winner:
+      // Priority 1: curState.winner (if live session detected nexus destruction)
+      // Priority 2: Higher kills (or gold)
+      let detectedWinner = (curState?.winner && ['blue', 'red'].includes(curState.winner))
+        ? curState.winner
+        : (data.blue.kills >= data.red.kills ? 'blue' : 'red');
+      data.winner = detectedWinner;
+
+      // Game MVP MUST ALWAYS be from the WINNING TEAM
+      const winSide = data.winner;
+      const loseSide = winSide === 'blue' ? 'red' : 'blue';
+
+      // Clear isMvp from losing team completely
+      data[loseSide].players.forEach(p => { p.isMvp = false; });
+
+      // Find the winning side's MVP: badge winner or highest score
+      let winningMvpSlot = data[winSide].players.findIndex(p => p.isMvp);
+      if (winningMvpSlot === -1) {
+        let maxScore = -Infinity;
+        data[winSide].players.forEach((p, idx) => {
+          const parts = (p.kda || '0/0/0').split('/').map(Number);
+          const k = parts[0] || 0, d = parts[1] || 0, a = parts[2] || 0;
+          const score = (k * 3) + (a * 1.5) - (d * 2) + ((p.gold || 0) / 1000);
+          if (score > maxScore) {
+            maxScore = score;
+            winningMvpSlot = idx;
+          }
+        });
+      }
+      winningMvpSlot = Math.max(0, Math.min(4, winningMvpSlot));
+      data[winSide].players.forEach((p, idx) => { p.isMvp = (idx === winningMvpSlot); });
+      data.mvp = { side: winSide, slot: winningMvpSlot };
 
       // Scan game time if available
       try {
@@ -553,11 +581,33 @@ const PostgameOCR = (() => {
       d.winner = 'blue';
       btnBlue.classList.add('active-blue');
       btnRed.classList.remove('active-red');
+      d.red.players.forEach(p => { p.isMvp = false; });
+      let bestSlot = 0, bestScore = -Infinity;
+      d.blue.players.forEach((p, idx) => {
+        const parts = (p.kda || '0/0/0').split('/').map(Number);
+        const score = ((parts[0] || 0) * 3) + ((parts[2] || 0) * 1.5) - ((parts[1] || 0) * 2) + ((p.gold || 0) / 1000);
+        if (score > bestScore) { bestScore = score; bestSlot = idx; }
+      });
+      d.blue.players.forEach((p, idx) => { p.isMvp = (idx === bestSlot); });
+      d.mvp = { side: 'blue', slot: bestSlot };
+      const radio = document.querySelector(`input[name="mvpRadio"][value="blue.${bestSlot}"]`);
+      if (radio) radio.checked = true;
     };
     btnRed.onclick = () => {
       d.winner = 'red';
       btnRed.classList.add('active-red');
       btnBlue.classList.remove('active-blue');
+      d.blue.players.forEach(p => { p.isMvp = false; });
+      let bestSlot = 0, bestScore = -Infinity;
+      d.red.players.forEach((p, idx) => {
+        const parts = (p.kda || '0/0/0').split('/').map(Number);
+        const score = ((parts[0] || 0) * 3) + ((parts[2] || 0) * 1.5) - ((parts[1] || 0) * 2) + ((p.gold || 0) / 1000);
+        if (score > bestScore) { bestScore = score; bestSlot = idx; }
+      });
+      d.red.players.forEach((p, idx) => { p.isMvp = (idx === bestSlot); });
+      d.mvp = { side: 'red', slot: bestSlot };
+      const radio = document.querySelector(`input[name="mvpRadio"][value="red.${bestSlot}"]`);
+      if (radio) radio.checked = true;
     };
 
     // Wire apply button
@@ -583,8 +633,14 @@ const PostgameOCR = (() => {
     });
 
     const selectedMvp = document.querySelector('input[name="mvpRadio"]:checked')?.value || (d.winner + '.0');
-    const [mvpSide, mvpSlotStr] = selectedMvp.split('.');
-    const mvpSlot = Number(mvpSlotStr);
+    let [mvpSide, mvpSlotStr] = selectedMvp.split('.');
+    let mvpSlot = Number(mvpSlotStr);
+    // Hard safety guard: Game MVP must ALWAYS come from the winning team
+    if (mvpSide !== d.winner || isNaN(mvpSlot) || !d[mvpSide]?.players?.[mvpSlot]) {
+      mvpSide = d.winner;
+      mvpSlot = d[mvpSide].players.findIndex(p => p.isMvp);
+      if (mvpSlot === -1) mvpSlot = 0;
+    }
     const mvpPlayer = d[mvpSide].players[mvpSlot];
 
     // Build the broadcast patch
