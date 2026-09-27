@@ -129,3 +129,28 @@ test('monotonic stat guards prevent kills, turrets, levels and kda from jumping 
   assert.equal(outGood.patch.blue.players[0].kda, '5/1/4');
   assert.equal(outGood.held.length, 0);
 });
+
+test('draft is detected during settling phases that display no countdown',()=>{
+  const c=95,ph=v=>({field:'draftPhase',value:v,confidence:c}),tm=v=>({field:'draftTimer.remaining',value:v,confidence:c});
+  // Ban/Pick always draw a countdown, so it is still required there.
+  assert.equal(Model.classify([ph('Allied Team Ban'),tm(20)],65),'draft');
+  assert.equal(Model.classify([ph('Allied Team Ban')],65),null);
+  // Settling phases show no timer at all; the phase alone must be enough,
+  // otherwise the desk drops out of draft for the whole phase.
+  for(const phase of ['Last Change','Last Changes','Battle Preparation','Swap Heroes','Adjustment'])
+    assert.equal(Model.classify([ph(phase)],65),'draft',phase);
+  // Gameplay evidence must not be mistaken for a draft phase.
+  assert.equal(Model.classify([{field:'gameTime',value:'08:12',confidence:95},{field:'blue.kills',value:5,confidence:95}],65),'game');
+  assert.equal(Model.classify([ph('Some Unrelated Heading')],65),null);
+  assert.equal(Model.classify([{field:'draftPhase',value:'Last Changes',confidence:30}],65),null);
+  assert.equal(Model.phaseHasCountdown('Allied Team Pick'),true);
+  assert.equal(Model.phaseHasCountdown('Last Changes'),false);
+});
+
+test('draft clock accepts the drawn countdown formats',()=>{
+  assert.equal(Model.draftClock('00:21'),21);
+  assert.equal(Model.draftClock('00:59'),59);
+  assert.equal(Model.draftClock('6'),6);
+  assert.equal(Model.draftClock('01:21'),null);
+  assert.equal(Model.draftClock(''),null);
+});

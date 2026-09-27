@@ -477,7 +477,7 @@
 /* Battle Spell Circular Badge */
 .mpl-spell-badge {
   position: absolute;
-  bottom: 24px;
+  bottom: 28px;
   width: 32px;
   height: 32px;
   border-radius: 50%;
@@ -491,10 +491,10 @@
   justify-content: center;
 }
 .mpl-player-row.blue .mpl-spell-badge {
-  left: 6px;
+  left: 4px;
 }
 .mpl-player-row.red .mpl-spell-badge {
-  right: 6px;
+  right: 4px;
 }
 .mpl-spell-badge img {
   width: 100%;
@@ -536,24 +536,25 @@
 }
 .mpl-ign-box {
   flex: 1;
-  display: flex;
-  align-items: center;
+  min-width: 0;
+  display: block;
   color: #ffffff;
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 19px;
+  font-size: 15px;
   font-weight: 800;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.3px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   line-height: 26px;
-  padding: 0 8px;
+  padding: 0 6px;
 }
 .mpl-player-row.blue .mpl-ign-box {
-  justify-content: flex-start;
+  text-align: left;
 }
 .mpl-player-row.red .mpl-ign-box {
-  justify-content: flex-end;
+  text-align: right;
+  direction: ltr;
 }
 
 /* 3. Stats Column (KDA & Gold) */

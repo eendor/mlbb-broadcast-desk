@@ -107,6 +107,31 @@ function getAiKey(){
 app.get('/api/ai/config',(req,res)=>{const k=getAiKey();res.json({hasKey:!!k,masked:k?k.slice(0,6)+'...'+k.slice(-4):''});});
 app.get('/api/ai/models',(req,res)=>{res.json({models:GeminiVision.getModelStatus(),activeCount:GeminiVision.getActiveModels().length});});
 app.post('/api/ai/config',(req,res)=>{const key=String(req.body.geminiApiKey||'').trim();fs.writeFileSync(aiConfigFile,JSON.stringify({geminiApiKey:key},null,2));res.json({saved:true,hasKey:!!key});});
+// Optional cloud AI for MANUAL screenshot analysis only.
+// This deliberately never reads, creates, replaces or pauses the shared
+// `detection` session. /api/detection/ai-live replaces that session when it is
+// called without one, which would silently kill the local OCR realtime loop.
+// Cloud results are returned for operator review and are never auto-applied to
+// the live broadcast from here.
+app.post('/api/ai/analyze',async(req,res)=>{
+  const key=String(req.body.apiKey||getAiKey()).trim();
+  if(!key)throw Error('Gemini API key required for cloud analysis. Save a key in the Cloud AI panel, or use local OCR.');
+  const image=String(req.body.image||'');
+  if(!image)throw Error('No screenshot provided for cloud analysis.');
+  const mode=String(req.body.mode||'result');
+  if(!['result','draft','game'].includes(mode))throw Error('Unsupported cloud analysis mode');
+  const currentMatch={
+    blue:(state.blue?.players||[]).map((p,i)=>({slot:i,name:p.name,hero:p.hero})),
+    red:(state.red?.players||[]).map((p,i)=>({slot:i,name:p.name,hero:p.hero})),
+    blueHeroes:(state.blue?.players||[]).map(p=>p.hero).filter(Boolean),
+    redHeroes:(state.red?.players||[]).map(p=>p.hero).filter(Boolean)
+  };
+  let result;
+  if(mode==='draft')result=await GeminiVision.analyzeDraft(image,key,Playoffs.teams);
+  else if(mode==='game')result=await GeminiVision.analyzeInGame(image,key,Playoffs.teams,currentMatch);
+  else result=await GeminiVision.analyzeScoreboard(image,key,Playoffs.teams);
+  res.json({mode,engine:result.engine,data:result.data,patch:result.patch,autoApplied:false});
+});
 app.post('/api/match/ai-scan',async(req,res)=>{
   const key=String(req.body.apiKey||getAiKey()).trim();
   if(!key)throw Error('Gemini API key is required. Paste your Google AI Studio API key in the Post-Match tab or set GEMINI_API_KEY.');

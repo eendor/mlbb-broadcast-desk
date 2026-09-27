@@ -207,6 +207,14 @@ window.LiveDetection=(()=>{
     }
     if(!continuous)await detailJob;
   }
+  // Stop clock extrapolation and keep the last confirmed statistics on the
+  // overlay when the capture stops delivering usable frames. Nothing is
+  // cleared, so a recovered feed resumes from the last confirmed values.
+  async function hold(){
+    if(!session)return;
+    lastClock=null;lastSeenAt=0;
+    await api('/api/detection/hold',{session}).catch(()=>{});
+  }
   async function apply(){if(!session||!lastMode)throw Error('Detect a frame first');const readings=Date.now()-lastAcceptedAt<5000?lastAccepted:[];if(!readings.length)throw Error('Readings expired; scan again');await api('/api/detection',{session,mode:lastMode,readings,sampledAt:Date.now(),live:false,switchScene:$('#detectSwitchScene').checked});}
   function grab(){learningQuery=queries.get($('#learnSlot').value);if(learningQuery)$('#learnPreview').src=learningQuery.thumbnail;}
   async function learn(){const q=learningQuery,hero=$('#learnHero').value;if(!q||!hero)throw Error('Capture a portrait and choose its hero');await HeroRecognition.learn(q,hero);stable.clear();toast('Portrait sample saved. Matching continues on the live feed.');}
@@ -748,6 +756,6 @@ window.LiveDetection=(()=>{
     return aiLoopActive;
   }
 
-  return {regions,scan,stop,reset,apply,learn,grab,idle:()=>detailJob||Promise.resolve(),scanAi,startAiLoop,stopAiLoop,isAiLoopRunning,renderAiHud,normalizeSourceForAI,heroIconUrl,itemIconUrl};
+  return {regions,scan,stop,reset,apply,hold,learn,grab,idle:()=>detailJob||Promise.resolve(),scanAi,startAiLoop,stopAiLoop,isAiLoopRunning,renderAiHud,normalizeSourceForAI,heroIconUrl,itemIconUrl};
 
 })();

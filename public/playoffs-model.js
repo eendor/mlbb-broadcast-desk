@@ -6,13 +6,13 @@
     {id:'UFTTS',name:'Union of Filipino Tourism and Travel Students',aliases:[],poster:'UFTTS',players:['Nadskie.','YAOSHI','OG |ANa.BIT','No. 1 Party Anthem','ᴇʟᴇᴠᴇɴ','Morrie']},
     {id:'FSMS',name:"Future Secondary Mentors' Society",aliases:[],poster:'FSMS',players:['Rold','Nyl?','Juswa','Mr.Pandita?','NAGING SAPAT BA AKO?','BATAK MAG RELAPSE']},
     {id:'APO',name:'Alpha Phi Omega',aliases:[],poster:'APO',players:['Silvs.','Del123.','Dracarys.','Prime Cris.','Aquil.','Solace.']},
-    {id:'EARTH SAVERS',name:'Earth Savers Club',aliases:['USM EARTH SAVERS CLUB'],poster:'EARTH SAVERS',players:['KAISER.','Solo┃levelingッ','Turzxc','music and cats','Cyfer']},
+    {id:'EARTH SAVERS',name:'Earth Savers Club',aliases:['USM EARTH SAVERS CLUB','Earth Savers'],poster:'EARTH SAVERS',players:['KAISER.','Solo┃levelingッ','Turzxc','music and cats','Cyfer'],playerAliases:{'•cꪗᠻėᵣ':'Cyfer','cꪗᠻėᵣ':'Cyfer','cyfer':'Cyfer'}},
     {id:'PICE',name:'Philippine Institute of Civil Engineers',aliases:['Philippines Institution of Civil Engineers'],poster:'PICE',players:['CEEJAY','Gravity','Reinhart','Escanor','Cronus.','Nathzz Wongsawat']}
   ];
   const key=v=>String(v||'').toLowerCase().replace(/[^a-z0-9]/g,'');
   function team(value){return teams.find(t=>[t.id,t.name,...t.aliases].some(n=>key(n)===key(value)));}
-  const smallCaps={'ᴀ':'a','ʙ':'b','ᴄ':'c','ᴅ':'d','ᴇ':'e','ꜰ':'f','ɢ':'g','ʜ':'h','ɪ':'i','ᴊ':'j','ᴋ':'k','ʟ':'l','ᴍ':'m','ɴ':'n','ᴏ':'o','ᴘ':'p','ꞯ':'q','ʀ':'r','ꜱ':'s','ᴛ':'t','ᴜ':'u','ᴠ':'v','ᴡ':'w','ʏ':'y','ᴢ':'z'};
-  const ignKey=value=>String(value||'').normalize('NFKD').replace(/\p{M}/gu,'').toLowerCase().split('').map(c=>smallCaps[c]||c).join('').replace(/[^a-z0-9]/g,'');
+  const UNICODE_LOOKALIKES={'ꪗ':'y','ᠻ':'f','ė':'e','ᵣ':'r','ᴀ':'a','ʙ':'b','ᴄ':'c','ᴅ':'d','ᴇ':'e','ꜰ':'f','ɢ':'g','ʜ':'h','ɪ':'i','ᴊ':'j','ᴋ':'k','ʟ':'l','ᴍ':'m','ɴ':'n','ᴏ':'o','ᴘ':'p','ǫ':'q','ꞯ':'q','ʀ':'r','ꜱ':'s','ᴛ':'t','ᴜ':'u','ᴠ':'v','ᴡ':'w','ʏ':'y','ᴢ':'z','ᵃ':'a','ᵇ':'b','ᶜ':'c','ᵈ':'d','ᵉ':'e','ᶠ':'f','ᵍ':'g','ʰ':'h','ⁱ':'i','ʲ':'j','ᵏ':'k','ˡ':'l','ᵐ':'m','ⁿ':'n','ᵒ':'o','ᵖ':'p','ʳ':'r','ˢ':'s','ᵗ':'t','ᵘ':'u','ᵛ':'v','ʷ':'w','ˣ':'x','ʸ':'y','ᶻ':'z','ₐ':'a','ₑ':'e','ₕ':'h','ᵢ':'i','ⱼ':'j','ₖ':'k','ₗ':'l','ₘ':'m','ₙ':'n','ₒ':'o','ₚ':'p','ᵣ':'r','ₛ':'s','ₜ':'t','ᵤ':'u','ᵥ':'v','ₓ':'x'};
+  const ignKey=value=>String(value||'').split('').map(c=>UNICODE_LOOKALIKES[c]||c).join('').normalize('NFKD').replace(/\p{M}/gu,'').toLowerCase().replace(/[^a-z0-9]/g,'');
   function levenshtein(a,b){
     const m=a.length,n=b.length,d=Array.from({length:m+1},()=>new Uint16Array(n+1));
     for(let i=0;i<=m;i++)d[i][0]=i;for(let j=0;j<=n;j++)d[0][j]=j;
@@ -43,10 +43,20 @@
     if(!raw)return null;
     if(teamHint){
       const t=team(teamHint);
-      if(t){const m=matchPlayer(raw,t.players);if(m)return {...m,team:t};}
+      if(t){
+        if(t.playerAliases && (t.playerAliases[raw] || t.playerAliases[ignKey(raw)])) {
+          const mapped = t.playerAliases[raw] || t.playerAliases[ignKey(raw)];
+          return { name: mapped, confidence: 100, method: 'alias', team: t };
+        }
+        const m=matchPlayer(raw,t.players);
+        if(m)return {...m,team:t};
+      }
     }
     let best=null;
     for(const t of teams){
+      if(t.playerAliases && (t.playerAliases[raw] || t.playerAliases[ignKey(raw)])) {
+        return { name: t.playerAliases[raw] || t.playerAliases[ignKey(raw)], confidence: 100, method: 'alias', team: t };
+      }
       const m=matchPlayer(raw,t.players);
       if(m&&(!best||m.confidence>best.confidence))best={...m,team:t};
     }

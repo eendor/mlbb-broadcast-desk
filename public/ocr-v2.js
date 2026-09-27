@@ -3,6 +3,27 @@ let stream=null,stillImage=null,clipUrl=null,workers=[],workerInit=null,ocrBusy=
 const scanScheduler=OCRRuntime.scheduler(()=>nextScan());
 let profile=localStorage.getItem('ocrProfile')||'auto';if(profile!=='auto'&&!OCRModel.profiles[profile])profile='auto';
 const stable=OCRRuntime.stability(),cache=new Map(),results=new Map(),published=new Map(),publishedMode=new Map();let lastClock=null,lastScanMs=0,lastDeliveryMs=0;
+// A live track can stay "live" while the source stops painting: a fullscreen
+// swapchain stops presenting, a Windows Graphics Capture item stalls, or OBS
+// changes resolution mid-match. None of those raise `ended`, so the frames
+// themselves are inspected before they are allowed to reach live detection.
+const healthMonitor=CaptureHealth.create(),healthCanvas=document.createElement('canvas');healthCanvas.width=64;healthCanvas.height=36;const healthCtx=healthCanvas.getContext('2d',{willReadFrequently:true});
+function inspectFrame(input){const w=input.videoWidth||input.width,h=input.videoHeight||input.height;if(!w||!h)return{ok:false,state:'starting',reason:'Waiting for the first frame'};healthCtx.drawImage(input,0,0,64,36);const pixels=healthCtx.getImageData(0,0,64,36).data,track=stream?.getVideoTracks?.()[0];return healthMonitor.observe(Object.assign(CaptureHealth.analyze(pixels,64,36),{width:w,height:h,trackState:track?(track.readyState==='ended'?'ended':track.muted?'muted':'live'):'live'}));}
+function showCaptureProblem(text,tone){const el=$('#captureHealth');if(!el)return;el.hidden=false;el.textContent=text;el.style.color=tone||'var(--accent,#e08a1e)';}
+function clearCaptureProblem(){const el=$('#captureHealth');if(el)el.hidden=true;}
+function handleUnusableFrame(health){
+  // Never let a black or frozen frame be published as a live game reading.
+  showCaptureProblem('Live detection paused — '+health.reason+'. Last confirmed statistics are held on the overlay.',health.state==='frozen'?'#f59e0b':'#ef4444');
+  $('#ocrSpeed').textContent='Capture: '+health.state;
+  $('#applyOcr').disabled=true;
+  LiveDetection.hold();
+}
+function handleRecoveredFrame(health){
+  clearCaptureProblem();
+  $('#ocrSpeed').textContent='Capture: recovered';
+  $('#ocrStatus').textContent='Capture resumed. Live detection continues from the last confirmed statistics.';
+  toast('Capture recovered after '+(health.state||'an interruption')+'.');
+}
 const controls=document.createElement('div');controls.innerHTML=`<div class="fields"><label>OCR layout<select id="ocrProfile"><option value="auto">Auto-detect draft + game + result</option><option value="scoreboard">Game scoreboard</option><option value="players">Player rails (reference crop)</option></select></label><label>Scan scope<select id="ocrScope"><option value="all">All calibrated fields</option><option value="selected">Selected field only</option></select></label><label>Confirm across frames<select id="ocrStability"><option value="3" selected>3 readings (rock-solid)</option><option value="2">2 readings</option><option value="1">1 reading (fastest)</option></select></label></div><p class="ocr-profile-note">Capture the game feed before your broadcast overlay is added. Auto-detect follows picks, bans, gameplay and the match-result screen continuously. Calibrate the boxes if the game is letterboxed or its HUD differs.</p><div id="detectControls"><strong id="detectStatus" role="status">Ready for live auto-detection</strong><label class="check"><input id="detectSwitchScene" type="checkbox" checked> Follow draft / game / result scenes in OBS Program</label><label class="check"><input id="detectDraftNames" type="checkbox"> Read draft player names (review stylized names)</label><label>Layout to calibrate<select id="detectCalibration"><option value="draft">Draft picks and bans</option><option value="game">In-game spectator HUD</option><option value="result">Match result</option></select></label><details><summary>Recognize an unfamiliar skin</summary><p>Choose a slot and the hero it shows to save a local portrait sample. It will be matched automatically when it appears again.</p><label>Unknown slot<select id="learnSlot"></select></label><img id="learnPreview" alt="Portrait selected for recognition" width="96" height="96"><button id="grabPortrait">Capture current portrait</button><label>Hero<select id="learnHero"></select></label><button id="learnPortrait">Remember this portrait</button></details></div><div class="ocr-health"><span id="ocrSpeed">Recognition: idle</span><span id="ocrDelivery">Delivery: idle</span><span id="ocrSourceSize">No capture</span></div><label class="check"><input id="ocrSmoothClock" type="checkbox" checked> Keep the game clock ticking between live readings</label><div class="buttonrow"><label class="filebutton">Open test video<input id="ocrClip" type="file" accept="video/*"></label><button id="ocrResetTracking">New game / clear OCR history</button></div>`;
 $('#captureCanvas').before(controls);$('#ocrProfile').value=profile;$('#autoOcr').textContent='⚡ Start Realtime Local Detection';$('#confidence').value=localStorage.getItem('ocrConfidence')||'80';$('#ocrStability').value=localStorage.getItem('ocrStability')||'3';
 function regionKey(){return profile==='auto'?'liveRegions:'+$('#detectCalibration').value:'ocrRegions:'+profile;}
@@ -21,43 +42,65 @@ function source(){if(stream&&stream.getVideoTracks().some(track=>track.muted||tr
 function drawCapture(){ctx.clearRect(0,0,1920,1080);const s=source();if(s){if(profile==='auto'){const f=document.createElement('canvas');f.width=s.videoWidth||s.width;f.height=s.videoHeight||s.height;f.getContext('2d').drawImage(s,0,0);ctx.drawImage(DraftCapture.normalize(f),0,0,1920,1080);}else ctx.drawImage(s,0,0,1920,1080);}ctx.font='18px Segoe UI';for(const r of regions){ctx.strokeStyle=r.field===$('#ocrField').value?'#d6f36a':'#53c9f3';ctx.lineWidth=2;ctx.strokeRect(r.x,r.y,r.w,r.h);ctx.fillStyle=ctx.strokeStyle;ctx.fillText(r.field,r.x,Math.min(1060,r.y+r.h+20));}}
 setInterval(()=>{if($('#ocr').classList.contains('active'))drawCapture();},100);
 function stopLoop(){LiveDetection.stop();if(activeSyncSource==='ocr')activeSyncSource=null;ocrLoop=false;scanScheduler.cancel();generation++;$('#autoOcr').textContent='⚡ Start Realtime Local Detection';$('#ocrProfile').disabled=false;$('#scan').disabled=ocrBusy;}
-function stopCapture(){stopLoop();if(typeof LiveDetection!=='undefined'&&LiveDetection.isAiLoopRunning?.()){LiveDetection.stopAiLoop();const btn=$('#aiLiveLoopBtn');if(btn){btn.textContent='⚡ Start Realtime AI Live Detection';btn.style.background='#8b5cf6';btn.style.borderColor='#8b5cf6';}}stream?.getTracks().forEach(t=>{t.onended=null;t.stop();});stream=null;video.pause();video.srcObject=null;video.removeAttribute('src');if(clipUrl)URL.revokeObjectURL(clipUrl);clipUrl=null;video.hidden=true;video.controls=false;stillImage?.close?.();stillImage=null;clearTracking();$('#ocrStatus').textContent='Capture stopped.';$('#ocrSourceSize').textContent='No capture';api('/api/ocr/stop',{}).catch(()=>{});}
+function stopCapture(){stopLoop();if(typeof LiveDetection!=='undefined'&&LiveDetection.isAiLoopRunning?.()){LiveDetection.stopAiLoop();const btn=$('#aiLiveLoopBtn');if(btn){btn.textContent='⚡ Start Realtime AI Live Detection';btn.style.background='#8b5cf6';btn.style.borderColor='#8b5cf6';}}stream?.getTracks().forEach(t=>{t.onended=null;t.stop();});stream=null;video.pause();video.srcObject=null;video.removeAttribute('src');if(clipUrl)URL.revokeObjectURL(clipUrl);clipUrl=null;video.hidden=true;video.controls=false;stillImage?.close?.();stillImage=null;clearTracking();healthMonitor.reset();lastSourceSize='';clearCaptureProblem();const rc=$('#reconnectCapture');if(rc)rc.hidden=true;$('#ocrStatus').textContent='Capture stopped.';$('#ocrSourceSize').textContent='No capture';api('/api/ocr/stop',{}).catch(()=>{});}
 function sourceStatus(label){const s=source();$('#ocrSourceSize').textContent=`${label}: ${s?.videoWidth||s?.width||0} × ${s?.videoHeight||s?.height||0}`;}
-async function chooseCapture(token){
- const displaySurface=$('#captureSurface')?.value||'monitor';
- let selected;
- if(displaySurface==='camera'){
-   try{
-     selected=await navigator.mediaDevices.getUserMedia({video:{width:{ideal:1920,max:1920},height:{ideal:1080,max:1080},frameRate:{ideal:30,max:60}},audio:false});
-   }catch(err){
-     toast('Could not access OBS Virtual Camera / video device: '+err.message,true);
-     return false;
-   }
- }else{
-   try{
-     const constraints={video:{frameRate:{ideal:15,max:30},cursor:'never'},audio:false,selfBrowserSurface:'exclude',surfaceSwitching:'include',systemAudio:'exclude'};
-     if(displaySurface&&displaySurface!=='any')constraints.video.displaySurface=displaySurface;
-     selected=await navigator.mediaDevices.getDisplayMedia(constraints);
-   }catch(err){
-     selected=await navigator.mediaDevices.getDisplayMedia({video:{frameRate:{ideal:15,max:30},cursor:'never'},audio:false});
-   }
+// A mid-match resolution change invalidates the calibrated 1920x1080 boxes, so
+// it has to be surfaced rather than quietly producing unreadable readings.
+let lastSourceSize='';
+function noteSourceSize(label){const s=source(),w=s?.videoWidth||0,h=s?.videoHeight||0,size=`${w}×${h}`;
+ if(lastSourceSize&&size!==lastSourceSize){
+  const scaled=w>0&&h>0&&Math.abs(w/1920-1)<0.02&&Math.abs(h/1080-1)<0.02;
+  showCaptureProblem(`Capture resolution changed to ${w} × ${h}.`+(scaled?' Live detection is re-confirming its boxes.':' This is not 1920 × 1080, so calibrated OCR boxes may no longer line up — recheck Capture mode and recalibrate.'),scaled?'#f59e0b':'#ef4444');
  }
- if(token!==generation){selected.getTracks().forEach(t=>t.stop());return false;}
- stream=selected;video.srcObject=selected;const track=selected.getVideoTracks()[0];
- try{await video.play();}catch(e){selected.getTracks().forEach(t=>t.stop());if(stream===selected){stream=null;video.srcObject=null;}throw e;}
- if(token!==generation){selected.getTracks().forEach(t=>t.stop());return false;}
- track.onended=stopCapture;
- track.onmute=()=>{if(stream===selected)$('#ocrStatus').textContent='Capture paused by the source; waiting for feed to resume.';};
- track.onunmute=()=>{if(stream===selected)sourceStatus('Live');};
- sourceStatus('Live');const actual=displaySurface==='camera'?'camera':(track.getSettings?.().displaySurface||displaySurface);
+ lastSourceSize=size;sourceStatus(label||'Live');}
+ async function chooseCapture(token){
+  const displaySurface=$('#captureSurface')?.value||'monitor';
+  // The captured-feed cursor is purely an OCR concern: OCR never needs the
+  // pointer, and a moving pointer over a calibrated box only costs accuracy.
+  // It has no effect on whether the Windows pointer is visible or clickable.
+  const cursor=$('#captureCursor')?.value==='always'?'always':'never';
+  let selected;
+  if(displaySurface==='camera'){
+    try{
+      selected=await navigator.mediaDevices.getUserMedia({video:{width:{ideal:1920,max:1920},height:{ideal:1080,max:1080},frameRate:{ideal:30,max:60}},audio:false});
+    }catch(err){
+      toast('Could not access OBS Virtual Camera / video device: '+err.message,true);
+      return false;
+    }
+  }else{
+    try{
+      const constraints={video:{frameRate:{ideal:15,max:30},cursor},audio:false,selfBrowserSurface:'exclude',surfaceSwitching:'include',systemAudio:'exclude'};
+      if(displaySurface&&displaySurface!=='any')constraints.video.displaySurface=displaySurface;
+      selected=await navigator.mediaDevices.getDisplayMedia(constraints);
+    }catch(err){
+      selected=await navigator.mediaDevices.getDisplayMedia({video:{frameRate:{ideal:15,max:30},cursor},audio:false});
+    }
+  }
+  if(token!==generation){selected.getTracks().forEach(t=>t.stop());return false;}
+  stream=selected;video.srcObject=selected;const track=selected.getVideoTracks()[0];
+  try{await video.play();}catch(e){selected.getTracks().forEach(t=>t.stop());if(stream===selected){stream=null;video.srcObject=null;}throw e;}
+  if(token!==generation){selected.getTracks().forEach(t=>t.stop());return false;}
+  healthMonitor.reset();clearCaptureProblem();$('#reconnectCapture').hidden=true;
+  const lastSize={w:track.getSettings?.().width||0,h:track.getSettings?.().height||0};
+  // Losing the track means the browser revoked the capture (the user pressed
+  // "Stop sharing", or the source went away). Only a fresh getDisplayMedia call
+  // can restore it, and that needs a user gesture, so offer a clear action
+  // rather than silently going dead.
+  track.onended=()=>{if(stream!==selected)return;$('#ocrStatus').textContent='Capture ended. Reconnect to resume live detection — your last confirmed statistics are held on the overlay.';showCaptureProblem('Capture ended. Reconnect to resume — last confirmed statistics are held.','#ef4444');$('#reconnectCapture').hidden=false;LiveDetection.hold();stopLoop();stream=null;video.srcObject=null;video.hidden=true;};
+  track.onmute=()=>{if(stream===selected)showCaptureProblem('Capture track is muted by the source. Waiting for it to resume; last confirmed statistics are held.','#f59e0b');};
+  track.onunmute=()=>{if(stream===selected){clearCaptureProblem();healthMonitor.reset();$('#ocrStatus').textContent='Capture feed resumed.';}};
+  lastSourceSize='';noteSourceSize('Live');const actual=displaySurface==='camera'?'camera':(track.getSettings?.().displaySurface||displaySurface);
  $('#captureHint').innerHTML=actual==='camera'?'<span style="color:#34d399;font-weight:bold;">✓ OBS Virtual Camera active:</span> Direct hardware video feed. 0 cursor interference, no browser sharing bar.':actual==='window'?'<span style="color:#f59e0b;font-weight:bold;">⚠️ Window capture active:</span> Windows WGC can suppress cursor over focused game windows. <b>If your cursor disappears inside MuMu, switch Capture mode above to "Entire screen" or use "OBS Virtual Camera".</b>':'<span style="color:#34d399;font-weight:bold;">✓ Screen capture active:</span> Desktop capture active. Your mouse cursor remains 100% visible inside MuMu.';
  $('#ocrStatus').textContent='Live capture ready. Click Start Realtime Local Detection to follow the match.';return true;
 }
 $('#capture').onclick=run(async()=>{stopCapture();await chooseCapture(generation);});
+// Re-granting a capture needs a fresh user gesture. getDisplayMedia can only be
+// called from one, so this button is the only way back after a lost track.
+$('#reconnectCapture').onclick=run(async()=>{const token=generation;if(await chooseCapture(token)){toast('Capture reconnected.');if(ocrLoop)nextScan();}});
 $('#stopCapture').onclick=stopCapture;
 $('#ocrImage').onchange=run(async e=>{const f=e.target.files[0];if(!f)return;stopCapture();stillImage=await createImageBitmap(f);sourceStatus('Image');drawCapture();$('#ocrStatus').textContent='Screenshot loaded. Read regions, review, and apply.';});
 $('#ocrClip').onchange=run(async e=>{const f=e.target.files[0];if(!f)return;stopCapture();clipUrl=URL.createObjectURL(f);video.src=clipUrl;video.hidden=false;video.controls=true;video.loop=false;await video.play();sourceStatus('Video');$('#ocrStatus').textContent='Test video loaded. Pause to calibrate; play for continuous OCR.';});
-video.addEventListener('resize',()=>{if(stream||clipUrl)sourceStatus(stream?'Live':'Video');});
+video.addEventListener('resize',()=>{if(stream||clipUrl)noteSourceSize(stream?'Live':'Video');});
 video.addEventListener('seeking',()=>{stopLoop();invalidate();});video.addEventListener('ended',()=>{stopLoop();api('/api/ocr/stop',{}).catch(()=>{});});
 video.addEventListener('pause',()=>LiveDetection.stopAiLoop());
 function point(e){const r=captureCanvas.getBoundingClientRect();return {x:Math.max(0,Math.min(1920,(e.clientX-r.left)*1920/r.width)),y:Math.max(0,Math.min(1080,(e.clientY-r.top)*1080/r.height))};}
@@ -86,7 +129,11 @@ function showResults(){ocrReadings=[...results.values()].filter(r=>r.accepted).m
 async function publish(readings,sampledAt,live,token){if(token!==generation)return;const start=performance.now();const result=await api('/api/ocr',{readings,sampledAt,live});if(token!==generation)return;lastDeliveryMs=Math.round(performance.now()-start);$('#ocrDelivery').textContent=`Delivery: ${lastDeliveryMs} ms`;$('#sourceSummary').textContent='OCR · '+new Date().toLocaleTimeString();if(result.applied)$('#ocrStatus').textContent=`Applied ${result.applied} field${result.applied===1?'':'s'} to broadcast.`;}
 async function applyOcr(){if(profile==='auto')return LiveDetection.apply();if(!ocrReadings.length)throw Error('No accepted readings');await publish(ocrReadings,Date.now(),false,generation);}
 async function scan(continuous=false){
- if(ocrBusy)return;if(!source())throw Error('Choose a game window, screenshot, or test video');ocrBusy=true;$('#scan').disabled=true;const token=generation,started=performance.now();let recognized=0;
+ if(ocrBusy)return;if(!source())throw Error('Choose a game window, screenshot, or test video');
+ // Only a live stream can go bad mid-scan. Screenshots and uploaded clips are
+ // static by definition and must keep working.
+ if(stream){const live=source(),health=inspectFrame(live);if(!health.ok){handleUnusableFrame(health);return;}if(health.recovered)handleRecoveredFrame(health);}
+ ocrBusy=true;$('#scan').disabled=true;const token=generation,started=performance.now();let recognized=0;
  try{
   const pool=await initWorkers();if(token!==generation)return;
   if(profile==='auto'){const input=source();if(!input)return;const frame=document.createElement('canvas');frame.width=input.videoWidth||input.width;frame.height=input.videoHeight||input.height;frame.getContext('2d').drawImage(input,0,0);await LiveDetection.scan({pool,frame,sampledAt:Date.now(),live:continuous&&!!(stream||clipUrl)&&!video.paused,current:()=>token===generation,continuous});return;}

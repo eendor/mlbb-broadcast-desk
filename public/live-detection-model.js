@@ -67,9 +67,22 @@
   function resultOutcome(text){const s=String(text||'').trim().replace(/\s+/g,' ');if(/victory|clean/i.test(s))return 'blue';if(/defeat/i.test(s))return 'red';return null;}
   function draftPhase(text){const s=String(text).trim().replace(/\s+/g,' ');const m=s.match(/^(Allied|Enemy) Team (Ban|Pick)$/i);return m?`${/^allied$/i.test(m[1])?'Allied':'Enemy'} Team ${/^ban$/i.test(m[2])?'Ban':'Pick'}`:/^(Last (?:Change|Changes)|Battle Preparation|Adjust(?:ment)?|Swap Heroes)$/i.test(s)?'Last Changes':null;}
   function draftClock(text){const s=String(text).trim().replace(/[Oo]/g,'0').replace(/\s/g,'');if(/^00:[0-5]\d$/.test(s))return Number(s.slice(3));return /^\d{1,2}$/.test(s)&&Number(s)<=60?Number(s):null;}
+  // Ban/Pick phases always display a countdown. The settling phases
+  // (Last Changes, Battle Preparation, Swap Heroes) display none at all.
+  const DRAFT_TIMER_PHASE=/Team (?:Ban|Pick)$/i;
+  const phaseHasCountdown=phase=>DRAFT_TIMER_PHASE.test(String(phase||''));
   function classify(readings,threshold=65){
     const good=(field)=>readings.find(r=>r.field===field&&r.value!==null&&r.confidence>=threshold);
-    const phase=good('draftPhase');if(phase&&draftPhase(phase.value)&&good('draftTimer.remaining'))return 'draft';
+    const phase=good('draftPhase');
+    if(phase){
+      const parsed=draftPhase(phase.value);
+      // A countdown is only demanded where one is actually drawn. Requiring it
+      // during Last Changes / Battle Preparation / Swap Heroes dropped the desk
+      // out of draft mode for the whole settling phase, because those screens
+      // show no timer. These exact headings never appear in gameplay, so
+      // requiring the phase alone is safe.
+      if(parsed&&(phaseHasCountdown(parsed)?!!good('draftTimer.remaining'):true))return 'draft';
+    }
     const outcome=good('resultStatus');if(outcome&&resultOutcome(outcome.value))return 'result';
     const g=good('gameTime');
     if(g&&/^\d{1,3}:[0-5]\d$/.test(g.value)&&(good('blue.kills')||good('red.kills')))return 'game';
@@ -91,5 +104,5 @@
     if(!players[row].hero&&/^Player [1-5]$/.test(players[row].name)&&(hero||key.length>=4))return row;
     return null;
   }
-  return {profiles,legacyGame,fields,isHero,validateRegions,resultOutcome,draftPhase,draftClock,classify,sceneGate,playerIndex,spectatorHero};
+  return {profiles,legacyGame,fields,isHero,validateRegions,resultOutcome,draftPhase,draftClock,classify,phaseHasCountdown,sceneGate,playerIndex,spectatorHero};
 });

@@ -60,7 +60,12 @@ $('#fetchMatch').onclick=run(()=>fetchMatch());$('#parseJson').onclick=run(async
 
 $('#postgameAiScan')?.addEventListener('click',run(async()=>{
   if(typeof PostgameOCR==='undefined')throw Error('Scoreboard analyzer loading...');
-  await PostgameOCR.captureActiveWindow();
+  // Cloud AI is a manual screenshot tool. It is intentionally routed to the
+  // isolated /api/ai/analyze endpoint, never the live detection session.
+  const video=$('#captureVideo'),canvas=$('#captureCanvas');
+  const source=(video&&video.readyState>=2&&!video.paused)?video:(canvas&&canvas.width>100)?canvas:null;
+  if(!source)throw Error('Start Live Game Capture first or upload a screenshot, then run Cloud AI analysis.');
+  await PostgameOCR.scanWithCloud(source,{mode:'result'});
 }));
 $('#postgameCaptureLive')?.addEventListener('click',run(async()=>{
   if(typeof PostgameOCR==='undefined')throw Error('Scoreboard analyzer loading...');

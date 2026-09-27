@@ -2,7 +2,7 @@
   let library={players:[],poses:[]};
   const ready=fetch('/assets/playoffs/player-photos.json').then(r=>{if(!r.ok)throw Error('Player photo library unavailable');return r.json();}).then(d=>library=d);
   const key=s=>String(s||'').trim().normalize('NFC');
-  function entry(ign,hint){const t=Playoffs.team(hint);const all=Playoffs.teams.filter(x=>(!t||x.id===t.id)&&x.players.some(n=>key(n)===key(ign)));return all.length===1?{team:all[0].id,ign:all[0].players.find(n=>key(n)===key(ign))}:null;}
+  function entry(ign,hint){const resolved=typeof Playoffs!=='undefined'&&Playoffs.resolvePlayer?Playoffs.resolvePlayer(ign,hint):null;if(resolved)return {team:resolved.team.id,ign:resolved.name};const t=Playoffs.team(hint);const all=Playoffs.teams.filter(x=>(!t||x.id===t.id)&&x.players.some(n=>key(n)===key(ign)));return all.length===1?{team:all[0].id,ign:all[0].players.find(n=>key(n)===key(ign))}:null;}
   function linked(ign,hint){const e=entry(ign,hint);if(!e)return null;return library.formalPlayers?.find(p=>p.team===e.team&&p.ign===e.ign)||(state?.playoffs?.portraits||[]).find(p=>p.team===e.team&&p.ign===e.ign)||library.players.find(p=>p.team===e.team&&p.ign===e.ign);}
   async function process(url){const name=state.mvp.name;return api('/api/mvp/photo',{url,name});}
   async function apply(ign,hint){await ready;const p=linked(ign,hint);if(state.mvp.name!==ign)return;if(p){await save({mvp:{photo:p.thumb||p.url,photoSource:p.url,photoStatus:'processing',photoError:''}});return process(p.url);}await save({mvp:{photo:'',photoSource:'',photoStatus:'',photoError:''}});}

@@ -1,10 +1,13 @@
 /* Post-Game Scoreboard Analyzer for Custom / In-Game Referee Lobbies
-   Features:
-   1. Super Intelligent Google Gemini Vision AI (Multimodal):
-      100% accuracy on heroes, skins, KDAs, gold, medals, MVP ribbon, and resolves
-      squad prefixes/clan tags against official registered playoff rosters.
-   2. Local Offline Tesseract OCR Fallback:
-      Fast local pixel-calibrated recognition if offline or without an API key. */
+   Engines:
+   1. Local Offline Tesseract OCR (scanSource) — the DEFAULT and realtime engine.
+      Fast local pixel-calibrated recognition. No API key, no cloud latency, and
+      the only engine that drives live broadcast synchronization.
+   2. Google Gemini Vision (scanWithCloud) — OPTIONAL, MANUAL screenshots only.
+      Reads heroes, skins, KDAs, gold, medals, MVP ribbon and resolves squad
+      prefixes/clan tags against registered playoff rosters. Routed through the
+      isolated /api/ai/analyze endpoint, which is decoupled from the live
+      detection session so a cloud scan can never interrupt a live game. */
 const PostgameOCR = (() => {
   const COORDS = {
     header: {
@@ -167,14 +170,67 @@ const PostgameOCR = (() => {
   }
 
   /**
-   * Postgame analysis using local OCR engine.
+   * Pure validation of a cloud vision response.
+   *
+   * The Gemini response schema declares `players` as required but sets no
+   * minimum length, so a model that cannot read the player table still returns
+   * a schema-valid object with `"players": []`. formatResult then pads that gap
+   * into five blank rows, which would render an empty roster as if it were
+   * real match data. Returns an operator-facing message, or null when the
+   * response carries a usable roster.
    */
-  async function scanWithAI(source) {
-    return await scanSource(source);
+  function cloudResultIssue(data) {
+    if (!data || typeof data !== 'object' || !data.blue || !data.red) {
+      return 'Gemini Vision returned no readable scoreboard. Try a sharper capture, or use local OCR.';
+    }
+    const populated = side => (data[side]?.players || []).some(p => {
+      const name = String(p?.name ?? '').trim();
+      return name && name !== '?';
+    });
+    const empty = ['blue', 'red'].filter(side => !populated(side));
+    if (empty.length) {
+      return `Gemini Vision could not read the ${empty.join(' and ')} player table. It would come back empty rather than invented — recapture the full scoreboard, or use local OCR.`;
+    }
+    return null;
   }
 
   /**
-   * Local OCR scanning via Tesseract engine.
+   * Optional cloud analysis using Google Gemini Vision.
+   *
+   * This is a MANUAL screenshot tool. It posts to /api/ai/analyze, which is
+   * isolated from the shared live-detection session, so a cloud scan can never
+   * pause, replace or interrupt the local realtime OCR loop that drives the
+   * broadcast. Results are rendered for operator review and are never applied
+   * to the live overlay without the operator pressing Apply.
+   */
+  async function scanWithCloud(source, options = {}) {
+    if (ocrBusy) throw Error('Scoreboard scan is already in progress');
+    if (typeof api !== 'function') throw Error('Cloud analysis is only available in the broadcast desk');
+    const mode = ['result', 'draft', 'game'].includes(options.mode) ? options.mode : 'result';
+    ocrBusy = true;
+    try {
+      const label = mode === 'draft' ? 'draft' : mode === 'game' ? 'in-game HUD' : 'post-match scoreboard';
+      updateStatus(`Gemini Vision AI is reading the ${label}…`);
+      const norm = normalizeSourceForAI(normalizeSource(source));
+      const image = norm.toDataURL('image/jpeg', 0.90);
+      const key = (typeof localStorage !== 'undefined' ? localStorage.getItem('geminiApiKey') : '') || '';
+      const res = await api('/api/ai/analyze', { image, apiKey: key, mode });
+      // The server is the single source of truth for what the model returned.
+      const data = res?.data || res?.patch;
+      const issue = cloudResultIssue(data);
+      if (issue) throw Error(issue);
+      renderReview(data, res.engine || 'Gemini Vision AI');
+      const model = String(res.engine || 'Gemini Vision AI').match(/gemini-[a-z0-9.-]+/i)?.[0] || 'Gemini';
+      updateStatus(`Cloud analysis complete · ${model} · review the fields below, then Apply. Not applied to the live overlay yet.`);
+      return data;
+    } finally {
+      ocrBusy = false;
+    }
+  }
+
+  /**
+   * Local OCR scanning via Tesseract engine. This is the default engine:
+   * offline, realtime and the only one that drives the live broadcast.
    */
   async function scanSource(source) {
     if (ocrBusy) throw Error('Scoreboard scan is already in progress');
@@ -619,7 +675,8 @@ const PostgameOCR = (() => {
     normalizeSource,
     normalizeSourceForAI,
     scanSource,
-    scanWithAI,
+    scanWithCloud,
+    cloudResultIssue,
     captureActiveWindow,
     handleFile,
     parseKda,
