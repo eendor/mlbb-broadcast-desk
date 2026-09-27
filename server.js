@@ -92,6 +92,7 @@ app.post('/api/match/apply',async(req,res)=>{
   const result=PlayoffResults.prepareResult(state,patch,{id});
   res.json({state:commit(result.patch),playoffs:result.report});
 });
+const CatalogMatch=require('./lib/catalog-match');
 const GeminiVision=require('./lib/gemini-vision');
 const aiConfigFile=path.join(__dirname,'ai-config.json');
 function getAiKey(){
@@ -261,7 +262,7 @@ app.post('/api/detection/ai-live',async(req,res)=>{
               const p = finalPatch[side].players[i] || {};
               const cur = state[side].players[i] || {};
               const botMatch = (p.name || p.rawName || cur.name || '').match(/\[Computer\]\s*([A-Za-z0-9\s'-]+)/i);
-              const hero = botMatch ? GeminiVision.matchHero(botMatch[1]) : (GeminiVision.matchHero(p.hero) || cur.hero || String(p.hero || '').trim());
+              const hero = botMatch ? CatalogMatch.matchHero(botMatch[1]) : (CatalogMatch.matchHero(p.hero) || cur.hero || String(p.hero || '').trim());
               return { ...p, hero };
             });
           }
@@ -281,7 +282,7 @@ app.post('/api/detection/ai-live',async(req,res)=>{
             if (Array.isArray(finalPatch[side].bans) && Array.isArray(state[side]?.bans)) {
               finalPatch[side].bans = Array.from({ length: 5 }, (_, i) => {
                 const b = finalPatch[side].bans[i] || state[side].bans[i] || '';
-                return GeminiVision.matchHero(b) || b;
+                return CatalogMatch.matchHero(b) || b;
               });
             }
             if (Array.isArray(finalPatch[side].players) && Array.isArray(state[side]?.players)) {
@@ -295,7 +296,7 @@ app.post('/api/detection/ai-live',async(req,res)=>{
                 const name = (isPlaceholder && curHasReal) ? curName : (incomingName || curName || `Player ${i + 1}`);
 
                 const botMatch = (name || p.rawIgn || curName).match(/\[Computer\]\s*([A-Za-z0-9\s'-]+)/i);
-                const hero = botMatch ? GeminiVision.matchHero(botMatch[1]) : (GeminiVision.matchHero(p.hero) || cur.hero || '');
+                const hero = botMatch ? CatalogMatch.matchHero(botMatch[1]) : (CatalogMatch.matchHero(p.hero) || cur.hero || '');
                 return { ...cur, ...p, hero, name };
               });
             }

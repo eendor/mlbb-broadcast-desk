@@ -108,6 +108,7 @@ captureCanvas.onpointerdown=e=>{dragStart=point(e);captureCanvas.setPointerCaptu
 captureCanvas.onpointerup=e=>{if(!dragStart)return;const p=point(e),r=regions.find(r=>r.field===$('#ocrField').value),w=Math.abs(p.x-dragStart.x),h=Math.abs(p.y-dragStart.y);if(r&&w>3&&h>3){const x=Math.floor(Math.min(p.x,dragStart.x)),y=Math.floor(Math.min(p.y,dragStart.y));Object.assign(r,{x,y,w:Math.min(1920-x,Math.floor(w)),h:Math.min(1080-y,Math.floor(h))});$('#regions').value=JSON.stringify(regions,null,2);localStorage.setItem(regionKey(),JSON.stringify(regions));invalidate();}dragStart=null;drawCapture();};
 $('#saveRegions').onclick=run(()=>{regions=profile==='auto'?LiveDetectionModel.validateRegions(JSON.parse($('#regions').value),$('#detectCalibration').value):OCRModel.validateRegions(JSON.parse($('#regions').value));localStorage.setItem(regionKey(),JSON.stringify(regions));$('#ocrField').innerHTML=regions.map(r=>`<option>${r.field}</option>`).join('');invalidate();toast('Calibration saved');});
 async function initWorkers(){if(workers.length)return workers;if(workerInit)return workerInit;$('#ocrStatus').textContent='Loading local neural OCR…';workerInit=(async()=>{const built=[];try{const initialized=await Promise.allSettled(Array.from({length:4},()=>Tesseract.createWorker('eng',1,{workerPath:'/vendor/tesseract/worker.min.js',corePath:location.origin+'/vendor/core',langPath:location.origin+'/ocr-models/fast',cachePath:'mlbb-fast-4.1.0',errorHandler:()=>{}})));for(const result of initialized)if(result.status==='fulfilled')built.push(result.value);const failed=initialized.find(result=>result.status==='rejected');if(failed)throw failed.reason;workers=built;return workers;}catch(e){await Promise.all(built.map(w=>w.terminate()));throw e;}finally{workerInit=null;}})();return workerInit;}
+function otsuThreshold(grayscalePixels){const hist=new Int32Array(256),total=grayscalePixels.length;for(let i=0;i<total;i++)hist[grayscalePixels[i]]++;let sum=0;for(let i=0;i<256;i++)sum+=i*hist[i];let sumB=0,wB=0,wF=0,varMax=0,threshold=128;for(let t=0;t<256;t++){wB+=hist[t];if(wB===0)continue;wF=total-wB;if(wF===0)break;sumB+=t*hist[t];const mB=sumB/wB,mF=(sum-sumB)/wF,varBetween=wB*wF*(mB-mF)*(mB-mF);if(varBetween>varMax){varMax=varBetween;threshold=t;}}return threshold;}
 function crop(r,input=source(),isolateText=false){const s=input;if(!s)throw Error('Choose a game window, screenshot, or test video');const sw=s.videoWidth||s.width,sh=s.videoHeight||s.height,sx=sw/1920,sy=sh/1080,c=document.createElement('canvas'),scale=Math.max(1,Math.min(4,80/(r.h*sy)));c.width=Math.max(1,Math.round(r.w*sx*scale));c.height=Math.max(1,Math.round(r.h*sy*scale));const cx=c.getContext('2d');cx.filter=isolateText?'none':'grayscale(1) contrast(1.3)';cx.drawImage(s,r.x*sx,r.y*sy,r.w*sx,r.h*sy,0,0,c.width,c.height);const tiny=document.createElement('canvas');tiny.width=32;tiny.height=12;const tx=tiny.getContext('2d',{willReadFrequently:true});tx.drawImage(c,0,0,32,12);const pixels=tx.getImageData(0,0,32,12).data,signature=new Uint8Array(384);for(let i=0;i<signature.length;i++)signature[i]=pixels[i*4];// Normalize light digits on dark team colors to dark text on white, with OCR margin.
 const pixelsFull=cx.getImageData(0,0,c.width,c.height),samples=[];
 for(let x=0;x<c.width;x++){samples.push(pixelsFull.data[x*4],pixelsFull.data[((c.height-1)*c.width+x)*4]);}
@@ -121,8 +122,20 @@ if(isolateText){
     const n=neutral||team||urgent?0:255;pixelsFull.data[i]=pixelsFull.data[i+1]=pixelsFull.data[i+2]=n;
   }
   cx.putImageData(pixelsFull,0,0);
+}else{
+  const gray=new Uint8Array(c.width*c.height);
+  for(let i=0;i<gray.length;i++)gray[i]=pixelsFull.data[i*4];
+  const thresh=otsuThreshold(gray);
+  samples.sort((a,b)=>a-b);
+  const darkBg=samples[Math.floor(samples.length/2)]<145;
+  for(let i=0;i<pixelsFull.data.length;i+=4){
+    const val=pixelsFull.data[i];
+    const isFg=darkBg?val>thresh:val<thresh;
+    const n=isFg?0:255;
+    pixelsFull.data[i]=pixelsFull.data[i+1]=pixelsFull.data[i+2]=n;
+  }
+  cx.putImageData(pixelsFull,0,0);
 }
-samples.sort((a,b)=>a-b);if(!isolateText&&samples[Math.floor(samples.length/2)]<145){for(let i=0;i<pixelsFull.data.length;i+=4){const n=255-pixelsFull.data[i];pixelsFull.data[i]=pixelsFull.data[i+1]=pixelsFull.data[i+2]=n;}cx.putImageData(pixelsFull,0,0);}
 const padded=document.createElement('canvas');padded.width=c.width+20;padded.height=c.height+20;const pc=padded.getContext('2d');pc.fillStyle='white';pc.fillRect(0,0,padded.width,padded.height);pc.drawImage(c,10,10);
 return {canvas:padded,signature,sampledAt:Date.now()};}
 function showResults(){ocrReadings=[...results.values()].filter(r=>r.accepted).map(({field,value})=>({field,value}));$('#applyOcr').disabled=!ocrReadings.length;$('#ocrResults').innerHTML=regions.filter(r=>results.has(r.field)).map(({field})=>{const r=results.get(field);return `<div class="ocrrow"><span>${esc(field)}</span><b>${esc(r.value??r.text??'—')}</b><span style="color:${r.accepted?'var(--lime)':'var(--muted)'}">${Math.round(r.confidence)}% · ${r.reason}</span></div>`;}).join('');}

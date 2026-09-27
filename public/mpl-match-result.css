@@ -449,14 +449,14 @@
 
 .mpl-player-cutout {
   position: absolute;
-  inset: 0;
+  top: 6px;
+  left: 0;
+  right: 0;
   bottom: 26px;
   width: 100%;
-  height: calc(100% - 26px);
+  height: calc(100% - 32px);
   object-fit: cover;
-  object-position: center 10%;
-  transform: scale(1.32);
-  transform-origin: center 18%;
+  object-position: center top;
   display: block;
 }
 .mpl-player-silhouette {
