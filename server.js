@@ -335,7 +335,7 @@ app.post('/api/detection/ai-live',async(req,res)=>{
             finalPatch[side].players = Array.from({ length: 5 }, (_, i) => {
               const p = finalPatch[side].players[i] || {};
               const cur = state[side].players[i] || {};
-              const botMatch = (p.name || p.rawName || cur.name || '').match(/(?:\[|\b)Computer\]?\s*([A-Za-z0-9\s'-]+)/i);
+              const botMatch = (p.name || p.rawName || cur.name || '').match(/\[Computer\]\s*([A-Za-z0-9\s'-]+)/i);
               const hero = botMatch ? CatalogMatch.matchHero(botMatch[1]) : (CatalogMatch.matchHero(p.hero) || cur.hero || String(p.hero || '').trim());
               return { ...p, hero };
             });
@@ -369,7 +369,7 @@ app.post('/api/detection/ai-live',async(req,res)=>{
                 const curHasReal = curName && !/^Player\s*\d+$/i.test(curName);
                 const name = (isPlaceholder && curHasReal) ? curName : (incomingName || curName || `Player ${i + 1}`);
 
-                const botMatch = (name || p.rawIgn || curName).match(/(?:\[|\b)Computer\]?\s*([A-Za-z0-9\s'-]+)/i);
+                const botMatch = (name || p.rawIgn || curName).match(/\[Computer\]\s*([A-Za-z0-9\s'-]+)/i);
                 const hero = botMatch ? CatalogMatch.matchHero(botMatch[1]) : (CatalogMatch.matchHero(p.hero) || cur.hero || '');
                 return { ...cur, ...p, hero, name };
               });

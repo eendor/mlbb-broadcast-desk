@@ -34,7 +34,9 @@
   }
 
   const key = v => String(v ?? '').toLowerCase().replace(/[^a-z0-9]/g, '');
-  const find = (kind, value) => (catalog[kind] || []).find(entry =>
+  // An empty value means "none": key('') is '', which would otherwise match the
+  // first catalog entry whose name is blank and clear a slot with junk.
+  const find = (kind, value) => (value === undefined || value === null || value === '') ? null : (catalog[kind] || []).find(entry =>
     String(entry.id ?? entry.gameId) === String(value) || key(entry.name) === key(value) ||
     (entry.aliases || []).some(alias => key(alias) === key(value)));
   const assetValue = (kind, value) => {
