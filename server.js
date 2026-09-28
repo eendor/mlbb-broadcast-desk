@@ -128,12 +128,15 @@ function getAiKey(){
 }
 function publicAiConfig(){const k=getAiKey();return {hasKey:!!k,masked:k?k.slice(0,6)+'...'+k.slice(-4):'',provider:getAiConfig().provider||'codex',codex:CodexVision.status()};}
 app.get('/api/ai/config',(req,res)=>res.json(publicAiConfig()));
-app.get('/api/lan',(req,res)=>{
+app.get('/api/lan',async(req,res)=>{
   const interfaces=os.networkInterfaces();
   const urls=Object.entries(interfaces).filter(([name])=>!/(virtual|vmware|vbox|docker|wsl|hyper-v)/i.test(name))
     .flatMap(([,entries])=>(entries||[]).filter(entry=>entry.family==='IPv4'&&!entry.internal&&lanAccess.isPrivateAddress(entry.address)&&!entry.address.startsWith('169.254.'))
       .map(entry=>`http://${entry.address}:${port}`));
-  res.json({urls});
+  let primary='';
+  try{const dgram=require('node:dgram'),socket=dgram.createSocket('udp4');primary=await new Promise(resolve=>{const finish=value=>{try{socket.close();}catch{}resolve(value);};socket.once('error',()=>finish(''));socket.connect(53,'1.1.1.1',()=>finish(socket.address().address));});}catch{}
+  const preferred=urls.filter(url=>url===`http://${primary}:${port}`);
+  res.json({urls:preferred.length?preferred:urls});
 });
 app.get('/api/ai/codex/status',async(req,res)=>{try{res.json(await CodexVision.warmup());}catch(error){res.status(503).json({...CodexVision.status(),error:error.message});}});
 app.get('/api/ai/models',(req,res)=>{res.json({models:GeminiVision.getModelStatus(),activeCount:GeminiVision.getActiveModels().length});});
