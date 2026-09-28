@@ -128,8 +128,9 @@ $('#postgameUploadFile')?.addEventListener('change',run(async(e)=>{
   const file=e.target.files?.[0];
   if(!file)return;
   if(typeof PostgameOCR==='undefined')throw Error('Scoreboard analyzer loading...');
-  await PostgameOCR.handleFile(file);
+  await PostgameOCR.handleFile(file,{ai:true});
 }));
+api('/api/lan').then(({urls=[]})=>{const el=$('#postgameLanControl');if(el)el.textContent=urls.length?`PC-hosted AI/control · open ${urls.join('  or  ')} on laptops on this Wi-Fi`:'PC-hosted AI/control · connect this PC to a private Wi-Fi network to show its laptop URL.';}).catch(()=>{});
 
 
 

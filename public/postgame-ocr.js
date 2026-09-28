@@ -720,12 +720,12 @@ const PostgameOCR = (() => {
     return await scanSource(source);
   }
 
-  async function handleFile(file) {
+  async function handleFile(file, { ai = false } = {}) {
     if (!file) return;
     const bitmap = await createImageBitmap(file);
     const canvas = normalizeSource(bitmap);
     bitmap.close();
-    return await scanSource(canvas);
+    return ai ? await scanWithCloud(canvas, { mode: 'result' }) : await scanSource(canvas);
   }
 
   return {

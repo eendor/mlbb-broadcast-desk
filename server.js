@@ -2,7 +2,7 @@ const Playoffs=require('./public/playoffs-model');
 const PlayoffResults=require('./lib/playoff-results');
 const AiLiveState=require('./lib/ai-live-state');
 const Breaks=require('./public/breaks-shared');const {saveMedia}=require('./lib/media');
-const express=require('express'),fs=require('node:fs'),path=require('node:path');const lanAccess=require('./lib/lan-access');
+const express=require('express'),fs=require('node:fs'),path=require('node:path'),os=require('node:os');const lanAccess=require('./lib/lan-access');
 const {defaults,merge,validate,timerAction}=require('./lib/state');const {normalize,findFeed}=require('./lib/parser');
 const app=express(),port=Number(process.env.PORT||3210),dataDir=process.env.DATA_DIR||path.join(__dirname,'data');fs.mkdirSync(dataDir,{recursive:true});const file=path.join(dataDir,'state.json');let state=defaults();if(fs.existsSync(file)){try{const saved=JSON.parse(fs.readFileSync(file,'utf8'));saved.playoffs=Playoffs.migrate(saved.playoffs);if(![3,5,7].includes(saved.bestOf)){fs.copyFileSync(file,file+'.before-series-fix');saved.bestOf=3;saved.game=Math.min(Math.max(1,saved.game||1),3);}state=validate(merge(state,saved));}catch(e){console.error('Saved state could not be loaded:',e.message);process.exit(1);}}
 const clients=new Set();function commit(patch){if(patch.gameTime!==undefined&&!patch.gameClock)patch={...patch,gameClock:{...state.gameClock,running:false}};const next=validate(merge(structuredClone(state),patch));fs.writeFileSync(file+'.tmp',JSON.stringify(next,null,2));fs.renameSync(file+'.tmp',file);state=next;for(const res of clients)res.write(`data: ${JSON.stringify(state)}\n\n`);return state;}
@@ -128,6 +128,13 @@ function getAiKey(){
 }
 function publicAiConfig(){const k=getAiKey();return {hasKey:!!k,masked:k?k.slice(0,6)+'...'+k.slice(-4):'',provider:getAiConfig().provider||'codex',codex:CodexVision.status()};}
 app.get('/api/ai/config',(req,res)=>res.json(publicAiConfig()));
+app.get('/api/lan',(req,res)=>{
+  const interfaces=os.networkInterfaces();
+  const urls=Object.entries(interfaces).filter(([name])=>!/(virtual|vmware|vbox|docker|wsl|hyper-v)/i.test(name))
+    .flatMap(([,entries])=>(entries||[]).filter(entry=>entry.family==='IPv4'&&!entry.internal&&lanAccess.isPrivateAddress(entry.address)&&!entry.address.startsWith('169.254.'))
+      .map(entry=>`http://${entry.address}:${port}`));
+  res.json({urls});
+});
 app.get('/api/ai/codex/status',async(req,res)=>{try{res.json(await CodexVision.warmup());}catch(error){res.status(503).json({...CodexVision.status(),error:error.message});}});
 app.get('/api/ai/models',(req,res)=>{res.json({models:GeminiVision.getModelStatus(),activeCount:GeminiVision.getActiveModels().length});});
 app.post('/api/ai/config',(req,res)=>{

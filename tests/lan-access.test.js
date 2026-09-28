@@ -28,6 +28,10 @@ test('control server responds through a private LAN interface', async t => {
     const response = await fetch(`http://${address}:${server.address().port}/api/state`);
     assert.equal(response.status, 200);
     assert.equal(typeof (await response.json()).event, 'string');
+    const lanResponse = await fetch(`http://${address}:${server.address().port}/api/lan`);
+    assert.equal(lanResponse.status, 200);
+    const lan = await lanResponse.json();
+    assert.ok(lan.urls.includes(`http://${address}:3210`));
   } finally {
     await new Promise((resolve, reject) => server.close(error => error ? reject(error) : resolve()));
   }
