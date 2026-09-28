@@ -63,11 +63,30 @@ $('#confidence').onchange=()=>{if(!Number.isFinite(Number($('#confidence').value
 $('#ocrStability').onchange=()=>{localStorage.setItem('ocrStability',$('#ocrStability').value);invalidate();};$('#detectDraftNames').onchange=invalidate;
 $('#ocrResetTracking').onclick=()=>{localStorage.removeItem(regionKey());loadRegions();invalidate();$('#ocrStatus').textContent='OCR history cleared & calibrated regions reset to defaults. Ready for a new game.';toast('OCR history and calibration reset to defaults');};
 function source(){if(stream&&stream.getVideoTracks().some(track=>track.muted||track.readyState==='ended'))return null;return (stream||clipUrl)&&video.readyState>=2?video:stillImage;}
+// A laptop has no local getDisplayMedia stream. Mirror the PC's shared frame
+// into its capture preview without treating that remote preview as an OCR input.
+let sharedCaptureBitmap=null,sharedCaptureAt=0,sharedCaptureBusy=false;
+async function refreshSharedCapture(){
+  if(sharedCaptureBusy||stream||clipUrl||stillImage)return;
+  sharedCaptureBusy=true;
+  try{
+    const response=await fetch('/api/capture/latest');if(!response.ok)throw Error('No shared frame');
+    const frame=await response.json();
+    if(frame.capturedAt!==sharedCaptureAt){
+      const image=await fetch(frame.image),bitmap=await createImageBitmap(await image.blob());
+      sharedCaptureBitmap?.close?.();sharedCaptureBitmap=bitmap;sharedCaptureAt=frame.capturedAt;
+      $('#ocrSourceSize').textContent='Shared PC capture: '+bitmap.width+' × '+bitmap.height;
+      if($('#ocr').classList.contains('active'))drawCapture();
+    }
+  }catch{sharedCaptureBitmap?.close?.();sharedCaptureBitmap=null;sharedCaptureAt=0;if(!source())$('#ocrSourceSize').textContent='No host capture';if($('#ocr').classList.contains('active'))drawCapture();}
+  finally{sharedCaptureBusy=false;}
+}
+setInterval(refreshSharedCapture,500);
 // Publish a small fresh frame from the PC-owned screen capture. The server
 // stores only this latest JPEG, allowing LAN laptops to use the PC capture.
 const relayCanvas=document.createElement('canvas');relayCanvas.width=1280;relayCanvas.height=720;let relayBusy=false;
 setInterval(async()=>{if(!stream||video.readyState<2||relayBusy)return;const s=source();if(!s)return;relayBusy=true;try{const w=s.videoWidth||s.width,h=s.videoHeight||s.height;if(!w||!h)return;const scale=Math.min(1,1280/w,720/h),rw=Math.max(1,Math.round(w*scale)),rh=Math.max(1,Math.round(h*scale));if(relayCanvas.width!==rw)relayCanvas.width=rw;if(relayCanvas.height!==rh)relayCanvas.height=rh;relayCanvas.getContext('2d').drawImage(s,0,0,rw,rh);const image=relayCanvas.toDataURL('image/jpeg',0.72);await fetch('/api/capture/frame',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({image,capturedAt:Date.now()})});}catch{}finally{relayBusy=false;}},500);
-function drawCapture(){ctx.clearRect(0,0,1920,1080);const s=source();if(s){if(profile==='auto'){const f=document.createElement('canvas');f.width=s.videoWidth||s.width;f.height=s.videoHeight||s.height;f.getContext('2d').drawImage(s,0,0);ctx.drawImage(DraftCapture.normalize(f),0,0,1920,1080);}else ctx.drawImage(s,0,0,1920,1080);}ctx.font='18px Segoe UI';for(const r of regions){ctx.strokeStyle=r.field===$('#ocrField').value?'#d6f36a':'#53c9f3';ctx.lineWidth=2;ctx.strokeRect(r.x,r.y,r.w,r.h);ctx.fillStyle=ctx.strokeStyle;ctx.fillText(r.field,r.x,Math.min(1060,r.y+r.h+20));}}
+function drawCapture(){ctx.clearRect(0,0,1920,1080);const s=source()||sharedCaptureBitmap;if(s){if(s===sharedCaptureBitmap)ctx.drawImage(s,0,0,1920,1080);else if(profile==='auto'){const f=document.createElement('canvas');f.width=s.videoWidth||s.width;f.height=s.videoHeight||s.height;f.getContext('2d').drawImage(s,0,0);ctx.drawImage(DraftCapture.normalize(f),0,0,1920,1080);}else ctx.drawImage(s,0,0,1920,1080);}ctx.font='18px Segoe UI';for(const r of regions){ctx.strokeStyle=r.field===$('#ocrField').value?'#d6f36a':'#53c9f3';ctx.lineWidth=2;ctx.strokeRect(r.x,r.y,r.w,r.h);ctx.fillStyle=ctx.strokeStyle;ctx.fillText(r.field,r.x,Math.min(1060,r.y+r.h+20));}}
 setInterval(()=>{if($('#ocr').classList.contains('active'))drawCapture();},100);
 function stopLoop(){LiveDetection.stop();if(activeSyncSource==='ocr')activeSyncSource=null;ocrLoop=false;scanScheduler.cancel();generation++;$('#autoOcr').textContent='⚡ Start Realtime Local Detection';$('#ocrProfile').disabled=false;$('#scan').disabled=ocrBusy;}
 function stopCapture(){stopLoop();if(typeof LiveDetection!=='undefined'&&LiveDetection.isAiLoopRunning?.()){LiveDetection.stopAiLoop();const btn=$('#aiLiveLoopBtn');if(btn){btn.textContent='⚡ Start Realtime AI Live Detection';btn.style.background='#8b5cf6';btn.style.borderColor='#8b5cf6';}}stream?.getTracks().forEach(t=>{t.onended=null;t.stop();});stream=null;video.pause();video.srcObject=null;video.removeAttribute('src');if(clipUrl)URL.revokeObjectURL(clipUrl);clipUrl=null;video.hidden=true;video.controls=false;stillImage?.close?.();stillImage=null;clearTracking();healthMonitor.reset();lastSourceSize='';clearCaptureProblem();const rc=$('#reconnectCapture');if(rc)rc.hidden=true;$('#ocrStatus').textContent='Capture stopped.';$('#ocrSourceSize').textContent='No capture';api('/api/capture/clear',{}).catch(()=>{});api('/api/ocr/stop',{}).catch(()=>{});}
