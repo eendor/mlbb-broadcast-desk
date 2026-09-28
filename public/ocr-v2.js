@@ -37,7 +37,7 @@ function loadRegions(){
   } else {
     try {
       const stored=JSON.parse(localStorage.getItem(regionKey())||'null');
-      if(!stored||stored.some(r=>r.w<15||r.h<15)||stored.length!==OCRModel.profiles[profile].length){
+      if(!stored||stored.some(r=>r.field.includes('turtle')||r.w<15||r.h<15)||stored.length!==OCRModel.profiles[profile].length){
         throw new Error('Stale or invalid scoreboard regions');
       }
       regions=OCRModel.validateRegions(stored);
@@ -289,7 +289,7 @@ async function scan(continuous=false){
    const correctedNum=continuous&&accepted&&previous!==undefined&&typeof value==='number'&&!clockField&&value<previous&&(
      (r.field.endsWith('.gold')&&value*5<=previous&&stable.observe(r.field+':correction',value,3))||
      (r.field.endsWith('.kills')&&(previous-value>10||stable.observe(r.field+':correction',value,2)))||
-     (['lord','turrets','turtle'].some(k=>r.field.endsWith('.'+k))&&(previous-value>=3||stable.observe(r.field+':correction',value,2)))
+      (['lord','turrets'].some(k=>r.field.endsWith('.'+k))&&(previous-value>=3||stable.observe(r.field+':correction',value,2)))
    );
    if(killsSpike){accepted=false;reason='spike held';}
    else if(continuous&&accepted&&previous!==undefined&&typeof value==='number'&&!clockField&&value<previous&&!correctedNum){accepted=false;reason='decrease held';}

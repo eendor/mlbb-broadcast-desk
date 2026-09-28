@@ -1,6 +1,6 @@
 window.LiveDetection=(()=>{
   const Model=LiveDetectionModel,gate=Model.sceneGate(2),stable=OCRRuntime.stability();
-  const hudFields=new Set(['resultStatus','gameTime','blue.kills','red.kills','blue.gold','red.gold','blue.turrets','red.turrets','blue.turtle','red.turtle','draftPhase','draftTimer.remaining']);
+  const hudFields=new Set(['resultStatus','gameTime','blue.kills','red.kills','blue.gold','red.gold','blue.turrets','red.turrets','draftPhase','draftTimer.remaining']);
   let session=null,lastMode=null,lastVisualMode=null,rowIndex=0,epoch=0,lastSeenAt=0;
   let lastClock=null,detailJob=null,hudMs=0,detailMs=0,detailError='',lastSceneProbeAt=0;
   const values=new Map(),queries=new Map(),highWater=new Map(),identities=new Map(),goldAt=new Map();
@@ -17,9 +17,7 @@ window.LiveDetection=(()=>{
           return structuredClone(Model.profiles.game);
         }
       }
-      const rows=Model.validateRegions(saved,mode);
-      const missing=(Model.profiles[mode]||[]).filter(r=>r.field.endsWith('.turtle')&&!rows.some(x=>x.field===r.field));
-      return [...rows,...missing];
+      return Model.validateRegions(saved,mode);
     }catch{
       return structuredClone(Model.profiles[mode]);
     }
@@ -129,7 +127,7 @@ window.LiveDetection=(()=>{
     // Bot spectator labels explicitly name the hero. Confirm those labels and
     // use their current portraits as session-only references for matching skins.
     const labeled=new Map(),references=[];
-    if(mode==='game')for(const r of readings.filter(r=>r.field.endsWith('.name'))){
+    if(['game','result'].includes(mode))for(const r of readings.filter(r=>r.field.endsWith('.name'))){
       const hero=r.confidence>=min?Model.spectatorHero(r.value,catalog):null;
       const field=r.field.replace(/name$/,'hero'),q=queries.get(field);
       const confirmed=stable.observe(r.field+':label',hero,continuous?2:1);

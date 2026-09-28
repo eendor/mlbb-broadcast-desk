@@ -16,7 +16,7 @@ function scoreboardValue(value, previous) {
 }
 
 function scoreStats(team, side, previous) {
-  const stats = [['lord', 'Lord', team.lord], ['turtle', 'Turtle', team.turtle], ['tower', 'Towers', team.turrets], ['gold', 'Gold', gold(team.gold)]];
+  const stats = [['lord', 'Lord', team.lord], ['tower', 'Towers', team.turrets], ['gold', 'Gold', gold(team.gold)]];
   if (side === 'red') stats.reverse();
   return `<div class="sb-objectives">${stats.map(([kind, label, value]) => {
     const key = kind === 'tower' ? 'turrets' : kind;
@@ -35,9 +35,10 @@ function scoreboardBroadcastPanel(s) {
   const partner = s.breaks?.sponsors?.find(p => p.image?.startsWith('/assets/')) || {
     name: 'MSL Philippines', image: '/assets/msl-ph-black.png'
   };
+  const eventLogo = s.eventLogo || '/assets/pasiklaban/wordmark.png';
   return `<aside class="sb-broadcast-panel" aria-label="Match and broadcast information">
     <div class="sb-match-info">
-      <small class="sb-match-event" title="${esc(s.event)}">${esc(s.event)}</small>
+      <small class="sb-match-event" title="${esc(s.event)}"><img class="sb-match-event-logo" src="${esc(eventLogo)}" alt="${esc(s.event)}"></small>
       <strong class="sb-match-stage" title="${esc(s.stage)}">${esc(s.stage)}</strong>
       <span class="sb-match-format">GAME ${s.game} &middot; BO${s.bestOf}</span>
     </div>
@@ -168,7 +169,7 @@ function renderReferenceScoreboard(s) {
   const previousLead = previous ? previous.blue.gold - previous.red.gold : 0;
   const diff = lead === 0 ? '' : `+${gold(Math.abs(lead))}`;
   const current = Object.fromEntries(['blue', 'red'].map(side => [side, Object.fromEntries(
-    ['kills', 'lord', 'turtle', 'turrets', 'gold', 'score', 'name', 'tag', 'logo'].map(key => [key, s[side][key]])
+    ['kills', 'lord', 'turrets', 'gold', 'score', 'name', 'tag', 'logo'].map(key => [key, s[side][key]])
   )]));
   const identityChanged = side => previous && ['tag', 'name', 'logo'].some(key => previous[side][key] !== s[side][key]);
   const lower = side => {

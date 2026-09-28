@@ -29,7 +29,6 @@ test('result rows sync by table order without prior gameplay identity',()=>{
 });
 test('live layouts fit the capture and detect distinct HUD evidence across frames',()=>{
   for(const [mode,rows]of Object.entries(Model.profiles))Model.validateRegions(rows,mode);
-  assert.ok(Model.profiles.game.some(r=>r.field==='blue.turtle'));assert.ok(Model.profiles.game.some(r=>r.field==='red.turtle'));
   const game=[{field:'gameTime',value:'01:47',confidence:95},{field:'red.kills',value:2,confidence:95}];
   const result=[{field:'resultStatus',value:'VICTORY',confidence:95}];
   assert.equal(Model.profiles.draft.filter(r=>Model.isHero(r.field)).length,20);assert.equal(Model.classify(game),'game');assert.equal(Model.classify(result),'result');
@@ -147,8 +146,6 @@ test('draft is detected during settling phases that display no countdown',()=>{
   assert.equal(Model.phaseHasCountdown('Allied Team Pick'),true);
   assert.equal(Model.phaseHasCountdown('Last Changes'),false);
 });
-test('live OCR applies in-game Turtle counts to both teams',()=>{const state=defaults();const out=prepare(state,body('game',[{field:'blue.turtle',value:2},{field:'red.turtle',value:1}]),10000);assert.equal(out.patch.blue.turtle,2);assert.equal(out.patch.red.turtle,1);validate(merge(state,out.patch));});
-
 test('draft clock accepts the drawn countdown formats',()=>{
   assert.equal(Model.draftClock('00:21'),21);
   assert.equal(Model.draftClock('00:59'),59);

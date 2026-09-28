@@ -402,6 +402,19 @@ const PostgameOCR = (() => {
         }
       }
 
+      // Extract hero directly from bot name if present
+      for (const side of ['blue', 'red']) {
+        data[side].players.forEach(p => {
+          const raw = String(p.rawName || p.rawIgn || '').trim();
+          const botHero = (typeof LiveDetectionModel !== 'undefined' ? LiveDetectionModel.spectatorHero(raw, catalog) : null)
+            || (raw.match(/(?:\[|\b)Computer\]?\s*([A-Za-z0-9\s'-]+)/i) ? raw.match(/(?:\[|\b)Computer\]?\s*([A-Za-z0-9\s'-]+)/i)[1].trim() : null);
+          if (botHero) {
+            const canonical = catalog.find(h => h.name.toLowerCase() === botHero.toLowerCase());
+            p.hero = canonical ? canonical.name : botHero;
+          }
+        });
+      }
+
       // Hero recognition via HeroRecognition if available
       if (typeof HeroRecognition !== 'undefined') {
         try {
@@ -699,7 +712,7 @@ const PostgameOCR = (() => {
     // Apply objectives if review inputs exist
     const objectives = { blue: {}, red: {} };
     for (const s of ['blue', 'red']) {
-      for (const [key, suffix] of [['turrets', 'Turrets'], ['lord', 'Lord'], ['turtle', 'Turtle']]) {
+      for (const [key, suffix] of [['turrets', 'Turrets'], ['lord', 'Lord']]) {
         const inp = document.getElementById('review' + (s === 'blue' ? 'Blue' : 'Red') + suffix);
         if (inp) objectives[s][key] = Math.max(0, parseInt(inp.value || '0', 10));
       }

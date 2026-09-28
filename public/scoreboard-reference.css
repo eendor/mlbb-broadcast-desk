@@ -77,7 +77,8 @@
 /* Match / partner card and caster ribbon from the supplied reference. */
 .sb-broadcast-panel { position: absolute; top: -3px; left: 100%; width: 355px; height: 116px; display: grid; grid-template-columns: 178px 177px; grid-template-rows: 90px 26px; overflow: hidden; border-radius: 0 16px 0 16px; background: #fff8e5; outline: 2px solid #e6b849; outline-offset: -2px; }
 .sb-match-info { min-width: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; padding: 8px 10px; color: #fff8e5; text-align: center; text-transform: uppercase; background: linear-gradient(150deg, #a6242d, #d9762a); text-shadow: 0 1px 2px #4a1210aa; clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 58%, 5px 50%, 0 42%); }
-.sb-match-event { display: block; width: 100%; font-size: 11px; line-height: 1.2; font-weight: 700; white-space: nowrap; }
+.sb-match-event { display: flex; align-items: center; justify-content: center; width: 100%; height: 26px; }
+.sb-match-event-logo { max-width: 142px; max-height: 24px; width: auto; height: auto; object-fit: contain; filter: drop-shadow(0 1px 2px rgba(0,0,0,0.45)); }
 .sb-match-stage { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; width: 100%; overflow: hidden; font: 700 18px/1.05 'Barlow Condensed', 'Arial Narrow', sans-serif; text-wrap: balance; }
 .sb-match-format { display: block; width: 100%; font-size: 14px; line-height: 1.2; font-weight: 700; white-space: nowrap; }
 .sb-partner { display: grid; place-items: center; min-width: 0; padding: 7px 12px; background: linear-gradient(145deg, #fff8e5, #f0dfb4); border-left: 1px solid #e6b849aa; }
