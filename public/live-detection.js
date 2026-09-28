@@ -1,6 +1,6 @@
 window.LiveDetection=(()=>{
   const Model=LiveDetectionModel,gate=Model.sceneGate(2),stable=OCRRuntime.stability();
-  const hudFields=new Set(['resultStatus','gameTime','blue.kills','red.kills','blue.gold','red.gold','blue.turrets','red.turrets','draftPhase','draftTimer.remaining']);
+  const hudFields=new Set(['resultStatus','gameTime','blue.kills','red.kills','blue.gold','red.gold','blue.turrets','red.turrets','blue.turtle','red.turtle','draftPhase','draftTimer.remaining']);
   let session=null,lastMode=null,lastVisualMode=null,rowIndex=0,epoch=0,lastSeenAt=0;
   let lastClock=null,detailJob=null,hudMs=0,detailMs=0,detailError='',lastSceneProbeAt=0;
   const values=new Map(),queries=new Map(),highWater=new Map(),identities=new Map(),goldAt=new Map();
@@ -17,7 +17,9 @@ window.LiveDetection=(()=>{
           return structuredClone(Model.profiles.game);
         }
       }
-      return Model.validateRegions(saved,mode);
+      const rows=Model.validateRegions(saved,mode);
+      const missing=(Model.profiles[mode]||[]).filter(r=>r.field.endsWith('.turtle')&&!rows.some(x=>x.field===r.field));
+      return [...rows,...missing];
     }catch{
       return structuredClone(Model.profiles[mode]);
     }

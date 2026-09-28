@@ -37,7 +37,7 @@ function loadRegions(){
   } else {
     try {
       const stored=JSON.parse(localStorage.getItem(regionKey())||'null');
-      if(!stored||stored.some(r=>r.field.includes('turtle')||r.w<15||r.h<15)||stored.length!==OCRModel.profiles[profile].length){
+      if(!stored||stored.some(r=>r.w<15||r.h<15)||stored.length!==OCRModel.profiles[profile].length){
         throw new Error('Stale or invalid scoreboard regions');
       }
       regions=OCRModel.validateRegions(stored);

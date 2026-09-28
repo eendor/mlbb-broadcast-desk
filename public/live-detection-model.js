@@ -1,7 +1,7 @@
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.LiveDetectionModel=api;})(globalThis,()=>{
   // Coordinates are normalized independently to the capture's width and height.
   const box=(field,x,y,w,h,sw,sh)=>({field,x:x/sw*1920,y:y/sh*1080,w:w/sw*1920,h:h/sh*1080});
-  const game=[['gameTime',741,2,66,32],['blue.kills',688,2,29,33],['red.kills',828,2,29,33],['blue.gold',597,5,62,28],['red.gold',913,5,62,28],['blue.turrets',535,5,23,28],['red.turrets',1008,5,23,28]].map(a=>box(...a,1543,856));
+  const game=[['gameTime',741,2,66,32],['blue.kills',688,2,29,33],['red.kills',828,2,29,33],['blue.gold',597,5,62,28],['red.gold',913,5,62,28],['blue.turtle',503,5,23,28],['blue.turrets',535,5,23,28],['red.turrets',1008,5,23,28],['red.turtle',1037,5,23,28]].map(a=>box(...a,1543,856));
   for(const side of ['blue','red'])for(let i=0;i<5;i++){
     game.push(box(`${side}.players.${i}.name`,side==='blue'?5:1409,274+i*72,130,21,1543,856));
     game.push(box(`${side}.players.${i}.kda`,side==='blue'?67:1437,295+i*72,39,17,1543,856));
@@ -16,7 +16,9 @@
     'blue.gold': [742, 40, 85, 40],
     'red.gold': [1092, 40, 85, 40],
     'blue.turrets': [672, 40, 32, 40],
-    'red.turrets': [1216, 40, 32, 40]
+    'blue.turtle': [640, 40, 32, 40],
+    'red.turrets': [1216, 40, 32, 40],
+    'red.turtle': [1248, 40, 32, 40]
   };
   for (const r of game) {
     let coords = spectator[r.field];
