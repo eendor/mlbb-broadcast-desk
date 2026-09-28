@@ -61,7 +61,7 @@ $('#ocrProfile').onchange=()=>{if(ocrBusy){$('#ocrProfile').value=profile;toast(
 $('#ocrScope').onchange=()=>invalidate();$('#ocrField').onchange=()=>{if($('#ocrScope').value==='selected')invalidate();drawCapture();};
 $('#confidence').onchange=()=>{if(!Number.isFinite(Number($('#confidence').value))||Number($('#confidence').value)<0||Number($('#confidence').value)>100){$('#confidence').value='80';}localStorage.setItem('ocrConfidence',$('#confidence').value);invalidate();};
 $('#ocrStability').onchange=()=>{localStorage.setItem('ocrStability',$('#ocrStability').value);invalidate();};$('#detectDraftNames').onchange=invalidate;
-$('#ocrResetTracking').onclick=()=>{localStorage.removeItem(regionKey());loadRegions();invalidate();$('#ocrStatus').textContent='OCR history cleared & calibrated regions reset to defaults. Ready for a new game.';toast('OCR history and calibration reset to defaults');};
+$('#ocrResetTracking').onclick=()=>{if(remoteControlClient())return sendRemoteControl('reset-tracking').catch(error=>toast(error.message,true));localStorage.removeItem(regionKey());loadRegions();invalidate();$('#ocrStatus').textContent='OCR history cleared & calibrated regions reset to defaults. Ready for a new game.';toast('OCR history and calibration reset to defaults');};
 function source(){if(stream&&stream.getVideoTracks().some(track=>track.muted||track.readyState==='ended'))return null;return (stream||clipUrl)&&video.readyState>=2?video:stillImage;}
 // A laptop has no local getDisplayMedia stream. Mirror the PC's shared frame
 // into its capture preview without treating that remote preview as an OCR input.
@@ -82,6 +82,72 @@ async function refreshSharedCapture(){
   finally{sharedCaptureBusy=false;}
 }
 setInterval(refreshSharedCapture,500);
+function remoteControlClient(){return !!sharedCaptureBitmap&&!source();}
+function collectOcrSettings(){
+  let calibratedRegions=null;try{calibratedRegions=JSON.parse($('#regions').value);}catch{}
+  return {profile:$('#ocrProfile').value,scope:$('#ocrScope').value,stability:$('#ocrStability').value,confidence:$('#confidence').value,
+    autoApply:$('#ocrAutoApply').checked,smoothClock:$('#ocrSmoothClock').checked,switchScene:$('#detectSwitchScene').checked,
+    draftNames:$('#detectDraftNames').checked,calibration:$('#detectCalibration').value,regions:calibratedRegions,
+    provider:$('#aiProvider').value,aiAutoApply:$('#aiAutoApply').checked,aiSwitchScene:$('#aiSwitchScene').checked,aiSmoothClock:$('#aiSmoothClock').checked,
+    captureSurface:$('#captureSurface').value,captureCursor:$('#captureCursor').value};
+}
+let remoteControlRevision=0,remoteCommandRevision=0,remoteHostSettingsKey='',suppressRemoteControlPush=false;
+async function sendRemoteControl(command){
+  const payload={};if(command)payload.command=command;else payload.settings=collectOcrSettings();
+  const result=await api('/api/capture/control',payload);updateRemoteControlUi(result);
+}
+function updateRemoteControlUi(control){
+  const note=$('#remoteOcrControlStatus');if(!note)return;
+  if(!remoteControlClient()){note.hidden=true;return;}
+  note.hidden=false;note.textContent=(control.ocrRunning||control.aiRunning?'PC OCR controls connected · ':'PC OCR controls connected · idle')+
+    (control.ocrRunning?'Local OCR running':'')+(control.ocrRunning&&control.aiRunning?' + ':'')+(control.aiRunning?'AI detection running':'');
+  $('#autoOcr').textContent=control.ocrRunning?'Stop PC Local OCR':'Start PC Local OCR';
+  $('#aiLiveLoopBtn').textContent=control.aiRunning?'Stop PC AI Detection':'Start PC AI Detection';
+}
+function applyOcrSettings(settings){
+  if(!settings)return;
+  suppressRemoteControlPush=true;
+  try{
+    const set=(selector,value,type='value')=>{const el=$(selector);if(!el||value===undefined)return;const next=type==='checked'?!!value:String(value);if(el[type]===next)return;el[type]=next;el.dispatchEvent(new Event('change',{bubbles:true}));};
+    set('#ocrProfile',settings.profile);set('#ocrScope',settings.scope);set('#ocrStability',settings.stability);set('#confidence',settings.confidence);
+    set('#ocrAutoApply',settings.autoApply,'checked');set('#ocrSmoothClock',settings.smoothClock,'checked');
+    set('#detectSwitchScene',settings.switchScene,'checked');set('#detectDraftNames',settings.draftNames,'checked');set('#detectCalibration',settings.calibration);
+    set('#aiAutoApply',settings.aiAutoApply,'checked');set('#aiSwitchScene',settings.aiSwitchScene,'checked');set('#aiSmoothClock',settings.aiSmoothClock,'checked');
+    set('#captureSurface',settings.captureSurface);set('#captureCursor',settings.captureCursor);
+    if(settings.provider&&$('#aiProvider').value!==settings.provider){$('#aiProvider').value=settings.provider;$('#aiProvider').dispatchEvent(new Event('change',{bubbles:true}));}
+    if(Array.isArray(settings.regions)){try{const current=JSON.parse($('#regions').value||'null');if(JSON.stringify(current)!==JSON.stringify(settings.regions)){$('#regions').value=JSON.stringify(settings.regions,null,2);$('#saveRegions').click();}}catch(error){console.warn('Remote OCR calibration:',error.message);}}
+  }finally{suppressRemoteControlPush=false;}
+}
+async function pollRemoteOcrControl(){
+  try{
+    const control=await api('/api/capture/control');
+    if(stream){
+      if(control.revision>remoteControlRevision){remoteControlRevision=control.revision;applyOcrSettings(control.settings);}
+      if(control.commandRevision>remoteCommandRevision){
+        remoteCommandRevision=control.commandRevision;
+        if(control.command==='toggle-ocr')$('#autoOcr').click();
+        else if(control.command==='toggle-ai')$('#aiLiveLoopBtn').click();
+        else if(control.command==='stop-capture')stopCapture();
+        else if(control.command==='scan-once')$('#scan').click();
+        else if(control.command==='apply-readings')$('#applyOcr').click();
+        else if(control.command==='reset-tracking')$('#ocrResetTracking').click();
+      }
+      await api('/api/capture/control',{host:true,ocrRunning:ocrLoop,aiRunning:LiveDetection.isAiLoopRunning(),settings:collectOcrSettings()});
+    }else if(remoteControlClient()){
+      updateRemoteControlUi(control);
+      const settingsKey=JSON.stringify(control.hostSettings||{});
+      if(settingsKey!=='{}'&&settingsKey!==remoteHostSettingsKey){remoteHostSettingsKey=settingsKey;applyOcrSettings(control.hostSettings);}
+    }
+  }catch{}
+}
+setInterval(pollRemoteOcrControl,500);
+document.addEventListener('change',event=>{
+  if(suppressRemoteControlPush||!remoteControlClient()||!event.target.closest('#ocr'))return;
+  if(event.target.matches('#ocrProfile,#ocrScope,#ocrStability,#confidence,#ocrAutoApply,#ocrSmoothClock,#detectSwitchScene,#detectDraftNames,#detectCalibration,#aiProvider,#aiAutoApply,#aiSwitchScene,#aiSmoothClock,#captureSurface,#captureCursor'))
+    sendRemoteControl().catch(error=>toast(error.message,true));
+});
+const remoteControlStatus=document.createElement('p');remoteControlStatus.id='remoteOcrControlStatus';remoteControlStatus.className='hint';remoteControlStatus.hidden=true;$('#ocrSourceSize')?.after(remoteControlStatus);
+$('#saveRegions').addEventListener('click',()=>{if(!suppressRemoteControlPush&&remoteControlClient())sendRemoteControl().catch(error=>toast(error.message,true));});
 // Publish a small fresh frame from the PC-owned screen capture. The server
 // stores only this latest JPEG, allowing LAN laptops to use the PC capture.
 const relayCanvas=document.createElement('canvas');relayCanvas.width=1280;relayCanvas.height=720;let relayBusy=false;
@@ -145,11 +211,11 @@ function noteSourceSize(label){const s=source(),w=s?.videoWidth||0,h=s?.videoHei
  $('#captureHint').innerHTML=actual==='camera'?'<span style="color:#34d399;font-weight:bold;">✓ OBS Virtual Camera active:</span> Direct hardware video feed. 0 cursor interference, no browser sharing bar.':actual==='window'?'<span style="color:#f59e0b;font-weight:bold;">⚠️ Window capture active:</span> Windows WGC can suppress cursor over focused game windows. <b>If your cursor disappears inside MuMu, switch Capture mode above to "Entire screen" or use "OBS Virtual Camera".</b>':'<span style="color:#34d399;font-weight:bold;">✓ Screen capture active:</span> Desktop capture active. Your mouse cursor remains 100% visible inside MuMu.';
  $('#ocrStatus').textContent='Live capture ready. Click Start Realtime Local Detection to follow the match.';return true;
 }
-$('#capture').onclick=run(async()=>{stopCapture();await chooseCapture(generation);});
+$('#capture').onclick=run(async()=>{if(remoteControlClient()){toast('Capture is running on the broadcast PC. Use its capture controls to reconnect or change sources.',true);return;}stopCapture();await chooseCapture(generation);});
 // Re-granting a capture needs a fresh user gesture. getDisplayMedia can only be
 // called from one, so this button is the only way back after a lost track.
-$('#reconnectCapture').onclick=run(async()=>{const token=generation;if(await chooseCapture(token)){toast('Capture reconnected.');if(ocrLoop)nextScan();}});
-$('#stopCapture').onclick=stopCapture;
+$('#reconnectCapture').onclick=run(async()=>{if(remoteControlClient()){toast('Reconnect the capture on the broadcast PC; the browser requires a local permission click.',true);return;}const token=generation;if(await chooseCapture(token)){toast('Capture reconnected.');if(ocrLoop)nextScan();}});
+$('#stopCapture').onclick=()=>remoteControlClient()?sendRemoteControl('stop-capture').catch(error=>toast(error.message,true)):stopCapture();
 $('#ocrImage').onchange=run(async e=>{const f=e.target.files[0];if(!f)return;stopCapture();stillImage=await createImageBitmap(f);sourceStatus('Image');drawCapture();$('#ocrStatus').textContent='Screenshot loaded. Read regions, review, and apply.';});
 $('#ocrClip').onchange=run(async e=>{const f=e.target.files[0];if(!f)return;stopCapture();clipUrl=URL.createObjectURL(f);video.src=clipUrl;video.hidden=false;video.controls=true;video.loop=false;await video.play();sourceStatus('Video');$('#ocrStatus').textContent='Test video loaded. Pause to calibrate; play for continuous OCR.';});
 video.addEventListener('resize',()=>{if(stream||clipUrl)noteSourceSize(stream?'Live':'Video');});
@@ -242,8 +308,8 @@ async function scan(continuous=false){
 }
 function priority(field){return field==='gameTime'?0:field.endsWith('.kills')?1:field.endsWith('.name')?3:2;}
 async function nextScan(){if(!ocrLoop)return;try{await scan(true);}catch(e){stopLoop();toast(e.message,true);$('#ocrStatus').textContent='OCR stopped: '+e.message;return;}if(ocrLoop)scanScheduler.schedule(80);}
-$('#scan').onclick=run(()=>scan(false));$('#applyOcr').onclick=run(async()=>{await applyOcr();toast('Accepted readings applied');});
-$('#autoOcr').onclick=run(()=>{if(ocrLoop){stopLoop();$('#ocrStatus').textContent='Continuous OCR stopped.';api('/api/ocr/stop',{}).catch(()=>{});return;}if(!source())throw Error('Choose a capture source first');if(ocrBusy)throw Error('Wait for the current scan to finish');activeSyncSource='ocr';$('#ocrAutoApply').checked=true;ocrLoop=true;generation++;$('#autoOcr').textContent='Stop continuous OCR';$('#ocrProfile').disabled=true;nextScan();});
+$('#scan').onclick=run(()=>remoteControlClient()?sendRemoteControl('scan-once'):scan(false));$('#applyOcr').onclick=run(async()=>{if(remoteControlClient()){await sendRemoteControl('apply-readings');return;}await applyOcr();toast('Accepted readings applied');});
+$('#autoOcr').onclick=run(()=>{if(remoteControlClient())return sendRemoteControl('toggle-ocr');if(ocrLoop){stopLoop();$('#ocrStatus').textContent='Continuous OCR stopped.';api('/api/ocr/stop',{}).catch(()=>{});return;}if(!source())throw Error('Choose a capture source first');if(ocrBusy)throw Error('Wait for the current scan to finish');activeSyncSource='ocr';$('#ocrAutoApply').checked=true;ocrLoop=true;generation++;$('#autoOcr').textContent='Stop continuous OCR';$('#ocrProfile').disabled=true;nextScan();});
 window.addEventListener('beforeunload',()=>{generation++;scanScheduler.close();LiveDetection.stop();HeroRecognition.close();stream?.getTracks().forEach(t=>t.stop());workers.forEach(w=>w.terminate());});
 
 
@@ -273,6 +339,7 @@ window.addEventListener('beforeunload',()=>{generation++;scanScheduler.close();L
   $('#checkAiProvider')?.addEventListener('click', run(checkProvider));
   if (aiLiveBtn) {
     aiLiveBtn.onclick = run(async () => {
+      if(remoteControlClient()){await sendRemoteControl('toggle-ai');return;}
       if (LiveDetection.isAiLoopRunning()) {
         LiveDetection.stopAiLoop();
         aiLiveBtn.textContent = '⚡ Start Realtime AI Live Detection';
