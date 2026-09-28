@@ -1,6 +1,22 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
 const GeminiVision = require('../lib/gemini-vision');
+
+test('Gemini screenshot analysis attaches full-screen and zoomed team crops', async t => {
+  let payload;
+  t.mock.method(globalThis, 'fetch', async (_url, options) => {
+    payload = JSON.parse(options.body);
+    return { ok: true, json: async () => ({ candidates: [{ finishReason: 'STOP', content: { parts: [{ text: '{}' }] } }] }) };
+  });
+  const result = await GeminiVision.callVisionApi([
+    'data:image/png;base64,c2NyZWVu', 'data:image/jpeg;base64,Ymx1ZQ==', 'data:image/jpeg;base64,cmVk'
+  ], 'test-key', 'Read the full screen and crops', {});
+  assert.equal(result._modelUsed, GeminiVision.DEFAULT_MODELS[0]);
+  const parts = payload.contents[0].parts;
+  assert.equal(parts.length, 4);
+  assert.equal(parts[0].text, 'Read the full screen and crops');
+  assert.deepEqual(parts.slice(1).map(part => part.inline_data.mime_type), ['image/png', 'image/jpeg', 'image/jpeg']);
+});
 const Playoffs = require('../public/playoffs-model');
 const PlayoffResults = require('../lib/playoff-results');
 

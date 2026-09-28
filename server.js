@@ -9,6 +9,18 @@ const clients=new Set();function commit(patch){if(patch.gameTime!==undefined&&!p
 app.use((req,res,next)=>{res.setHeader('X-Content-Type-Options','nosniff');res.setHeader('Content-Disposition','inline');if(!lanAccess.allowsRequest(req))return res.status(403).json({error:'Use localhost or this computer’s private LAN address'});if(req.method==='POST'&&req.headers.origin&&req.headers.origin!==`http://${req.headers.host}`)return res.status(403).json({error:'Origin rejected'});next();});app.use(express.json({limit:'12mb'}));
 const staticOpts={setHeaders:(res,fp)=>{res.setHeader('Content-Disposition','inline');res.setHeader('X-Content-Type-Options','nosniff');if(fp.endsWith('.wasm'))res.setHeader('Content-Type','application/wasm');}};
 app.use(express.static(path.join(__dirname,'public'),staticOpts));app.use('/assets/ads',express.static(path.join(__dirname,'public/assets/commercials'),staticOpts));app.use('/vendor/tesseract',express.static(path.join(__dirname,'node_modules/tesseract.js/dist'),staticOpts));app.use('/vendor/core',express.static(path.join(__dirname,'node_modules/tesseract.js-core'),staticOpts));app.use('/vendor/lang',express.static(path.join(__dirname,'node_modules/@tesseract.js-data/eng/4.0.0_best_int'),staticOpts));
+// The capture remains in the host browser. Keep only its newest compressed
+// frame in memory so another LAN controller can request it for manual AI scan.
+let hostCaptureFrame=null;
+app.post('/api/capture/frame',(req,res)=>{
+  const image=String(req.body.image||'');
+  if(!/^data:image\/jpeg;base64,[A-Za-z0-9+/]+=*$/.test(image)||image.length>3_500_000)throw Error('Invalid or oversized capture frame');
+  hostCaptureFrame={image,capturedAt:Number.isFinite(Number(req.body.capturedAt))?Number(req.body.capturedAt):Date.now()};
+  res.json({accepted:true,capturedAt:hostCaptureFrame.capturedAt});
+});
+app.post('/api/capture/clear',(req,res)=>{hostCaptureFrame=null;res.json({cleared:true});});
+app.get('/api/capture/status',(req,res)=>{const ageMs=hostCaptureFrame?Math.max(0,Date.now()-hostCaptureFrame.capturedAt):null;res.json({available:!!hostCaptureFrame&&ageMs<2500,ageMs});});
+app.get('/api/capture/latest',(req,res)=>{const ageMs=hostCaptureFrame?Math.max(0,Date.now()-hostCaptureFrame.capturedAt):null;if(!hostCaptureFrame||ageMs>=2500)return res.status(404).json({error:'No fresh capture from the broadcast PC. Start Live Game Capture on the PC and wait for its status to turn Live.'});res.json({image:hostCaptureFrame.image,capturedAt:hostCaptureFrame.capturedAt,ageMs});});
 app.post('/api/media',express.raw({type:'application/octet-stream',limit:'200mb'}),(req,res)=>res.json(saveMedia(req.body,path.join(__dirname,'public/assets/uploads'))));
 const cutout=require('./lib/photo-cutout').createCutout(__dirname,dataDir);
 app.post('/api/photo/cutout',async(req,res)=>{try{res.json(await cutout(String(req.body.url||'')));}catch(e){res.status(503).json({cutout:false,error:e.message});}});
@@ -159,6 +171,7 @@ app.post('/api/ai/analyze',async(req,res)=>{
   if(provider==='gemini'&&!key)throw Error('Gemini API key required for cloud analysis. Save a key in the Cloud AI panel, or use local OCR.');
   const image=String(req.body.image||'');
   if(!image)throw Error('No screenshot provided for cloud analysis.');
+  const detailImages=Array.isArray(req.body.detailImages)?req.body.detailImages.slice(0,2).map(String):[];
   const mode=String(req.body.mode||'result');
   if(!['result','draft','game'].includes(mode))throw Error('Unsupported cloud analysis mode');
   const currentMatch={
@@ -169,11 +182,11 @@ app.post('/api/ai/analyze',async(req,res)=>{
   };
   let result;
   if(provider==='codex'){
-    result=await CodexScoreboard.analyzeLiveScreen(image,Playoffs.teams,currentMatch,{realtime:false});
+    result=await CodexScoreboard.analyzeLiveScreen(image,Playoffs.teams,currentMatch,{realtime:false,supplementalImages:mode==='result'?detailImages:[]});
     if(result.mode!==mode)throw Error(`The screenshot was classified as ${result.mode}; use the matching analyzer instead.`);
   }else if(mode==='draft')result=await GeminiVision.analyzeDraft(image,key,Playoffs.teams);
   else if(mode==='game')result=await GeminiVision.analyzeInGame(image,key,Playoffs.teams,currentMatch);
-  else result=await GeminiVision.analyzeScoreboard(image,key,Playoffs.teams);
+  else result=await GeminiVision.analyzeScoreboard(detailImages.length?[image,...detailImages]:image,key,Playoffs.teams);
   res.json({mode,provider,engine:result.engine,data:result.data,patch:result.patch,autoApplied:false,model:result.model,effort:result.effort,speedTier:result.speedTier});
 });
 app.post('/api/match/ai-scan',async(req,res)=>{

@@ -49,7 +49,7 @@ test('Codex starts local app-server in GPT-6 Luna Fast at low reasoning and retu
     return child;
   }});
   try {
-    const result = await client.analyzeLiveScreen('data:image/png;base64,aGVsbG8=', undefined, null, { realtime: true });
+    const result = await client.analyzeLiveScreen('data:image/png;base64,aGVsbG8=', undefined, null, { realtime: true, supplementalImages: ['data:image/png;base64,bW9yZQ=='] });
     assert.equal(result.mode, 'draft');
     assert.equal(result.patch.phase, 'Last Changes');
     assert.equal(result.patch.draftTimer.remaining, 6);
@@ -66,6 +66,8 @@ test('Codex starts local app-server in GPT-6 Luna Fast at low reasoning and retu
     assert.equal(turn.model, 'gpt-6-luna');
     assert.equal(turn.effort, 'low');
     assert.ok(turn.outputSchema.properties.draft);
+    assert.equal(turn.input.filter(item => item.type === 'image').length, 2);
+    assert.match(turn.input[0].text, /enlarged blue-side and red-side player-table crops/);
     assert.ok(requests.some(request => request.method === 'thread/unsubscribe'));
   } finally { client.disconnect(); }
 });

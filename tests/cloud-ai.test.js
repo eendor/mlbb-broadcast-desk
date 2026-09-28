@@ -61,7 +61,7 @@ test('post-match screenshot analysis defaults to Codex and stays isolated from r
   const server=await new Promise(resolve=>{const s=app.listen(0,'127.0.0.1',()=>resolve(s));});
   t.after(()=>new Promise(resolve=>server.close(resolve)));
   const base='http://127.0.0.1:'+server.address().port;
-  const response=await fetch(base+'/api/ai/analyze',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({image:'data:image/jpeg;base64,AAAA',mode:'result'})});
+  const response=await fetch(base+'/api/ai/analyze',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({image:'data:image/jpeg;base64,AAAA',detailImages:['data:image/jpeg;base64,Ymx1ZQ==','data:image/jpeg;base64,cmVk'],mode:'result'})});
   assert.equal(response.status,200);
   const result=await response.json();
   assert.equal(result.provider,'codex');
@@ -69,6 +69,7 @@ test('post-match screenshot analysis defaults to Codex and stays isolated from r
   assert.equal(result.speedTier,'fast');
   assert.equal(args[0],'data:image/jpeg;base64,AAAA');
   assert.equal(args[3].realtime,false);
+  assert.equal(args[3].supplementalImages.length,2);
   assert.equal(result.autoApplied,false);
   const GeminiVision=require('../lib/gemini-vision');
   let geminiCalled=false;

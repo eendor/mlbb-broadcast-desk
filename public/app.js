@@ -113,14 +113,34 @@ $('#postgameAiScan')?.addEventListener('click',run(async()=>{
   // Cloud AI is a manual screenshot tool. It is intentionally routed to the
   // isolated /api/ai/analyze endpoint, never the live detection session.
   const video=$('#captureVideo'),canvas=$('#captureCanvas');
-  const source=(video&&video.readyState>=2&&!video.paused)?video:(canvas&&canvas.width>100)?canvas:null;
+  const shared=await getSharedCapture();
+  const source=shared||((video&&video.readyState>=2&&!video.paused)?video:(canvas&&canvas.width>100)?canvas:null);
   if(!source)throw Error('Start Live Game Capture first or upload a screenshot, then run Cloud AI analysis.');
   await PostgameOCR.scanWithCloud(source,{mode:'result'});
 }));
+async function clipboardScreenshot(){
+  if(!navigator.clipboard?.read)return null;
+  try{
+    for(const item of await navigator.clipboard.read()){
+      const type=item.types.find(value=>value.startsWith('image/'));
+      if(type)return await item.getType(type);
+    }
+  }catch{}
+  return null;
+}
+async function getSharedCapture(){
+  try{const {image}=await api('/api/capture/latest');const response=await fetch(image);return await createImageBitmap(await response.blob());}catch{return null;}
+}
 $('#postgameCaptureLive')?.addEventListener('click',run(async()=>{
   if(typeof PostgameOCR==='undefined')throw Error('Scoreboard analyzer loading...');
+  const clipboardImage=await clipboardScreenshot();
+  if(clipboardImage){toast('Analyzing the screenshot copied to clipboard with the selected AI provider.');await PostgameOCR.handleFile(clipboardImage,{ai:true});return;}
+  const shared=await getSharedCapture();
+  if(shared){toast('Analyzing the live capture from the broadcast PC.');await PostgameOCR.scanWithCloud(shared,{mode:'result'});shared.close?.();return;}
   const video=$('#captureVideo'),canvas=$('#captureCanvas');
-  const source=(video&&video.readyState>=2&&!video.paused)?video:(canvas&&canvas.width>100)?canvas:null;
+  let canvasHasFrame=false;
+  try{canvasHasFrame=!!canvas&&canvas.width>100&&canvas.height>100&&canvas.getContext('2d').getImageData(0,0,1,1).data[3]>0;}catch{}
+  const source=(video&&video.readyState>=2&&!video.paused)?video:canvasHasFrame?canvas:null;
   if(!source)throw Error('Start Live Game Capture first, then run the AI scoreboard scan.');
   await PostgameOCR.scanWithCloud(source,{mode:'result'});
 }));
@@ -133,6 +153,10 @@ $('#postgameUploadFile')?.addEventListener('change',run(async(e)=>{
 api('/api/lan').then(({urls=[]})=>{const el=$('#postgameLanControl');if(el)el.textContent=urls.length?`PC-hosted AI/control · open ${urls.join('  or  ')} on laptops on this Wi-Fi`:'PC-hosted AI/control · connect this PC to a private Wi-Fi network to show its laptop URL.';}).catch(()=>{});
 
 
+
+const hostCaptureStatus=document.createElement('p');hostCaptureStatus.id='hostCaptureStatus';hostCaptureStatus.className='hint';hostCaptureStatus.setAttribute('role','status');hostCaptureStatus.style.cssText='margin:0 0 10px;color:#f59e0b;';hostCaptureStatus.textContent='Host capture: waiting for the broadcast PC.';$('#postgameLanControl')?.after(hostCaptureStatus);
+async function refreshHostCaptureStatus(){try{const {available,ageMs}=await api('/api/capture/status');hostCaptureStatus.textContent=available?`Host capture: LIVE · frame ${Math.round(ageMs)} ms old`:'Host capture: waiting. Start Live Game Capture on the broadcast PC.';hostCaptureStatus.style.color=available?'#34d399':'#f59e0b';}catch{hostCaptureStatus.textContent='Host capture: status unavailable.';hostCaptureStatus.style.color='#f87171';}}
+refreshHostCaptureStatus();setInterval(refreshHostCaptureStatus,1500);
 
 function renderSchedule(rows){const options=v=>'<option value="">Auto-match logo by team name</option>'+organizationLogos.map(l=>'<option value="'+esc(l.url)+'"'+(v===l.url?' selected':'')+'>'+esc(l.name)+'</option>').join('');$('#scheduleRows').innerHTML=rows.map((r,i)=>'<div class="scheduleRow"><div class="fields">'+['time','blue','red','note'].map(k=>'<label>'+k+'<input data-schedule="'+i+'.'+k+'" value="'+esc(r[k])+'"></label>').join('')+'<label>Blue logo<select data-schedule="'+i+'.blueLogo">'+options(r.blueLogo||'')+'</select></label><label>Red logo<select data-schedule="'+i+'.redLogo">'+options(r.redLogo||'')+'</select></label><button data-remove="'+i+'" aria-label="Remove match">Remove</button></div></div>').join('');$$('[data-remove]').forEach(b=>b.onclick=()=>{scheduleDirty=true;const rows=readSchedule();rows.splice(Number(b.dataset.remove),1);renderSchedule(rows);});}function readSchedule(){const rows=[];$$('[data-schedule]').forEach(e=>{const [i,k]=e.dataset.schedule.split('.');(rows[i]??={})[k]=e.value;});return rows;}$('#addSchedule').onclick=()=>{scheduleDirty=true;renderSchedule([...readSchedule(),{time:'18:00',blue:'TEAM A',red:'TEAM B',note:'BO3'}]);};$('#saveSchedule').onclick=run(async()=>{await save({schedule:readSchedule()});scheduleDirty=false;toast('Schedule saved');});
 $('#outputLinks').innerHTML=[['program','Program'],...scenes.map(([id,n])=>[id,n])].map(([id,n])=>{const url=location.origin+'/overlay.html'+(id==='program'?'':'?scene='+id);return `<div class="outputrow"><strong>${n}</strong><code>${url}</code><button data-copy="${url}">Copy URL</button><a href="${url}" target="_blank">Open Ã¢â€ â€”</a></div>`;}).join('');$$('[data-copy]').forEach(b=>b.onclick=run(async()=>{await navigator.clipboard.writeText(b.dataset.copy);toast('OBS URL copied');}));$('#exportState').onclick=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(state,null,2)],{type:'application/json'}));a.download='pasiklab-production.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);};$('#importState').onchange=run(async e=>{if(!e.target.files[0])return;await save(JSON.parse(await e.target.files[0].text()));toast('Production backup restored');});

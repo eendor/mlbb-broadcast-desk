@@ -211,11 +211,19 @@ const PostgameOCR = (() => {
     try {
       const label = mode === 'draft' ? 'draft' : mode === 'game' ? 'in-game HUD' : 'post-match scoreboard';
       updateStatus(`AI vision is reading the ${label}…`);
-      const norm = normalizeSourceForAI(normalizeSource(source));
+      const frame = normalizeSource(source);
+      const norm = normalizeSourceForAI(frame);
       const image = norm.toDataURL('image/jpeg', 0.90);
+      const detailImages = mode === 'result' ? ['blue','red'].map(side => {
+        const crop = document.createElement('canvas');
+        crop.width = crop.height = 800;
+        const x = side === 'blue' ? 160 : 960;
+        crop.getContext('2d').drawImage(frame,x,180,800,800,0,0,800,800);
+        return crop.toDataURL('image/jpeg',0.92);
+      }) : [];
       const key = (typeof localStorage !== 'undefined' ? localStorage.getItem('geminiApiKey') : '') || '';
       const provider = document.getElementById('postgameAiProvider')?.value || 'codex';
-      const res = await api('/api/ai/analyze', { image, apiKey: key, mode, provider });
+      const res = await api('/api/ai/analyze', { image, detailImages, apiKey: key, mode, provider });
       // The server is the single source of truth for what the model returned.
       const data = res?.data || res?.patch;
       const issue = cloudResultIssue(data);
@@ -468,7 +476,7 @@ const PostgameOCR = (() => {
         </div>
       </div>
 
-      <div class="twogrid" style="gap:16px; margin-bottom:14px;">
+      <div class="twogrid" style="grid-template-columns:minmax(0,1fr);gap:16px; margin-bottom:14px;">
         <!-- Blue Side Column -->
         <div class="team-review-card blue" style="background:rgba(59,130,246,0.04); border:1px solid rgba(59,130,246,0.25); border-radius:8px; padding:12px;">
           <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(59,130,246,0.2); padding-bottom:8px; margin-bottom:10px;">
