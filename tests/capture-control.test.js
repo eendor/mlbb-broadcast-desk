@@ -13,6 +13,7 @@ test('LAN OCR controller can send settings and commands; host status does not re
   assert.equal(control.revision,start.revision+1);
   assert.equal(control.command,'toggle-ocr');
   assert.equal(control.commandRevision,control.revision);
+  assert.ok(control.commandAt>0);
   const commandRevision=control.commandRevision;
   response=await fetch(base+'/api/capture/control',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({settings:{profile:'auto',confidence:'75'}})});
   control=await response.json();

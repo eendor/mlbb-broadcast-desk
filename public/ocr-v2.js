@@ -91,15 +91,18 @@ function collectOcrSettings(){
     provider:$('#aiProvider').value,aiAutoApply:$('#aiAutoApply').checked,aiSwitchScene:$('#aiSwitchScene').checked,aiSmoothClock:$('#aiSmoothClock').checked,
     captureSurface:$('#captureSurface').value,captureCursor:$('#captureCursor').value};
 }
-let remoteControlRevision=0,remoteCommandRevision=0,remoteHostSettingsKey='',suppressRemoteControlPush=false;
+let remoteControlRevision=0,remoteCommandRevision=0,remoteHostSettingsKey='',suppressRemoteControlPush=false,pendingRemoteRevision=0;
 async function sendRemoteControl(command){
   const payload={};if(command)payload.command=command;else payload.settings=collectOcrSettings();
-  const result=await api('/api/capture/control',payload);updateRemoteControlUi(result);
+  const result=await api('/api/capture/control',payload);pendingRemoteRevision=Math.max(pendingRemoteRevision,command?result.commandRevision:result.revision);updateRemoteControlUi(result);
 }
 function updateRemoteControlUi(control){
   const note=$('#remoteOcrControlStatus');if(!note)return;
   if(!remoteControlClient()){note.hidden=true;return;}
-  note.hidden=false;note.textContent=(control.ocrRunning||control.aiRunning?'PC OCR controls connected · ':'PC OCR controls connected · idle')+
+  note.hidden=false;
+  if(pendingRemoteRevision&&(control.ackRevision||0)<pendingRemoteRevision){note.textContent='Request sent · waiting for the broadcast PC. Refresh its desk page, then reselect capture if needed.';return;}
+  if(pendingRemoteRevision)pendingRemoteRevision=0;
+  note.textContent=(control.ocrRunning||control.aiRunning?'PC OCR controls connected · ':'PC OCR controls connected · idle')+
     (control.ocrRunning?'Local OCR running':'')+(control.ocrRunning&&control.aiRunning?' + ':'')+(control.aiRunning?'AI detection running':'');
   $('#autoOcr').textContent=control.ocrRunning?'Stop PC Local OCR':'Start PC Local OCR';
   $('#aiLiveLoopBtn').textContent=control.aiRunning?'Stop PC AI Detection':'Start PC AI Detection';
@@ -125,14 +128,16 @@ async function pollRemoteOcrControl(){
       if(control.revision>remoteControlRevision){remoteControlRevision=control.revision;applyOcrSettings(control.settings);}
       if(control.commandRevision>remoteCommandRevision){
         remoteCommandRevision=control.commandRevision;
-        if(control.command==='toggle-ocr')$('#autoOcr').click();
-        else if(control.command==='toggle-ai')$('#aiLiveLoopBtn').click();
-        else if(control.command==='stop-capture')stopCapture();
-        else if(control.command==='scan-once')$('#scan').click();
-        else if(control.command==='apply-readings')$('#applyOcr').click();
-        else if(control.command==='reset-tracking')$('#ocrResetTracking').click();
+        if(Date.now()-control.commandAt<15000){
+          if(control.command==='toggle-ocr')$('#autoOcr').click();
+          else if(control.command==='toggle-ai')$('#aiLiveLoopBtn').click();
+          else if(control.command==='stop-capture')stopCapture();
+          else if(control.command==='scan-once')$('#scan').click();
+          else if(control.command==='apply-readings')$('#applyOcr').click();
+          else if(control.command==='reset-tracking')$('#ocrResetTracking').click();
+        }
       }
-      await api('/api/capture/control',{host:true,ocrRunning:ocrLoop,aiRunning:LiveDetection.isAiLoopRunning(),settings:collectOcrSettings()});
+      await api('/api/capture/control',{host:true,ackRevision:control.revision,ocrRunning:ocrLoop,aiRunning:LiveDetection.isAiLoopRunning(),settings:collectOcrSettings()});
     }else if(remoteControlClient()){
       updateRemoteControlUi(control);
       const settingsKey=JSON.stringify(control.hostSettings||{});

@@ -12,14 +12,14 @@ app.use(express.static(path.join(__dirname,'public'),staticOpts));app.use('/asse
 // The capture remains in the host browser. Keep only its newest compressed
 // frame in memory so another LAN controller can request it for manual AI scan.
 let hostCaptureFrame=null;
-let remoteOcrControl={revision:0,command:null,commandRevision:0,settings:null,hostSettings:null,ocrRunning:false,aiRunning:false,updatedAt:0};
+let remoteOcrControl={revision:0,command:null,commandRevision:0,commandAt:0,ackRevision:0,settings:null,hostSettings:null,ocrRunning:false,aiRunning:false,updatedAt:0};
 app.get('/api/capture/control',(req,res)=>res.json(remoteOcrControl));
 app.post('/api/capture/control',(req,res)=>{
   if(req.body.host===true){
-    remoteOcrControl.ocrRunning=!!req.body.ocrRunning;remoteOcrControl.aiRunning=!!req.body.aiRunning;if(req.body.settings)remoteOcrControl.hostSettings=req.body.settings;remoteOcrControl.updatedAt=Date.now();
+    remoteOcrControl.ocrRunning=!!req.body.ocrRunning;remoteOcrControl.aiRunning=!!req.body.aiRunning;remoteOcrControl.ackRevision=Math.max(remoteOcrControl.ackRevision,Number(req.body.ackRevision)||remoteOcrControl.revision);if(req.body.settings)remoteOcrControl.hostSettings=req.body.settings;remoteOcrControl.updatedAt=Date.now();
   }else{
     const allowed=['toggle-ocr','toggle-ai','stop-capture','scan-once','apply-readings','reset-tracking'];
-    if(req.body.command!==undefined){if(!allowed.includes(req.body.command))throw Error('Unsupported remote capture command');remoteOcrControl.command=req.body.command;remoteOcrControl.commandRevision=remoteOcrControl.revision+1;}
+    if(req.body.command!==undefined){if(!allowed.includes(req.body.command))throw Error('Unsupported remote capture command');remoteOcrControl.command=req.body.command;remoteOcrControl.commandRevision=remoteOcrControl.revision+1;remoteOcrControl.commandAt=Date.now();}
     if(req.body.settings!==undefined){if(!req.body.settings||typeof req.body.settings!=='object'||Array.isArray(req.body.settings))throw Error('Invalid remote OCR settings');remoteOcrControl.settings=req.body.settings;}
     remoteOcrControl.revision++;remoteOcrControl.updatedAt=Date.now();
   }
