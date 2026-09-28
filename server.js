@@ -400,7 +400,7 @@ app.post('/api/detection/ai-live',async(req,res)=>{
             if (detection.aiGameSeen && finalPatch[side].lord !== undefined && state[side]?.lord) {
               if (state[side].lord - finalPatch[side].lord <= 4) finalPatch[side].lord = Math.max(state[side].lord, finalPatch[side].lord);
             }
-            if (detection.aiGameSeen && finalPatch[side].turtle !== undefined) delete finalPatch[side].turtle;
+
           }
           if (finalPatch[side]?.players && Array.isArray(state[side]?.players)) {
             finalPatch[side].players=AiLiveState.mergePlayers(state[side].players,finalPatch[side].players,rawGame?.[side]?.players,detection.aiPlayers[side],sampledAt);

@@ -699,7 +699,7 @@ const PostgameOCR = (() => {
     // Apply objectives if review inputs exist
     const objectives = { blue: {}, red: {} };
     for (const s of ['blue', 'red']) {
-      for (const [key, suffix] of [['turrets', 'Turrets'], ['lord', 'Lord'], ['turtle', 'Turtle']]) {
+      for (const [key, suffix] of [['turrets', 'Turrets'], ['lord', 'Lord']]) {
         const inp = document.getElementById('review' + (s === 'blue' ? 'Blue' : 'Red') + suffix);
         if (inp) objectives[s][key] = Math.max(0, parseInt(inp.value || '0', 10));
       }
