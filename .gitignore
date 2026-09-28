@@ -4,7 +4,14 @@ test-results/
 playwright-report/
 public/assets/uploads/
 public/assets/ads/*.mp4
-public/assets/commercials/*.mp4
+# Commercials are tracked via Git LFS (.gitattributes), except the six that
+# exceed GitHub's 100 MB hard per-file limit and must stay local.
+public/assets/commercials/VtdXts_ltsI.mp4
+public/assets/commercials/fb_1132907696359284.mp4
+public/assets/commercials/xRRgPjLlqYQ.mp4
+public/assets/commercials/TJTjFomKl3E.mp4
+public/assets/commercials/m8RyA0KlNRg.mp4
+public/assets/commercials/TVD7KbcRvWI.mp4
 .env
 .env.*
 !.env.example
@@ -25,8 +32,3 @@ Thumbs.db
 /PLAYOFFS/
 .opencode/
 __pycache__/
-analyze_ml/
-# One-off development migration/download scripts and obsolete browser checks.
-/scripts/
-/tests/artwork-check.cjs
-/tests/browser-check.cjs

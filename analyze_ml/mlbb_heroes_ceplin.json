@@ -1,0 +1,1102 @@
+[
+    {
+        "id_hero": 1,
+        "name_hero": "Aamon",
+        "images-hero": "aamon.png",
+        "role": [
+            "assassin"
+        ]
+    },
+    {
+        "id_hero": 2,
+        "name_hero": "Akai",
+        "images-hero": "akai.png",
+        "role": [
+            "tank"
+        ]
+    },
+    {
+        "id_hero": 3,
+        "name_hero": "Aldous",
+        "images-hero": "aldous.png",
+        "role": [
+            "fighter"
+        ]
+    },
+    {
+        "id_hero": 4,
+        "name_hero": "Alice",
+        "images-hero": "alice.png",
+        "role": [
+            "tank",
+            "mage"
+        ]
+    },
+    {
+        "id_hero": 5,
+        "name_hero": "Alpha",
+        "images-hero": "alpha.png",
+        "role": [
+            "fighter"
+        ]
+    },
+    {
+        "id_hero": 6,
+        "name_hero": "Alucard",
+        "images-hero": "alucard.png",
+        "role": [
+            "fighter",
+            "assassin"
+        ]
+    },
+    {
+        "id_hero": 7,
+        "name_hero": "Angela",
+        "images-hero": "angela.png",
+        "role": [
+            "support"
+        ]
+    },
+    {
+        "id_hero": 8,
+        "name_hero": "Argus",
+        "images-hero": "argus.png",
+        "role": [
+            "fighter"
+        ]
+    },
+    {
+        "id_hero": 9,
+        "name_hero": "Arlott",
+        "images-hero": "arlott.png",
+        "role": [
+            "fighter",
+            "assassin"
+        ]
+    },
+    {
+        "id_hero": 10,
+        "name_hero": "Atlas",
+        "images-hero": "atlas.png",
+        "role": [
+            "tank"
+        ]
+    },
+    {
+        "id_hero": 11,
+        "name_hero": "Aulus",
+        "images-hero": "aulus.png",
+        "role": [
+            "fighter"
+        ]
+    },
+    {
+        "id_hero": 12,
+        "name_hero": "Aurora",
+        "images-hero": "aurora.png",
+        "role": [
+            "mage"
+        ]
+    },
+    {
+        "id_hero": 13,
+        "name_hero": "Badang",
+        "images-hero": "badang.png",
+        "role": [
+            "fighter"
+        ]
+    },
+    {
+        "id_hero": 14,
+        "name_hero": "Balmond",
+        "images-hero": "balmond.png",
+        "role": [
+            "fighter"
+        ]
+    },
+    {
+        "id_hero": 15,
+        "name_hero": "Bane",
+        "images-hero": "bane.png",
+        "role": [
+            "fighter",
+            "mage"
+        ]
+    },
+    {
+        "id_hero": 16,
+        "name_hero": "Barats",
+        "images-hero": "barats.png",
+        "role": [
+            "tank",
+            "fighter"
+        ]
+    },
+    {
+        "id_hero": 17,
+        "name_hero": "Baxia",
+        "images-hero": "baxia.png",
+        "role": [
+            "tank"
+        ]
+    },
+    {
+        "id_hero": 18,
+        "name_hero": "Beatrix",
+        "images-hero": "beatrix.png",
+        "role": [
+            "marksman"
+        ]
+    },
+    {
+        "id_hero": 19,
+        "name_hero": "Belerick",
+        "images-hero": "belerick.png",
+        "role": [
+            "tank"
+        ]
+    },
+    {
+        "id_hero": 20,
+        "name_hero": "Benedetta",
+        "images-hero": "benedetta.png",
+        "role": [
+            "fighter",
+            "assassin"
+        ]
+    },
+    {
+        "id_hero": 21,
+        "name_hero": "Brody",
+        "images-hero": "brody.png",
+        "role": [
+            "marksman"
+        ]
+    },
+    {
+        "id_hero": 22,
+        "name_hero": "Bruno",
+        "images-hero": "bruno.png",
+        "role": [
+            "marksman"
+        ]
+    },
+    {
+        "id_hero": 23,
+        "name_hero": "Carmilla",
+        "images-hero": "carmilla.png",
+        "role": [
+            "tank",
+            "support"
+        ]
+    },
+    {
+        "id_hero": 24,
+        "name_hero": "Cecilion",
+        "images-hero": "cecilion.png",
+        "role": [
+            "mage"
+        ]
+    },
+    {
+        "id_hero": 25,
+        "name_hero": "Chang'e",
+        "images-hero": "chang27e.png",
+        "role": [
+            "mage"
+        ]
+    },
+    {
+        "id_hero": 26,
+        "name_hero": "Chip",
+        "images-hero": "chip.png",
+        "role": [
+            "tank",
+            "support"
+        ]
+    },
+    {
+        "id_hero": 27,
+        "name_hero": "Chou",
+        "images-hero": "chou.png",
+        "role": [
+            "fighter"
+        ]
+    },
+    {
+        "id_hero": 28,
+        "name_hero": "Cici",
+        "images-hero": "cici.png",
+        "role": [
+            "fighter"
+        ]
+    },
+    {
+        "id_hero": 29,
+        "name_hero": "Claude",
+        "images-hero": "claude.png",
+        "role": [
+            "marksman"
+        ]
+    },
+    {
+        "id_hero": 30,
+        "name_hero": "Clint",
+        "images-hero": "clint.png",
+        "role": [
+            "marksman"
+        ]
+    },
+    {
+        "id_hero": 31,
+        "name_hero": "Cyclops",
+        "images-hero": "cyclops.png",
+        "role": [
+            "mage"
+        ]
+    },
+    {
+        "id_hero": 32,
+        "name_hero": "Diggie",
+        "images-hero": "diggie.png",
+        "role": [
+            "support"
+        ]
+    },
+    {
+        "id_hero": 33,
+        "name_hero": "Dyrroth",
+        "images-hero": "dyrroth.png",
+        "role": [
+            "fighter"
+        ]
+    },
+    {
+        "id_hero": 34,
+        "name_hero": "Edith",
+        "images-hero": "edith.png",
+        "role": [
+            "tank",
+            "marksman"
+        ]
+    },
+    {
+        "id_hero": 35,
+        "name_hero": "Esmeralda",
+        "images-hero": "esmeralda.png",
+        "role": [
+            "tank",
+            "mage"
+        ]
+    },
+    {
+        "id_hero": 36,
+        "name_hero": "Estes",
+        "images-hero": "estes.png",
+        "role": [
+            "support"
+        ]
+    },
+    {
+        "id_hero": 37,
+        "name_hero": "Eudora",
+        "images-hero": "eudora.png",
+        "role": [
+            "mage"
+        ]
+    },
+    {
+        "id_hero": 38,
+        "name_hero": "Fanny",
+        "images-hero": "fanny.png",
+        "role": [
+            "assassin"
+        ]
+    },
+    {
+        "id_hero": 39,
+        "name_hero": "Faramis",
+        "images-hero": "faramis.png",
+        "role": [
+            "mage",
+            "support"
+        ]
+    },
+    {
+        "id_hero": 40,
+        "name_hero": "Floryn",
+        "images-hero": "floryn.png",
+        "role": [
+            "support"
+        ]
+    },
+    {
+        "id_hero": 41,
+        "name_hero": "Franco",
+        "images-hero": "franco.png",
+        "role": [
+            "tank"
+        ]
+    },
+    {
+        "id_hero": 42,
+        "name_hero": "Fredrinn",
+        "images-hero": "fredrinn.png",
+        "role": [
+            "tank",
+            "fighter"
+        ]
+    },
+    {
+        "id_hero": 43,
+        "name_hero": "Freya",
+        "images-hero": "freya.png",
+        "role": [
+            "fighter"
+        ]
+    },
+    {
+        "id_hero": 44,
+        "name_hero": "Gatotkaca",
+        "images-hero": "gatotkaca.png",
+        "role": [
+            "tank",
+            "fighter"
+        ]
+    },
+    {
+        "id_hero": 45,
+        "name_hero": "Gloo",
+        "images-hero": "gloo.png",
+        "role": [
+            "tank"
+        ]
+    },
+    {
+        "id_hero": 46,
+        "name_hero": "Gord",
+        "images-hero": "gord.png",
+        "role": [
+            "mage"
+        ]
+    },
+    {
+        "id_hero": 47,
+        "name_hero": "Granger",
+        "images-hero": "granger.png",
+        "role": [
+            "marksman"
+        ]
+    },
+    {
+        "id_hero": 48,
+        "name_hero": "Grock",
+        "images-hero": "grock.png",
+        "role": [
+            "tank",
+            "fighter"
+        ]
+    },
+    {
+        "id_hero": 49,
+        "name_hero": "Guinevere",
+        "images-hero": "guinevere.png",
+        "role": [
+            "fighter"
+        ]
+    },
+    {
+        "id_hero": 50,
+        "name_hero": "Gusion",
+        "images-hero": "gusion.png",
+        "role": [
+            "assassin"
+        ]
+    },
+    {
+        "id_hero": 51,
+        "name_hero": "Hanabi",
+        "images-hero": "hanabi.png",
+        "role": [
+            "marksman"
+        ]
+    },
+    {
+        "id_hero": 52,
+        "name_hero": "Hanzo",
+        "images-hero": "hanzo.png",
+        "role": [
+            "assassin"
+        ]
+    },
+    {
+        "id_hero": 53,
+        "name_hero": "Harith",
+        "images-hero": "harith.png",
+        "role": [
+            "mage"
+        ]
+    },
+    {
+        "id_hero": 54,
+        "name_hero": "Harley",
+        "images-hero": "harley.png",
+        "role": [
+            "assassin",
+            "mage"
+        ]
+    },
+    {
+        "id_hero": 55,
+        "name_hero": "Hayabusa",
+        "images-hero": "hayabusa.png",
+        "role": [
+            "assassin"
+        ]
+    },
+    {
+        "id_hero": 56,
+        "name_hero": "Helcurt",
+        "images-hero": "helcurt.png",
+        "role": [
+            "assassin"
+        ]
+    },
+    {
+        "id_hero": 57,
+        "name_hero": "Hilda",
+        "images-hero": "hilda.png",
+        "role": [
+            "tank",
+            "fighter"
+        ]
+    },
+    {
+        "id_hero": 58,
+        "name_hero": "Hirara",
+        "images-hero": "hirara.png",
+        "role": [
+            "assassin"
+        ]
+    },
+    {
+        "id_hero": 59,
+        "name_hero": "Hylos",
+        "images-hero": "hylos.png",
+        "role": [
+            "tank"
+        ]
+    },
+    {
+        "id_hero": 60,
+        "name_hero": "Irithel",
+        "images-hero": "irithel.png",
+        "role": [
+            "marksman"
+        ]
+    },
+    {
+        "id_hero": 61,
+        "name_hero": "Ixia",
+        "images-hero": "ixia.png",
+        "role": [
+            "marksman"
+        ]
+    },
+    {
+        "id_hero": 62,
+        "name_hero": "Jawhead",
+        "images-hero": "jawhead.png",
+        "role": [
+            "fighter"
+        ]
+    },
+    {
+        "id_hero": 63,
+        "name_hero": "Johnson",
+        "images-hero": "johnson.png",
+        "role": [
+            "tank",
+            "support"
+        ]
+    },
+    {
+        "id_hero": 64,
+        "name_hero": "Joy",
+        "images-hero": "joy.png",
+        "role": [
+            "assassin"
+        ]
+    },
+    {
+        "id_hero": 65,
+        "name_hero": "Julian",
+        "images-hero": "julian.png",
+        "role": [
+            "fighter",
+            "assassin"
+        ]
+    },
+    {
+        "id_hero": 66,
+        "name_hero": "Kadita",
+        "images-hero": "kadita.png",
+        "role": [
+            "assassin",
+            "mage"
+        ]
+    },
+    {
+        "id_hero": 67,
+        "name_hero": "Kagura",
+        "images-hero": "kagura.png",
+        "role": [
+            "mage"
+        ]
+    },
+    {
+        "id_hero": 68,
+        "name_hero": "Kaja",
+        "images-hero": "kaja.png",
+        "role": [
+            "fighter",
+            "support"
+        ]
+    },
+    {
+        "id_hero": 69,
+        "name_hero": "Kalea",
+        "images-hero": "kalea.png",
+        "role": [
+            "fighter",
+            "support"
+        ]
+    },
+    {
+        "id_hero": 70,
+        "name_hero": "Karina",
+        "images-hero": "karina.png",
+        "role": [
+            "assassin"
+        ]
+    },
+    {
+        "id_hero": 71,
+        "name_hero": "Karrie",
+        "images-hero": "karrie.png",
+        "role": [
+            "marksman"
+        ]
+    },
+    {
+        "id_hero": 72,
+        "name_hero": "Khaleed",
+        "images-hero": "khaleed.png",
+        "role": [
+            "fighter"
+        ]
+    },
+    {
+        "id_hero": 73,
+        "name_hero": "Khufra",
+        "images-hero": "khufra.png",
+        "role": [
+            "tank"
+        ]
+    },
+    {
+        "id_hero": 74,
+        "name_hero": "Kimmy",
+        "images-hero": "kimmy.png",
+        "role": [
+            "mage",
+            "marksman"
+        ]
+    },
+    {
+        "id_hero": 75,
+        "name_hero": "Lancelot",
+        "images-hero": "lancelot.png",
+        "role": [
+            "assassin"
+        ]
+    },
+    {
+        "id_hero": 76,
+        "name_hero": "Lapu-Lapu",
+        "images-hero": "lapu-lapu.png",
+        "role": [
+            "fighter"
+        ]
+    },
+    {
+        "id_hero": 77,
+        "name_hero": "Layla",
+        "images-hero": "layla.png",
+        "role": [
+            "marksman"
+        ]
+    },
+    {
+        "id_hero": 78,
+        "name_hero": "Leomord",
+        "images-hero": "leomord.png",
+        "role": [
+            "fighter"
+        ]
+    },
+    {
+        "id_hero": 79,
+        "name_hero": "Lesley",
+        "images-hero": "lesley.png",
+        "role": [
+            "assassin",
+            "marksman"
+        ]
+    },
+    {
+        "id_hero": 80,
+        "name_hero": "Ling",
+        "images-hero": "ling.png",
+        "role": [
+            "assassin"
+        ]
+    },
+    {
+        "id_hero": 81,
+        "name_hero": "Lolita",
+        "images-hero": "lolita.png",
+        "role": [
+            "tank",
+            "support"
+        ]
+    },
+    {
+        "id_hero": 82,
+        "name_hero": "Lukas",
+        "images-hero": "lukas.png",
+        "role": [
+            "fighter"
+        ]
+    },
+    {
+        "id_hero": 83,
+        "name_hero": "Lunox",
+        "images-hero": "lunox.png",
+        "role": [
+            "mage"
+        ]
+    },
+    {
+        "id_hero": 84,
+        "name_hero": "Luo Yi",
+        "images-hero": "luo_yi.png",
+        "role": [
+            "mage"
+        ]
+    },
+    {
+        "id_hero": 85,
+        "name_hero": "Lylia",
+        "images-hero": "lylia.png",
+        "role": [
+            "mage"
+        ]
+    },
+    {
+        "id_hero": 86,
+        "name_hero": "Marcel",
+        "images-hero": "marcel.png",
+        "role": [
+            "support"
+        ]
+    },
+    {
+        "id_hero": 87,
+        "name_hero": "Martis",
+        "images-hero": "martis.png",
+        "role": [
+            "fighter"
+        ]
+    },
+    {
+        "id_hero": 88,
+        "name_hero": "Masha",
+        "images-hero": "masha.png",
+        "role": [
+            "tank",
+            "fighter"
+        ]
+    },
+    {
+        "id_hero": 89,
+        "name_hero": "Mathilda",
+        "images-hero": "mathilda.png",
+        "role": [
+            "assassin",
+            "support"
+        ]
+    },
+    {
+        "id_hero": 90,
+        "name_hero": "Melissa",
+        "images-hero": "melissa.png",
+        "role": [
+            "marksman"
+        ]
+    },
+    {
+        "id_hero": 91,
+        "name_hero": "Minotaur",
+        "images-hero": "minotaur.png",
+        "role": [
+            "tank",
+            "support"
+        ]
+    },
+    {
+        "id_hero": 92,
+        "name_hero": "Minsitthar",
+        "images-hero": "minsitthar.png",
+        "role": [
+            "fighter"
+        ]
+    },
+    {
+        "id_hero": 93,
+        "name_hero": "Miya",
+        "images-hero": "miya.png",
+        "role": [
+            "marksman"
+        ]
+    },
+    {
+        "id_hero": 94,
+        "name_hero": "Moskov",
+        "images-hero": "moskov.png",
+        "role": [
+            "marksman"
+        ]
+    },
+    {
+        "id_hero": 95,
+        "name_hero": "Nana",
+        "images-hero": "nana.png",
+        "role": [
+            "mage"
+        ]
+    },
+    {
+        "id_hero": 96,
+        "name_hero": "Natalia",
+        "images-hero": "natalia.png",
+        "role": [
+            "assassin"
+        ]
+    },
+    {
+        "id_hero": 97,
+        "name_hero": "Natan",
+        "images-hero": "natan.png",
+        "role": [
+            "marksman"
+        ]
+    },
+    {
+        "id_hero": 98,
+        "name_hero": "Nolan",
+        "images-hero": "nolan.png",
+        "role": [
+            "assassin"
+        ]
+    },
+    {
+        "id_hero": 99,
+        "name_hero": "Novaria",
+        "images-hero": "novaria.png",
+        "role": [
+            "mage"
+        ]
+    },
+    {
+        "id_hero": 100,
+        "name_hero": "Obsidia",
+        "images-hero": "obsidia.png",
+        "role": [
+            "marksman"
+        ]
+    },
+    {
+        "id_hero": 101,
+        "name_hero": "Odette",
+        "images-hero": "odette.png",
+        "role": [
+            "mage"
+        ]
+    },
+    {
+        "id_hero": 102,
+        "name_hero": "Paquito",
+        "images-hero": "paquito.png",
+        "role": [
+            "fighter",
+            "assassin"
+        ]
+    },
+    {
+        "id_hero": 103,
+        "name_hero": "Pharsa",
+        "images-hero": "pharsa.png",
+        "role": [
+            "mage"
+        ]
+    },
+    {
+        "id_hero": 104,
+        "name_hero": "Phoveus",
+        "images-hero": "phoveus.png",
+        "role": [
+            "fighter"
+        ]
+    },
+    {
+        "id_hero": 105,
+        "name_hero": "Popol and Kupa",
+        "images-hero": "popol_and_kupa.png",
+        "role": [
+            "marksman"
+        ]
+    },
+    {
+        "id_hero": 106,
+        "name_hero": "Rafaela",
+        "images-hero": "rafaela.png",
+        "role": [
+            "support"
+        ]
+    },
+    {
+        "id_hero": 107,
+        "name_hero": "Roger",
+        "images-hero": "roger.png",
+        "role": [
+            "fighter",
+            "marksman"
+        ]
+    },
+    {
+        "id_hero": 108,
+        "name_hero": "Ruby",
+        "images-hero": "ruby.png",
+        "role": [
+            "fighter"
+        ]
+    },
+    {
+        "id_hero": 109,
+        "name_hero": "Saber",
+        "images-hero": "saber.png",
+        "role": [
+            "assassin"
+        ]
+    },
+    {
+        "id_hero": 110,
+        "name_hero": "Selena",
+        "images-hero": "selena.png",
+        "role": [
+            "assassin",
+            "mage"
+        ]
+    },
+    {
+        "id_hero": 111,
+        "name_hero": "Silvanna",
+        "images-hero": "silvanna.png",
+        "role": [
+            "fighter"
+        ]
+    },
+    {
+        "id_hero": 112,
+        "name_hero": "Sora",
+        "images-hero": "sora.png",
+        "role": [
+            "fighter",
+            "assassin"
+        ]
+    },
+    {
+        "id_hero": 113,
+        "name_hero": "Sun",
+        "images-hero": "sun.png",
+        "role": [
+            "fighter"
+        ]
+    },
+    {
+        "id_hero": 114,
+        "name_hero": "Suyou",
+        "images-hero": "suyou.png",
+        "role": [
+            "fighter",
+            "assassin"
+        ]
+    },
+    {
+        "id_hero": 115,
+        "name_hero": "Terizla",
+        "images-hero": "terizla.png",
+        "role": [
+            "tank",
+            "fighter"
+        ]
+    },
+    {
+        "id_hero": 116,
+        "name_hero": "Thamuz",
+        "images-hero": "thamuz.png",
+        "role": [
+            "fighter"
+        ]
+    },
+    {
+        "id_hero": 117,
+        "name_hero": "Tigreal",
+        "images-hero": "tigreal.png",
+        "role": [
+            "tank"
+        ]
+    },
+    {
+        "id_hero": 118,
+        "name_hero": "Uranus",
+        "images-hero": "uranus.png",
+        "role": [
+            "tank"
+        ]
+    },
+    {
+        "id_hero": 119,
+        "name_hero": "Vale",
+        "images-hero": "vale.png",
+        "role": [
+            "mage"
+        ]
+    },
+    {
+        "id_hero": 120,
+        "name_hero": "Valentina",
+        "images-hero": "valentina.png",
+        "role": [
+            "mage"
+        ]
+    },
+    {
+        "id_hero": 121,
+        "name_hero": "Valir",
+        "images-hero": "valir.png",
+        "role": [
+            "mage"
+        ]
+    },
+    {
+        "id_hero": 122,
+        "name_hero": "Vexana",
+        "images-hero": "vexana.png",
+        "role": [
+            "mage"
+        ]
+    },
+    {
+        "id_hero": 123,
+        "name_hero": "Wanwan",
+        "images-hero": "wanwan.png",
+        "role": [
+            "marksman"
+        ]
+    },
+    {
+        "id_hero": 124,
+        "name_hero": "X.Borg",
+        "images-hero": "xborg.png",
+        "role": [
+            "fighter"
+        ]
+    },
+    {
+        "id_hero": 125,
+        "name_hero": "Xavier",
+        "images-hero": "xavier.png",
+        "role": [
+            "mage"
+        ]
+    },
+    {
+        "id_hero": 126,
+        "name_hero": "Yi Sun-shin",
+        "images-hero": "yi_sun-shin.png",
+        "role": [
+            "assassin",
+            "marksman"
+        ]
+    },
+    {
+        "id_hero": 127,
+        "name_hero": "Yin",
+        "images-hero": "yin.png",
+        "role": [
+            "fighter",
+            "assassin"
+        ]
+    },
+    {
+        "id_hero": 128,
+        "name_hero": "Yu Zhong",
+        "images-hero": "yu_zhong.png",
+        "role": [
+            "fighter"
+        ]
+    },
+    {
+        "id_hero": 129,
+        "name_hero": "Yve",
+        "images-hero": "yve.png",
+        "role": [
+            "mage"
+        ]
+    },
+    {
+        "id_hero": 130,
+        "name_hero": "Zetian",
+        "images-hero": "zetian.png",
+        "role": [
+            "mage"
+        ]
+    },
+    {
+        "id_hero": 131,
+        "name_hero": "Zhask",
+        "images-hero": "zhask.png",
+        "role": [
+            "mage"
+        ]
+    },
+    {
+        "id_hero": 132,
+        "name_hero": "Zhuxin",
+        "images-hero": "zhuxin.png",
+        "role": [
+            "mage"
+        ]
+    },
+    {
+        "id_hero": 133,
+        "name_hero": "Zilong",
+        "images-hero": "zilong.png",
+        "role": [
+            "fighter",
+            "assassin"
+        ]
+    }
+]

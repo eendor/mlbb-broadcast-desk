@@ -1,0 +1,75 @@
+﻿Round,Bracket,Matchup,Match,Game,BattleID,BlueSide,RedSide,Winner,BattleURL,ReportedBy,ReportedTime,Notes
+Round 1,,,ULS vs USM ESC,1,6aa676b1e10f8b2ba2c7cdc1,USM ESC,ULS,USM ESC,https://play.mobilelegends.com/match/#/6aa676b1e10f8b2ba2c7cdc1,jrai,Yesterday 6:22 PM,Reported as ROW 1
+Round 1,,,ULS vs USM ESC,2,6aa67ce3e10f8b2ba2c7ce86,ULS,USM ESC,USM ESC,https://play.mobilelegends.com/match/#/6aa67ce3e10f8b2ba2c7ce86,ML.Ivoezxc_,Yesterday 6:43 PM,Reported as ROW 1
+Round 1,,,FSMS vs PNSA,1,6aa67608ac75df7a21fd718c,FSMS,PNSA,,https://play.mobilelegends.com/match/#/6aa67608ac75df7a21fd718c,ML.Angcool,Yesterday 6:36 PM,Reported ROW 7; game winner not stated
+Round 1,,,FSMS vs PNSA,2,6aa67bb6ac75df7a21fd71a4,PNSA,FSMS,,https://play.mobilelegends.com/match/#/6aa67bb6ac75df7a21fd71a4,jrai,Yesterday 6:40 PM,Reported ROW 7; game winner not stated
+Round 1,,,DEVCOM vs PICE,1,,PICE,DEVCOM,PICE,,ML.Keiji,Yesterday 6:37 PM,BattleID missing from report
+Round 1,,,DEVCOM vs PICE,2,26aa67a2eac75df7a21fd719b,DEVCOM,PICE,PICE,https://play.mobilelegends.com/match/#/26aa67a2eac75df7a21fd719b,ML.Acsel,Yesterday 6:55 PM,"ID is 25 chars (likely typo, probably 6aa67a2eac75df7a21fd719b)"
+Round 1,,,JPEDS vs AMS,1,6aa67439e10f8b2ba2c7cd6b,JPEDS,AMS,AMS,https://play.mobilelegends.com/match/#/6aa67439e10f8b2ba2c7cd6b,ML.Keiji,Yesterday 6:51 PM,Duplicate report by ML.Ergin 7:20 PM; series winner inferred from R2 brackets
+Round 1,,,PSITS vs JIECEP,1,6aa67611e10f8b2ba2c7cda9,PSITS,JIECEP,PSITS,https://play.mobilelegends.com/match/#/6aa67611e10f8b2ba2c7cda9,ML.USG Undersec - Marian,Yesterday 7:03 PM,Reported ROW 5
+Round 1,,,PSITS vs JIECEP,2,,JIECEP,PSITS,PSITS,,ML.USG Undersec - Marian,Yesterday 7:03 PM,BattleID missing
+Round 1,,,APO vs ABES,1,6aa67482ac75df7a21fd7184,ABES,APO,APO,https://play.mobilelegends.com/match/#/6aa67482ac75df7a21fd7184,ML.AART [ESMO],Yesterday 7:11 PM,Reported ROW 3
+Round 1,,,APO vs ABES,2,6aa67db6e10f8b2ba2c7ce8c,APO,ABES,APO,https://play.mobilelegends.com/match/#/6aa67db6e10f8b2ba2c7ce8c,ML.AART [ESMO],Yesterday 7:11 PM,
+Round 1,,,ICPEP vs UFTTS,1,6aa65099ac75df7a21fd7038,UFTTS,ICPEP,ICPEP,https://play.mobilelegends.com/match/#/6aa65099ac75df7a21fd7038,ML.MJ,Yesterday 7:24 PM,Reported ROW 8
+Round 1,,,ICPEP vs UFTTS,2,6aa65099ac75df7a21fd7038,ICPEP,UFTTS,ICPEP,https://play.mobilelegends.com/match/#/6aa65099ac75df7a21fd7038,ML.MJ,Yesterday 7:24 PM,"Same BattleID as Game 1 (likely copy-paste, verify)"
+Round 1,,,JMES vs FTSS,1,6aa66c1fac75df7a21fd7160,JMES,FTSS,,https://play.mobilelegends.com/match/#/6aa66c1fac75df7a21fd7160,ML.Keiji,Yesterday 7:38 PM,Game winner not stated; series winner inferred from R2 brackets
+Round 1,,,JMES vs FTSS,2,6aa68004ac75df7a21fd71b4,FTSS,JMES,,https://play.mobilelegends.com/match/#/6aa68004ac75df7a21fd71b4,ML.Keiji,Yesterday 7:38 PM,Game winner not stated
+Round 2,,R2M1,USM ESC vs JMES,1,6aa68d2ae10f8b2ba2c7cee9,USM ESC,JMES,JMES,https://play.mobilelegends.com/match/#/6aa68d2ae10f8b2ba2c7cee9,ML.Ivoezxc_,Yesterday 8:57 PM,Reported ROW 1
+Round 2,,R2M1,USM ESC vs JMES,2,6aa69244e10f8b2ba2c7cf15,JMES,USM ESC,USM ESC,https://play.mobilelegends.com/match/#/6aa69244e10f8b2ba2c7cf15,ML.Ivoezxc_,Yesterday 8:57 PM,
+Round 2,,R2M1,USM ESC vs JMES,3,6aa697e8e10f8b2ba2c7cf46,USM ESC,JMES,USM ESC,https://play.mobilelegends.com/match/#/6aa697e8e10f8b2ba2c7cf46,ML.Ivoezxc_,Yesterday 8:57 PM,
+Round 2,1-0 bracket,R2M2,APO vs PICE,1,6aa68a19ac75df7a21fd71e1,PICE,APO,PICE,https://play.mobilelegends.com/match/#/6aa68a19ac75df7a21fd71e1,ML.MJ,Yesterday 8:59 PM,Reported ROW 2
+Round 2,1-0 bracket,R2M2,APO vs PICE,2,6aa69310e10f8b2ba2c7cf1e,APO,PICE,APO,https://play.mobilelegends.com/match/#/6aa69310e10f8b2ba2c7cf1e,ML.MJ,Yesterday 8:59 PM,
+Round 2,1-0 bracket,R2M2,APO vs PICE,3,6aa698cfe10f8b2ba2c7cf52,PICE,APO,APO,https://play.mobilelegends.com/match/#/6aa698cfe10f8b2ba2c7cf52,ML.MJ,Yesterday 8:59 PM,Series winner: APO
+Round 2,,R2M3,PSITS vs AMS,1,6aa68cdfac75df7a21fd71f2,PSITS,AMS,PSITS,https://play.mobilelegends.com/match/#/6aa68cdfac75df7a21fd71f2,ML.MARK,Yesterday 8:38 PM,Reported ROW 3; sent as 'AMS vs PSITS'
+Round 2,,R2M3,PSITS vs AMS,2,6aa69385ac75df7a21fd721e,PSITS,AMS,PSITS,https://play.mobilelegends.com/match/#/6aa69385ac75df7a21fd721e,ML.MARK,Yesterday 8:38 PM,
+Round 2,,R2M4,FSMS vs ICPEP,1,6aa6826bac75df7a21fd71b9,FSMS,ICPEP,ICPEP,https://play.mobilelegends.com/match/#/6aa6826bac75df7a21fd71b9,ML.Angcool,Yesterday 9:06 PM,Reported ROW 4; 'ICEPEP' = ICPEP
+Round 2,,R2M4,FSMS vs ICPEP,2,6aa69215e10f8b2ba2c7cf11,ICPEP,FSMS,FSMS,https://play.mobilelegends.com/match/#/6aa69215e10f8b2ba2c7cf11,ML.Angcool,Yesterday 9:06 PM,
+Round 2,,R2M4,FSMS vs ICPEP,3,6aa697c0e10f8b2ba2c7cf42,FSMS,ICPEP,ICPEP,https://play.mobilelegends.com/match/#/6aa697c0e10f8b2ba2c7cf42,ML.Angcool,Yesterday 9:06 PM,
+Round 2,,R2M5,ULS vs FTSS,1,,FTSS,ULS,FTSS,,ML.Acsel,Yesterday 9:03 PM,BattleID missing
+Round 2,,R2M5,ULS vs FTSS,2,,ULS,FTSS,ULS,,ML.Acsel,Yesterday 9:03 PM,BattleID missing; header typo 'JIECEP vs PSITS' but sides are FTSS/ULS
+Round 2,,R2M5,ULS vs FTSS,3,6aa68d80e10f8b2ba2c7cef0,FTSS,ULS,ULS,https://play.mobilelegends.com/match/#/6aa68d80e10f8b2ba2c7cef0,ML.Acsel,Yesterday 9:03 PM,
+Round 2,,R2M6,ABES vs DEVCOM,1,6aa68d5ee10f8b2ba2c7ceec,ABES,DEVCOM,ABES,https://play.mobilelegends.com/match/#/6aa68d5ee10f8b2ba2c7ceec,ML.AART [ESMO],Yesterday 8:17 PM,
+Round 2,,R2M6,ABES vs DEVCOM,2,6aa6986aac75df7a21fd723e,DEVCOM,ABES,ABES,https://play.mobilelegends.com/match/#/6aa6986aac75df7a21fd723e,ML.AART [ESMO],Yesterday 8:17 PM,
+Round 2,0-1 bracket,R2M7,JIECEP vs JPEDS,1,6aa68938e10f8b2ba2c7cece,JIECEP,JPEDS,JPEDS,https://play.mobilelegends.com/match/#/6aa68938e10f8b2ba2c7cece,jrai,Yesterday 9:18 PM,
+Round 2,0-1 bracket,R2M7,JIECEP vs JPEDS,2,6aa6943dac75df7a21fd7220,JPEDS,JIECEP,JIECEP,https://play.mobilelegends.com/match/#/6aa6943dac75df7a21fd7220,jrai,Yesterday 9:18 PM,
+Round 2,0-1 bracket,R2M7,JIECEP vs JPEDS,3,6aa69b32ac75df7a21fd7256,JIECEP,JPEDS,JPEDS,https://play.mobilelegends.com/match/#/6aa69b32ac75df7a21fd7256,jrai,Yesterday 9:18 PM,
+Round 2,,R2M8,PNSA vs UFTTS,1,,UFTTS,PNSA,UFTTS,,ML.Ergin,Yesterday 9:18 PM,"Reported ROW 8; sent as 'PNSA VS UFTTS'. Link duplicated G2's battle; winner kept from transcript, excluded from player stats"
+Round 2,,R2M8,PNSA vs UFTTS,2,6aa694b0e10f8b2ba2c7cf2b,PNSA,UFTTS,PNSA,https://play.mobilelegends.com/match/#/6aa694b0e10f8b2ba2c7cf2b,ML.Ergin,Yesterday 9:18 PM,Verified: rosters are PNSA (camp1/Blue) vs UFTTS (camp2/Red); G1/G3 links were duplicates of this battle
+Round 2,,R2M8,PNSA vs UFTTS,3,,UFTTS,PNSA,UFTTS,,ML.Ergin,Yesterday 9:18 PM,"Link duplicated G2's battle; winner kept from transcript, excluded from player stats"
+Round 3,,R3M1,USM ESC vs APO,1,6aa6a488e10f8b2ba2c7cf8e,APO,USM ESC,USM ESC,https://play.mobilelegends.com/match/#/6aa6a488e10f8b2ba2c7cf8e,ML.Ivoezxc_,Yesterday 10:39 PM,Reported ROW 1
+Round 3,,R3M1,USM ESC vs APO,2,6aa6aaa6ac75df7a21fd72a1,USM ESC,APO,APO,https://play.mobilelegends.com/match/#/6aa6aaa6ac75df7a21fd72a1,ML.Ivoezxc_,Yesterday 10:39 PM,
+Round 3,,R3M1,USM ESC vs APO,3,6aa6b08de10f8b2ba2c7cfee,APO,USM ESC,APO,https://play.mobilelegends.com/match/#/6aa6b08de10f8b2ba2c7cfee,ML.Ivoezxc_,Yesterday 10:39 PM,
+Round 3,2-0 bracket,R3M2,PSITS vs ICPEP,1,6aa69f09e10f8b2ba2c7cf77,ICPEP,PSITS,ICPEP,https://play.mobilelegends.com/match/#/6aa69f09e10f8b2ba2c7cf77,ML.MJ,Yesterday 10:32 PM,Reported ROW 2
+Round 3,2-0 bracket,R3M2,PSITS vs ICPEP,2,6aa6aa93ac75df7a21fd729f,PSITS,ICPEP,PSITS,https://play.mobilelegends.com/match/#/6aa6aa93ac75df7a21fd729f,ML.MJ,Yesterday 10:32 PM,
+Round 3,2-0 bracket,R3M2,PSITS vs ICPEP,3,6aa6af84ac75df7a21fd72bd,ICPEP,PSITS,PSITS,https://play.mobilelegends.com/match/#/6aa6af84ac75df7a21fd72bd,ML.MJ,Yesterday 10:32 PM,Series winner: PSITS
+Round 3,,R3M3,ULS vs JMES,1,6aa6a424e10f8b2ba2c7cf87,JMES,ULS,JMES,https://play.mobilelegends.com/match/#/6aa6a424e10f8b2ba2c7cf87,ML.MARK,Yesterday 10:38 PM,Reported ROW 3
+Round 3,,R3M3,ULS vs JMES,2,6aa6aa1aac75df7a21fd729b,ULS,JMES,ULS,https://play.mobilelegends.com/match/#/6aa6aa1aac75df7a21fd729b,ML.MARK,Yesterday 10:38 PM,
+Round 3,,R3M3,ULS vs JMES,3,6aa6af75ac75df7a21fd72bb,JMES,ULS,ULS,https://play.mobilelegends.com/match/#/6aa6af75ac75df7a21fd72bb,ML.MARK,Yesterday 10:38 PM,
+Round 3,,R3M4,ABES vs PICE,1,6aa6a424ac75df7a21fd726d,ABES,PICE,PICE,https://play.mobilelegends.com/match/#/6aa6a424ac75df7a21fd726d,ML.Angcool,Yesterday 10:09 PM,Reported ROW 4
+Round 3,,R3M4,ABES vs PICE,2,6aa6a973e10f8b2ba2c7cfaf,PICE,ABES,PICE,https://play.mobilelegends.com/match/#/6aa6a973e10f8b2ba2c7cfaf,ML.Angcool,Yesterday 10:09 PM,
+Round 3,,R3M5,JPEDS vs FSMS,1,,JPEDS,FSMS,FSMS,,ML.Acsel,Yesterday 10:19 PM,Reported ROW 5; BattleID missing
+Round 3,,R3M5,JPEDS vs FSMS,2,6aa6a4c8e10f8b2ba2c7cf91,FSMS,JPEDS,FSMS,https://play.mobilelegends.com/match/#/6aa6a4c8e10f8b2ba2c7cf91,ML.Acsel,Yesterday 10:19 PM,
+Round 3,,R3M6,AMS vs UFTTS,1,6aa6a441ac75df7a21fd7272,UFTTS,AMS,UFTTS,https://play.mobilelegends.com/match/#/6aa6a441ac75df7a21fd7272,ML.AART [ESMO],Yesterday 10:31 PM,
+Round 3,,R3M6,AMS vs UFTTS,2,6aa6ac6ee10f8b2ba2c7cfc9,AMS,UFTTS,UFTTS,https://play.mobilelegends.com/match/#/6aa6ac6ee10f8b2ba2c7cfc9,ML.AART [ESMO],Yesterday 10:31 PM,
+Round 3,0-2 bracket,R3M7,FTSS vs DEVCOM,1,6aa6a45ce10f8b2ba2c7cf8b,DEVCOM,FTSS,FTSS,https://play.mobilelegends.com/match/#/6aa6a45ce10f8b2ba2c7cf8b,jrai,Yesterday 10:21 PM,
+Round 3,0-2 bracket,R3M7,FTSS vs DEVCOM,2,6aa6a9edac75df7a21fd7298,FTSS,DEVCOM,FTSS,https://play.mobilelegends.com/match/#/6aa6a9edac75df7a21fd7298,jrai,Yesterday 10:21 PM,
+Round 3,,R3M8,JIECEP vs PNSA,1,6aa6a679e10f8b2ba2c7cfa0,JIECEP,PNSA,JIECEP,https://play.mobilelegends.com/match/#/6aa6a679e10f8b2ba2c7cfa0,ML.Ergin,Yesterday 10:36 PM,Reported ROW 8
+Round 3,,R3M8,JIECEP vs PNSA,2,6aa6ac10e10f8b2ba2c7cfc6,PNSA,JIECEP,JIECEP,https://play.mobilelegends.com/match/#/6aa6ac10e10f8b2ba2c7cfc6,ML.Ergin,Yesterday 10:36 PM,
+Round 4,,R4M1,ULS vs PICE,1,6aa6b7f8e10f8b2ba2c7d01a,PICE,ULS,PICE,https://play.mobilelegends.com/match/#/6aa6b7f8e10f8b2ba2c7d01a,ML.Ivoezxc_,Yesterday 11:39 PM,Reported ROW 1
+Round 4,,R4M1,ULS vs PICE,2,6aa6bd67e10f8b2ba2c7d037,ULS,PICE,PICE,https://play.mobilelegends.com/match/#/6aa6bd67e10f8b2ba2c7d037,ML.Ivoezxc_,Yesterday 11:39 PM,
+Round 4,2-1 bracket,R4M2,USM ESC vs FSMS,1,6aa6b93ee10f8b2ba2c7d022,FSMS,USM ESC,USM ESC,https://play.mobilelegends.com/match/#/6aa6b93ee10f8b2ba2c7d022,jrai,Yesterday 11:39 PM,Header 'ROUND 4 (2-!)'
+Round 4,2-1 bracket,R4M2,USM ESC vs FSMS,2,6aa6bf0ce10f8b2ba2c7d047,USM ESC,FSMS,USM ESC,https://play.mobilelegends.com/match/#/6aa6bf0ce10f8b2ba2c7d047,jrai,Yesterday 11:39 PM,
+Round 4,,R4M3,ICPEP vs UFTTS,1,6aa6b800ac75df7a21fd72da,ICPEP,UFTTS,ICPEP,https://play.mobilelegends.com/match/#/6aa6b800ac75df7a21fd72da,ML.MARK,12:15 AM,Sent as 'UFTTS vs ICPEP'
+Round 4,,R4M3,ICPEP vs UFTTS,2,6aa6be2be10f8b2ba2c7d03f,UFTTS,ICPEP,UFTTS,https://play.mobilelegends.com/match/#/6aa6be2be10f8b2ba2c7d03f,ML.MARK,12:15 AM,
+Round 4,,R4M3,ICPEP vs UFTTS,3,6aa6c49dac75df7a21fd7329,ICPEP,UFTTS,UFTTS,https://play.mobilelegends.com/match/#/6aa6c49dac75df7a21fd7329,ML.MARK,12:15 AM,
+Round 4,,R4M4,JMES vs ABES,1,6aa6b8ede10f8b2ba2c7d01f,ABES,JMES,JMES,https://play.mobilelegends.com/match/#/6aa6b8ede10f8b2ba2c7d01f,ML.Angcool,Yesterday 11:44 PM,Reported ROW 4
+Round 4,,R4M4,JMES vs ABES,2,6aa6bf5ce10f8b2ba2c7d04d,JMES,ABES,JMES,https://play.mobilelegends.com/match/#/6aa6bf5ce10f8b2ba2c7d04d,ML.Angcool,Yesterday 11:44 PM,
+Round 4,,R4M5,FTSS vs JIECEP,1,6aa6b918ac75df7a21fd72e2,JIECEP,FTSS,JIECEP,https://play.mobilelegends.com/match/#/6aa6b918ac75df7a21fd72e2,ML.Keiji,Yesterday 11:07 PM,Sender labeled 'Round 5'; official R4 matchups list this as R4M5
+Round 4,,R4M5,FTSS vs JIECEP,2,6aa6c123ac75df7a21fd730c,FTSS,JIECEP,JIECEP,https://play.mobilelegends.com/match/#/6aa6c123ac75df7a21fd730c,ML.Keiji,Yesterday 11:31 PM,
+Round 4,,R4M6,JPEDS vs AMS,1,,,,JPEDS,,ML.rod / ML.Keiji,12:34 AM,No BattleID; sides not stated (image post)
+Round 4,,R4M6,JPEDS vs AMS,2,,,,AMS,,ML.rod / ML.Keiji,12:34 AM,No BattleID; sides not stated (image post)
+Round 4,,R4M6,JPEDS vs AMS,3,,,,AMS,,ML.rod / ML.Keiji,12:34 AM,No BattleID; sides not stated (image post)
+Round 5,,R5M1,FSMS vs ICPEP,1,6aa6d139e10f8b2ba2c7d0a6,FSMS,ICPEP,FSMS,https://play.mobilelegends.com/match/#/6aa6d139e10f8b2ba2c7d0a6,ML.MARK,1:20 AM,Reported ROW 3
+Round 5,,R5M1,FSMS vs ICPEP,2,6aa6d669e10f8b2ba2c7d0af,ICPEP,FSMS,FSMS,https://play.mobilelegends.com/match/#/6aa6d669e10f8b2ba2c7d0af,ML.MARK,1:20 AM,
+Round 5,,R5M2,ULS vs JIECEP,1,6aa6d00ae10f8b2ba2c7d09e,JIECEP,ULS,ULS,https://play.mobilelegends.com/match/#/6aa6d00ae10f8b2ba2c7d09e,ML.Ivoezxc_,1:33 AM,Reported ROW 1
+Round 5,,R5M2,ULS vs JIECEP,2,6aa6d7dfac75df7a21fd735c,ULS,JIECEP,ULS,https://play.mobilelegends.com/match/#/6aa6d7dfac75df7a21fd735c,ML.Ivoezxc_,1:33 AM,Header typo 'ULS vs PICE Game 2' but sides are ULS/JIECEP

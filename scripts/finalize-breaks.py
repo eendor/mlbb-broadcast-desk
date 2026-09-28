@@ -1,0 +1,3 @@
+from pathlib import Path
+p=Path('public/breaks-overlay.js');s=p.read_text(encoding='utf-8-sig').replace("if(breakSceneName!=='ads'||!document.querySelector('.ads-screen')||!breakSceneState)return;","if(breakSceneName!=='ads'||!document.querySelector('.ads-screen')||!breakSceneState)return;if(!breakSceneState.visible){document.querySelector('.ads-screen video')?.pause();return;}");p.write_text(s,encoding='utf-8')
+p=Path('tests/breaks-browser.cjs');s=p.read_text(encoding='utf-8-sig').replace("await overlay.waitForSelector('.fullscreen');await overlay.screenshot", "await overlay.waitForSelector('.fullscreen');await overlay.waitForTimeout(750);await overlay.screenshot");p.write_text(s,encoding='utf-8')
