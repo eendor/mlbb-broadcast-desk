@@ -20,6 +20,7 @@ const fs = require('node:fs'), os = require('node:os'), path = require('node:pat
     await new Promise(resolve => setTimeout(resolve, wait));
     return result;
   };
+  fs.writeFileSync(path.join(process.env.DATA_DIR, 'ai-config.json'), JSON.stringify({ provider: 'gemini' }));
   const { app } = require('../server');
   const server = await new Promise(resolve => { const s = app.listen(0, '127.0.0.1', () => resolve(s)); });
   const base = 'http://127.0.0.1:' + server.address().port;

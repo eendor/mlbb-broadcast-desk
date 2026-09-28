@@ -8,10 +8,22 @@ window.NeuralHud = (() => {
     const valid = () => !stopped && current();
     const scheduler = OCRRuntime.scheduler(cycle);
     const controller = new AbortController();
+    let portraits = null;
     const send = (url, body) => post(url, body, { signal: controller.signal });
     const health = text => { const el = document.getElementById('aiHudStatus'); if (el) el.textContent = text; };
     async function hold() {
       if (!held && valid()) { held = true; await send('/api/detection/hold', { session }); }
+    }
+    function readDraftPortraits(frame, sampledAt) {
+      if (portraits || typeof HeroRecognition === 'undefined') return;
+      const queries = regions('draft').filter(r => LiveDetectionModel.isHero(r.field)).map(r => HeroRecognition.query(frame, r, 'draft'));
+      portraits = HeroRecognition.match(queries).then(async matches => {
+        if (!valid() || mode !== 'draft' || Date.now() - sampledAt > 2500 || !options().autoApply) return;
+        const readings = matches.filter(r => stable.observe('portrait:' + r.field, r.value, 2)).map(({ field, value }) => ({ field, value }));
+        if (!readings.length) return;
+        const result = await send('/api/detection', { session, mode: 'draft', sampledAt, readings, live: false, switchScene: false, localHud: true });
+        if (valid() && mode === 'draft' && !result.expired && !result.stale) onUpdate({ mode: 'draft', patch: result.patch, clockExpiresAt: result.clockExpiresAt, applied: true, sampledAt });
+      }).catch(error => { if (valid()) health('Draft portraits: ' + error.message); }).finally(() => { portraits = null; });
     }
     async function cycle() {
       if (!valid()) return;
@@ -54,6 +66,7 @@ window.NeuralHud = (() => {
         onMode(mode);
         if (mode === 'result') { await hold(); health('HUD AI: result screen; reading player table'); return; }
         const config = options(), readings = [];
+        if (mode === 'draft' && config.autoApply) readDraftPortraits(frame, sampledAt);
         for (const r of rows.filter(r => mode === 'game' ? fields.includes(r.field) : r.field.startsWith('draft'))) {
           const clock = r.field === 'gameTime' || r.field === 'draftTimer.remaining';
           // Gold changes every frame, so identical-value confirmation can starve

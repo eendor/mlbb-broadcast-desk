@@ -84,7 +84,7 @@ test('newer local scores survive slow AI while player items and levels still arr
   const begun = new Promise(resolve => { entered = resolve; });
   t.mock.method(Gemini, 'analyzeLiveScreen', () => new Promise(resolve => { finish = resolve; entered(); }));
   const sampledAt = Date.now() - 1000;
-  const pending = post('/api/detection/ai-live', { session, apiKey: 'test-key', image: 'fixture', realtime: true, sampledAt, live: true, autoApply: true });
+  const pending = post('/api/detection/ai-live', { session, provider: 'gemini', apiKey: 'test-key', image: 'fixture', realtime: true, sampledAt, live: true, autoApply: true });
   await begun;
   const fresh = await post('/api/detection', { session, mode: 'game', sampledAt: Date.now(), live: true, switchScene: true, localHud: true,
     readings: [{ field: 'blue.kills', value: 8 }, { field: 'gameTime', value: '05:01' }] });

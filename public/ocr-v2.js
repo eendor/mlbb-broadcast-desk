@@ -101,6 +101,7 @@ function noteSourceSize(label){const s=source(),w=s?.videoWidth||0,h=s?.videoHei
       if(displaySurface&&displaySurface!=='any')constraints.video.displaySurface=displaySurface;
       selected=await navigator.mediaDevices.getDisplayMedia(constraints);
     }catch(err){
+      if (err.name === 'NotAllowedError' || err.name === 'AbortError') throw err;
       selected=await navigator.mediaDevices.getDisplayMedia({video:{frameRate:{ideal:15,max:30},cursor},audio:false});
     }
   }
@@ -228,8 +229,25 @@ window.addEventListener('beforeunload',()=>{generation++;scanScheduler.close();L
 (function initLiveControls(){
   const aiLiveBtn = $('#aiLiveLoopBtn');
   const aiInstantBtn = $('#aiInstantScanBtn');
+  const provider = $('#aiProvider'), providerStatus = $('#aiProviderStatus');
+  let providerRevision = 0;
+  async function checkProvider() {
+    const revision = ++providerRevision;
+    if (!provider || !providerStatus) return;
+    if (provider.value === 'gemini') { providerStatus.textContent = 'Gemini Vision uses your saved API key. Local HUD OCR continues between AI readings.'; return; }
+    providerStatus.textContent = 'Connecting to local Codex…';
+    try {
+      const status = await api('/api/ai/codex/status');
+      if (revision === providerRevision) providerStatus.textContent = `Codex ready · ${status.model} Fast / ${status.effort} · signed in on this PC. Fast mode uses 2.5× credits; image analysis needs the internet.`;
+    } catch (error) { if (revision === providerRevision) providerStatus.textContent = error.message; }
+  }
+  if (provider) {
+    api('/api/ai/config').then(cfg => { if (!providerRevision && !LiveDetection.isAiLoopRunning()) { provider.value = cfg.provider || 'codex'; checkProvider(); } }).catch(() => {});
+    provider.onchange = run(async () => { ++providerRevision; await api('/api/ai/config', { provider: provider.value }); await checkProvider(); });
+  }
+  $('#checkAiProvider')?.addEventListener('click', run(checkProvider));
   if (aiLiveBtn) {
-    aiLiveBtn.onclick = () => {
+    aiLiveBtn.onclick = run(async () => {
       if (LiveDetection.isAiLoopRunning()) {
         LiveDetection.stopAiLoop();
         aiLiveBtn.textContent = '⚡ Start Realtime AI Live Detection';
@@ -237,25 +255,29 @@ window.addEventListener('beforeunload',()=>{generation++;scanScheduler.close();L
         aiLiveBtn.style.borderColor = '#8b5cf6';
         toast('Realtime AI Detection stopped');
       } else {
-        const s = source();
-        if (!s) {
-          toast('Choose a game capture source first', true);
-          return;
-        }
+        stopLoop();
+        const token = generation;
+        if (!source() && !await chooseCapture(token)) return;
+        if (token !== generation) return;
+        initWorkers().catch(error => { $('#aiHudStatus').textContent = 'Local HUD: ' + error.message; });
+        HeroRecognition.init().catch(error => { $('#aiHudStatus').textContent = 'Portraits: ' + error.message; });
         LiveDetection.startAiLoop({
           getSource: () => source(),
-          autoApply: () => $('#ocrAutoApply').checked,
-          switchScene: () => true,
-          smoothClock: () => $('#ocrSmoothClock')?.checked ?? true,
-          live: () => true,
-          interval: 2000
+          getPool: () => initWorkers(),
+          provider: provider?.value || 'codex',
+          autoApply: () => $('#aiAutoApply').checked,
+          switchScene: () => $('#aiSwitchScene').checked,
+          smoothClock: () => $('#aiSmoothClock').checked,
+          live: () => !!(stream || clipUrl) && !video.paused,
+          interval: 1000
         });
+        if (provider) provider.disabled = true;
         aiLiveBtn.textContent = '⏹ Stop Realtime AI Live Detection';
         aiLiveBtn.style.background = '#ef4444';
         aiLiveBtn.style.borderColor = '#ef4444';
         toast('Realtime AI Vision started in background');
       }
-    };
+    });
   }
   if (aiInstantBtn) {
     aiInstantBtn.onclick = () => $('#scan')?.click();

@@ -110,7 +110,9 @@ app.post('/api/match/apply',async(req,res)=>{
 });
 const CatalogMatch=require('./lib/catalog-match');
 const GeminiVision=require('./lib/gemini-vision');
-const aiConfigFile=path.join(__dirname,'ai-config.json');
+const CodexVision=require('./lib/codex-vision');
+const aiConfigFile=process.env.AI_CONFIG_FILE||path.join(process.env.DATA_DIR?dataDir:__dirname,'ai-config.json');
+function getAiConfig(){try{return JSON.parse(fs.readFileSync(aiConfigFile,'utf8'));}catch{return {};}}
 function getAiKey(){
   if(process.env.GEMINI_API_KEY)return process.env.GEMINI_API_KEY.trim();
   try{
@@ -121,9 +123,16 @@ function getAiKey(){
   }catch{}
   return '';
 }
-app.get('/api/ai/config',(req,res)=>{const k=getAiKey();res.json({hasKey:!!k,masked:k?k.slice(0,6)+'...'+k.slice(-4):''});});
+function publicAiConfig(){const k=getAiKey();return {hasKey:!!k,masked:k?k.slice(0,6)+'...'+k.slice(-4):'',provider:getAiConfig().provider||'codex',codex:CodexVision.status()};}
+app.get('/api/ai/config',(req,res)=>res.json(publicAiConfig()));
+app.get('/api/ai/codex/status',async(req,res)=>{try{res.json(await CodexVision.warmup());}catch(error){res.status(503).json({...CodexVision.status(),error:error.message});}});
 app.get('/api/ai/models',(req,res)=>{res.json({models:GeminiVision.getModelStatus(),activeCount:GeminiVision.getActiveModels().length});});
-app.post('/api/ai/config',(req,res)=>{const key=String(req.body.geminiApiKey||'').trim();fs.writeFileSync(aiConfigFile,JSON.stringify({geminiApiKey:key},null,2));res.json({saved:true,hasKey:!!key});});
+app.post('/api/ai/config',(req,res)=>{
+  const cfg=getAiConfig();
+  if(req.body.provider!==undefined){if(!['codex','gemini'].includes(req.body.provider))throw Error('Choose Codex or Gemini');cfg.provider=req.body.provider;}
+  if(req.body.geminiApiKey!==undefined)cfg.geminiApiKey=String(req.body.geminiApiKey).trim();
+  fs.writeFileSync(aiConfigFile,JSON.stringify(cfg,null,2));res.json({saved:true,...publicAiConfig()});
+});
 // Optional cloud AI for MANUAL screenshot analysis only.
 // This deliberately never reads, creates, replaces or pauses the shared
 // `detection` session. /api/detection/ai-live replaces that session when it is
@@ -177,6 +186,11 @@ app.post('/api/game/ai-scan',async(req,res)=>{
   res.json(result);
 });
 app.post('/api/detection/ai-live',async(req,res)=>{
+  const provider=req.body.provider||getAiConfig().provider||'codex';
+  if(!['codex','gemini'].includes(provider))throw Error('Unsupported live AI provider');
+  const key=provider==='gemini'?String(req.body.apiKey||getAiKey()).trim():'';
+  if(provider==='gemini'&&!key)throw Error('Gemini API key is required. Configure your Google AI Studio key first.');
+  if(!req.body.image)throw Error('No screenshot provided for live AI analysis.');
   let ownDetection=detection;
   if(req.body.session){
     if(!ownDetection||ownDetection.source!=='ai'||req.body.session!==ownDetection.id)return res.json({applied:false,expired:true});
@@ -196,9 +210,6 @@ app.post('/api/detection/ai-live',async(req,res)=>{
   }
   const sampledAt=Number.isFinite(req.body.sampledAt)?req.body.sampledAt:Date.now();
   if(sampledAt>Date.now()+1000||sampledAt<Date.now()-30000)throw Error('Invalid or expired AI capture timestamp');
-  const key=String(req.body.apiKey||getAiKey()).trim();
-  if(!key)throw Error('Gemini API key is required. Configure your Google AI Studio key first.');
-  if(!req.body.image)throw Error('No screenshot provided for live AI analysis.');
   const mode=req.body.mode||'auto';
   const currentMatch = {
     blue: (state.blue?.players || []).map((p, i) => ({ slot: i, name: p.name, hero: p.hero })),
@@ -212,7 +223,8 @@ app.post('/api/detection/ai-live',async(req,res)=>{
   const disconnect=()=>{if(!res.writableEnded)controller.abort();};
   res.on('close',disconnect);
   try{
-    if(mode==='draft')result=await GeminiVision.analyzeDraft(req.body.image,key,Playoffs.teams);
+    if(provider==='codex')result=await CodexVision.analyzeLiveScreen(req.body.image,Playoffs.teams,currentMatch,{realtime:req.body.realtime===true,signal:controller.signal});
+    else if(mode==='draft')result=await GeminiVision.analyzeDraft(req.body.image,key,Playoffs.teams);
     else if(mode==='game')result=await GeminiVision.analyzeInGame(req.body.image,key,Playoffs.teams,currentMatch);
     else if(mode==='result')result=await GeminiVision.analyzeScoreboard(req.body.image,key,Playoffs.teams);
     else result=await GeminiVision.analyzeLiveScreen(req.body.image,key,Playoffs.teams,currentMatch,{realtime:req.body.realtime===true,signal:controller.signal});
@@ -223,8 +235,9 @@ app.post('/api/detection/ai-live',async(req,res)=>{
   }finally{ownDetection.requests.delete(controller);res.off('close',disconnect);}
   if(res.destroyed)return;
   if(detection!==ownDetection)return res.json({applied:false,expired:true});
+  result.provider=provider;
   result.mode??=mode;
-  if(sampledAt<(detection.aiSampledAt||0)||Date.now()-sampledAt>(req.body.realtime===true?12000:30000))return res.json({applied:false,stale:true});
+  if(sampledAt<(detection.aiSampledAt||0)||Date.now()-sampledAt>(req.body.realtime===true&&provider==='gemini'?12000:30000))return res.json({applied:false,stale:true});
   if(detection.mode&&detection.mode!==result.mode&&sampledAt<detection.sampledAt)return res.json({applied:false,stale:true});
   detection.aiSampledAt=sampledAt;
   result.applied=false;
@@ -268,7 +281,7 @@ app.post('/api/detection/ai-live',async(req,res)=>{
         endAt:ticking?sampledAt+rem*1000:null
       };
     }
-    AiLiveState.protectNewerHud(result.patch,detection.samples,sampledAt);
+    AiLiveState.protectNewerHud(result.patch,detection.samples,sampledAt,result.mode);
     if(req.body.autoApply){
       let finalPatch=result.patch;
       if(result.mode==='result'){

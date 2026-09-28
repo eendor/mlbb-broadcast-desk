@@ -220,7 +220,7 @@ window.LiveDetection=(()=>{
   async function learn(){const q=learningQuery,hero=$('#learnHero').value;if(!q||!hero)throw Error('Capture a portrait and choose its hero');await HeroRecognition.learn(q,hero);stable.clear();toast('Portrait sample saved. Matching continues on the live feed.');}
 
   // =========================================================================
-  // REAL-TIME AI VISION DETECTION ENGINE (Gemini model selected by server fallback cascade)
+  // Local HUD recognition continues independently of the selected AI provider.
   // =========================================================================
   let aiLoopActive = false;
   let aiLoopTimer = null;
@@ -320,7 +320,7 @@ window.LiveDetection=(()=>{
     if (!container) return;
 
     const mode = res.mode || 'other';
-    const modelUsed = String(res.engine || '').match(/gemini-[a-z0-9.-]+/i)?.[0] || 'Gemini Vision';
+    const modelUsed = res.model ? `${res.model}${res.speedTier === 'fast' ? ' Fast' : ''}${res.effort ? ' / ' + res.effort : ''}` : String(res.engine || '').match(/gemini-[a-z0-9.-]+/i)?.[0] || res.engine || 'AI Vision';
     const modeLabels = {
       draft: '★ LIVE DRAFT',
       game: '★ IN-GAME LIVE',
@@ -618,7 +618,7 @@ window.LiveDetection=(()=>{
     updateAiClock(aiLastResult);
   }
 
-  async function scanAi({ source: src, autoApply = true, switchScene = true, live = false, smoothClock = true }) {
+  async function scanAi({ source: src, provider = 'codex', autoApply = true, switchScene = true, live = false, smoothClock = true }) {
     if (aiInFlight) return null;
     const controller = new AbortController(), ownEpoch = aiEpoch;
     const current = () => ownEpoch === aiEpoch && !controller.signal.aborted;
@@ -629,10 +629,11 @@ window.LiveDetection=(()=>{
       const started = performance.now(), sampledAt = Date.now();
       const canvas = normalizeSourceForAI(src);
       const dataUrl = canvas.toDataURL('image/jpeg', 0.90);
-      const key = (typeof localStorage !== 'undefined' ? localStorage.getItem('geminiApiKey') : '') || '';
+      const key = provider === 'gemini' && typeof localStorage !== 'undefined' ? localStorage.getItem('geminiApiKey') || '' : '';
 
       const res = await aiPost('/api/detection/ai-live', {
         image: dataUrl,
+        provider,
         apiKey: key,
         mode: 'auto',
         realtime: aiLoopActive,
@@ -652,7 +653,8 @@ window.LiveDetection=(()=>{
       if (res.stale) throw Error('AI frame expired before recognition finished');
 
       aiConsecutiveErrors = 0;
-      const latencyMs = Math.round(performance.now() - started);
+      const latencyMs = Math.round((performance.now() - started) * 100) / 100;
+      res.clientLatencyMs = latencyMs;
       aiLastResult = res; aiLastLatency = latencyMs;
       renderAiHud(res, latencyMs);
       updateAiClock(res);
@@ -676,7 +678,7 @@ window.LiveDetection=(()=>{
     }
   }
 
-  function startAiLoop({ getSource, getPool, autoApply = true, switchScene = true, smoothClock = true, live = true, interval = 1000 }) {
+  function startAiLoop({ getSource, getPool, provider = 'codex', autoApply = true, switchScene = true, smoothClock = true, live = true, interval = 1000 }) {
     if (aiLoopActive) return;
     stopAiLoop();
     aiLoopActive = true;
@@ -702,7 +704,7 @@ window.LiveDetection=(()=>{
           schedule(250);
           return;
         }
-        await scanAi({ source: src, autoApply: option(autoApply), switchScene: option(switchScene), smoothClock: option(smoothClock), live: option(live) });
+        await scanAi({ source: src, provider: option(provider), autoApply: option(autoApply), switchScene: option(switchScene), smoothClock: option(smoothClock), live: option(live) });
         // Measure start-to-start: recognition time is part of the cadence.
         schedule(Math.max(0, cadence - (performance.now() - started)));
       } catch (err) {
@@ -743,6 +745,8 @@ window.LiveDetection=(()=>{
     renderAiClock();
     stopClockTicker();
     const button = document.getElementById('aiLiveLoopBtn');
+    const providerSelect = document.getElementById('aiProvider');
+    if (providerSelect) providerSelect.disabled = false;
     if (button) {
       button.textContent = '⚡ Start Realtime AI Live Detection';
       button.style.background = '#8b5cf6';

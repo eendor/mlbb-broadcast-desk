@@ -19,7 +19,7 @@ test('AI capture delivery and clocks', async t => {
   const start = async () => (await post('/api/detection/start', { source: 'ai' })).session;
   const state = async () => (await fetch(base + '/api/state')).json();
   const scan = (session, extra = {}) => post('/api/detection/ai-live', {
-    session, sampledAt: Date.now(), image: 'fixture', apiKey: 'test-key', live: true, autoApply: true, switchScene: true, ...extra
+    session, sampledAt: Date.now(), image: 'fixture', provider: 'gemini', apiKey: 'test-key', live: true, autoApply: true, switchScene: true, ...extra
   });
   const game = (gameTime = '05:00', kills = 3) => ({ mode: 'game', patch: { scene: 'scoreboard', gameTime, blue: { kills } } });
 

@@ -13,6 +13,7 @@ const fs = require('node:fs'), os = require('node:os'), path = require('node:pat
         itemsVisible: true, items: ['Demon Boots', '?', 'Windtalker'] }] }, red: { kills: 6 }
     } })); });
   };
+  fs.writeFileSync(path.join(process.env.DATA_DIR, 'ai-config.json'), JSON.stringify({ provider: 'gemini' }));
   const { app } = require('../server');
   const server = await new Promise(resolve => { const s = app.listen(0, '127.0.0.1', () => resolve(s)); });
   const base = 'http://127.0.0.1:' + server.address().port;
@@ -29,6 +30,7 @@ const fs = require('node:fs'), os = require('node:os'), path = require('node:pat
     const real = process.argv[2];
     await page.evaluate(async src => {
       localStorage.setItem('geminiApiKey', 'fixture-key');
+      document.querySelector('#captureCursor').value = 'always';
       const canvas = document.createElement('canvas'); canvas.width = 1920; canvas.height = 1080;
       window.fixture = canvas; window.fixtureKills = 10; window.fixtureClock = '06:44';
       const ctx = canvas.getContext('2d');

@@ -82,13 +82,13 @@ $('#fetchMatch').onclick=run(()=>fetchMatch());$('#parseJson').onclick=run(async
     const savedLocal=localStorage.getItem('geminiApiKey')||'';
     if(savedLocal)keyInp.value=savedLocal;
     try{
-      const cfg=await api('/api/ai/config',{});
+      const cfg=await api('/api/ai/config');
       if(cfg.hasKey){
         statusEl.textContent='● Key Active ('+(cfg.masked||'configured')+')';
         statusEl.style.color='#34d399';
         if(!keyInp.value&&cfg.masked)keyInp.placeholder='Saved on server: '+cfg.masked;
       }else if(!savedLocal){
-        statusEl.textContent='○ No API key set (Local OCR only)';
+        statusEl.textContent='○ No Gemini key set';
         statusEl.style.color='#94a3b8';
       }
     }catch{}
@@ -97,9 +97,9 @@ $('#fetchMatch').onclick=run(()=>fetchMatch());$('#parseJson').onclick=run(async
     const val=$('#geminiApiKey').value.trim();
     localStorage.setItem('geminiApiKey',val);
     await api('/api/ai/config',{geminiApiKey:val});
-    toast(val?'Gemini Vision AI key saved!':'AI key cleared. Using local OCR.');
+    toast(val?'Gemini Vision AI key saved!':'Gemini key cleared. Codex and local OCR remain available.');
     if(statusEl){
-      statusEl.textContent=val?'● Key Active':'○ No API key set (Local OCR only)';
+      statusEl.textContent=val?'● Key Active':'○ No Gemini key set';
       statusEl.style.color=val?'#34d399':'#94a3b8';
     }
   }));
