@@ -1,6 +1,6 @@
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.OCRModel=api;})(globalThis,()=>{
  const region=(field,x,y,w,h)=>({field,x,y,w,h});
- const scoreboard=[['blue.lord',589,12,38,36],['blue.turrets',666,12,38,36],['blue.gold',750,12,74,36],['blue.kills',851,7,50,40],['gameTime',921,7,78,40],['red.kills',1018,7,50,40],['red.gold',1123,12,74,36],['red.turrets',1238,12,38,36],['red.lord',1317,12,38,36]].map(a=>region(...a));
+  const scoreboard=[['blue.lord',589,12,38,36],['blue.turrets',666,12,38,36],['blue.gold',750,12,74,36],['blue.kills',851,7,50,40],['gameTime',921,7,78,40],['red.kills',1018,7,50,40],['red.gold',1123,12,74,36],['red.turrets',1238,12,38,36],['red.lord',1317,12,38,36]].map(a=>region(...a));
  const rails=[];for(const side of ['blue','red'])for(let i=0;i<5;i++){const y=18+i*62;const fields=side==='blue'?{name:[39,y,88,12],level:[15,y,15,12],kda:[81,y+22,47,17],gold:[96,y+39,33,15]}:{name:[1230,y-1,88,12],level:[1324,y-1,17,12],kda:[1230,y+22,47,17],gold:[1244,y+39,38,15]};for(const [field,[x,yy,w,h]]of Object.entries(fields))rails.push(region(`${side}.players.${i}.${field}`,Math.round(x/1344*1920),Math.round(yy/330*1080),Math.round(w/1344*1920),Math.round(h/330*1080)));}
  const profiles={scoreboard,players:rails};
  function kind(field){return field.endsWith('.name')||field==='resultStatus'?'text':field.endsWith('.kda')?'kda':field==='gameTime'?'clock':'number';}

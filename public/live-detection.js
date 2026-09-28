@@ -127,7 +127,7 @@ window.LiveDetection=(()=>{
     // Bot spectator labels explicitly name the hero. Confirm those labels and
     // use their current portraits as session-only references for matching skins.
     const labeled=new Map(),references=[];
-    if(['game','result'].includes(mode))for(const r of readings.filter(r=>r.field.endsWith('.name'))){
+    if(mode==='game')for(const r of readings.filter(r=>r.field.endsWith('.name'))){
       const hero=r.confidence>=min?Model.spectatorHero(r.value,catalog):null;
       const field=r.field.replace(/name$/,'hero'),q=queries.get(field);
       const confirmed=stable.observe(r.field+':label',hero,continuous?2:1);

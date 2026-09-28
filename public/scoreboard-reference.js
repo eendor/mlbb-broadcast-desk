@@ -35,10 +35,9 @@ function scoreboardBroadcastPanel(s) {
   const partner = s.breaks?.sponsors?.find(p => p.image?.startsWith('/assets/')) || {
     name: 'MSL Philippines', image: '/assets/msl-ph-black.png'
   };
-  const eventLogo = s.eventLogo || '/assets/pasiklaban/wordmark.png';
   return `<aside class="sb-broadcast-panel" aria-label="Match and broadcast information">
     <div class="sb-match-info">
-      <small class="sb-match-event" title="${esc(s.event)}"><img class="sb-match-event-logo" src="${esc(eventLogo)}" alt="${esc(s.event)}"></small>
+      <small class="sb-match-event" title="${esc(s.event)}">${esc(s.event)}</small>
       <strong class="sb-match-stage" title="${esc(s.stage)}">${esc(s.stage)}</strong>
       <span class="sb-match-format">GAME ${s.game} &middot; BO${s.bestOf}</span>
     </div>

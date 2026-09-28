@@ -91,17 +91,8 @@
   function sceneGate(required=2){let candidate=null,count=0;return {reset(){candidate=null;count=0;},observe(mode){if(!mode){candidate=null;count=0;return null;}count=candidate===mode?count+1:1;candidate=mode;return count>=required?mode:null;}};}
   const nameKey=s=>String(s).normalize('NFKC').toLowerCase().replace(/[^\p{L}\p{N}]/gu,'');
   function spectatorHero(name,heroes){
-    if(!name||!heroes)return null;
-                const match = String(name).match(/(?:\[|\b)Computer\]?\s*([A-Za-z0-9\s'-]+)/i);
-    if(!match)return null;
-    const candidate=nameKey(match[1]);
-    const exact=heroes.find(h=>nameKey(h.name)===candidate);
-    if(exact)return exact.name;
-    if(candidate.length>=3){
-      const partial=heroes.find(h=>{const k=nameKey(h.name);return k.startsWith(candidate)||candidate.startsWith(k);});
-      if(partial)return partial.name;
-    }
-    return null;
+    const match=String(name||'').match(/^\[Computer\]\s*(.+)$/i);
+    return match?heroes.find(h=>nameKey(h.name)===nameKey(match[1]))?.name||null:null;
   }
   // Spectator rail order can differ from draft order. Never attach KDA to a
   // populated roster by its row number alone.
