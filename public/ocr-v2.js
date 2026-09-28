@@ -68,6 +68,10 @@ function noteSourceSize(label){const s=source(),w=s?.videoWidth||0,h=s?.videoHei
       return false;
     }
   }else{
+    if(typeof navigator.mediaDevices?.getDisplayMedia!=='function'){
+      toast('Screen capture is unavailable on this connection. Open the desk at http://127.0.0.1:3210 (localhost) or use "OBS Virtual Camera" capture mode instead.',true);
+      return false;
+    }
     try{
       const constraints={video:{frameRate:{ideal:15,max:30},cursor},audio:false,selfBrowserSurface:'exclude',surfaceSwitching:'include',systemAudio:'exclude'};
       if(displaySurface&&displaySurface!=='any')constraints.video.displaySurface=displaySurface;
