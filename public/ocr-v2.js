@@ -165,9 +165,14 @@ async function scan(continuous=false){
    const value=OCRModel.parse(data.text,r.field),confident=value!==null&&data.confidence>=Number($('#confidence').value),confirmed=continuous?stable.observe(r.field,confident?value:null,clockField?1:Number($('#ocrStability').value)):confident;
    let accepted=confident&&confirmed,reason=!confident?'skip':!confirmed?'confirming':'ready';
    const previous=published.get(r.field);
-   // Live cumulative statistics cannot fall until the operator starts a new game.
-   const correctedGold=continuous&&accepted&&r.field.endsWith('.gold')&&previous!==undefined&&value<previous&&value*5<=previous&&stable.observe(r.field+':correction',value,3);
-   if(continuous&&accepted&&previous!==undefined&&typeof value==='number'&&!clockField&&value<previous&&!correctedGold){accepted=false;reason='decrease held';}
+   const killsSpike=continuous&&r.field.endsWith('.kills')&&previous!==undefined&&value>previous+5&&!stable.observe(r.field+':spike',value,3);
+   const correctedNum=continuous&&accepted&&previous!==undefined&&typeof value==='number'&&!clockField&&value<previous&&(
+     (r.field.endsWith('.gold')&&value*5<=previous&&stable.observe(r.field+':correction',value,3))||
+     (r.field.endsWith('.kills')&&(previous-value>10||stable.observe(r.field+':correction',value,2)))||
+     (['lord','turrets','turtle'].some(k=>r.field.endsWith('.'+k))&&(previous-value>=3||stable.observe(r.field+':correction',value,2)))
+   );
+   if(killsSpike){accepted=false;reason='spike held';}
+   else if(continuous&&accepted&&previous!==undefined&&typeof value==='number'&&!clockField&&value<previous&&!correctedNum){accepted=false;reason='decrease held';}
    if(continuous&&accepted&&r.field.endsWith('.kda')&&previous&&value.split('/').some((n,i)=>Number(n)<Number(previous.split('/')[i]))){accepted=false;reason='decrease held';}
    let live=continuous&&!!(stream||clipUrl)&&!video.paused;
    if(r.field==='gameTime'){
@@ -199,7 +204,33 @@ window.addEventListener('beforeunload',()=>{generation++;scanScheduler.close();L
   const aiLiveBtn = $('#aiLiveLoopBtn');
   const aiInstantBtn = $('#aiInstantScanBtn');
   if (aiLiveBtn) {
-    aiLiveBtn.onclick = () => $('#autoOcr')?.click();
+    aiLiveBtn.onclick = () => {
+      if (LiveDetection.isAiLoopRunning()) {
+        LiveDetection.stopAiLoop();
+        aiLiveBtn.textContent = '⚡ Start Realtime AI Live Detection';
+        aiLiveBtn.style.background = '#8b5cf6';
+        aiLiveBtn.style.borderColor = '#8b5cf6';
+        toast('Realtime AI Detection stopped');
+      } else {
+        const s = source();
+        if (!s) {
+          toast('Choose a game capture source first', true);
+          return;
+        }
+        LiveDetection.startAiLoop({
+          getSource: () => source(),
+          autoApply: () => $('#ocrAutoApply').checked,
+          switchScene: () => true,
+          smoothClock: () => $('#ocrSmoothClock')?.checked ?? true,
+          live: () => true,
+          interval: 2000
+        });
+        aiLiveBtn.textContent = '⏹ Stop Realtime AI Live Detection';
+        aiLiveBtn.style.background = '#ef4444';
+        aiLiveBtn.style.borderColor = '#ef4444';
+        toast('Realtime AI Vision started in background');
+      }
+    };
   }
   if (aiInstantBtn) {
     aiInstantBtn.onclick = () => $('#scan')?.click();

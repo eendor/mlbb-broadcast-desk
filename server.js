@@ -334,16 +334,16 @@ app.post('/api/detection/ai-live',async(req,res)=>{
         for (const side of ['blue', 'red']) {
           if (finalPatch[side]) {
             if (detection.aiGameSeen && finalPatch[side].kills !== undefined && state[side]?.kills) {
-              finalPatch[side].kills = Math.max(state[side].kills, finalPatch[side].kills);
+              if (state[side].kills - finalPatch[side].kills <= 15) finalPatch[side].kills = Math.max(state[side].kills, finalPatch[side].kills);
             }
             if (detection.aiGameSeen && finalPatch[side].turrets !== undefined && state[side]?.turrets) {
-              finalPatch[side].turrets = Math.max(state[side].turrets, finalPatch[side].turrets);
+              if (state[side].turrets - finalPatch[side].turrets <= 5) finalPatch[side].turrets = Math.max(state[side].turrets, finalPatch[side].turrets);
             }
             if (detection.aiGameSeen && finalPatch[side].lord !== undefined && state[side]?.lord) {
-              finalPatch[side].lord = Math.max(state[side].lord, finalPatch[side].lord);
+              if (state[side].lord - finalPatch[side].lord <= 4) finalPatch[side].lord = Math.max(state[side].lord, finalPatch[side].lord);
             }
             if (detection.aiGameSeen && finalPatch[side].turtle !== undefined && state[side]?.turtle) {
-              finalPatch[side].turtle = Math.max(state[side].turtle, finalPatch[side].turtle);
+              if (state[side].turtle - finalPatch[side].turtle <= 3) finalPatch[side].turtle = Math.max(state[side].turtle, finalPatch[side].turtle);
             }
           }
           if (finalPatch[side]?.players && Array.isArray(state[side]?.players)) {

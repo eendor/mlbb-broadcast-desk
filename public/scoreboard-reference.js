@@ -16,7 +16,7 @@ function scoreboardValue(value, previous) {
 }
 
 function scoreStats(team, side, previous) {
-  const stats = [['lord', 'Lord', team.lord], ['turtle', 'Turtle', team.turtle], ['tower', 'Towers', team.turrets], ['gold', 'Gold', gold(team.gold)]];
+  const stats = [['lord', 'Lord', team.lord], ['tower', 'Towers', team.turrets], ['gold', 'Gold', gold(team.gold)]];
   if (side === 'red') stats.reverse();
   return `<div class="sb-objectives">${stats.map(([kind, label, value]) => {
     const key = kind === 'tower' ? 'turrets' : kind;
@@ -189,7 +189,7 @@ function renderReferenceScoreboard(s) {
     <div class="sb-team-data red">${scoreStats(s.red, 'red', previous)}${lower('red')}</div>
     <div class="sb-team-logo red${identityChanged('red') ? ' hud-changed' : ''}">${logo(s.red)}</div>
     ${scoreboardBroadcastPanel(s)}
-  </div>${scoreboardPlayerRails(s)}`;
+  </div>`;
   previousHudValues = current;
   for(const side of ['blue','red']){
     const src=stage.querySelector(`.sb-team-logo.${side} img`)?.src||'';
