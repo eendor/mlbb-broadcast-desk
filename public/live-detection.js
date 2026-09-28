@@ -747,6 +747,8 @@ window.LiveDetection=(()=>{
     const button = document.getElementById('aiLiveLoopBtn');
     const providerSelect = document.getElementById('aiProvider');
     if (providerSelect) providerSelect.disabled = false;
+    const postgameProviderSelect = document.getElementById('postgameAiProvider');
+    if (postgameProviderSelect) postgameProviderSelect.disabled = false;
     if (button) {
       button.textContent = '⚡ Start Realtime AI Live Detection';
       button.style.background = '#8b5cf6';

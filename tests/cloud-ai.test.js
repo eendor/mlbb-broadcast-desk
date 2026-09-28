@@ -70,6 +70,16 @@ test('post-match screenshot analysis defaults to Codex and stays isolated from r
   assert.equal(args[0],'data:image/jpeg;base64,AAAA');
   assert.equal(args[3].realtime,false);
   assert.equal(result.autoApplied,false);
+  const GeminiVision=require('../lib/gemini-vision');
+  let geminiCalled=false;
+  t.mock.method(GeminiVision,'analyzeScoreboard',async()=>{
+    geminiCalled=true;
+    return {engine:'Gemini Vision AI (fixture)',data:{winner:'red',gameTime:'10:00',blue:{players:[{name:'Blue player'}]},red:{players:[{name:'Red player'}]}},patch:{scene:'postgame'}};
+  });
+  const gemini=await fetch(base+'/api/ai/analyze',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({image:'fixture',mode:'result',provider:'gemini',apiKey:'test-key'})});
+  assert.equal(gemini.status,200);
+  assert.equal((await gemini.json()).provider,'gemini');
+  assert.equal(geminiCalled,true);
 });
 
 test('postgame OCR exposes a real cloud entry point and no longer stubs it as local',()=>{

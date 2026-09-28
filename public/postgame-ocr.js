@@ -214,7 +214,8 @@ const PostgameOCR = (() => {
       const norm = normalizeSourceForAI(normalizeSource(source));
       const image = norm.toDataURL('image/jpeg', 0.90);
       const key = (typeof localStorage !== 'undefined' ? localStorage.getItem('geminiApiKey') : '') || '';
-      const res = await api('/api/ai/analyze', { image, apiKey: key, mode });
+      const provider = document.getElementById('postgameAiProvider')?.value || 'codex';
+      const res = await api('/api/ai/analyze', { image, apiKey: key, mode, provider });
       // The server is the single source of truth for what the model returned.
       const data = res?.data || res?.patch;
       const issue = cloudResultIssue(data);

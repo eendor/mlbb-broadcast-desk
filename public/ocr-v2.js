@@ -229,7 +229,7 @@ window.addEventListener('beforeunload',()=>{generation++;scanScheduler.close();L
 (function initLiveControls(){
   const aiLiveBtn = $('#aiLiveLoopBtn');
   const aiInstantBtn = $('#aiInstantScanBtn');
-  const provider = $('#aiProvider'), providerStatus = $('#aiProviderStatus');
+  const provider = $('#aiProvider'), postgameProvider = $('#postgameAiProvider'), providerStatus = $('#aiProviderStatus');
   let providerRevision = 0;
   async function checkProvider() {
     const revision = ++providerRevision;
@@ -242,8 +242,10 @@ window.addEventListener('beforeunload',()=>{generation++;scanScheduler.close();L
     } catch (error) { if (revision === providerRevision) providerStatus.textContent = error.message; }
   }
   if (provider) {
-    api('/api/ai/config').then(cfg => { if (!providerRevision && !LiveDetection.isAiLoopRunning()) { provider.value = cfg.provider || 'codex'; checkProvider(); } }).catch(() => {});
-    provider.onchange = run(async () => { ++providerRevision; await api('/api/ai/config', { provider: provider.value }); await checkProvider(); });
+    api('/api/ai/config').then(cfg => { if (!providerRevision && !LiveDetection.isAiLoopRunning()) { provider.value = cfg.provider || 'codex'; if(postgameProvider)postgameProvider.value=provider.value; checkProvider(); } }).catch(() => {});
+    const saveProvider = run(async source => { ++providerRevision; const selected=source.value; await api('/api/ai/config', { provider: selected }); if(provider)provider.value=selected;if(postgameProvider)postgameProvider.value=selected;await checkProvider(); });
+    provider.onchange = () => saveProvider(provider);
+    if(postgameProvider)postgameProvider.onchange=()=>saveProvider(postgameProvider);
   }
   $('#checkAiProvider')?.addEventListener('click', run(checkProvider));
   if (aiLiveBtn) {
@@ -272,6 +274,7 @@ window.addEventListener('beforeunload',()=>{generation++;scanScheduler.close();L
           interval: 1000
         });
         if (provider) provider.disabled = true;
+        if (postgameProvider) postgameProvider.disabled = true;
         aiLiveBtn.textContent = '⏹ Stop Realtime AI Live Detection';
         aiLiveBtn.style.background = '#ef4444';
         aiLiveBtn.style.borderColor = '#ef4444';
