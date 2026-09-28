@@ -157,6 +157,22 @@ api('/api/lan').then(({urls=[]})=>{const el=$('#postgameLanControl');if(el)el.te
 const hostCaptureStatus=document.createElement('p');hostCaptureStatus.id='hostCaptureStatus';hostCaptureStatus.className='hint';hostCaptureStatus.setAttribute('role','status');hostCaptureStatus.style.cssText='margin:0 0 10px;color:#f59e0b;';hostCaptureStatus.textContent='Host capture: waiting for the broadcast PC.';$('#postgameLanControl')?.after(hostCaptureStatus);
 async function refreshHostCaptureStatus(){try{const {available,ageMs}=await api('/api/capture/status');hostCaptureStatus.textContent=available?`Host capture: LIVE · frame ${Math.round(ageMs)} ms old`:'Host capture: waiting. Start Live Game Capture on the broadcast PC.';hostCaptureStatus.style.color=available?'#34d399':'#f59e0b';}catch{hostCaptureStatus.textContent='Host capture: status unavailable.';hostCaptureStatus.style.color='#f87171';}}
 refreshHostCaptureStatus();setInterval(refreshHostCaptureStatus,1500);
+// Put the PC's shared live game feed beneath the transparent Program overlay.
+const programPreview=document.querySelector('.preview'),programFrame=programPreview?.querySelector('iframe');
+let programFeed=null,lastProgramFrameAt=0,programFrameBusy=false;
+if(programPreview&&programFrame){
+  programFeed=document.createElement('img');programFeed.className='program-live-feed';programFeed.alt='Live capture from broadcast PC';
+  Object.assign(programFeed.style,{position:'absolute',inset:'0',width:'100%',height:'100%',objectFit:'contain',zIndex:'0',display:'none'});
+  Object.assign(programFrame.style,{position:'relative',zIndex:'1',background:'transparent'});programPreview.insertBefore(programFeed,programFrame);
+}
+async function refreshProgramCapture(){
+  if(!programFeed||programFrameBusy||!$('#desk')?.classList.contains('active'))return;
+  programFrameBusy=true;
+  try{const frame=await api('/api/capture/latest');if(frame.capturedAt!==lastProgramFrameAt){programFeed.src=frame.image;lastProgramFrameAt=frame.capturedAt;}programFeed.style.display='block';}
+  catch{programFeed.style.display='none';lastProgramFrameAt=0;}
+  finally{programFrameBusy=false;}
+}
+refreshProgramCapture();setInterval(refreshProgramCapture,700);
 
 function renderSchedule(rows){const options=v=>'<option value="">Auto-match logo by team name</option>'+organizationLogos.map(l=>'<option value="'+esc(l.url)+'"'+(v===l.url?' selected':'')+'>'+esc(l.name)+'</option>').join('');$('#scheduleRows').innerHTML=rows.map((r,i)=>'<div class="scheduleRow"><div class="fields">'+['time','blue','red','note'].map(k=>'<label>'+k+'<input data-schedule="'+i+'.'+k+'" value="'+esc(r[k])+'"></label>').join('')+'<label>Blue logo<select data-schedule="'+i+'.blueLogo">'+options(r.blueLogo||'')+'</select></label><label>Red logo<select data-schedule="'+i+'.redLogo">'+options(r.redLogo||'')+'</select></label><button data-remove="'+i+'" aria-label="Remove match">Remove</button></div></div>').join('');$$('[data-remove]').forEach(b=>b.onclick=()=>{scheduleDirty=true;const rows=readSchedule();rows.splice(Number(b.dataset.remove),1);renderSchedule(rows);});}function readSchedule(){const rows=[];$$('[data-schedule]').forEach(e=>{const [i,k]=e.dataset.schedule.split('.');(rows[i]??={})[k]=e.value;});return rows;}$('#addSchedule').onclick=()=>{scheduleDirty=true;renderSchedule([...readSchedule(),{time:'18:00',blue:'TEAM A',red:'TEAM B',note:'BO3'}]);};$('#saveSchedule').onclick=run(async()=>{await save({schedule:readSchedule()});scheduleDirty=false;toast('Schedule saved');});
 $('#outputLinks').innerHTML=[['program','Program'],...scenes.map(([id,n])=>[id,n])].map(([id,n])=>{const url=location.origin+'/overlay.html'+(id==='program'?'':'?scene='+id);return `<div class="outputrow"><strong>${n}</strong><code>${url}</code><button data-copy="${url}">Copy URL</button><a href="${url}" target="_blank">Open Ã¢â€ â€”</a></div>`;}).join('');$$('[data-copy]').forEach(b=>b.onclick=run(async()=>{await navigator.clipboard.writeText(b.dataset.copy);toast('OBS URL copied');}));$('#exportState').onclick=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(state,null,2)],{type:'application/json'}));a.download='pasiklab-production.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);};$('#importState').onchange=run(async e=>{if(!e.target.files[0])return;await save(JSON.parse(await e.target.files[0].text()));toast('Production backup restored');});
