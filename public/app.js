@@ -119,7 +119,10 @@ $('#postgameAiScan')?.addEventListener('click',run(async()=>{
 }));
 $('#postgameCaptureLive')?.addEventListener('click',run(async()=>{
   if(typeof PostgameOCR==='undefined')throw Error('Scoreboard analyzer loading...');
-  await PostgameOCR.captureActiveWindow();
+  const video=$('#captureVideo'),canvas=$('#captureCanvas');
+  const source=(video&&video.readyState>=2&&!video.paused)?video:(canvas&&canvas.width>100)?canvas:null;
+  if(!source)throw Error('Start Live Game Capture first, then run the AI scoreboard scan.');
+  await PostgameOCR.scanWithCloud(source,{mode:'result'});
 }));
 $('#postgameUploadFile')?.addEventListener('change',run(async(e)=>{
   const file=e.target.files?.[0];

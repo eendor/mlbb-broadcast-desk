@@ -111,6 +111,9 @@ app.post('/api/match/apply',async(req,res)=>{
 const CatalogMatch=require('./lib/catalog-match');
 const GeminiVision=require('./lib/gemini-vision');
 const CodexVision=require('./lib/codex-vision');
+// Manual scoreboard review gets its own Codex app-server so it can run while
+// the live stream analyzer is processing a frame without disturbing that loop.
+const CodexScoreboard=new CodexVision.CodexVision();
 const aiConfigFile=process.env.AI_CONFIG_FILE||path.join(process.env.DATA_DIR?dataDir:__dirname,'ai-config.json');
 function getAiConfig(){try{return JSON.parse(fs.readFileSync(aiConfigFile,'utf8'));}catch{return {};}}
 function getAiKey(){
@@ -140,8 +143,10 @@ app.post('/api/ai/config',(req,res)=>{
 // Cloud results are returned for operator review and are never auto-applied to
 // the live broadcast from here.
 app.post('/api/ai/analyze',async(req,res)=>{
-  const key=String(req.body.apiKey||getAiKey()).trim();
-  if(!key)throw Error('Gemini API key required for cloud analysis. Save a key in the Cloud AI panel, or use local OCR.');
+  const provider=req.body.provider||getAiConfig().provider||'codex';
+  if(!['codex','gemini'].includes(provider))throw Error('Choose Codex or Gemini');
+  const key=provider==='gemini'?String(req.body.apiKey||getAiKey()).trim():'';
+  if(provider==='gemini'&&!key)throw Error('Gemini API key required for cloud analysis. Save a key in the Cloud AI panel, or use local OCR.');
   const image=String(req.body.image||'');
   if(!image)throw Error('No screenshot provided for cloud analysis.');
   const mode=String(req.body.mode||'result');
@@ -153,10 +158,13 @@ app.post('/api/ai/analyze',async(req,res)=>{
     redHeroes:(state.red?.players||[]).map(p=>p.hero).filter(Boolean)
   };
   let result;
-  if(mode==='draft')result=await GeminiVision.analyzeDraft(image,key,Playoffs.teams);
+  if(provider==='codex'){
+    result=await CodexScoreboard.analyzeLiveScreen(image,Playoffs.teams,currentMatch,{realtime:false});
+    if(result.mode!==mode)throw Error(`The screenshot was classified as ${result.mode}; use the matching analyzer instead.`);
+  }else if(mode==='draft')result=await GeminiVision.analyzeDraft(image,key,Playoffs.teams);
   else if(mode==='game')result=await GeminiVision.analyzeInGame(image,key,Playoffs.teams,currentMatch);
   else result=await GeminiVision.analyzeScoreboard(image,key,Playoffs.teams);
-  res.json({mode,engine:result.engine,data:result.data,patch:result.patch,autoApplied:false});
+  res.json({mode,provider,engine:result.engine,data:result.data,patch:result.patch,autoApplied:false,model:result.model,effort:result.effort,speedTier:result.speedTier});
 });
 app.post('/api/match/ai-scan',async(req,res)=>{
   const key=String(req.body.apiKey||getAiKey()).trim();

@@ -181,7 +181,7 @@ const PostgameOCR = (() => {
    */
   function cloudResultIssue(data) {
     if (!data || typeof data !== 'object' || !data.blue || !data.red) {
-      return 'Gemini Vision returned no readable scoreboard. Try a sharper capture, or use local OCR.';
+      return 'AI vision returned no readable scoreboard. Try a sharper capture, or use local OCR.';
     }
     const populated = side => (data[side]?.players || []).some(p => {
       const name = String(p?.name ?? '').trim();
@@ -189,13 +189,13 @@ const PostgameOCR = (() => {
     });
     const empty = ['blue', 'red'].filter(side => !populated(side));
     if (empty.length) {
-      return `Gemini Vision could not read the ${empty.join(' and ')} player table. It would come back empty rather than invented — recapture the full scoreboard, or use local OCR.`;
+      return `AI vision could not read the ${empty.join(' and ')} player table. It would come back empty rather than invented — recapture the full scoreboard, or use local OCR.`;
     }
     return null;
   }
 
   /**
-   * Optional cloud analysis using Google Gemini Vision.
+   * Optional manual screenshot analysis using the configured vision provider.
    *
    * This is a MANUAL screenshot tool. It posts to /api/ai/analyze, which is
    * isolated from the shared live-detection session, so a cloud scan can never
@@ -210,7 +210,7 @@ const PostgameOCR = (() => {
     ocrBusy = true;
     try {
       const label = mode === 'draft' ? 'draft' : mode === 'game' ? 'in-game HUD' : 'post-match scoreboard';
-      updateStatus(`Gemini Vision AI is reading the ${label}…`);
+      updateStatus(`AI vision is reading the ${label}…`);
       const norm = normalizeSourceForAI(normalizeSource(source));
       const image = norm.toDataURL('image/jpeg', 0.90);
       const key = (typeof localStorage !== 'undefined' ? localStorage.getItem('geminiApiKey') : '') || '';
@@ -219,9 +219,9 @@ const PostgameOCR = (() => {
       const data = res?.data || res?.patch;
       const issue = cloudResultIssue(data);
       if (issue) throw Error(issue);
-      renderReview(data, res.engine || 'Gemini Vision AI');
-      const model = String(res.engine || 'Gemini Vision AI').match(/gemini-[a-z0-9.-]+/i)?.[0] || 'Gemini';
-      updateStatus(`Cloud analysis complete · ${model} · review the fields below, then Apply. Not applied to the live overlay yet.`);
+      renderReview(data, res.engine || 'AI Vision');
+      const model = res.engine || 'AI Vision';
+      updateStatus(`Analysis complete · ${model} · review the fields below, then Apply. Not applied to the live overlay yet.`);
       return data;
     } finally {
       ocrBusy = false;
@@ -443,7 +443,7 @@ const PostgameOCR = (() => {
     const rTeam = d.red.team?.name || d.red.teamName || curState?.red?.name || 'RED REAPERS';
     const bTag = d.blue.team?.id || d.blue.teamId || curState?.blue?.tag || 'BLU';
     const rTag = d.red.team?.id || d.red.teamId || curState?.red?.tag || 'RED';
-    const isAi = engine.includes('Gemini') || engine.includes('AI');
+    const isAi = engine.includes('Gemini') || engine.includes('Codex') || engine.includes('AI');
 
     container.innerHTML = `
       <div class="ocr-review-header" style="display:flex; justify-content:space-between; align-items:center; background:rgba(0,0,0,0.3); padding:12px 16px; border-radius:8px; margin-bottom:14px; border:1px solid rgba(255,255,255,0.08);">
@@ -451,7 +451,7 @@ const PostgameOCR = (() => {
           <div style="display:flex; align-items:center; gap:8px;">
             <span style="font-size:11px; font-weight:700; color:var(--accent,#e08a1e); letter-spacing:1px;">POST-MATCH RESULT</span>
             <span style="font-size:10px; font-weight:700; padding:2px 8px; border-radius:4px; ${isAi ? 'background:rgba(139,92,246,0.18); color:#a78bfa; border:1px solid rgba(139,92,246,0.4);' : 'background:rgba(16,185,129,0.15); color:#34d399; border:1px solid rgba(16,185,129,0.3);'}">
-              ${isAi ? '★ GEMINI VISION AI' : '⚙ LOCAL OCR'}
+              ${isAi ? `★ ${safeEsc(engine).toUpperCase()}` : '⚙ LOCAL OCR'}
             </span>
           </div>
           <strong style="font-size:16px; display:block; margin-top:2px;">${safeEsc(bTag)} vs ${safeEsc(rTag)}</strong>

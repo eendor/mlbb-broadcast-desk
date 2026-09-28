@@ -23,7 +23,7 @@ test('manual cloud analysis never disturbs the live local detection session',asy
   // A cloud request never receives or requires a detection session. Whether a
   // key is configured on this machine or not, the request must fail or succeed
   // without ever touching the local loop.
-  const junkImage=await post('/api/ai/analyze',{image:'data:image/jpeg;base64,AAAA',mode:'result'});
+  const junkImage=await post('/api/ai/analyze',{image:'not-an-image',mode:'result'});
   assert.equal(junkImage.status,400);
   assert.ok(junkImage.body.error);
 
@@ -41,12 +41,35 @@ test('manual cloud analysis never disturbs the live local detection session',asy
 
   // The cloud endpoint rejects an unsupported mode and an empty image without
   // disturbing the live session.
-  const badMode=await post('/api/ai/analyze',{image:'data:image/jpeg;base64,AAAA',mode:'bogus',apiKey:'x'});
+  const badMode=await post('/api/ai/analyze',{image:'not-an-image',mode:'bogus',provider:'gemini',apiKey:'x'});
   assert.equal(badMode.status,400);
   const noImage=await post('/api/ai/analyze',{mode:'result',apiKey:'x'});
   assert.equal(noImage.status,400);
   const stillLive=await post('/api/detection',{session,mode:'game',sampledAt:now+900,readings:[{field:'red.kills',value:2}],live:true,switchScene:true});
   assert.equal(stillLive.body.expired,undefined);
+});
+
+test('post-match screenshot analysis defaults to Codex and stays isolated from realtime detection',async t=>{
+  process.env.DATA_DIR=fs.mkdtempSync(path.join(os.tmpdir(),'ml-codex-scoreboard-'));
+  const CodexVision=require('../lib/codex-vision');
+  const {app}=require('../server');
+  let args;
+  t.mock.method(CodexVision.CodexVision.prototype,'analyzeLiveScreen',async(...callArgs)=>{
+    args=callArgs;
+    return {mode:'result',engine:'Codex (gpt-6-luna Fast / low)',model:'gpt-6-luna',effort:'low',speedTier:'fast',data:{winner:'blue',gameTime:'14:32',blue:{players:[{name:'Blue player'}]},red:{players:[{name:'Red player'}]}},patch:{scene:'postgame'}};
+  });
+  const server=await new Promise(resolve=>{const s=app.listen(0,'127.0.0.1',()=>resolve(s));});
+  t.after(()=>new Promise(resolve=>server.close(resolve)));
+  const base='http://127.0.0.1:'+server.address().port;
+  const response=await fetch(base+'/api/ai/analyze',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({image:'data:image/jpeg;base64,AAAA',mode:'result'})});
+  assert.equal(response.status,200);
+  const result=await response.json();
+  assert.equal(result.provider,'codex');
+  assert.equal(result.model,'gpt-6-luna');
+  assert.equal(result.speedTier,'fast');
+  assert.equal(args[0],'data:image/jpeg;base64,AAAA');
+  assert.equal(args[3].realtime,false);
+  assert.equal(result.autoApplied,false);
 });
 
 test('postgame OCR exposes a real cloud entry point and no longer stubs it as local',()=>{
