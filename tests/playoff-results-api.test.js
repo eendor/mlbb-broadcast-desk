@@ -12,7 +12,7 @@ test('applying parsed results commits identity, organization scores and advancem
   const get=async()=>await (await fetch(base+'/api/state')).json();
   function raw(swap=false){return {status:'result',battleData:{win_camp:swap?1:2,game_time:swap?960:900,blue_camp_kill:24,red_camp_kill:12,player_list:[[swap?'PSITS':'JMES',2],[swap?'JMES':'PSITS',1]].flatMap(([id,camp])=>Playoffs.team(id).players.slice(0,5).map((name,pos)=>({name,pos,camp,gold_total:6500,kill_num:2,dead_num:1,assist_num:3,equip_list:[]})))}};}
   const parsed=await post('/api/match/parse',{raw:raw()});assert.equal(parsed.patch.blue.tag,'JMES');assert.equal((await get()).playoffs.results.length,0);
-  let out=await post('/api/match/apply',{raw:raw(),matchId:'api_game_1',objectives:{blue:{turrets:7,lord:2,turtle:1}}});
+  let out=await post('/api/match/apply',{raw:raw(),matchId:'api_game_1',objectives:{blue:{turrets:7,lord:2}}});
   assert.equal(out.playoffs.status,'applied');assert.equal(out.state.blue.turrets,7);assert.equal(out.state.playoffs.matches[0].blueScore,1);
   out=await post('/api/match/apply',{raw:raw(),matchId:'api_game_1'});assert.equal(out.playoffs.status,'duplicate');
   out=await post('/api/match/apply',{raw:raw(true),matchId:'api_game_2'});assert.equal(out.state.winner,'red');assert.equal(out.state.red.tag,'JMES');assert.equal(out.state.red.score,2);

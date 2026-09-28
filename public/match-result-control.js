@@ -85,7 +85,7 @@
     return `<fieldset class="result-team ${side}"><legend>${side === 'blue' ? 'Blue' : 'Red'} side</legend>
       <div class="result-fields">${field(`${side}.name`, 'Team name', t.name)}${field(`${side}.tag`, 'Team tag', t.tag)}
         ${field(`${side}.logo`, 'Team logo', t.logo, {options: logos})}
-        ${['score', 'kills', 'gold', 'turrets', 'lord', 'turtle'].map(k => field(`${side}.${k}`, {score: 'Series wins', kills: 'Team kills', gold: 'Team gold', turrets: 'Turrets', lord: 'Lord', turtle: 'Turtle'}[k], t[k], {number: true})).join('')}
+        ${['score', 'kills', 'gold', 'turrets', 'lord'].map(k => field(`${side}.${k}`, {score: 'Series wins', kills: 'Team kills', gold: 'Team gold', turrets: 'Turrets', lord: 'Lord'}[k], t[k], {number: true})).join('')}
       </div><h3>Players</h3>${t.players.map((p, i) => player(side, p, i)).join('')}</fieldset>`;
   }
   function previewAsset(select) {

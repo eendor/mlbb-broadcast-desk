@@ -4,8 +4,9 @@ const AiLiveState=require('./lib/ai-live-state');
 const Breaks=require('./public/breaks-shared');const {saveMedia}=require('./lib/media');
 const express=require('express'),fs=require('node:fs'),path=require('node:path'),os=require('node:os');const lanAccess=require('./lib/lan-access');
 const {defaults,merge,validate,timerAction}=require('./lib/state');const {normalize,findFeed}=require('./lib/parser');
-const app=express(),port=Number(process.env.PORT||3210),dataDir=process.env.DATA_DIR||path.join(__dirname,'data');fs.mkdirSync(dataDir,{recursive:true});const file=path.join(dataDir,'state.json');let state=defaults();if(fs.existsSync(file)){try{const saved=JSON.parse(fs.readFileSync(file,'utf8'));saved.playoffs=Playoffs.migrate(saved.playoffs);if(![3,5,7].includes(saved.bestOf)){fs.copyFileSync(file,file+'.before-series-fix');saved.bestOf=3;saved.game=Math.min(Math.max(1,saved.game||1),3);}state=validate(merge(state,saved));}catch(e){console.error('Saved state could not be loaded:',e.message);process.exit(1);}}
-const clients=new Set();function commit(patch){if(patch.gameTime!==undefined&&!patch.gameClock)patch={...patch,gameClock:{...state.gameClock,running:false}};const next=validate(merge(structuredClone(state),patch));fs.writeFileSync(file+'.tmp',JSON.stringify(next,null,2));fs.renameSync(file+'.tmp',file);state=next;for(const res of clients)res.write(`data: ${JSON.stringify(state)}\n\n`);return state;}
+const app=express(),port=Number(process.env.PORT||3210),dataDir=process.env.DATA_DIR||path.join(__dirname,'data');fs.mkdirSync(dataDir,{recursive:true});const file=path.join(dataDir,'state.json');function stripLegacyObjectives(obj){for(const side of ['blue','red'])if(obj?.[side]&&typeof obj[side]==='object')delete obj[side].turtle;return obj;}
+let state=defaults();if(fs.existsSync(file)){try{const saved=stripLegacyObjectives(JSON.parse(fs.readFileSync(file,'utf8')));saved.playoffs=Playoffs.migrate(saved.playoffs);if(![3,5,7].includes(saved.bestOf)){fs.copyFileSync(file,file+'.before-series-fix');saved.bestOf=3;saved.game=Math.min(Math.max(1,saved.game||1),3);}state=validate(merge(state,saved));}catch(e){console.error('Saved state could not be loaded:',e.message);process.exit(1);}}
+const clients=new Set();function commit(patch){stripLegacyObjectives(patch);if(patch.gameTime!==undefined&&!patch.gameClock)patch={...patch,gameClock:{...state.gameClock,running:false}};const next=validate(merge(structuredClone(state),patch));fs.writeFileSync(file+'.tmp',JSON.stringify(next,null,2));fs.renameSync(file+'.tmp',file);state=next;for(const res of clients)res.write(`data: ${JSON.stringify(state)}\n\n`);return state;}
 app.use((req,res,next)=>{res.setHeader('X-Content-Type-Options','nosniff');res.setHeader('Content-Disposition','inline');if(!lanAccess.allowsRequest(req))return res.status(403).json({error:'Use localhost or this computer’s private LAN address'});if(req.method==='POST'&&req.headers.origin&&req.headers.origin!==`http://${req.headers.host}`)return res.status(403).json({error:'Origin rejected'});next();});app.use(express.json({limit:'12mb'}));
 const staticOpts={setHeaders:(res,fp)=>{res.setHeader('Content-Disposition','inline');res.setHeader('X-Content-Type-Options','nosniff');if(fp.endsWith('.wasm'))res.setHeader('Content-Type','application/wasm');}};
 app.use(express.static(path.join(__dirname,'public'),staticOpts));app.use('/assets/ads',express.static(path.join(__dirname,'public/assets/commercials'),staticOpts));app.use('/vendor/tesseract',express.static(path.join(__dirname,'node_modules/tesseract.js/dist'),staticOpts));app.use('/vendor/core',express.static(path.join(__dirname,'node_modules/tesseract.js-core'),staticOpts));app.use('/vendor/lang',express.static(path.join(__dirname,'node_modules/@tesseract.js-data/eng/4.0.0_best_int'),staticOpts));
@@ -124,7 +125,7 @@ app.post('/api/match/apply',async(req,res)=>{
   }
   const id=String(req.body.matchId||PlayoffResults.resultId(req.body.raw)||'');
   if(id&&!/^[a-zA-Z0-9_-]{6,100}$/.test(id))throw Error('Invalid Match ID');
-  for(const side of ['blue','red'])for(const key of ['turrets','lord','turtle']){
+  for(const side of ['blue','red'])for(const key of ['turrets','lord']){
     const value=req.body.objectives?.[side]?.[key];
     if(value!==undefined){if(!Number.isInteger(value)||value<0)throw Error('Invalid objective count');(patch[side]??={})[key]=value;}
   }
@@ -399,9 +400,7 @@ app.post('/api/detection/ai-live',async(req,res)=>{
             if (detection.aiGameSeen && finalPatch[side].lord !== undefined && state[side]?.lord) {
               if (state[side].lord - finalPatch[side].lord <= 4) finalPatch[side].lord = Math.max(state[side].lord, finalPatch[side].lord);
             }
-            if (detection.aiGameSeen && finalPatch[side].turtle !== undefined && state[side]?.turtle) {
-              if (state[side].turtle - finalPatch[side].turtle <= 3) finalPatch[side].turtle = Math.max(state[side].turtle, finalPatch[side].turtle);
-            }
+            if (detection.aiGameSeen && finalPatch[side].turtle !== undefined) delete finalPatch[side].turtle;
           }
           if (finalPatch[side]?.players && Array.isArray(state[side]?.players)) {
             finalPatch[side].players=AiLiveState.mergePlayers(state[side].players,finalPatch[side].players,rawGame?.[side]?.players,detection.aiPlayers[side],sampledAt);
