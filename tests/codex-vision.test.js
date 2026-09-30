@@ -11,7 +11,7 @@ process.env.DATA_DIR = dataDir;
 const Codex = require('../lib/codex-vision');
 const Gemini = require('../lib/gemini-vision');
 
-test('Codex starts local app-server in GPT-6 Luna Fast at low reasoning and returns schema-checked draft output', async () => {
+test('Codex starts local app-server in GPT-6 Astra Fast at max reasoning and returns schema-checked draft output', async () => {
   const requests = [], sent = [];
   const child = new EventEmitter();
   child.stdin = new PassThrough(); child.stdout = new PassThrough(); child.stderr = new PassThrough(); child.kill = () => {};
@@ -41,9 +41,9 @@ test('Codex starts local app-server in GPT-6 Luna Fast at low reasoning and retu
   const client = new Codex.CodexVision({ command: 'fixture-codex', spawnProcess(_command, args, options) {
     assert.equal(_command, 'fixture-codex');
     assert.equal(options.cwd, os.tmpdir());
-    assert.ok(args.includes('-c') && args.some(arg => arg.includes('model="gpt-6-luna"')));
+    assert.ok(args.includes('-c') && args.some(arg => arg.includes('model="gpt-6-astra"')));
     assert.ok(args.includes('service_tier="fast"'));
-    assert.ok(args.includes('model_reasoning_effort="low"'));
+    assert.ok(args.includes('model_reasoning_effort="max"'));
     assert.ok(args.includes('features.fast_mode=true'));
     for (const item of ['shell_tool', 'apps', 'plugins', 'multi_agent', 'computer_use']) assert.ok(args.includes(`features.${item}=false`));
     return child;
@@ -55,16 +55,16 @@ test('Codex starts local app-server in GPT-6 Luna Fast at low reasoning and retu
     assert.equal(result.patch.draftTimer.remaining, 6);
     assert.equal(result.patch.blue.players[0].hero, 'Nolan');
     assert.equal(result.patch.red.players[0].hero, 'Ruby');
-    assert.equal(result.model, 'gpt-6-luna');
-    assert.equal(result.effort, 'low');
+    assert.equal(result.model, 'gpt-6-astra');
+    assert.equal(result.effort, 'max');
     assert.equal(result.speedTier, 'fast');
     const thread = sent.find(request => request.method === 'thread/start').params;
-    assert.equal(thread.model, 'gpt-6-luna');
+    assert.equal(thread.model, 'gpt-6-astra');
     assert.equal(thread.allowProviderModelFallback, false);
     assert.equal(thread.ephemeral, true);
     const turn = sent.find(request => request.method === 'turn/start').params;
-    assert.equal(turn.model, 'gpt-6-luna');
-    assert.equal(turn.effort, 'low');
+    assert.equal(turn.model, 'gpt-6-astra');
+    assert.equal(turn.effort, 'max');
     assert.ok(turn.outputSchema.properties.draft);
     assert.equal(turn.input.filter(item => item.type === 'image').length, 2);
     assert.match(turn.input[0].text, /enlarged blue-side and red-side player-table crops/);
@@ -86,8 +86,8 @@ test('Gemini remains selectable and its saved key survives settings reads and pr
   const config = await get();
   assert.equal(config.provider, 'codex');
   assert.equal(config.hasKey, true);
-  assert.equal(config.codex.model, 'gpt-6-luna');
-  assert.equal(config.codex.effort, 'low');
+  assert.equal(config.codex.model, 'gpt-6-astra');
+  assert.equal(config.codex.effort, 'max');
   assert.equal(JSON.stringify(config).includes('fixture-gemini-key'), false);
   assert.ok(Gemini);
 });

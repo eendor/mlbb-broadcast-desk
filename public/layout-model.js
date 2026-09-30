@@ -1,5 +1,5 @@
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.HUDLayout=api;})(globalThis,()=>{
-  const scenes=['draft','scoreboard','players','countdown','intermission','postgame','mvp','schedule','sponsors','ads','swiss','playoffs'];
+  const scenes=['draft','scoreboard','players','countdown','intermission','postgame','mvp','schedule','sponsors','ads','swiss','playoffs','cameras'];
   const groups=[
     ['swiss','Swiss bracket','.swiss-bracket'],['playoffs','Playoffs bracket','.playoffs-bracket'],
     ['draft','Draft package','.broadcast-draft'],['draft-side','Draft team','.broadcast-draft-side'],

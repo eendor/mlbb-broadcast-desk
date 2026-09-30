@@ -42,11 +42,7 @@ function scoreboardBroadcastPanel(s) {
       <span class="sb-match-format">GAME ${s.game} &middot; BO${s.bestOf}</span>
     </div>
     <div class="sb-partner"><img src="${esc(partner.image)}" alt="${esc(partner.name)}"></div>
-    <div class="sb-casters" aria-label="Casters: Art Roselle and Ralph Duco">
-      <svg viewBox="0 0 16 22" aria-hidden="true"><rect x="5" y="1" width="6" height="12" rx="3"/><path d="M2 9h2v2a4 4 0 0 0 8 0V9h2v2a6 6 0 0 1-5 5.92V20h3v2H4v-2h3v-3.08A6 6 0 0 1 2 11Z"/></svg>
-      <span class="sb-caster-names">Art Roselle<span class="sb-caster-divider" aria-hidden="true">|</span>Ralph Duco</span>
-    </div>
-  </aside>`;
+</aside>`;
 }
 
 /* Team plates take their palette from each organization's logo artwork, so the

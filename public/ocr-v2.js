@@ -287,11 +287,12 @@ async function scan(continuous=false){
    const previous=published.get(r.field);
    const killsSpike=continuous&&r.field.endsWith('.kills')&&previous!==undefined&&value>previous+5&&!stable.observe(r.field+':spike',value,3);
    const correctedNum=continuous&&accepted&&previous!==undefined&&typeof value==='number'&&!clockField&&value<previous&&(
-     (r.field.endsWith('.gold')&&value*5<=previous&&stable.observe(r.field+':correction',value,3))||
+     (r.field.endsWith('.gold')&&value+1000<=previous&&stable.observe(r.field+':correction',value,3))||
      (r.field.endsWith('.kills')&&(previous-value>10||stable.observe(r.field+':correction',value,2)))||
       (['lord','turrets'].some(k=>r.field.endsWith('.'+k))&&(previous-value>=3||stable.observe(r.field+':correction',value,2)))
    );
-   if(killsSpike){accepted=false;reason='spike held';}
+   if(continuous&&r.field.endsWith('.gold')&&OCRRuntime.goldJump(previous,value,Date.now()-(old?.at||Date.now()))){accepted=false;reason='Gold spike held';}
+   else if(killsSpike){accepted=false;reason='spike held';}
    else if(continuous&&accepted&&previous!==undefined&&typeof value==='number'&&!clockField&&value<previous&&!correctedNum){accepted=false;reason='decrease held';}
    if(continuous&&accepted&&r.field.endsWith('.kda')&&previous&&value.split('/').some((n,i)=>Number(n)<Number(previous.split('/')[i]))){accepted=false;reason='decrease held';}
    let live=continuous&&!!(stream||clipUrl)&&!video.paused;

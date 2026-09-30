@@ -24,30 +24,6 @@
   function findSpell(v){if(!v)return null;return (catalog.spells||[]).find(s=>s.id===key(v)||key(s.name)===key(v));}
   function findHero(name){return (catalog.heroes||[]).find(h=>key(h.name)===key(name)||(h.aliases||[]).some(a=>key(a)===key(name)));}
 
-  // The match API exposes hero, KDA, gold and role/lane, but NOT the emblem,
-  // battle spell or (for OCR/manual entry) the equipment, so we infer the most
-  // probable meta build from hero class + lane. Real parsed equipment, when the
-  // official match feed provides it, always takes priority over this fallback.
-  const CLASS_ITEMS={
-    Marksman:['Swift Boots','Corrosion Scythe','Windtalker',"Berserker's Fury",'Blade of Despair','Malefic Roar'],
-    Mage:['Arcane Boots','Clock of Destiny','Lightning Truncheon','Holy Crystal','Divine Glaive','Blood Wings'],
-    Assassin:['Warrior Boots','Blade of the Heptaseas','Hunter Strike','Endless Battle','Blade of Despair','Malefic Roar'],
-    Fighter:['Warrior Boots','Bloodlust Axe','Endless Battle','Hunter Strike','Blade of Despair',"Queen's Wings"],
-    Tank:['Warrior Boots','Dominance Ice','Antique Cuirass',"Athena's Shield",'Immortality','Guardian Helmet'],
-    Support:['Tough Boots','Dominance Ice',"Athena's Shield",'Immortality','Oracle','Guardian Helmet']
-  };
-  function inferBuild(hero,role){
-    const h=findHero(hero),cls=h?.heroClass||'';
-    let spell=role==='JUNGLE'?'Retribution':'Flicker';
-    // Emblem: junglers use the Jungle Emblem; otherwise the hero-class emblem.
-    let emblemName=role==='JUNGLE'?'Jungle Emblem':(cls?cls+' Emblem':'');
-    const emblem=findEmblem(emblemName)?emblemName:'';
-    // Six-item meta build for the hero's class (jungle keeps its class carry build).
-    const build=(CLASS_ITEMS[cls]||[]).filter(n=>findItem(n));
-    const items=Array.from({length:6},(_,j)=>build[j]||'');
-    return {emblem,spell:findSpell(spell)?spell:'',items};
-  }
-
   // A slot = an image thumbnail + a text/datalist input. Editing publishes the array.
   function slot(kind,i,value){
     const icon=kind==='item'?findItem(value)?.icon:kind==='emblem'?findEmblem(value)?.icon:findSpell(value)?.icon;
@@ -117,15 +93,13 @@
     const teamKills=state[side].kills;
     const kp=teamKills>0?Math.round(((k+a)/teamKills)*100)+'%':'';
     // Real equipment from the official parsed match feed, if any.
-    const parsedItems=Array.from({length:6},(_,j)=>{const it=(p.items||[])[j];return it?(it.name||String(it.id||'')):'';});
-    const gpm=playerGpm(p)||mvpGet().gpm;
-    // Learn the equipment, emblem + spell from the parsed match: hero class + role.
-    const {emblem,spell,items:builtItems}=inferBuild(p.hero,p.role);
-    const cur=mvpGet();
-    // Prefer parsed equipment; otherwise the inferred class build; otherwise keep current.
-    const items=parsedItems.some(Boolean)?parsedItems:(builtItems.some(Boolean)?builtItems:cur.items);
-    const emblems=[emblem||cur.emblems[0]||'', cur.emblems[1]||'', cur.emblems[2]||'', cur.emblems[3]||''];
-    await save({mvp:{player:side+'.'+i,name:p.name||'',role:p.role||'',hero:p.hero||'',kda:p.kda||'',gpm,kp,items,emblems,spell:spell||cur.spell,photo:'',photoSource:'',photoStatus:'',photoError:''}});await window.MvpPhotos?.apply(p.name,state[side].tag);
+    const parsedItems=Array.from({length:6},(_,j)=>{const it=(p.items||[])[j];return typeof it==='string'?it:it?(it.name||String(it.id||'')):'';});
+    const totalGold=Number.isFinite(p.gold)?String(p.gold):'';
+    const items=parsedItems;
+    const emblems=[p.emblem||'',...(p.talents||[])].slice(0,4);
+    while(emblems.length<4)emblems.push('');
+    const spell=p.spell||p.battleSpell||'';
+    await save({mvp:{player:side+'.'+i,name:p.name||'',role:p.role||'',hero:p.hero||'',kda:p.kda||'',totalGold,kp,items,emblems,spell,photo:'',photoSource:'',photoStatus:'',photoError:''}});await window.MvpPhotos?.apply(p.name,state[side].tag);
   }
   // Auto-fill from the currently selected player (manual override).
   function autofill(){const [side,i]=state.mvp.player.split('.');return fillFrom(side,Number(i));}

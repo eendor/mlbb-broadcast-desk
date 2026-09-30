@@ -685,14 +685,15 @@ const PostgameOCR = (() => {
         }))
       },
       mvp: {
-        player: selectedMvp,
+        player: `${mvpSide}.${mvpSlot}`,
         name: mvpPlayer?.name || '',
         role: mvpPlayer?.role || '',
         hero: mvpPlayer?.hero || '',
         kda: mvpPlayer?.kda || '',
-        items: (mvpPlayer?.items || []).map(i => (typeof i === 'string' ? i : i.name)).slice(0, 6),
-        gpm: mvpPlayer?.gold ? String(Math.round(mvpPlayer.gold / 11)) : '700',
-        kp: '80%'
+        items: Array.from({length:6},(_,i)=>{const it=mvpPlayer?.items?.[i];return typeof it==='string'?it:it?.name||'';}),
+        totalGold: Number.isFinite(mvpPlayer?.gold) ? String(mvpPlayer.gold) : '',
+        emblems: ['', '', '', ''], spell: '',
+        kp: (() => { const kills = Number(d[mvpSide]?.kills); const [k,,a] = String(mvpPlayer?.kda || '').split('/').map(Number); return kills > 0 && Number.isFinite(k+a) ? Math.round((k+a)/kills*100)+'%' : ''; })()
       }
     };
 

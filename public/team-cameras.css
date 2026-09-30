@@ -1,0 +1,60 @@
+.team-camera-scene { position:absolute; inset:0; color:#f7f0e2; font-family:'Barlow Condensed','Segoe UI',sans-serif; }
+
+/* Animated flaming backdrop. The wrapper is masked so the two camera boxes stay
+   transparent for the Discord feeds beneath. A warm gradient (never black) fills
+   the whole area so the header/top reads as fire-lit, not empty. */
+.tc-backdrop-wrap { position:absolute; left:0; top:0; width:1920px; overflow:hidden;
+  background:radial-gradient(120% 80% at 50% -8%,#733a1a 0%,transparent 60%),linear-gradient(180deg,#2c1408 0%,#3a1c0b 36%,#4c240d 60%,#682f10 82%,#8a4214 100%); }
+.tc-anim { position:absolute; inset:0; }
+/* Top ambient glow so the header area is lit, not dark. */
+.tc-topglow { position:absolute; left:0; right:0; top:0; height:46%;
+  background:radial-gradient(95% 100% at 50% 0%,#ff8a3a40 0%,#ff6a2a20 45%,transparent 80%);
+  mix-blend-mode:screen; animation:tc-breathe 4.2s ease-in-out infinite alternate; }
+/* Warm base heat rising from the bottom. */
+.tc-heat { position:absolute; left:0; right:0; bottom:0; height:60%;
+  background:linear-gradient(transparent,#ff5e2a14 40%,#ff7a2a33 70%,#ffab3a4d 90%,#ffd07a66);
+  mix-blend-mode:screen; animation:tc-breathe 3.4s ease-in-out infinite alternate; will-change:opacity; }
+@keyframes tc-breathe { from{opacity:.7} to{opacity:1} }
+/* Layered flame tongues along the bottom. */
+.tc-flame { position:absolute; bottom:-12%; height:34%; filter:blur(26px); mix-blend-mode:screen;
+  transform-origin:50% 100%; will-change:transform,opacity;
+  background:radial-gradient(60% 100% at 50% 100%,#ffd66e 0%,#ff8a2e 32%,#ff4d1a66 60%,transparent 78%); }
+.tc-flame.f1 { left:-8%; right:40%; animation:tc-flicker 1.1s ease-in-out infinite alternate; }
+.tc-flame.f2 { left:28%; right:28%; height:40%; animation:tc-flicker 1.35s ease-in-out infinite alternate-reverse; }
+.tc-flame.f3 { left:40%; right:-8%; animation:tc-flicker 1.25s ease-in-out infinite alternate; }
+@keyframes tc-flicker { from{transform:scaleY(1) scaleX(1);opacity:.75} to{transform:scaleY(1.25) scaleX(1.06);opacity:1} }
+/* Occasional fire surges shooting upward. */
+.tc-surges { position:absolute; inset:0; }
+.tc-surges i { position:absolute; bottom:-6%; left:var(--x); width:120px; height:46%;
+  transform-origin:50% 100%; border-radius:50% 50% 0 0/70% 70% 0 0;
+  background:linear-gradient(#ff5e2a00,#ff5e2a2e 38%,#ffab3a55 74%,#ffe0a06e); filter:blur(16px);
+  mix-blend-mode:screen; opacity:0; animation:tc-surge 6.5s ease-in-out infinite; animation-delay:var(--delay);
+  will-change:transform,opacity; }
+@keyframes tc-surge { 0%,58%{transform:scaleY(.15);opacity:0} 66%{opacity:.75} 74%{transform:scaleY(1);opacity:.5} 84%{transform:scaleY(1.15);opacity:.28} 92%,100%{transform:scaleY(.2);opacity:0} }
+/* Flying embers. */
+.tc-sparks { position:absolute; inset:0; }
+.tc-sparks i { position:absolute; bottom:-16px; left:var(--x); width:var(--s); height:var(--s);
+  border-radius:50%; background:#ffd27a; box-shadow:0 0 10px 1px #ff9a3a; opacity:0; mix-blend-mode:screen;
+  animation:tc-fly var(--d) linear var(--delay) infinite; will-change:transform,opacity; }
+@keyframes tc-fly { 0%{transform:translate(0,0) scale(1);opacity:0} 8%{opacity:.95} 60%{opacity:.75} 100%{transform:translate(var(--drift),-880px) scale(.35);opacity:0} }
+@media(prefers-reduced-motion:reduce){ .tc-heat,.tc-flame,.tc-surges i,.tc-sparks i { animation:none } }
+.tc-top { position:absolute; left:60px; right:60px; top:34px; height:104px; display:flex; align-items:center; gap:36px; border-bottom:1px solid #d2ae5d38; padding-bottom:24px; }
+.tc-top>img { width:222px; height:88px; object-fit:contain; }
+.tc-top>div { border-left:1px solid #d2ae5d60; padding-left:32px; }
+.tc-eyebrow { font:600 13px 'Segoe UI',sans-serif; letter-spacing:3px; color:#c7ad79; }
+.tc-top h1 { margin:5px 0 0; font-size:33px; font-weight:700; letter-spacing:2px; }
+.tc-format { margin-left:auto; display:flex; align-items:center; gap:18px; font:600 15px 'Segoe UI',sans-serif; letter-spacing:2px; color:#d6c9b0; }
+.tc-format i { height:20px; width:1px; background:#d2ae5d60; }
+.team-camera-card { position:absolute; top:var(--frame-top,150px); }
+.team-camera-card .tc-head { height:96px; display:flex; align-items:center; gap:22px; padding:0 14px 16px 2px; }
+.team-camera-logo { width:78px; height:78px; object-fit:contain; flex-shrink:0; filter:drop-shadow(0 5px 10px #0007); }
+.team-camera-card h2 { margin:3px 0 0; font-size:44px; line-height:1; letter-spacing:1px; text-shadow:0 2px 6px #000a; }
+.team-camera-card .tc-id .tc-eyebrow { text-shadow:0 1px 4px #000a; }
+.tc-team-score { margin-left:auto; font-size:50px; color:#dfbd70; font-weight:600; text-shadow:0 2px 6px #000a; }
+.team-camera-card.red .tc-head { flex-direction:row-reverse; }
+.team-camera-card.red .tc-id { text-align:right; }
+.team-camera-card.red .tc-team-score { margin-left:0; margin-right:auto; }
+.team-camera-frame { width:100%; outline:2px solid #e0b969; position:relative; box-shadow:0 6px 26px #0007; }
+.team-camera-frame::before,.team-camera-frame::after { content:''; position:absolute; width:34px; height:34px; pointer-events:none; }
+.team-camera-frame::before { left:-3px; top:-3px; border-left:4px solid #efcf83; border-top:4px solid #efcf83; }
+.team-camera-frame::after { right:-3px; bottom:-3px; border-right:4px solid #efcf83; border-bottom:4px solid #efcf83; }

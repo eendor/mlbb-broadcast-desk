@@ -91,7 +91,7 @@ window.LiveDetection=(()=>{
     const {field,value,confidence}=result,clock=field==='gameTime'||field==='draftTimer.remaining';
     const confirmed=stable.observe(field,value!==null&&confidence>=min?value:null,continuous&&!clock&&!field.endsWith('.gold')?Math.max(1,Number($('#ocrStability')?.value||3)):1);
     const previous=highWater.get(field),gold=field.endsWith('.gold');
-    const correction=gold&&previous!==undefined&&value!==null&&value*5<=previous&&stable.observe(field+':correction',confidence>=min?value:null,3);
+    const correction=gold&&previous!==undefined&&value!==null&&value+1000<=previous&&stable.observe(field+':correction',confidence>=min?value:null,3);
     const spike=continuous&&gold&&value!==null&&OCRRuntime.goldJump(previous,value,sampledAt-(goldAt.get(field)||sampledAt));
     const decreased=continuous&&previous!==undefined&&typeof value==='number'&&!clock&&value<previous&&!correction;
     const kdaDecrease=continuous&&previous!==undefined&&field.endsWith('.kda')&&value&&value.split('/').some((n,i)=>Number(n)<Number(previous.split('/')[i]));
