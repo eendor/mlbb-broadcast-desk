@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CBDEM MLBB Tournament Overlay</title>
+  <link rel="stylesheet" href="cbdem-overlay.css">
+</head>
+<body>
+  <div id="stage">
+    <!-- Blue Team Overlay (Left) -->
+    <div class="team-overlay blue-side" id="blueSide">
+      <!-- Shield Crest Badge -->
+      <div class="crest-container">
+        <div class="crest-frame blue-crest">
+          <svg viewBox="0 0 100 100" class="shield-svg">
+            <polygon points="50,4 96,22 96,70 50,96 4,70 4,22" fill="#081426" stroke="#00e5ff" stroke-width="3"/>
+            <polygon points="50,10 88,26 88,66 50,90 12,66 12,26" fill="#0c1e38" stroke="#d4af37" stroke-width="1.5"/>
+          </svg>
+          <img class="team-logo" id="blueLogo" src="assets/logos-transparent/JPES.png" alt="Blue Team Logo">
+        </div>
+      </div>
+
+      <!-- Angled Esports Banner -->
+      <div class="team-banner blue-banner" id="blueBanner">
+        <div class="banner-body">
+          <div class="team-info">
+            <span class="team-acronym" id="blueName">JPES</span>
+            <span class="team-fullname" id="blueFullName">ECONOMICS SOCIETY</span>
+          </div>
+          <!-- Series Score Dots / Pips -->
+          <div class="series-dots" id="blueSeriesDots">
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
+        <div class="energy-stripe blue-stripe"></div>
+      </div>
+    </div>
+
+    <!-- Red Team Overlay (Right) -->
+    <div class="team-overlay red-side" id="redSide">
+      <!-- Angled Esports Banner -->
+      <div class="team-banner red-banner" id="redBanner">
+        <div class="banner-body">
+          <!-- Series Score Dots / Pips -->
+          <div class="series-dots" id="redSeriesDots">
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+          <div class="team-info">
+            <span class="team-acronym" id="redName">JPSPA</span>
+            <span class="team-fullname" id="redFullName">PUBLIC ADMINISTRATION</span>
+          </div>
+        </div>
+        <div class="energy-stripe red-stripe"></div>
+      </div>
+
+      <!-- Shield Crest Badge -->
+      <div class="crest-container">
+        <div class="crest-frame red-crest">
+          <svg viewBox="0 0 100 100" class="shield-svg">
+            <polygon points="50,4 96,22 96,70 50,96 4,70 4,22" fill="#20060c" stroke="#ff1744" stroke-width="3"/>
+            <polygon points="50,10 88,26 88,66 50,90 12,66 12,26" fill="#300913" stroke="#d4af37" stroke-width="1.5"/>
+          </svg>
+          <img class="team-logo" id="redLogo" src="assets/logos-transparent/JPSPA.png" alt="Red Team Logo">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="cbdem-overlay.js"></script>
+</body>
+</html>

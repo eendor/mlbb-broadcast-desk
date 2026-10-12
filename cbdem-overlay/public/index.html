@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CBDEM MLBB Broadcast Control Panel</title>
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <div class="dashboard">
+    <!-- Header -->
+    <header class="dashboard-header">
+      <div class="brand">
+        <div class="brand-crest">
+          <svg viewBox="0 0 32 32" fill="none">
+            <polygon points="16,2 30,8 30,24 16,30 2,24 2,8" fill="#0d1b2a" stroke="#ffd700" stroke-width="1.5"/>
+            <polygon points="16,6 26,11 26,21 16,26 6,21 6,11" fill="#1b263b" stroke="#00e5ff" stroke-width="1"/>
+          </svg>
+        </div>
+        <div>
+          <h1>CBDEM MLBB TOURNAMENT</h1>
+          <p class="subtitle">Broadcast Graphics & OBS Control Desk</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <div class="status-pill" id="statusBadge">
+          <span class="status-dot" id="statusDot"></span>
+          <span id="statusText">Connecting...</span>
+        </div>
+        <a href="/overlay.html" target="_blank" class="btn-obs-link">
+          <svg viewBox="0 0 20 20" fill="currentColor" class="icon-link">
+            <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"/>
+            <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"/>
+          </svg>
+          Open OBS Overlay
+        </a>
+      </div>
+    </header>
+
+    <!-- Main Grid -->
+    <main class="dashboard-grid">
+      <!-- Team Selection Section -->
+      <section class="card teams-section">
+        <div class="card-header">
+          <h2>Team Matchup (2 Team Overlays)</h2>
+          <button type="button" id="swapTeamsBtn" class="btn-secondary btn-sm" title="Swap Blue and Red sides">
+            ⇄ Swap Sides
+          </button>
+        </div>
+
+        <div class="teams-container">
+          <!-- Blue Team Column -->
+          <div class="side-column blue-side">
+            <div class="side-header">
+              <span class="side-indicator blue-indicator">BLUE SIDE</span>
+              <div class="score-control">
+                <span class="score-label">Series Wins:</span>
+                <div class="score-stepper">
+                  <button type="button" class="btn-step" id="blueScoreMinus">−</button>
+                  <span class="score-num" id="blueScoreDisplay">0</span>
+                  <button type="button" class="btn-step" id="blueScorePlus">+</button>
+                </div>
+              </div>
+            </div>
+            <div class="team-list" id="blueTeamList"></div>
+          </div>
+
+          <!-- Red Team Column -->
+          <div class="side-column red-side">
+            <div class="side-header">
+              <span class="side-indicator red-indicator">RED SIDE</span>
+              <div class="score-control">
+                <span class="score-label">Series Wins:</span>
+                <div class="score-stepper">
+                  <button type="button" class="btn-step" id="redScoreMinus">−</button>
+                  <span class="score-num" id="redScoreDisplay">0</span>
+                  <button type="button" class="btn-step" id="redScorePlus">+</button>
+                </div>
+              </div>
+            </div>
+            <div class="team-list" id="redTeamList"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Match Format Section -->
+      <section class="card config-section">
+        <div class="card-header">
+          <h2>Series Format (Controls Score Dots)</h2>
+        </div>
+
+        <div class="form-body">
+          <div class="form-group">
+            <label for="formatInput">Match Format</label>
+            <input type="text" id="formatInput" class="form-input" placeholder="BO3 GRAND FINALS" value="BO3 GRAND FINALS">
+            <div class="presets-row">
+              <button type="button" class="btn-preset" data-format="BO1 GROUP STAGE">BO1 (1 Dot)</button>
+              <button type="button" class="btn-preset" data-format="BO3 SEMI-FINALS">BO3 (2 Dots)</button>
+              <button type="button" class="btn-preset" data-format="BO3 GRAND FINALS">BO3 Grand Finals</button>
+              <button type="button" class="btn-preset" data-format="BO5 GRAND FINALS">BO5 (3 Dots)</button>
+            </div>
+          </div>
+
+          <!-- Apply Button -->
+          <div class="apply-bar">
+            <button type="button" id="applyBtn" class="btn-primary">
+              ⚡ Apply Live Changes to OBS
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- OBS Integration -->
+      <section class="card preview-section">
+        <div class="card-header">
+          <h2>OBS Browser Source Setup</h2>
+          <span class="obs-tag">1920×1080</span>
+        </div>
+        <div class="obs-instructions">
+          <p>Add a <strong>Browser Source</strong> in OBS Studio with the following URL:</p>
+          <div class="copy-box">
+            <code id="obsUrlCode">http://localhost:3211/overlay.html</code>
+            <button type="button" id="copyUrlBtn" class="btn-copy">Copy URL</button>
+          </div>
+          <ul class="obs-tips">
+            <li>Resolution: <strong>1920 × 1080</strong> (Transparent background)</li>
+            <li>Custom Frame Rate: <strong>60 FPS</strong></li>
+            <li>Sits directly over the game feed framing the in-game scoreboard cleanly!</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

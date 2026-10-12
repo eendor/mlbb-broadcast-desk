@@ -1,0 +1,308 @@
+/* ==========================================================================
+   CBDEM MLBB Broadcast Overlay — Two Team Overlays Only
+   Calibrated for 1920×1080 OBS Browser Source
+   Matches Reference Broadcast Geometry & Aesthetics
+   ========================================================================== */
+
+/* @font-face declarations for local files */
+@font-face {
+  font-family: 'Teko';
+  font-style: normal;
+  font-weight: 600;
+  src: url('assets/fonts/Teko-600.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Teko';
+  font-style: normal;
+  font-weight: 700;
+  src: url('assets/fonts/Teko-700.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Rajdhani';
+  font-style: normal;
+  font-weight: 600;
+  src: url('assets/fonts/Rajdhani-600.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Rajdhani';
+  font-style: normal;
+  font-weight: 700;
+  src: url('assets/fonts/Rajdhani-700.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Chakra Petch';
+  font-style: normal;
+  font-weight: 700;
+  src: url('assets/fonts/ChakraPetch-700.ttf') format('truetype');
+}
+
+:root {
+  --font-display: 'Teko', 'Rajdhani', sans-serif;
+  --font-tech: 'Rajdhani', sans-serif;
+  --font-mono: 'Chakra Petch', monospace;
+
+  /* Esports Blue Palette */
+  --blue-primary: #00e5ff;
+  --blue-bright: #38bdf8;
+  --blue-glow: rgba(0, 229, 255, 0.7);
+
+  /* Esports Red Palette */
+  --red-primary: #ff1744;
+  --red-bright: #f43f5e;
+  --red-glow: rgba(255, 23, 68, 0.7);
+
+  /* Esports Gold & Neutral Palette */
+  --gold-primary: #ffd700;
+  --gold-metallic: #d4af37;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: transparent;
+  user-select: none;
+}
+
+/* 1920×1080 fixed canvas for OBS */
+#stage {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  background: transparent;
+  transform-origin: top left;
+}
+
+/* ==========================================================================
+   TEAM OVERLAYS (Blue Left, Red Right)
+   Aligned directly below the native MLBB stats row (~y: 60px)
+   ========================================================================== */
+
+.team-overlay {
+  position: absolute;
+  top: 56px;
+  display: flex;
+  align-items: center;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Blue Team Overlay (Left) */
+.team-overlay.blue-side {
+  left: 325px;
+}
+
+/* Red Team Overlay (Right) */
+.team-overlay.red-side {
+  left: 1055px;
+}
+
+/* --------------------------------------------------------------------------
+   CREST SHIELD BADGE (Team Logo Container)
+   -------------------------------------------------------------------------- */
+
+.crest-container {
+  position: relative;
+  width: 84px;
+  height: 84px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 15;
+  filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.9));
+}
+
+.crest-frame {
+  position: relative;
+  width: 84px;
+  height: 84px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.shield-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.7));
+}
+
+.blue-crest .shield-svg {
+  filter: drop-shadow(0 0 8px var(--blue-glow));
+}
+
+.red-crest .shield-svg {
+  filter: drop-shadow(0 0 8px var(--red-glow));
+}
+
+/* Transparent, clean logo centered in the crest frame */
+.team-logo {
+  position: relative;
+  z-index: 2;
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.9));
+}
+
+/* --------------------------------------------------------------------------
+   TEAM BANNER (Angled Esports Chassis)
+   -------------------------------------------------------------------------- */
+
+.team-banner {
+  position: relative;
+  height: 54px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.85);
+  transition: all 0.3s ease;
+}
+
+/* Blue Banner Geometry */
+.blue-banner {
+  margin-left: -14px;
+  width: 470px;
+  clip-path: polygon(18px 0%, 100% 0%, calc(100% - 16px) 100%, 0% 100%);
+  background: linear-gradient(135deg, rgba(7, 21, 43, 0.97) 0%, rgba(13, 38, 80, 0.95) 55%, rgba(4, 12, 26, 0.98) 100%);
+  border-top: 1px solid rgba(0, 229, 255, 0.6);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.8), 0 0 16px rgba(0, 229, 255, 0.3);
+}
+
+/* Red Banner Geometry */
+.red-banner {
+  margin-right: -14px;
+  width: 470px;
+  clip-path: polygon(0% 0%, calc(100% - 18px) 0%, 100% 100%, 16px 100%);
+  background: linear-gradient(135deg, rgba(41, 6, 14, 0.97) 0%, rgba(74, 12, 25, 0.95) 55%, rgba(23, 3, 7, 0.98) 100%);
+  border-top: 1px solid rgba(255, 23, 68, 0.6);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.8), 0 0 16px rgba(255, 23, 68, 0.3);
+}
+
+.banner-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+  padding: 0 20px;
+}
+
+.blue-banner .banner-body {
+  padding-left: 32px;
+  padding-right: 18px;
+}
+
+.red-banner .banner-body {
+  padding-left: 18px;
+  padding-right: 32px;
+}
+
+/* Team Text Info */
+.team-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.blue-banner .team-info {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.red-banner .team-info {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.team-acronym {
+  font-family: var(--font-display);
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 0.85;
+  letter-spacing: 2.5px;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.blue-banner .team-acronym {
+  text-shadow: 0 0 14px var(--blue-glow), 0 2px 4px rgba(0, 0, 0, 0.95);
+}
+
+.red-banner .team-acronym {
+  text-shadow: 0 0 14px var(--red-glow), 0 2px 4px rgba(0, 0, 0, 0.95);
+}
+
+.team-fullname {
+  font-family: var(--font-tech);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  margin-top: 2px;
+  white-space: nowrap;
+}
+
+.blue-banner .team-fullname {
+  color: #93c5fd;
+}
+
+.red-banner .team-fullname {
+  color: #fca5a5;
+}
+
+/* --------------------------------------------------------------------------
+   SERIES SCORE DOTS (Bo3 / Bo5 Score Pips)
+   -------------------------------------------------------------------------- */
+
+.series-dots {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+}
+
+.series-dots .dot {
+  width: 12px;
+  height: 12px;
+  transform: rotate(45deg);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.series-dots .dot.active {
+  background: linear-gradient(135deg, #ffd700 0%, #f59e0b 100%);
+  border-color: #fffbeb;
+  box-shadow: 0 0 10px #ffd700, 0 0 18px rgba(245, 158, 11, 0.85);
+  transform: rotate(45deg) scale(1.15);
+}
+
+/* --------------------------------------------------------------------------
+   ENERGY STRIPE (Luminous Neon Underline)
+   -------------------------------------------------------------------------- */
+
+.energy-stripe {
+  height: 4px;
+  width: 100%;
+}
+
+.blue-stripe {
+  background: linear-gradient(90deg, #00e5ff 0%, #38bdf8 60%, rgba(0, 229, 255, 0.4) 100%);
+  box-shadow: 0 0 10px #00e5ff, 0 0 20px rgba(0, 229, 255, 0.7);
+}
+
+.red-stripe {
+  background: linear-gradient(90deg, rgba(255, 23, 68, 0.4) 0%, #f43f5e 40%, #ff1744 100%);
+  box-shadow: 0 0 10px #ff1744, 0 0 20px rgba(255, 23, 68, 0.7);
+}
