@@ -1,136 +1,378 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CBDEM MLBB Broadcast Control Panel</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#06122e">
+  <title>CBDEM Dagyawan 2026 · Overlay Control</title>
+  <link rel="icon" type="image/png" href="assets/brand/cbdem-seal.png">
+  <link rel="stylesheet" href="fonts.css">
   <link rel="stylesheet" href="app.css">
 </head>
-<body>
-  <div class="dashboard">
-    <!-- Header -->
-    <header class="dashboard-header">
-      <div class="brand">
-        <div class="brand-crest">
-          <svg viewBox="0 0 32 32" fill="none">
-            <polygon points="16,2 30,8 30,24 16,30 2,24 2,8" fill="#0d1b2a" stroke="#ffd700" stroke-width="1.5"/>
-            <polygon points="16,6 26,11 26,21 16,26 6,21 6,11" fill="#1b263b" stroke="#00e5ff" stroke-width="1"/>
-          </svg>
-        </div>
-        <div>
-          <h1>CBDEM MLBB TOURNAMENT</h1>
-          <p class="subtitle">Broadcast Graphics & OBS Control Desk</p>
-        </div>
-      </div>
-      <div class="header-actions">
-        <div class="status-pill" id="statusBadge">
-          <span class="status-dot" id="statusDot"></span>
-          <span id="statusText">Connecting...</span>
-        </div>
-        <a href="/overlay.html" target="_blank" class="btn-obs-link">
-          <svg viewBox="0 0 20 20" fill="currentColor" class="icon-link">
-            <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"/>
-            <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"/>
-          </svg>
-          Open OBS Overlay
-        </a>
-      </div>
-    </header>
+<body class="is-loading">
+  <div class="bg" aria-hidden="true">
+    <div class="orb orb-a"></div>
+    <div class="orb orb-b"></div>
+    <div class="orb orb-c"></div>
+    <div class="grid"></div>
+    <div class="grain"></div>
+  </div>
 
-    <!-- Main Grid -->
-    <main class="dashboard-grid">
-      <!-- Team Selection Section -->
-      <section class="card teams-section">
-        <div class="card-header">
-          <h2>Team Matchup (2 Team Overlays)</h2>
-          <button type="button" id="swapTeamsBtn" class="btn-secondary btn-sm" title="Swap Blue and Red sides">
-            ⇄ Swap Sides
+  <header class="topbar">
+    <div class="brand">
+      <img class="brand-seal" src="assets/brand/cbdem-seal.png" alt="" width="48" height="48">
+      <div class="brand-text">
+        <p class="brand-eyebrow">Mobile Legends: Bang Bang · Overlay control</p>
+        <h1 class="brand-title">CBDEM Dagyawan <span class="gold-text">2026</span></h1>
+      </div>
+      <span class="brand-divider" aria-hidden="true"></span>
+      <img class="brand-mlbb" src="assets/brand/mlbb-logo.png" alt="Mobile Legends: Bang Bang" width="113" height="34">
+    </div>
+    <div class="top-actions">
+      <div class="status">
+        <span class="pill conn" id="connPill" data-state="connecting"><i aria-hidden="true"></i><span id="connText">Connecting…</span></span>
+        <span class="save-state" id="saveState" data-state="loading" role="status">Loading…</span>
+      </div>
+      <a class="btn btn-ghost" href="overlay.html?preview=1" target="_blank" rel="noopener">
+        <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6"/><path d="M20 4l-9 9"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>
+        Open overlay
+      </a>
+      <button class="btn btn-gold" type="button" data-action="copy-url">
+        <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg>
+        Copy OBS URL
+      </button>
+    </div>
+  </header>
+
+  <main class="layout" id="app">
+    <div class="col col-main">
+
+      <!-- 01 Preview -->
+      <section class="card card-preview" aria-labelledby="h-preview">
+        <header class="card-head">
+          <span class="card-index">01</span>
+          <h2 class="card-title" id="h-preview">Live preview</h2>
+          <span class="tag">1920 × 1080</span>
+        </header>
+        <div class="preview-frame">
+          <iframe id="preview" title="Overlay preview" tabindex="-1"></iframe>
+          <span class="guides-badge" id="guidesBadge" hidden>Guides on air</span>
+        </div>
+        <div class="preview-tools">
+          <div class="chips" role="group" aria-label="Preview view">
+            <button class="chip" type="button" data-action="mode" data-mode="preview" aria-pressed="true">
+              <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>
+              Game frame
+            </button>
+            <button class="chip" type="button" data-action="mode" data-mode="blur" aria-pressed="false">
+              <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg>
+              Real blur
+            </button>
+            <button class="chip" type="button" data-action="mode" data-mode="mask" aria-pressed="false">
+              <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg>
+              Mask view
+            </button>
+          </div>
+          <button class="chip chip-warn" type="button" id="guidesChip" data-action="guides" aria-pressed="false">
+            <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg>
+            Alignment guides
           </button>
         </div>
+        <p class="hint">The view buttons only change this preview. OBS always gets the clean, transparent overlay. Alignment guides show in OBS too.</p>
 
-        <div class="teams-container">
-          <!-- Blue Team Column -->
-          <div class="side-column blue-side">
-            <div class="side-header">
-              <span class="side-indicator blue-indicator">BLUE SIDE</span>
-              <div class="score-control">
-                <span class="score-label">Series Wins:</span>
-                <div class="score-stepper">
-                  <button type="button" class="btn-step" id="blueScoreMinus">−</button>
-                  <span class="score-num" id="blueScoreDisplay">0</span>
-                  <button type="button" class="btn-step" id="blueScorePlus">+</button>
-                </div>
-              </div>
-            </div>
-            <div class="team-list" id="blueTeamList"></div>
-          </div>
-
-          <!-- Red Team Column -->
-          <div class="side-column red-side">
-            <div class="side-header">
-              <span class="side-indicator red-indicator">RED SIDE</span>
-              <div class="score-control">
-                <span class="score-label">Series Wins:</span>
-                <div class="score-stepper">
-                  <button type="button" class="btn-step" id="redScoreMinus">−</button>
-                  <span class="score-num" id="redScoreDisplay">0</span>
-                  <button type="button" class="btn-step" id="redScorePlus">+</button>
-                </div>
-              </div>
-            </div>
-            <div class="team-list" id="redTeamList"></div>
-          </div>
+        <div class="obs-box">
+          <p class="label">OBS Browser Source</p>
+          <div class="obs-urls" id="obsUrls"></div>
+          <p class="hint">In OBS: Sources → + → Browser. Paste the address, then set Width 1920 and Height 1080.</p>
         </div>
       </section>
 
-      <!-- Match Format Section -->
-      <section class="card config-section">
-        <div class="card-header">
-          <h2>Series Format (Controls Score Dots)</h2>
-        </div>
+      <!-- 02 Match -->
+      <section class="card card-match" aria-labelledby="h-match">
+        <header class="card-head">
+          <span class="card-index">02</span>
+          <h2 class="card-title" id="h-match">Match</h2>
+        </header>
 
-        <div class="form-body">
-          <div class="form-group">
-            <label for="formatInput">Match Format</label>
-            <input type="text" id="formatInput" class="form-input" placeholder="BO3 GRAND FINALS" value="BO3 GRAND FINALS">
-            <div class="presets-row">
-              <button type="button" class="btn-preset" data-format="BO1 GROUP STAGE">BO1 (1 Dot)</button>
-              <button type="button" class="btn-preset" data-format="BO3 SEMI-FINALS">BO3 (2 Dots)</button>
-              <button type="button" class="btn-preset" data-format="BO3 GRAND FINALS">BO3 Grand Finals</button>
-              <button type="button" class="btn-preset" data-format="BO5 GRAND FINALS">BO5 (3 Dots)</button>
+        <div class="versus">
+          <div class="side side-blue" id="side-blue">
+            <p class="side-label"><i aria-hidden="true"></i>Blue side</p>
+            <div class="side-team">
+              <img class="side-logo" id="logo-blue" alt="" width="52" height="52">
+              <div class="side-names">
+                <strong class="side-acro" id="acro-blue">–</strong>
+                <span class="side-name" id="name-blue"></span>
+              </div>
             </div>
+            <div class="score">
+              <button class="step" type="button" data-action="step" data-side="blue" data-delta="-1" aria-label="Remove a win from blue side">
+                <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/></svg>
+              </button>
+              <output class="score-num" id="score-blue" aria-label="Blue side wins">0</output>
+              <button class="step" type="button" data-action="step" data-side="blue" data-delta="1" aria-label="Add a win to blue side">
+                <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+              </button>
+            </div>
+            <div class="pips" id="pips-blue" aria-hidden="true"></div>
+            <div class="pick" id="pick-blue" role="group" aria-label="Blue side team"></div>
           </div>
 
-          <!-- Apply Button -->
-          <div class="apply-bar">
-            <button type="button" id="applyBtn" class="btn-primary">
-              ⚡ Apply Live Changes to OBS
+          <div class="vs" aria-hidden="true"><span>VS</span></div>
+
+          <div class="side side-red" id="side-red">
+            <p class="side-label"><i aria-hidden="true"></i>Red side</p>
+            <div class="side-team">
+              <img class="side-logo" id="logo-red" alt="" width="52" height="52">
+              <div class="side-names">
+                <strong class="side-acro" id="acro-red">–</strong>
+                <span class="side-name" id="name-red"></span>
+              </div>
+            </div>
+            <div class="score">
+              <button class="step" type="button" data-action="step" data-side="red" data-delta="-1" aria-label="Remove a win from red side">
+                <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/></svg>
+              </button>
+              <output class="score-num" id="score-red" aria-label="Red side wins">0</output>
+              <button class="step" type="button" data-action="step" data-side="red" data-delta="1" aria-label="Add a win to red side">
+                <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+              </button>
+            </div>
+            <div class="pips" id="pips-red" aria-hidden="true"></div>
+            <div class="pick" id="pick-red" role="group" aria-label="Red side team"></div>
+          </div>
+        </div>
+
+        <div class="series-bar" id="seriesBar">
+          <div class="series-text">
+            <strong class="series-main" id="seriesMain">GAME 1</strong>
+            <span class="series-sub" id="seriesSub">BEST OF 3 · FIRST TO 2 WINS</span>
+          </div>
+          <div class="series-actions">
+            <button class="btn btn-ghost btn-mini" type="button" data-action="swap">
+              <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h12l-3-3"/><path d="M17 17H5l3 3"/></svg>
+              <span class="lbl">Swap sides</span>
+            </button>
+            <button class="btn btn-ghost btn-mini btn-danger" type="button" data-action="reset-scores" data-confirm-text="Reset to 0–0?">
+              <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4v6h6"/><path d="M4.6 15a8 8 0 1 0 1.9-8.3L4 10"/></svg>
+              <span class="lbl">Reset scores</span>
             </button>
           </div>
         </div>
+
+        <div class="match-format">
+          <div class="row-inline">
+            <span class="label">Series</span>
+            <div class="seg" role="group" aria-label="Best of">
+              <button type="button" data-action="bo" data-bo="1" aria-pressed="false">BO1</button>
+              <button type="button" data-action="bo" data-bo="3" aria-pressed="false">BO3</button>
+              <button type="button" data-action="bo" data-bo="5" aria-pressed="false">BO5</button>
+              <button type="button" data-action="bo" data-bo="7" aria-pressed="false">BO7</button>
+            </div>
+          </div>
+          <div class="row-inline row-top">
+            <span class="label">Stage</span>
+            <div class="chips chips-sm" id="stageChips" role="group" aria-label="Stage"></div>
+          </div>
+          <div class="field">
+            <div class="label-row">
+              <label class="label" for="format">Format line</label>
+              <span class="count" id="count-format" aria-hidden="true"></span>
+            </div>
+            <input class="input" id="format" type="text" data-key="format" autocomplete="off" spellcheck="false" aria-describedby="hint-format">
+            <p class="hint" id="hint-format">Shown under the event card. The BO number sets the win pips and the game count.</p>
+          </div>
+          <p class="note" id="off-showScore" hidden>Win pips and the game chip are switched off in Display.</p>
+          <p class="note" id="off-format" hidden></p>
+        </div>
+      </section>
+    </div>
+
+    <div class="col col-side">
+
+      <!-- 03 Event -->
+      <section class="card" aria-labelledby="h-event">
+        <header class="card-head">
+          <span class="card-index">03</span>
+          <h2 class="card-title" id="h-event">Event</h2>
+        </header>
+        <div class="field">
+          <div class="label-row">
+            <label class="label" for="tournamentTitle">Title</label>
+            <span class="count" id="count-tournamentTitle" aria-hidden="true"></span>
+          </div>
+          <input class="input" id="tournamentTitle" type="text" data-key="tournamentTitle" autocomplete="off" spellcheck="false" aria-describedby="hint-tournamentTitle">
+          <p class="hint" id="hint-tournamentTitle">Long titles wrap onto two lines. A year at the end shows in gold.</p>
+        </div>
+        <div class="field">
+          <div class="label-row">
+            <label class="label" for="tournamentSubtitle">Subtitle</label>
+            <span class="count" id="count-tournamentSubtitle" aria-hidden="true"></span>
+          </div>
+          <input class="input" id="tournamentSubtitle" type="text" data-key="tournamentSubtitle" autocomplete="off" spellcheck="false" aria-describedby="hint-tournamentSubtitle">
+          <p class="hint" id="hint-tournamentSubtitle">Small line above the title.</p>
+        </div>
+        <p class="note" id="off-showEvent" hidden>The event card is switched off in Display.</p>
       </section>
 
-      <!-- OBS Integration -->
-      <section class="card preview-section">
-        <div class="card-header">
-          <h2>OBS Browser Source Setup</h2>
-          <span class="obs-tag">1920×1080</span>
-        </div>
-        <div class="obs-instructions">
-          <p>Add a <strong>Browser Source</strong> in OBS Studio with the following URL:</p>
-          <div class="copy-box">
-            <code id="obsUrlCode">http://localhost:3211/overlay.html</code>
-            <button type="button" id="copyUrlBtn" class="btn-copy">Copy URL</button>
+      <!-- 04 Partners -->
+      <section class="card" aria-labelledby="h-partners">
+        <header class="card-head">
+          <span class="card-index">04</span>
+          <h2 class="card-title" id="h-partners">Partners</h2>
+          <span class="tag" id="partnerCount">0/4</span>
+        </header>
+        <div class="field">
+          <div class="label-row">
+            <label class="label" for="partnersLabel">Strip label</label>
+            <span class="count" id="count-partnersLabel" aria-hidden="true"></span>
           </div>
-          <ul class="obs-tips">
-            <li>Resolution: <strong>1920 × 1080</strong> (Transparent background)</li>
-            <li>Custom Frame Rate: <strong>60 FPS</strong></li>
-            <li>Sits directly over the game feed framing the in-game scoreboard cleanly!</li>
-          </ul>
+          <div class="chips chips-sm" id="labelChips" role="group" aria-label="Label presets"></div>
+          <input class="input" id="partnersLabel" type="text" data-key="partnersLabel" autocomplete="off" spellcheck="false">
+        </div>
+        <ul class="partner-list" id="partnerList" aria-label="Partners"></ul>
+        <button class="btn btn-add" type="button" id="addPartner" data-action="add-partner">
+          <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+          Add partner
+        </button>
+        <p class="hint hint-gap">Up to 4. With 3 or 4 showing, they take turns two at a time every 7 seconds. A partner that is switched off stays saved here. Transparent PNG logos look best; you can also drop an image onto a row.</p>
+        <p class="note" id="off-showPartners" hidden>The partners strip is switched off in Display.</p>
+        <p class="note" id="off-partnersNone" hidden>No partner is showing, so the strip is hidden.</p>
+      </section>
+
+      <!-- 05 Display -->
+      <section class="card" aria-labelledby="h-display">
+        <header class="card-head">
+          <span class="card-index">05</span>
+          <h2 class="card-title" id="h-display">Display</h2>
+        </header>
+        <div class="switch-list">
+          <label class="switch-row">
+            <span class="sw-text"><span class="sw-title">Series score</span><span class="sw-desc">Win pips under the team names and the GAME chip.</span></span>
+            <span class="switch"><input type="checkbox" data-key="showScore"><span class="track"></span></span>
+          </label>
+          <label class="switch-row">
+            <span class="sw-text"><span class="sw-title">Center emblem</span><span class="sw-desc">CBDEM seal between the team names.</span></span>
+            <span class="switch"><input type="checkbox" data-key="showEmblem"><span class="track"></span></span>
+          </label>
+          <label class="switch-row">
+            <span class="sw-text"><span class="sw-title">Event card</span><span class="sw-desc">USM lion logo, title and format line, top right.</span></span>
+            <span class="switch"><input type="checkbox" data-key="showEvent"><span class="track"></span></span>
+          </label>
+          <label class="switch-row">
+            <span class="sw-text"><span class="sw-title">Partners strip</span><span class="sw-desc">Partner logos under the event card.</span></span>
+            <span class="switch"><input type="checkbox" data-key="showPartners"><span class="track"></span></span>
+          </label>
+        </div>
+
+        <div class="glass-field">
+          <div class="field glass-control">
+            <div class="label-row">
+              <label class="label" for="glass">Glass tint</label>
+              <output class="value" id="glassOut" for="glass">60%</output>
+            </div>
+            <input class="range" id="glass" type="range" min="0" max="100" step="1" data-key="glass" aria-describedby="hint-glass">
+            <p class="hint" id="hint-glass">0 = clear glass · 100 = solid panel</p>
+          </div>
+          <div class="glass-swatch" id="glassSwatch" aria-hidden="true">
+            <div class="gs-plate"><span>JPES</span></div>
+          </div>
+        </div>
+        <label class="switch-row">
+          <span class="sw-text"><span class="sw-title">Glass sheen</span><span class="sw-desc">A soft light sweeps across the panels now and then.</span></span>
+          <span class="switch"><input type="checkbox" data-key="sheen"><span class="track"></span></span>
+        </label>
+      </section>
+
+      <!-- 06 Calibration -->
+      <section class="card" aria-labelledby="h-cal">
+        <header class="card-head">
+          <span class="card-index">06</span>
+          <h2 class="card-title" id="h-cal">Calibration</h2>
+        </header>
+        <label class="switch-row warn" id="guidesRow">
+          <span class="sw-text"><span class="sw-title">Alignment guides</span><span class="sw-desc">Outlines where the game's own scoreboard sits, so you can line the team bar up with it. They show in OBS too, so turn them off before going live.</span></span>
+          <span class="switch"><input type="checkbox" data-key="showGuides"><span class="track"></span></span>
+        </label>
+        <div class="cal-list">
+          <div class="cal-row" id="cal-center-row">
+            <label class="label" for="cal-center">Center X</label>
+            <input class="range" id="cal-center" type="range" data-cal="center">
+            <input class="input num" id="cal-center-num" type="number" inputmode="numeric" data-cal="center" aria-label="Center X in pixels">
+            <span class="def" id="cal-center-def"></span>
+          </div>
+          <div class="cal-row" id="cal-width-row">
+            <label class="label" for="cal-width">Width</label>
+            <input class="range" id="cal-width" type="range" data-cal="width">
+            <input class="input num" id="cal-width-num" type="number" inputmode="numeric" data-cal="width" aria-label="Width in pixels">
+            <span class="def" id="cal-width-def"></span>
+          </div>
+          <div class="cal-row" id="cal-height-row">
+            <label class="label" for="cal-height">Height</label>
+            <input class="range" id="cal-height" type="range" data-cal="height">
+            <input class="input num" id="cal-height-num" type="number" inputmode="numeric" data-cal="height" aria-label="Height in pixels">
+            <span class="def" id="cal-height-def"></span>
+          </div>
+          <div class="cal-row" id="cal-offsetY-row">
+            <label class="label" for="cal-offsetY">Offset Y</label>
+            <input class="range" id="cal-offsetY" type="range" data-cal="offsetY">
+            <input class="input num" id="cal-offsetY-num" type="number" inputmode="numeric" data-cal="offsetY" aria-label="Offset Y in pixels">
+            <span class="def" id="cal-offsetY-def"></span>
+          </div>
+        </div>
+        <div class="cal-foot">
+          <p class="hint">Matches the overlay to the in-game scoreboard at 1920 × 1080. Small changes only: a width of about 990 or more starts to crowd the event card.</p>
+          <button class="btn btn-ghost btn-mini btn-danger" type="button" data-action="reset-calibration" data-confirm-text="Reset to defaults?">
+            <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4v6h6"/><path d="M4.6 15a8 8 0 1 0 1.9-8.3L4 10"/></svg>
+            <span class="lbl">Reset</span>
+          </button>
         </div>
       </section>
-    </main>
-  </div>
+    </div>
+  </main>
+
+  <footer class="foot">
+    <span>CBDEM · College of Business, Development Economics and Management</span>
+    <span class="dot" aria-hidden="true">◆</span>
+    <span>University of Southern Mindanao</span>
+  </footer>
+
+  <div class="toasts" id="toasts" aria-live="polite"></div>
+
+  <template id="partnerRowTpl">
+    <li class="p-row">
+      <div class="p-main">
+        <span class="p-thumb">
+          <img alt="" draggable="false">
+          <svg class="i i-pad" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 7h9a4.5 4.5 0 0 1 4.4 3.6l.9 4.7a2.6 2.6 0 0 1-4.5 2.2L15.6 16H8.4l-1.7 1.5a2.6 2.6 0 0 1-4.5-2.2l.9-4.7A4.5 4.5 0 0 1 7.5 7z"/><path d="M7.5 10.5v3M6 12h3"/><circle cx="15.5" cy="11" r=".6" fill="currentColor"/><circle cx="17.5" cy="13" r=".6" fill="currentColor"/></svg>
+        </span>
+        <input class="input p-name" type="text" autocomplete="off" spellcheck="false">
+        <span class="switch"><input class="p-show" type="checkbox"><span class="track"></span></span>
+      </div>
+      <div class="p-actions">
+        <button class="btn btn-ghost btn-mini" type="button" data-act="upload">
+          <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4"/><path d="M7 9l5-5 5 5"/><path d="M5 20h14"/></svg>
+          <span class="lbl">Upload logo</span>
+        </button>
+        <button class="btn btn-ghost btn-mini" type="button" data-act="clear">
+          <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+          <span class="lbl">Clear logo</span>
+        </button>
+        <span class="p-spacer"></span>
+        <button class="btn btn-ghost btn-icon" type="button" data-act="up">
+          <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5"/><path d="M6 11l6-6 6 6"/></svg>
+        </button>
+        <button class="btn btn-ghost btn-icon" type="button" data-act="down">
+          <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14"/><path d="M6 13l6 6 6-6"/></svg>
+        </button>
+        <button class="btn btn-ghost btn-icon btn-danger" type="button" data-act="remove" data-confirm-text="Remove?">
+          <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16"/><path d="M9 7V4h6v3"/><path d="M6 7l1 13h10l1-13"/></svg>
+          <span class="lbl"></span>
+        </button>
+      </div>
+    </li>
+  </template>
+
+  <input type="file" id="logoFile" accept="image/*" hidden>
 
   <script src="app.js"></script>
 </body>

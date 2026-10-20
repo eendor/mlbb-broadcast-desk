@@ -1,308 +1,737 @@
-/* ==========================================================================
-   CBDEM MLBB Broadcast Overlay — Two Team Overlays Only
-   Calibrated for 1920×1080 OBS Browser Source
-   Matches Reference Broadcast Geometry & Aesthetics
-   ========================================================================== */
+/* CBDEM Dagyawan 2026 · Mobile Legends: Bang Bang
+   Broadcast overlay for an OBS Browser Source at 1920x1080 (transparent background).
 
-/* @font-face declarations for local files */
-@font-face {
-  font-family: 'Teko';
-  font-style: normal;
-  font-weight: 600;
-  src: url('assets/fonts/Teko-600.ttf') format('truetype');
-}
-@font-face {
-  font-family: 'Teko';
-  font-style: normal;
-  font-weight: 700;
-  src: url('assets/fonts/Teko-700.ttf') format('truetype');
-}
-@font-face {
-  font-family: 'Rajdhani';
-  font-style: normal;
-  font-weight: 600;
-  src: url('assets/fonts/Rajdhani-600.ttf') format('truetype');
-}
-@font-face {
-  font-family: 'Rajdhani';
-  font-style: normal;
-  font-weight: 700;
-  src: url('assets/fonts/Rajdhani-700.ttf') format('truetype');
-}
-@font-face {
-  font-family: 'Chakra Petch';
-  font-style: normal;
-  font-weight: 700;
-  src: url('assets/fonts/ChakraPetch-700.ttf') format('truetype');
-}
+   Look: a glossy frosted-white team bar in the style of pro MLBB broadcasts. Slanted
+   team-colour name tabs, series win pips, and the CBDEM seal hanging under the game
+   timer. Team colours come from teams.json, or overlay.js picks them from the logo.
+
+   OBS can't blur what sits behind a Browser Source, so the frosted glass is simulated:
+   milky fill + bright rim + gloss + grain + a passing sheen.
+   For real blur, see "Real blur" in the README (overlay.html?mask=1 + Composite Blur).
+
+   Written for OBS's built-in browser (Chromium 103): no color-mix, :has, nesting,
+   container queries or the separate translate/scale properties. */
 
 :root {
-  --font-display: 'Teko', 'Rajdhani', sans-serif;
-  --font-tech: 'Rajdhani', sans-serif;
-  --font-mono: 'Chakra Petch', monospace;
-
-  /* Esports Blue Palette */
-  --blue-primary: #00e5ff;
-  --blue-bright: #38bdf8;
-  --blue-glow: rgba(0, 229, 255, 0.7);
-
-  /* Esports Red Palette */
-  --red-primary: #ff1744;
-  --red-bright: #f43f5e;
-  --red-glow: rgba(255, 23, 68, 0.7);
-
-  /* Esports Gold & Neutral Palette */
-  --gold-primary: #ffd700;
-  --gold-metallic: #d4af37;
+  --navy-950: #030a1f;
+  --navy-900: #06122e;
+  --navy-800: #0a1f4d;
+  --ink-dark: #0b1838;   /* text on light glass */
+  --royal: #1b4fd6;
+  --gold: #f5c542;
+  --gold-pale: #fff1b8;
+  --live: #ff4559;
+  --ink: #f4f7ff;
 }
 
-* {
+/* Team colours fade when a team changes */
+@property --team-blue { syntax: '<color>'; inherits: true; initial-value: #1e6bff; }
+@property --team-blue-2 { syntax: '<color>'; inherits: true; initial-value: #0b3aa8; }
+@property --team-blue-accent { syntax: '<color>'; inherits: true; initial-value: #5cc8ff; }
+@property --team-red { syntax: '<color>'; inherits: true; initial-value: #e8344f; }
+@property --team-red-2 { syntax: '<color>'; inherits: true; initial-value: #9e1430; }
+@property --team-red-accent { syntax: '<color>'; inherits: true; initial-value: #ff8fa1; }
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
   margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: transparent;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background: transparent;
+  font-family: 'Rajdhani', 'Segoe UI', sans-serif;
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  -webkit-user-select: none;
   user-select: none;
 }
 
-/* 1920×1080 fixed canvas for OBS */
+img { display: block; }
+
+/* ---------- stage: always 1920x1080, scaled to fit the window ---------- */
+
 #stage {
-  position: relative;
+  --c: 960px;    /* scoreboard centre */
+  --l: 487px;    /* scoreboard left edge */
+  --r: 1433px;   /* scoreboard right edge */
+  --h: 55px;     /* scoreboard height */
+  --oy: 0px;     /* scoreboard top */
+  --glass: .6;   /* fill strength 0-1 */
+  --plate-top: calc(var(--oy) + var(--h) + 4px);
+  --team-blue: #1e6bff;
+  --team-blue-2: #0b3aa8;
+  --team-blue-accent: #5cc8ff;
+  --team-red: #e8344f;
+  --team-red-2: #9e1430;
+  --team-red-accent: #ff8fa1;
+  --sk: 0deg;    /* slant of a side's shapes */
+  --usk: 0deg;   /* the opposite slant, to stand text and logos back up */
+  position: absolute;
+  left: 0;
+  top: 0;
   width: 1920px;
   height: 1080px;
   overflow: hidden;
-  background: transparent;
-  transform-origin: top left;
+  transform-origin: 0 0;
+  transition: --team-blue .6s ease, --team-blue-2 .6s ease, --team-blue-accent .6s ease,
+    --team-red .6s ease, --team-red-2 .6s ease, --team-red-accent .6s ease;
 }
 
-/* ==========================================================================
-   TEAM OVERLAYS (Blue Left, Red Right)
-   Aligned directly below the native MLBB stats row (~y: 60px)
-   ========================================================================== */
+/* Left-side shapes lean "\", right-side shapes lean "/" */
+.blue {
+  --sk: 14deg;
+  --usk: -14deg;
+  --team: var(--team-blue);
+  --team-2: var(--team-blue-2);
+  --team-accent: var(--team-blue-accent);
+}
+.red {
+  --sk: -14deg;
+  --usk: 14deg;
+  --team: var(--team-red);
+  --team-2: var(--team-red-2);
+  --team-accent: var(--team-red-accent);
+}
 
-.team-overlay {
+/* ---------- glass ---------- */
+
+/* light frosted glass (team bar, logo tiles, seal, event card) */
+.glass {
   position: absolute;
-  top: 56px;
+  inset: 0;
+  border-radius: 5px;
+  isolation: isolate;
+  color: var(--ink-dark);
+  border: 1px solid rgba(255, 255, 255, .55);
+  border-top-color: rgba(255, 255, 255, .95);
+  border-bottom-color: rgba(255, 255, 255, .32);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .8),
+    inset 0 -14px 22px -8px rgba(84, 106, 156, .26),
+    0 10px 26px -8px rgba(0, 8, 30, .55),
+    0 2px 6px rgba(0, 8, 30, .28);
+}
+
+/* the milky fill, scaled by the glass slider; brighter top half for the gloss */
+.glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  border-radius: inherit;
+  background:
+    url('assets/fx/noise.png'),
+    linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(248, 250, 255, .95) 46%, rgba(230, 237, 249, .88) 52%, rgba(220, 229, 244, .85) 100%);
+  background-size: 160px 160px, 100% 100%;
+  opacity: calc(.42 + var(--glass) * .7);
+}
+
+/* gloss + passing sheen, over everything inside the panel */
+.glass::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  pointer-events: none;
+  background-image:
+    linear-gradient(180deg, rgba(255, 255, 255, .2) 0%, rgba(255, 255, 255, .07) 46%, rgba(255, 255, 255, 0) 50%),
+    linear-gradient(105deg, rgba(255, 255, 255, 0) 25%, rgba(255, 255, 255, .42) 50%, rgba(255, 255, 255, 0) 75%);
+  background-size: 100% 100%, 45% 100%;
+  background-repeat: no-repeat;
+  background-position: 0 0, -100% 0;
+  animation: sheen 12s cubic-bezier(.45, 0, .25, 1) infinite;
+  animation-delay: var(--sd, 2s);
+}
+
+@keyframes sheen {
+  0% { background-position: 0 0, -100% 0; }
+  12%, 100% { background-position: 0 0, 200% 0; }
+}
+
+#stage.no-sheen .glass::after { animation: none; }
+
+/* dark navy glass (game chip, format strip, partners: the MSL logo is white) */
+.glass.dark {
+  color: var(--ink);
+  border-color: rgba(255, 255, 255, .2);
+  border-top-color: rgba(255, 255, 255, .5);
+  border-bottom-color: rgba(255, 255, 255, .1);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .24),
+    inset 0 -12px 24px rgba(3, 10, 31, .3),
+    0 10px 26px -8px rgba(0, 6, 26, .6),
+    0 2px 6px rgba(0, 6, 26, .35);
+}
+.glass.dark::before {
+  background:
+    url('assets/fx/noise.png'),
+    linear-gradient(180deg, rgba(28, 58, 136, .86) 0%, rgba(13, 32, 84, .88) 47%, rgba(7, 19, 52, .9) 53%, rgba(4, 12, 34, .92) 100%);
+  background-size: 160px 160px, 100% 100%;
+  opacity: calc(.4 + var(--glass) * .6);
+}
+.glass.dark::after {
+  background-image:
+    linear-gradient(180deg, rgba(255, 255, 255, .13) 0%, rgba(255, 255, 255, .04) 46%, rgba(255, 255, 255, 0) 50%),
+    linear-gradient(105deg, rgba(255, 255, 255, 0) 25%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, 0) 75%);
+}
+
+/* ---------- slots: position + show/hide ---------- */
+
+.slot {
+  position: absolute;
+  transform: translate(var(--x, 0px), calc(var(--shift-y, 0px) + var(--off-y, 0px)));
+  transition: opacity .45s ease, transform .55s cubic-bezier(.2, .8, .2, 1);
+}
+.slot.off { opacity: 0; --off-y: -12px; }
+
+/* the entrance runs on its own wrapper, so it never fights a panel's slant */
+.slot > .enter { position: absolute; inset: 0; }
+.enter { animation: enter .8s cubic-bezier(.2, .8, .2, 1) backwards; animation-delay: var(--d, 0s); }
+
+@keyframes enter { from { opacity: 0; transform: translateY(-16px) scale(.98); } }
+
+/* nothing shows until the first state has been drawn */
+#stage.booting .enter { animation: none; opacity: 0; }
+#stage.booting .slot,
+#stage.booting { transition: none; }
+
+/* replayed when a team changes; they keep the upright counter-slant */
+.swap-in { animation: swap-in .6s cubic-bezier(.2, .8, .2, 1); }
+.pod-logo.swap-in, .pod-id.swap-in { animation-name: logo-in; animation-duration: .7s; }
+
+@keyframes swap-in {
+  from { opacity: 0; transform: skewX(var(--usk)) translateY(8px); }
+  to { opacity: 1; transform: skewX(var(--usk)) translateY(0); }
+}
+@keyframes logo-in {
+  from { opacity: 0; transform: skewX(var(--usk)) scale(.72) rotate(-8deg); }
+  to { opacity: 1; transform: skewX(var(--usk)) scale(1) rotate(0deg); }
+}
+
+/* ---------- team logo tiles ---------- */
+
+.pod-slot {
+  top: calc(var(--oy) + 4px);
+  width: 112px;
+  height: calc(var(--h) + 54px);
+}
+.pod-slot.blue { left: calc(var(--l) - 118px); }
+.pod-slot.red { left: calc(var(--r) + 6px); }
+
+.pod {
+  transform: skewX(var(--sk));
+  overflow: hidden;
   display: flex;
   align-items: center;
-  z-index: 10;
+  justify-content: center;
+}
+
+.halo {
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  width: 108px;
+  height: 108px;
+  margin: -54px 0 0 -54px;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, var(--team-accent), rgba(255, 255, 255, 0));
+  opacity: .34;
+  transform: skewX(var(--usk));
+}
+
+.pod-logo {
+  position: relative;
+  width: 82px;
+  height: 82px;
+  margin-top: -5px;
+  object-fit: contain;
+  transform: skewX(var(--usk));
+  filter: drop-shadow(0 3px 5px rgba(0, 16, 50, .32));
+}
+.pod-id {
+  display: none;
+  position: relative;
+  top: .06em;
+  margin-top: -5px;
+  font: 700 36px/1 'Teko', sans-serif;
+  color: var(--ink-dark);
+  transform: skewX(var(--usk));
+}
+.pod.missing .pod-logo { display: none; }
+.pod.missing .pod-id { display: block; }
+
+/* team-colour foot, in line with the bottom of the team bar */
+.stripe {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 5px;
+  background: linear-gradient(180deg, var(--team-accent) 0%, var(--team) 45%, var(--team-2) 100%);
+}
+
+/* ---------- team bar under the scoreboard ---------- */
+
+/* Each half's outer edge is moved in by (h / 2) x tan(14deg) = h x .1247, so its slanted
+   seam runs parallel to the logo tile's, 6px apart. The inner ends leave a "V" for the seal. */
+.plate-slot { top: var(--plate-top); height: 54px; }
+.plate-slot.blue {
+  left: calc(var(--l) + var(--h) * .1247);
+  width: calc(var(--c) - 70px - var(--l) - var(--h) * .1247);
+}
+.plate-slot.red {
+  left: calc(var(--c) + 70px);
+  width: calc(var(--r) - var(--h) * .1247 - var(--c) - 70px);
+}
+
+.plate {
+  transform: skewX(var(--sk));
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
+}
+.red .plate { flex-direction: row-reverse; }
+
+/* team-colour name tab: narrows towards the bottom, like a broadcast name tag */
+.tab {
+  flex: none;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 116px;
+  padding: 0 36px 0 18px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, .22) 0%, rgba(255, 255, 255, .06) 48%, rgba(255, 255, 255, 0) 52%),
+    linear-gradient(180deg, var(--team) 0%, var(--team-2) 100%);
+  -webkit-clip-path: polygon(0 0, 100% 0, calc(100% - 26px) 100%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, calc(100% - 26px) 100%, 0 100%);
+}
+.red .tab {
+  padding: 0 18px 0 36px;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 26px 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 26px 100%);
+}
+/* accent line along the foot of the tab */
+.tab::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background: var(--team-accent);
+  opacity: .9;
+}
+
+.acronym {
+  position: relative;
+  top: .07em; /* Teko sits high in its line box; this centres the capitals */
+  max-width: 124px;
+  overflow: hidden;
+  white-space: nowrap;
+  font: 700 46px/1 'Teko', sans-serif;
+  letter-spacing: .01em;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0, 10, 30, .4);
+  transform: skewX(var(--usk));
+}
+
+.fullname {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 12px 0 8px;
+  overflow: hidden;
+  font: 700 13px/1.14 'Rajdhani', sans-serif;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--ink-dark);
+  transform: skewX(var(--usk));
+}
+.fullname span { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.fullname span:last-child { color: #3a4a6e; }
+.red .fullname { text-align: right; padding: 0 8px 0 12px; }
+.plate-slot.no-name .fullname { visibility: hidden; }
+
+/* ---------- series wins ---------- */
+
+/* A segmented bar under the inner end of each team bar. The bars lean around their middle
+   line, so 35px below it the slanted end sits 35 x tan(14deg) = 8.7px further out; the pips
+   stop 7px short of that line, clear of the seal. */
+.pips-slot { top: calc(var(--plate-top) + 59px); height: 6px; width: 56px; }
+.pips-slot.blue { left: calc(var(--c) - 124px); }
+.pips-slot.red { left: calc(var(--c) + 68px); }
+
+.pips { display: flex; gap: 4px; height: 100%; }
+.blue .pips { flex-direction: row-reverse; } /* fill from the centre outwards */
+
+.pip {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  height: 6px;
+  border-radius: 1px;
+  transform: skewX(var(--sk));
+  background: rgba(255, 255, 255, .5);
+  border: 1px solid rgba(255, 255, 255, .85);
+  box-shadow: 0 1px 4px rgba(0, 8, 30, .45);
+  transition: background .3s ease, border-color .3s ease, box-shadow .3s ease;
+}
+.pip.on {
+  background: linear-gradient(180deg, var(--team-accent) 0%, var(--team) 60%, var(--team-2) 100%);
+  border-color: rgba(255, 255, 255, .95);
+  box-shadow: 0 0 6px var(--team-accent), 0 1px 4px rgba(0, 8, 30, .45);
+}
+.pip::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 4px;
+  background: radial-gradient(closest-side, rgba(255, 255, 255, .95), rgba(255, 255, 255, 0));
+  opacity: 0;
   pointer-events: none;
 }
+.pip.pop::after { animation: pipflash .9s ease-out; }
 
-/* Blue Team Overlay (Left) */
-.team-overlay.blue-side {
-  left: 325px;
+@keyframes pipflash {
+  0% { opacity: 1; transform: scale(1.8, 2.6); }
+  100% { opacity: 0; transform: scale(1); }
 }
 
-/* Red Team Overlay (Right) */
-.team-overlay.red-side {
-  left: 1055px;
+/* ---------- CBDEM seal, hanging under the game timer ---------- */
+
+.emblem-slot {
+  top: calc(var(--plate-top) - 1px);
+  left: calc(var(--c) - 57px);
+  width: 114px;
+  height: 114px;
 }
 
-/* --------------------------------------------------------------------------
-   CREST SHIELD BADGE (Team Logo Container)
-   -------------------------------------------------------------------------- */
-
-.crest-container {
-  position: relative;
-  width: 84px;
-  height: 84px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 15;
-  filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.9));
-}
-
-.crest-frame {
-  position: relative;
-  width: 84px;
-  height: 84px;
+.emblem {
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.shield-svg {
+/* gold ring */
+.ring {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.7));
+  inset: 4px;
+  border-radius: 50%;
+  background: conic-gradient(from 200deg, #fff6cf, #f5c542, #b97f0e, #f5c542, #fff6cf, #f5c542, #b97f0e, #f5c542, #fff6cf);
+  -webkit-mask-image: radial-gradient(closest-side, rgba(0, 0, 0, 0) calc(100% - 3px), #000 calc(100% - 2.5px));
+  mask-image: radial-gradient(closest-side, rgba(0, 0, 0, 0) calc(100% - 3px), #000 calc(100% - 2.5px));
 }
 
-.blue-crest .shield-svg {
-  filter: drop-shadow(0 0 8px var(--blue-glow));
-}
-
-.red-crest .shield-svg {
-  filter: drop-shadow(0 0 8px var(--red-glow));
-}
-
-/* Transparent, clean logo centered in the crest frame */
-.team-logo {
+.emblem-seal {
   position: relative;
-  z-index: 2;
-  width: 58px;
-  height: 58px;
-  object-fit: contain;
-  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.9));
+  width: 92px;
+  height: 92px;
+  filter: drop-shadow(0 2px 4px rgba(0, 20, 70, .35));
 }
 
-/* --------------------------------------------------------------------------
-   TEAM BANNER (Angled Esports Chassis)
-   -------------------------------------------------------------------------- */
+/* ---------- game chip ---------- */
 
-.team-banner {
+.chip-slot {
+  --x: -50%;
+  top: calc(var(--plate-top) + 121px);
+  left: var(--c);
+}
+.chip-slot.lift { --shift-y: -121px; } /* seal hidden: sit right under the scoreboard */
+.chip-slot > .enter { position: relative; inset: auto; }
+
+.chip.glass {
   position: relative;
-  height: 54px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.85);
-  transition: all 0.3s ease;
-}
-
-/* Blue Banner Geometry */
-.blue-banner {
-  margin-left: -14px;
-  width: 470px;
-  clip-path: polygon(18px 0%, 100% 0%, calc(100% - 16px) 100%, 0% 100%);
-  background: linear-gradient(135deg, rgba(7, 21, 43, 0.97) 0%, rgba(13, 38, 80, 0.95) 55%, rgba(4, 12, 26, 0.98) 100%);
-  border-top: 1px solid rgba(0, 229, 255, 0.6);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.8), 0 0 16px rgba(0, 229, 255, 0.3);
-}
-
-/* Red Banner Geometry */
-.red-banner {
-  margin-right: -14px;
-  width: 470px;
-  clip-path: polygon(0% 0%, calc(100% - 18px) 0%, 100% 100%, 16px 100%);
-  background: linear-gradient(135deg, rgba(41, 6, 14, 0.97) 0%, rgba(74, 12, 25, 0.95) 55%, rgba(23, 3, 7, 0.98) 100%);
-  border-top: 1px solid rgba(255, 23, 68, 0.6);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.8), 0 0 16px rgba(255, 23, 68, 0.3);
-}
-
-.banner-body {
+  inset: auto;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  height: 50px;
-  padding: 0 20px;
+  gap: 8px;
+  height: 24px;
+  padding: 0 14px 0 11px;
+  border-radius: 4px;
 }
-
-.blue-banner .banner-body {
-  padding-left: 32px;
-  padding-right: 18px;
-}
-
-.red-banner .banner-body {
-  padding-left: 18px;
-  padding-right: 32px;
-}
-
-/* Team Text Info */
-.team-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.blue-banner .team-info {
-  align-items: flex-start;
-  text-align: left;
-}
-
-.red-banner .team-info {
-  align-items: flex-end;
-  text-align: right;
-}
-
-.team-acronym {
-  font-family: var(--font-display);
-  font-size: 42px;
-  font-weight: 700;
-  line-height: 0.85;
-  letter-spacing: 2.5px;
-  color: #ffffff;
-  text-transform: uppercase;
-}
-
-.blue-banner .team-acronym {
-  text-shadow: 0 0 14px var(--blue-glow), 0 2px 4px rgba(0, 0, 0, 0.95);
-}
-
-.red-banner .team-acronym {
-  text-shadow: 0 0 14px var(--red-glow), 0 2px 4px rgba(0, 0, 0, 0.95);
-}
-
-.team-fullname {
-  font-family: var(--font-tech);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 1.2px;
-  text-transform: uppercase;
-  margin-top: 2px;
+.chip-text {
+  position: relative;
+  margin-right: -.24em;
+  font: 700 11px/1 'Chakra Petch', sans-serif;
+  letter-spacing: .24em;
+  color: #fff;
   white-space: nowrap;
 }
+.live-dot {
+  flex: none;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--live);
+  box-shadow: 0 0 8px var(--live);
+  animation: pulse 1.6s ease-in-out infinite;
+}
+.chip.decided .live-dot { background: var(--gold); box-shadow: 0 0 8px var(--gold); animation: none; }
 
-.blue-banner .team-fullname {
-  color: #93c5fd;
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: .35; transform: scale(.7); }
 }
 
-.red-banner .team-fullname {
-  color: #fca5a5;
-}
+/* ---------- event card (top right) ---------- */
 
-/* --------------------------------------------------------------------------
-   SERIES SCORE DOTS (Bo3 / Bo5 Score Pips)
-   -------------------------------------------------------------------------- */
+.event-slot { top: 8px; right: 8px; width: 336px; height: 98px; }
 
-.series-dots {
+.event {
+  border-radius: 6px;
   display: flex;
-  gap: 7px;
   align-items: center;
+  padding: 0 12px 0 10px;
 }
 
-.series-dots .dot {
-  width: 12px;
-  height: 12px;
-  transform: rotate(45deg);
-  background: rgba(255, 255, 255, 0.12);
-  border: 1.5px solid rgba(255, 255, 255, 0.35);
-  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.5);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+.badge { flex: none; position: relative; width: 64px; height: 84px; }
+/* the lion is taller than wide: cover trims the empty sides of the square image */
+.lion {
+  width: 64px;
+  height: 84px;
+  object-fit: cover;
+  filter: drop-shadow(0 3px 5px rgba(0, 16, 50, .3));
 }
 
-.series-dots .dot.active {
-  background: linear-gradient(135deg, #ffd700 0%, #f59e0b 100%);
-  border-color: #fffbeb;
-  box-shadow: 0 0 10px #ffd700, 0 0 18px rgba(245, 158, 11, 0.85);
-  transform: rotate(45deg) scale(1.15);
+.event-text {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-left: 22px;
+}
+/* slanted navy + gold marks between the lion and the text */
+.event-text::before,
+.event-text::after {
+  content: '';
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  width: 4px;
+  transform: skewX(-14deg);
+}
+.event-text::before { left: 5px; background: var(--navy-900); }
+.event-text::after { left: 12px; background: linear-gradient(180deg, #ffe08a, #e1ac2c 60%, #b97f0e); }
+
+.eyebrow {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font: 700 10px/1 'Chakra Petch', sans-serif;
+  letter-spacing: .1em;
+  color: var(--royal);
+}
+.event-title {
+  height: 34px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  top: .08em;
+  margin: 2px 0 1px;
+  font: 700 34px/1 'Teko', sans-serif;
+  letter-spacing: .01em;
+  color: var(--ink-dark);
+}
+.event-title .ln { display: block; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+/* a long title moves onto two lines (overlay.js) */
+.event-title.two { line-height: .95; }
+/* the year, in deep gold (stops sit on the capitals of an inline Teko box) */
+.event-title em {
+  font-style: normal;
+  background: linear-gradient(180deg, #f4bb38 22%, #dc9d17 42%, #b5760a 67%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+.mlbb-row { display: flex; align-items: center; gap: 8px; height: 22px; }
+.mlbb-row img { height: 22px; width: auto; filter: drop-shadow(0 1px 2px rgba(0, 16, 50, .35)); }
+.mlbb-row .line { flex: 1; height: 2px; background: linear-gradient(90deg, var(--royal), rgba(27, 79, 214, 0)); }
+
+/* ---------- format strip ---------- */
+
+.format-slot { top: 112px; right: 8px; width: 336px; height: 34px; }
+
+.format { border-radius: 5px; overflow: hidden; }
+.format-text {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  height: 100%;
+  white-space: nowrap;
+  font: 700 23px/1 'Teko', sans-serif;
+  letter-spacing: .05em;
+}
+/* "BO3" on a slanted gold tab, the rest in white */
+.format-text .bo {
+  flex: none;
+  display: flex;
+  align-items: center;
+  padding: .16em 24px 0 14px; /* the top padding centres Teko's capitals */
+  color: var(--navy-900);
+  background: linear-gradient(180deg, #fff3c4 0%, #f7cf55 42%, #e1ac2c 60%, #c18b17 100%);
+  -webkit-clip-path: polygon(0 0, 100% 0, calc(100% - 9px) 100%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, calc(100% - 9px) 100%, 0 100%);
+}
+.format-text .rest {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: .16em 14px 0 8px;
+  align-self: center;
+  text-align: center;
+  color: var(--ink-dark);
+}
+.format-text .rest:only-child { padding-left: 14px; }
+
+/* ---------- partners strip ---------- */
+
+.partners-slot { top: 154px; right: 8px; width: 336px; height: 66px; }
+/* overlay.js sets --shift-y to move the strip up when the event card or format strip is hidden */
+
+.partners {
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  padding: 6px 14px 7px;
+}
+.partners-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 10px;
+  white-space: nowrap;
+  font: 700 9px/1 'Chakra Petch', sans-serif;
+  letter-spacing: .22em;
+  color: var(--gold);
+  text-shadow: 0 1px 2px rgba(0, 6, 26, .7);
+}
+.partners-label span { margin-right: -.22em; }
+.partners-label i { flex: 1; height: 1px; background: linear-gradient(90deg, rgba(245, 197, 66, 0), rgba(245, 197, 66, .75)); }
+.partners-label i:last-child { background: linear-gradient(270deg, rgba(245, 197, 66, 0), rgba(245, 197, 66, .75)); }
+.partners.no-label .partners-label { display: none; }
+
+.partners-row {
+  position: relative;
+  height: 36px;
+  overflow: hidden;
+}
+/* All partners on one page when they fit; otherwise pages of two that take turns (overlay.js) */
+.partners-page {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity .55s ease, transform .55s cubic-bezier(.2, .8, .2, 1);
+}
+.partners-page.on { opacity: 1; transform: none; }
+.partners-page.out { transform: translateY(-10px); }
+/* centred with auto margins, so anything too wide spills to the right where it can be measured */
+.partners-page > :first-child { margin-left: auto; }
+.partners-page > :last-child { margin-right: auto; }
+.partner { flex: none; display: flex; align-items: center; gap: 8px; }
+.partner-logo {
+  flex: none;
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 6, 26, .55));
+}
+.partner-tile {
+  flex: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-pale);
+  border: 1px solid rgba(245, 197, 66, .65);
+  background: linear-gradient(160deg, rgba(47, 107, 255, .5), rgba(6, 18, 46, .75));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 0 10px rgba(245, 197, 66, .18);
+}
+.partner-tile svg { width: 22px; height: 22px; }
+.partner-name {
+  font: 700 var(--pn, 12.5px)/1.05 'Rajdhani', sans-serif;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--ink);
+  text-shadow: 0 1px 2px rgba(0, 6, 26, .75);
+}
+.partner-name span { display: block; }
+.partner-sep {
+  flex: none;
+  width: 3px;
+  height: 24px;
+  background: linear-gradient(180deg, #ffe08a, #e1ac2c 60%, #b97f0e);
+  transform: skewX(-14deg);
+  opacity: .85;
 }
 
-/* --------------------------------------------------------------------------
-   ENERGY STRIPE (Luminous Neon Underline)
-   -------------------------------------------------------------------------- */
+/* ---------- calibration guides ---------- */
 
-.energy-stripe {
-  height: 4px;
-  width: 100%;
+.guides { position: absolute; inset: 0; z-index: 50; display: none; pointer-events: none; }
+#stage.guides-on .guides,
+html.m-guides .guides { display: block; }
+
+.g {
+  position: absolute;
+  border: 2px dashed rgba(0, 255, 200, .85);
+  background: rgba(0, 255, 200, .06);
+}
+.g span {
+  position: absolute;
+  left: 6px;
+  top: 5px;
+  white-space: nowrap;
+  font: 700 11px/1 'Chakra Petch', sans-serif;
+  letter-spacing: .14em;
+  color: #00ffc8;
+  text-shadow: 0 1px 2px #000, 0 0 4px #000;
+}
+.g-sb { left: var(--l); top: var(--oy); width: calc(var(--r) - var(--l)); height: var(--h); }
+.g-center { left: calc(var(--c) - 1px); top: 0; width: 2px; height: 220px; border: 0; background: rgba(0, 255, 200, .85); }
+
+/* ---------- URL modes ---------- */
+
+/* ?preview=1  sample game frame behind the overlay */
+html.m-preview body { background: #000; }
+html.m-preview #stage { background: #000 url('assets/preview/game-sample.jpg') 0 0 / 1920px 1080px no-repeat; }
+
+/* ?blur=1  real backdrop blur (only useful over the preview frame; OBS sources can't see the game) */
+html.m-blur .glass {
+  -webkit-backdrop-filter: blur(14px) saturate(150%);
+  backdrop-filter: blur(14px) saturate(150%);
 }
 
-.blue-stripe {
-  background: linear-gradient(90deg, #00e5ff 0%, #38bdf8 60%, rgba(0, 229, 255, 0.4) 100%);
-  box-shadow: 0 0 10px #00e5ff, 0 0 20px rgba(0, 229, 255, 0.7);
-}
-
-.red-stripe {
-  background: linear-gradient(90deg, rgba(255, 23, 68, 0.4) 0%, #f43f5e 40%, #ff1744 100%);
-  box-shadow: 0 0 10px #ff1744, 0 0 20px rgba(255, 23, 68, 0.7);
-}
+/* ?mask=1  solid white panel shapes, used as the mask for a blur filter in OBS */
+html.m-mask body,
+html.m-mask #stage { background: transparent; }
+html.m-mask .glass { background: #fff; border-color: transparent; box-shadow: none; }
+html.m-mask .glass::before,
+html.m-mask .glass::after { display: none; }
+html.m-mask .glass > * { visibility: hidden; }
+html.m-mask .pip,
+html.m-mask .pip.on { background: #fff; border-color: transparent; box-shadow: none; }
+html.m-mask .pip::after { display: none; }
+html.m-mask .guides { display: none; }

@@ -1,0 +1,7 @@
+/* Local webfonts shared by the overlay and the control panel */
+@font-face { font-family: 'Teko'; src: url('assets/fonts/Teko-600.ttf') format('truetype'); font-weight: 600; font-display: block; }
+@font-face { font-family: 'Teko'; src: url('assets/fonts/Teko-700.ttf') format('truetype'); font-weight: 700; font-display: block; }
+@font-face { font-family: 'Rajdhani'; src: url('assets/fonts/Rajdhani-600.ttf') format('truetype'); font-weight: 600; font-display: block; }
+@font-face { font-family: 'Rajdhani'; src: url('assets/fonts/Rajdhani-700.ttf') format('truetype'); font-weight: 700; font-display: block; }
+@font-face { font-family: 'Chakra Petch'; src: url('assets/fonts/ChakraPetch-500.ttf') format('truetype'); font-weight: 500; font-display: block; }
+@font-face { font-family: 'Chakra Petch'; src: url('assets/fonts/ChakraPetch-700.ttf') format('truetype'); font-weight: 700; font-display: block; }

@@ -1,0 +1,4 @@
+node_modules/
+data/
+__pycache__/
+.backup/
