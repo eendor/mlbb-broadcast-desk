@@ -1,73 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CBDEM MLBB Tournament Overlay</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CBDEM Dagyawan 2026 · Overlay</title>
   <link rel="stylesheet" href="cbdem-overlay.css">
+  <script>
+    // ?preview=1  ?blur=1  ?mask=1  ?guides=1  become classes on <html> before the first paint
+    (function () {
+      var query = new URLSearchParams(location.search);
+      ['preview', 'blur', 'mask', 'guides'].forEach(function (mode) {
+        if (query.get(mode) === '1') document.documentElement.classList.add('m-' + mode);
+      });
+    })();
+  </script>
 </head>
 <body>
-  <div id="stage">
-    <!-- Blue Team Overlay (Left) -->
-    <div class="team-overlay blue-side" id="blueSide">
-      <!-- Shield Crest Badge -->
-      <div class="crest-container">
-        <div class="crest-frame blue-crest">
-          <svg viewBox="0 0 100 100" class="shield-svg">
-            <polygon points="50,4 96,22 96,70 50,96 4,70 4,22" fill="#081426" stroke="#00e5ff" stroke-width="3"/>
-            <polygon points="50,10 88,26 88,66 50,90 12,66 12,26" fill="#0c1e38" stroke="#d4af37" stroke-width="1.5"/>
-          </svg>
-          <img class="team-logo" id="blueLogo" src="assets/logos-transparent/JPES.png" alt="Blue Team Logo">
+  <div id="stage" class="booting">
+
+    <!-- Team logo tiles, at both ends of the in-game scoreboard -->
+    <div class="slot pod-slot blue" id="podBlue">
+      <div class="enter" style="--d:.05s">
+        <div class="glass pod" style="--sd:2.2s">
+          <span class="halo"></span>
+          <img class="pod-logo" id="logoBlue" alt="" draggable="false">
+          <span class="pod-id" id="idBlue"></span>
+          <span class="stripe"></span>
         </div>
       </div>
-
-      <!-- Angled Esports Banner -->
-      <div class="team-banner blue-banner" id="blueBanner">
-        <div class="banner-body">
-          <div class="team-info">
-            <span class="team-acronym" id="blueName">JPES</span>
-            <span class="team-fullname" id="blueFullName">ECONOMICS SOCIETY</span>
-          </div>
-          <!-- Series Score Dots / Pips -->
-          <div class="series-dots" id="blueSeriesDots">
-            <span class="dot"></span>
-            <span class="dot"></span>
-          </div>
+    </div>
+    <div class="slot pod-slot red" id="podRed">
+      <div class="enter" style="--d:.05s">
+        <div class="glass pod" style="--sd:2.5s">
+          <span class="halo"></span>
+          <img class="pod-logo" id="logoRed" alt="" draggable="false">
+          <span class="pod-id" id="idRed"></span>
+          <span class="stripe"></span>
         </div>
-        <div class="energy-stripe blue-stripe"></div>
       </div>
     </div>
 
-    <!-- Red Team Overlay (Right) -->
-    <div class="team-overlay red-side" id="redSide">
-      <!-- Angled Esports Banner -->
-      <div class="team-banner red-banner" id="redBanner">
-        <div class="banner-body">
-          <!-- Series Score Dots / Pips -->
-          <div class="series-dots" id="redSeriesDots">
-            <span class="dot"></span>
-            <span class="dot"></span>
-          </div>
-          <div class="team-info">
-            <span class="team-acronym" id="redName">JPSPA</span>
-            <span class="team-fullname" id="redFullName">PUBLIC ADMINISTRATION</span>
-          </div>
+    <!-- Team bar under the scoreboard: name tab and full name -->
+    <div class="slot plate-slot blue" id="plateBlue">
+      <div class="enter" style="--d:.14s">
+        <div class="glass plate" style="--sd:2.8s">
+          <div class="tab"><div class="acronym" id="acroBlue"></div></div>
+          <div class="fullname" id="fullBlue"><span></span><span></span></div>
         </div>
-        <div class="energy-stripe red-stripe"></div>
       </div>
+    </div>
+    <div class="slot plate-slot red" id="plateRed">
+      <div class="enter" style="--d:.14s">
+        <div class="glass plate" style="--sd:3.1s">
+          <div class="tab"><div class="acronym" id="acroRed"></div></div>
+          <div class="fullname" id="fullRed"><span></span><span></span></div>
+        </div>
+      </div>
+    </div>
 
-      <!-- Shield Crest Badge -->
-      <div class="crest-container">
-        <div class="crest-frame red-crest">
-          <svg viewBox="0 0 100 100" class="shield-svg">
-            <polygon points="50,4 96,22 96,70 50,96 4,70 4,22" fill="#20060c" stroke="#ff1744" stroke-width="3"/>
-            <polygon points="50,10 88,26 88,66 50,90 12,66 12,26" fill="#300913" stroke="#d4af37" stroke-width="1.5"/>
-          </svg>
-          <img class="team-logo" id="redLogo" src="assets/logos-transparent/JPSPA.png" alt="Red Team Logo">
+    <!-- Series wins -->
+    <div class="slot pips-slot blue" id="pipsBlueSlot"><div class="pips enter" id="pipsBlue" style="--d:.32s"></div></div>
+    <div class="slot pips-slot red" id="pipsRedSlot"><div class="pips enter" id="pipsRed" style="--d:.32s"></div></div>
+
+    <!-- CBDEM seal, under the game timer -->
+    <div class="slot emblem-slot" id="emblemSlot">
+      <div class="enter" style="--d:.22s">
+        <div class="glass emblem" id="emblem" style="--sd:3.4s">
+          <span class="ring"></span>
+          <img class="emblem-seal" src="assets/cbdem/brand/cbdem-seal.png" alt="CBDEM Local Student Government seal" draggable="false">
         </div>
       </div>
+    </div>
+
+    <!-- Game number -->
+    <div class="slot chip-slot" id="chipSlot">
+      <div class="enter" style="--d:.4s">
+        <div class="glass dark chip" id="chip" style="--sd:3.7s">
+          <span class="live-dot"></span><span class="chip-text" id="gameText">GAME 1</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Event card, format and partners (top right) -->
+    <div class="slot event-slot" id="eventSlot">
+      <div class="enter" style="--d:.1s">
+        <div class="glass event" style="--sd:2s">
+          <div class="badge"><img class="lion" src="assets/cbdem/brand/usm-lion.png" alt="USM lion logo" draggable="false"></div>
+          <div class="event-text">
+            <div class="eyebrow" id="eventSubtitle"></div>
+            <div class="event-title" id="eventTitle"></div>
+            <div class="mlbb-row">
+              <img src="assets/cbdem/brand/mlbb-logo.png" alt="Mobile Legends: Bang Bang" draggable="false">
+              <span class="line"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slot format-slot" id="formatSlot">
+      <div class="enter" style="--d:.18s">
+        <div class="glass format" style="--sd:4s">
+          <div class="format-text" id="formatText"></div>
+        </div>
+      </div>
+    </div>
+    <div class="slot partners-slot" id="partnersSlot">
+      <div class="enter" style="--d:.26s">
+        <div class="glass dark partners" id="partners" style="--sd:4.3s">
+          <div class="partners-label"><i></i><span id="partnersLabel"></span><i></i></div>
+          <div class="partners-row" id="partnersRow"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Calibration guides: where the game's own scoreboard sits, to line the team bar up with it -->
+    <div class="guides" aria-hidden="true">
+      <div class="g g-sb"><span id="guideLabel">MLBB SCOREBOARD</span></div>
+      <div class="g g-center"></div>
     </div>
   </div>
+
+  <template id="gamepadIcon">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 7h9a4.5 4.5 0 0 1 4.4 3.6l.9 4.7a2.6 2.6 0 0 1-4.5 2.2L15.6 16H8.4l-1.7 1.5a2.6 2.6 0 0 1-4.5-2.2l.9-4.7A4.5 4.5 0 0 1 7.5 7z"/><path d="M7.5 10.5v3M6 12h3"/><circle cx="15.5" cy="11" r=".6" fill="currentColor"/><circle cx="17.5" cy="13" r=".6" fill="currentColor"/></svg>
+  </template>
 
   <script src="cbdem-overlay.js"></script>
 </body>

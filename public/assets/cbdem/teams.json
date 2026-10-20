@@ -1,0 +1,7 @@
+[
+  { "id": "JPES",  "name": "Junior Philippine Economics Society",                 "lines": ["Junior Philippine", "Economics Society"],                   "color": "#2d9c5f", "color2": "#0d5470", "accent": "#84e46c" },
+  { "id": "JMES",  "name": "Junior Marketing Executives Society",                 "lines": ["Junior Marketing", "Executives Society"],                   "color": "#1f7a34", "color2": "#0f4320", "accent": "#cce424" },
+  { "id": "JPSPA", "name": "Junior Philippine Society for Public Administration", "lines": ["Junior Philippine Society", "for Public Administration"],    "color": "#1c4fae", "color2": "#0b2d6b", "accent": "#fbbc5b" },
+  { "id": "JPIA",  "name": "Junior Philippine Institute of Accountants",          "lines": ["Junior Philippine", "Institute of Accountants"],            "color": "#2f3f94", "color2": "#1a2160", "accent": "#f1c22a" },
+  { "id": "JPAMS", "name": "Junior Philippine Agribusiness Management Society",   "lines": ["Junior Philippine Agribusiness", "Management Society"],     "color": "#1d5a37", "color2": "#0c3322", "accent": "#e4cc84" }
+]
